@@ -1,0 +1,28 @@
+uuid: 7883e374-b095-418b-a8ab-962401230d29
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_course_topics_offered
+    - node.type.training_provider
+    - taxonomy.vocabulary.course_topics_offered
+id: node.training_provider.field_course_topics_offered
+field_name: field_course_topics_offered
+entity_type: node
+bundle: training_provider
+label: 'Course Topics Offered'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      course_topics_offered: course_topics_offered
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

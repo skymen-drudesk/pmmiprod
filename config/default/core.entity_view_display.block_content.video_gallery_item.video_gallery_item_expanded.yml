@@ -1,0 +1,79 @@
+uuid: 28efe1aa-f046-4ca2-804b-f267c7ba0847
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_gallery_item
+    - core.entity_view_mode.block_content.video_gallery_item_expanded
+    - field.field.block_content.video_gallery_item.field_image
+    - field.field.block_content.video_gallery_item.field_video
+    - field.field.block_content.video_gallery_item.field_video_description
+    - field.field.block_content.video_gallery_item.field_video_title
+    - image.style.video_gallery_expanded_310x220
+  module:
+    - ds
+    - image
+    - video
+third_party_settings:
+  ds:
+    layout:
+      id: block_video_gallery_item_expanded
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      video:
+        - field_video
+        - field_video_url
+        - field_image
+      video_title:
+        - field_video_title
+      video_description:
+        - field_video_description
+id: block_content.video_gallery_item.video_gallery_item_expanded
+targetEntityType: block_content
+bundle: video_gallery_item
+mode: video_gallery_item_expanded
+content:
+  field_image:
+    type: image_url
+    weight: 2
+    region: video
+    label: hidden
+    settings:
+      image_style: video_gallery_expanded_310x220
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_video:
+    type: video_embed_player
+    weight: 0
+    region: video
+    label: hidden
+    settings:
+      width: '854'
+      height: '480'
+      autoplay: true
+    third_party_settings: {  }
+  field_video_description:
+    type: basic_string
+    weight: 4
+    region: video_description
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_video_title:
+    type: string
+    weight: 3
+    region: video_title
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

@@ -1,0 +1,8 @@
+name: PMMI Facebook
+type: module
+description: PMMI Facebook
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi
+configure: pmmi_facebook.pmmi_facebook_settings

@@ -1,0 +1,105 @@
+uuid: 6b58bd93-dff1-4aea-b234-f7b824f080e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.enticement
+    - core.entity_view_mode.block_content.enticement_full_width
+    - field.field.block_content.enticement.field_button
+    - field.field.block_content.enticement.field_head
+    - field.field.block_content.enticement.field_image
+    - field.field.block_content.enticement.field_teaser
+  module:
+    - blazy
+    - ds
+    - link
+third_party_settings:
+  ds:
+    layout:
+      id: block_enticement_full_width
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      image:
+        - field_image
+      teaser:
+        - field_teaser
+      button:
+        - field_button
+id: block_content.enticement.enticement_full_width
+targetEntityType: block_content
+bundle: enticement
+mode: enticement_full_width
+content:
+  field_button:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: button
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: head
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: enticement_style
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+  field_teaser:
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: teaser
+hidden: {  }

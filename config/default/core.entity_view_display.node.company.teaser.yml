@@ -1,0 +1,71 @@
+uuid: 90b5ebc1-c883-491b-a4d0-abb563ad65af
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.company.field_address
+    - field.field.node.company.field_after_sales_service
+    - field.field.node.company.field_company_description
+    - field.field.node.company.field_equipment_sold_type
+    - field.field.node.company.field_fax_number
+    - field.field.node.company.field_general_company_email
+    - field.field.node.company.field_industries_served
+    - field.field.node.company.field_main_phone_number
+    - field.field.node.company.field_manufacturers_represented
+    - field.field.node.company.field_primary_contact_email
+    - field.field.node.company.field_primary_contact_first_name
+    - field.field.node.company.field_primary_contact_last_name
+    - field.field.node.company.field_website_url
+    - node.type.company
+  module:
+    - user
+id: node.company.teaser
+targetEntityType: node
+bundle: company
+mode: teaser
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+  flag_favorites_content:
+    weight: 10
+    region: content
+  links:
+    weight: 100
+    region: content
+hidden:
+  field_address: true
+  field_address_1: true
+  field_address_2: true
+  field_admin_notes: true
+  field_after_sales_service: true
+  field_approval_state: true
+  field_businbess_lines: true
+  field_business_lines: true
+  field_city: true
+  field_company_description: true
+  field_country: true
+  field_equipment_sold_type: true
+  field_equipment_sold_type_other: true
+  field_fax_number: true
+  field_general_company_email: true
+  field_industries_served: true
+  field_industries_served_other: true
+  field_last_mass_email_sent: true
+  field_last_updated_on: true
+  field_main_phone_number: true
+  field_manufacturers_represented: true
+  field_meta_tags: true
+  field_postal_code: true
+  field_primary_contact_email: true
+  field_primary_contact_first_name: true
+  field_primary_contact_last_name: true
+  field_primary_contact_mobile: true
+  field_primary_contact_title: true
+  field_privacy_policy_agreement: true
+  field_state: true
+  field_territory_served: true
+  field_trade_shows: true
+  field_website_url: true
+  field_yoast_seo: true

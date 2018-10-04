@@ -1,0 +1,20 @@
+uuid: 7201854c-e542-4804-aaa4-2874a774244f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pmmi_company_contact.field_name
+  module:
+    - pmmi_company_contact
+id: pmmi_company_contact.pmmi_company_contact.field_name
+field_name: field_name
+entity_type: pmmi_company_contact
+bundle: pmmi_company_contact
+label: Name
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

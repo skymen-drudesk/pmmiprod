@@ -1,0 +1,15 @@
+uuid: 7dff0e7a-1d01-4329-a9ee-d9d614df3c8f
+langcode: en
+status: true
+dependencies: {  }
+name: shows_block_tablet
+label: 'Shows Block - Tablet (auto by 80px)'
+effects:
+  806d45be-5dc3-424b-80b6-183e66f45d3b:
+    uuid: 806d45be-5dc3-424b-80b6-183e66f45d3b
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 80
+      upscale: false

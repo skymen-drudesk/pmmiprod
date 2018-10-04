@@ -1,0 +1,29 @@
+uuid: dc82d899-f71b-4131-8d3e-bc7e55285020
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.industries_served.field_migration_keys
+    - taxonomy.vocabulary.industries_served
+  module:
+    - text
+id: taxonomy_term.industries_served.default
+targetEntityType: taxonomy_term
+bundle: industries_served
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_migration_keys:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

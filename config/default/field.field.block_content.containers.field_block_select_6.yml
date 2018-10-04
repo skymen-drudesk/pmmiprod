@@ -1,0 +1,23 @@
+uuid: 0479d27e-ee1c-4085-8c85-e4c3cb4de6a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_block_select_6
+  module:
+    - options
+id: block_content.containers.field_block_select_6
+field_name: field_block_select_6
+entity_type: block_content
+bundle: containers
+label: 'Block select 6'
+description: 'Select block type which should be added.'
+required: false
+translatable: false
+default_value:
+  -
+    value: field_block_6
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,32 @@
+uuid: a4c40e7f-367a-468b-a68a-13e5d2af43a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_reports
+_core:
+  default_config_hash: 7ex-XvoqqdU67zs8xeyQsHiYcqZamzkmnX9hKEqFC1Q
+title: 'Process Reports import queue'
+id: import_content
+weight: 1
+module: pmmi_reports
+callback: pmmi_reports_import_content
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '5 * * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

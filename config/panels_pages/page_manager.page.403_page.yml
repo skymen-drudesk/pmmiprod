@@ -1,0 +1,12 @@
+uuid: 540d7220-842f-442d-9a15-7fb0ed90b7c5
+langcode: en
+status: true
+dependencies: {  }
+id: 403_page
+label: '403 page'
+description: ''
+use_admin_theme: false
+path: /403
+access_logic: and
+access_conditions: {  }
+parameters: {  }

@@ -1,0 +1,53 @@
+uuid: 61885a13-5444-4592-88ce-be2edcca3fea
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.company_listing_update
+  content:
+    - 'block_content:image_header:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+  module:
+    - block_content
+    - panels
+    - pmmi_sales_agent
+id: company_listing_update-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    ecb9a843-a738-487f-8d64-6633a01dc929:
+      id: 'block_content:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+      label: 'Sales Agent Directory - Image Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: ecb9a843-a738-487f-8d64-6633a01dc929
+      context_mapping: {  }
+    b10db29f-94b2-4107-a5ed-af82186aa4d4:
+      id: update_company_listing
+      label: 'Update your company listing'
+      provider: pmmi_sales_agent
+      label_display: visible
+      region: main
+      weight: 0
+      uuid: b10db29f-94b2-4107-a5ed-af82186aa4d4
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 12ddb4f5-b546-4189-b63f-0028fcf847ec
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: 'Update your company listing'
+  storage_type: page_manager
+  storage_id: company_listing_update-panels_variant-0
+  builder: standard
+page: company_listing_update
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

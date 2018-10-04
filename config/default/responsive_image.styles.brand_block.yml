@@ -1,0 +1,35 @@
+uuid: e4df9b3f-bab7-426e-8fdd-752cfdf08b50
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.brand_block_desktop
+    - image.style.brand_block_dhd
+    - image.style.brand_block_mobile
+  theme:
+    - pmmi_bootstrap
+id: brand_block
+label: 'Brand Block'
+image_style_mappings:
+  -
+    breakpoint_id: pmmi_bootstrap.desktop-hd
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: brand_block_dhd
+  -
+    breakpoint_id: pmmi_bootstrap.desktop
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: brand_block_desktop
+  -
+    breakpoint_id: pmmi_bootstrap.tablet
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: brand_block_dhd
+  -
+    breakpoint_id: pmmi_bootstrap.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: brand_block_mobile
+breakpoint_group: pmmi_bootstrap
+fallback_image_style: brand_block_mobile

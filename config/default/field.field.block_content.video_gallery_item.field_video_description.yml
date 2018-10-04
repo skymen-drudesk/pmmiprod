@@ -1,0 +1,19 @@
+uuid: 6b8a2db2-228a-4a45-a0ae-716a19836dad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_gallery_item
+    - field.storage.block_content.field_video_description
+id: block_content.video_gallery_item.field_video_description
+field_name: field_video_description
+entity_type: block_content
+bundle: video_gallery_item
+label: 'Video description'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

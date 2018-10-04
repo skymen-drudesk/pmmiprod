@@ -1,0 +1,9 @@
+id: dates_copy
+label: Dates(Copy)
+ui_limit: 'event|*'
+properties:
+  field_id: block_content.event.field_dates
+type: display_field_copy
+type_label: 'Copy field'
+entities:
+  block_content: block_content

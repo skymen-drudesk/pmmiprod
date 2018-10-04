@@ -1,0 +1,23 @@
+uuid: f778fb9b-b6c9-4dd7-be83-406d07bfa1c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_commission_member
+id: block_content.person.field_commission_member
+field_name: field_commission_member
+entity_type: block_content
+bundle: person
+label: 'Commission Member'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

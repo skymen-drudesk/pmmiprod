@@ -1,0 +1,28 @@
+id: other_reports_and_research
+label: 'Other Reports & Research'
+ui_limit: report|full
+properties:
+  block: other_reports
+  use_block_title: false
+  config:
+    id: other_reports
+    label: ''
+    provider: pmmi_reports
+    label_display: visible
+    links:
+      -
+        url: /business-intelligence/benchmarking-reports
+        link_text: 'Benchmarking reports'
+      -
+        url: /business-intelligence/economic-reports
+        link_text: 'Economic Reports'
+      -
+        url: /business-intelligence/industry-reports
+        link_text: 'Industry Reports'
+      -
+        url: /business-intelligence/international-research
+        link_text: 'International Research'
+type: block
+type_label: 'Block field'
+entities:
+  node: node

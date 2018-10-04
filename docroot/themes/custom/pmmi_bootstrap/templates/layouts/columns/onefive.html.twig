@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Template for a 5-up (1 row of 5 columns) layout.
+ */
+#}
+<div {{ content['#attrs'].addClass('layout-5up clearfix') }}>
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  <div class="rows container">
+    <div class="row-1 row">
+      {{ field_render([content.oneone, 'col col-1 col-sm-x5']) }}
+      {{ field_render([content.onetwo, 'col col-2 col-sm-x5']) }}
+      {{ field_render([content.onethree, 'col col-3 col-sm-x5']) }}
+      {{ field_render([content.onefour, 'col col-4 col-sm-x5']) }}
+      {{ field_render([content.onefive, 'col col-5 col-sm-x5']) }}
+    </div>
+  </div>
+  <div class="region-bottom">
+    {{ content.bottom }}
+  </div>
+</div>

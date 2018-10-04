@@ -1,0 +1,19 @@
+uuid: 2fa07c62-a4ca-46d3-86ef-f9c93aefb315
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - viewfield
+id: block_content.field_block_views_5
+field_name: field_block_views_5
+entity_type: block_content
+type: viewfield
+settings: {  }
+module: viewfield
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

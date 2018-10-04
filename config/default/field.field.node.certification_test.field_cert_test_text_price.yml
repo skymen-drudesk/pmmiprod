@@ -1,0 +1,19 @@
+uuid: 18a8ecd9-a731-4017-a91b-3d33d2d9d88c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_test_text_price
+    - node.type.certification_test
+id: node.certification_test.field_cert_test_text_price
+field_name: field_cert_test_text_price
+entity_type: node
+bundle: certification_test
+label: 'Text Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

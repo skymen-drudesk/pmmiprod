@@ -1,0 +1,85 @@
+uuid: 8923986f-3302-4706-8415-897b8ae56ac3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_gallery_item
+    - core.entity_view_mode.block_content.video_gallery_item_slider
+    - field.field.block_content.video_gallery_item.field_image
+    - field.field.block_content.video_gallery_item.field_video
+    - field.field.block_content.video_gallery_item.field_video_description
+    - field.field.block_content.video_gallery_item.field_video_title
+    - image.style.video_gallery_slider_275x155
+  module:
+    - ds
+    - image
+    - video
+third_party_settings:
+  ds:
+    layout:
+      id: block_video_gallery_item_slider
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      video:
+        - field_video
+        - field_image
+      video_title:
+        - field_video_title
+      video_description:
+        - field_video_description
+id: block_content.video_gallery_item.video_gallery_item_slider
+targetEntityType: block_content
+bundle: video_gallery_item
+mode: video_gallery_item_slider
+content:
+  field_image:
+    type: image_url
+    weight: 1
+    region: video
+    label: visually_hidden
+    settings:
+      image_style: video_gallery_slider_275x155
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_video:
+    type: video_embed_player
+    weight: 0
+    region: video
+    label: visually_hidden
+    settings:
+      autoplay: true
+      width: '854'
+      height: '480'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_video_description:
+    type: basic_string
+    weight: 3
+    region: video_description
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  field_video_title:
+    type: string
+    weight: 2
+    region: video_title
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden: {  }

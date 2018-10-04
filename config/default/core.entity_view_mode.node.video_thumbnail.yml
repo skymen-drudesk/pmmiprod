@@ -1,0 +1,10 @@
+uuid: e168966d-2a25-4863-8d8d-57138a04c6a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.video_thumbnail
+label: 'Video thumbnail'
+targetEntityType: node
+cache: true

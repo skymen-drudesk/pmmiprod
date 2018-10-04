@@ -1,0 +1,36 @@
+{
+  "name": "PMMI",
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "components-font-awesome": "^4.7.0",
+    "imagesloaded": "^4.1.4",
+    "jquery-countdown": "^2.2.0",
+    "jquery-match-height": "^0.7.2",
+    "jquery.uniform": "^4.2.0",
+    "moment-timezone": "^0.5.13",
+    "stacktable.js": "^1.0.2"
+  },
+  "devDependencies": {
+    "autoprefixer": "^6.5.1",
+    "compass-sass-mixins": "^0.12.7",
+    "eslint": "3.19.0",
+    "eslint-config-airbnb": "^14.1.0",
+    "eslint-plugin-import": "^2.2.0",
+    "eslint-plugin-jsx-a11y": "^4.0.0",
+    "eslint-plugin-react": "^6.10.3",
+    "gulp": "^3.9.1",
+    "gulp-eslint": "^3.0.1",
+    "gulp-livereload": "^3.8.1",
+    "gulp-postcss": "^6.2.0",
+    "gulp-sass": "^2.3.2",
+    "gulp-sass-glob": "^1.0.6",
+    "gulp-sourcemaps": "^1.9.1",
+    "gulp-watch": "^4.3.10",
+    "pixrem": "^3.0.2"
+  },
+  "engines": {
+    "yarn": ">= 1.0.0"
+  }
+}

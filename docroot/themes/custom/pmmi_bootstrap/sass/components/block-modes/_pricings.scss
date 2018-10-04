@@ -1,0 +1,17 @@
+.block-pricing {
+  .pricings {
+    @extend .side-paragraph;
+    .title {
+      @extend .sidehead2;
+      margin: 2px 0 3px;
+    }
+    p {
+      margin-bottom: 0;
+    }
+    .field > div {
+      padding-bottom: 10px;
+      border-bottom: 1px solid $mdgrey;
+      margin-bottom: 10px;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+uuid: 4b5dd70d-df15-4178-9312-136ac6a4ecdb
+langcode: en
+status: true
+dependencies: {  }
+name: 4_up_cards_dhd
+label: '4-up cards - DHD (250px by 157px)'
+effects:
+  47a5e7e4-dc12-4a43-8754-6d2db4157d56:
+    uuid: 47a5e7e4-dc12-4a43-8754-6d2db4157d56
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 157

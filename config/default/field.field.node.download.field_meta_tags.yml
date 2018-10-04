@@ -1,0 +1,21 @@
+uuid: 5037dfed-e975-4a8c-b065-1862c0489ddb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.download
+  module:
+    - metatag
+id: node.download.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: download
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

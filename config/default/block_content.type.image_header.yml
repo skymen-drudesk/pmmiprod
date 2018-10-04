@@ -1,0 +1,8 @@
+uuid: a6957318-9fbb-4b0d-a5a1-8bd07e428071
+langcode: en
+status: true
+dependencies: {  }
+id: image_header
+label: 'Image Header'
+revision: 1
+description: ''

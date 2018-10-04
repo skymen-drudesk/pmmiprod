@@ -1,0 +1,25 @@
+uuid: 6cf43893-6ada-4260-8d8b-49ebd7bb5537
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - field.storage.block_content.field_weight
+id: block_content.image_slide.field_weight
+field_name: field_weight
+entity_type: block_content
+bundle: image_slide
+label: Weight
+description: 'Used to determine the order in which slides appear in the slideshow. Lighter items appear first, with negatives being lighter.'
+required: true
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

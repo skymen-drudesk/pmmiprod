@@ -1,0 +1,685 @@
+/**
+ *  Company and training provider node view
+ */
+.training-provider-node,
+.company-node {
+  .top-banner.clearfix {
+    margin-bottom: 0;
+  }
+  .container {
+    margin-top: 0px;
+  }
+  .block-image-header .page-name {
+    max-width: 370px;
+  }
+  .container-wrapper {
+    max-width: 870px;
+  }
+  .node-title {
+    margin-bottom: 0;
+  }
+  .general {
+    font-size: $r20;
+    margin-bottom: 20px;
+    .line-1,
+    .line-2 {
+      clear: left;
+      > div {
+        display: inline-block;
+        word-break: break-all;
+        &:before {
+          content: ' \2022 \A0';
+          color: $blue;
+          margin-left: 5px;
+        }
+        &:first-child {
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .territory-served {
+    .territory-covered .two-columns {
+      font-size: 0;
+      div.field--item {
+        width: 50%;
+        display: inline-block;
+        padding: 0 15px;
+        font-size: $r16;
+        &:nth-child(odd) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+  .row-wrapper,
+  .contacts,
+  .services{
+    margin: 20px 0;
+    > div,
+    .right-col .row > div {
+      margin-bottom: 20px;
+    }
+  }
+  .row-wrapper {
+    background-color: $ltgrey;
+    border-radius: 6px;
+    margin: 0;
+    padding-top: 15px;
+    .field--label,
+    .field-label-above,
+    .block-label {
+      color: $blue;
+      font-size: $r20;
+    }
+  }
+  .right-col.col-md-4 {
+    .col-md-6 {
+      width: auto;
+      float: none;
+    }
+  }
+  .contacts, .services {
+    :first-child {
+      padding-left: 0;
+    }
+  }
+  .contacts {
+    border-bottom: solid 2px $ltgrey;
+    .primary {
+      border-radius: 6px;
+      border: 2px solid $ltblue;
+      padding: 16px;
+      max-width: 249px;
+      word-wrap: break-word;
+      .field--name-field-primary-contact-first-name,
+      .field--name-field-primary-contact-last-name,
+      .field--name-field-primary-contact-title {
+        display: inline;
+      }
+      .field--name-field-primary-contact-title {
+        font-style: italic;
+        &:before {
+          content: ", ";
+          margin-left: -4px;
+        }
+      }
+    }
+    .address {
+      margin-bottom: 0;
+      font-size: $r16;
+    }
+  }
+  .services {
+    border-bottom: solid 2px $ltgrey;
+  }
+  .block-label,
+  .field--label,
+  .field-label-above {
+    font-weight: $extrabold;
+    font-size: $r18;
+    margin-bottom: 4px;
+  }
+  .footer-reg {
+    .view-header p {
+      margin-bottom: 10px;
+      font-weight: $extrabold;
+      font-size: $r18;
+    }
+    .view-company-trade-shows-contacts {
+      margin-bottom: 10px;
+    }
+    .view-content {
+      @extend .clear-after;
+      border-bottom: solid 1px $mdgrey;
+    }
+    .views-row {
+      width: 50%;
+      float: left;
+      margin: 0 0 20px 0;
+      .field-content {
+        display: inline;
+      }
+      .views-field-name {
+        color: $blue;
+        font-weight: bold;
+      }
+      .views-field-field-name,
+      .views-field-field-title,
+      .views-field-field-email {
+        span {
+          color: $grey;
+          text-transform: uppercase;
+          font-size: $r14;
+          font-weight: bold;
+          width: 80px;
+          display: inline-block;
+          text-align: right;
+          margin-right: 5px;
+        }
+      }
+      .views-field-field-title {
+        .field-content {
+          font-style: italic;
+        }
+      }
+    }
+  }
+  .profile-updated {
+    padding-bottom: 40px;
+    font-size: $r14;
+    clear: both;
+  }
+
+  @include tablet-max {
+    .node-title {
+      margin-bottom: 0;
+      font-size: $r35;
+    }
+    .general {
+      .line-1,
+      .line-2 {
+        > div {
+          display: block;
+          &:before {
+            display: none;
+          }
+        }
+      }
+    }
+    .territory-served {
+      max-width: 100%;
+      .territory-covered .two-columns {
+        div.field--item {
+          width: 100%;
+          display: block;
+          padding: 0;
+        }
+      }
+    }
+    .row-wrapper {
+      margin: 0 -15px;
+      border-radius: 0;
+    }
+    .contacts, .services {
+      > .col-md-4 {
+        padding-left: 0;
+      }
+    }
+    .footer-reg {
+      .views-row {
+        width: 100%;
+        float: none;
+      }
+    }
+  }
+}
+.training-provider-node {
+  margin-bottom: 20px;
+  .top-banner {
+    margin-bottom: 40px;
+  }
+  .row-wrapper {
+    min-height: 240px;
+    margin-bottom: 40px;
+    .field--label,
+    .field-label-above {
+      border-bottom: solid 2px $mdgrey;
+      margin-bottom: 14px;
+      padding-bottom: 3px;
+    }
+  }
+  .company-description {
+    .field-label-above {
+      margin-bottom: 16px;
+    }
+    margin: 40px 0 24px;
+  }
+  .last-updated {
+    border-top: solid 1px $mdgrey;
+    padding-top: 12px;
+  }
+  .locations {
+    strong {
+      font-weight: normal;
+    }
+  }
+  .field--name-dynamic-block-fieldnode-tpd-contact-questions {
+    @extend %training-directory-question-block;
+  }
+  .field--type-telephone {
+    a {
+      color: #000;
+    }
+  }
+}
+
+/**
+ * Company node edit form.
+ */
+.page-node-type-company {
+  .block-block-content {
+    .block-title {
+      color: $blue;
+      font-size: $r35;
+      font-weight: 900;
+      line-height: 42px;
+    }
+    .title {
+      color: $textdark;
+      font-size: $r23;
+      font-weight: 500;
+      line-height: 23px;
+    }
+    .field--name-body {
+      color: $grey;
+    }
+  }
+}
+.node-company-form {
+  max-width: 770px;
+  .form-control,
+  .selector {
+    color: #000;
+  }
+  .panel-body {
+    padding: 0;
+  }
+  .form-control {
+    border-color: $blueopacity;
+  }
+  .panel-heading,
+  .panel-default,
+  legend {
+    background: none;
+    border: none;
+    box-shadow: none;
+    padding-left: 0;
+  }
+  .panel-title,
+  .field--name-field-company-description label,
+  .field--name-field-manufacturers-represented label,
+  .field--name-field-business-lines legend {
+    color: $blue;
+    font-weight: $extrabold;
+    font-size: $r20;
+  }
+  .company-info,
+  .main-contact {
+    .panel-body {
+      label {
+        width: 230px;
+        text-align: right;
+        font-size: $r14;
+        text-transform: uppercase;
+        padding-right: 10px;
+      }
+      input {
+        max-width: 535px;
+        width: 100%;
+        display: inline-block;
+      }
+      .description {
+        text-align: left;
+        font-size: $r13;
+        color: $blue;
+        margin-bottom: 0;
+        padding-left: 232px;
+      }
+    }
+  }
+  .field--name-field-address {
+    .input-group-addon,
+    .panel-heading {
+      display: none;
+    }
+    .input-group,
+    .select-wrapper {
+      display: inline-block;
+      .selector {
+        border-color: $blueopacity;
+      }
+    }
+    .address-container-inline > .form-item {
+      width: 100%;
+    }
+    .select-wrapper > .selector,
+    .form-item > .locality,
+    .form-item > .postal-code {
+      min-width: 290px;
+      font-weight: inherit;
+      &:before {
+        display: none;
+      }
+      & span {
+        text-align: left;
+        padding-left: 10px;
+      }
+    }
+    .control-label {
+      position: relative;
+      width: auto;
+      height: auto;
+    }
+  }
+  .checker {
+    opacity: 0;
+  }
+  .checkbox.checked {
+    color: $ltblue;
+    &:before {
+      font-family: FontAwesome;
+      content: '\f046';
+      position: absolute;
+    }
+  }
+  .checkbox {
+    &:before {
+      font-family: FontAwesome;
+      content: '\f096';
+      position: absolute;
+    }
+  }
+  .field--name-field-territory-served {
+    label {
+      font-size: $r15;
+      font-weight: $medium;
+      color: $blue;
+    }
+    .input-group-addon {
+      &:last-child {
+        display: none;
+      }
+    }
+  }
+  .input-group {
+    display: block;
+  }
+  .selectize-control {
+    height: auto;
+    box-shadow: none;
+    max-width: 470px;
+  }
+  .equipment-sold,
+  .industries-served {
+    legend{
+      display: none;
+    }
+    h3 {
+      @extend .panel-title;
+      padding: 20px 0;
+    }
+    &-details {
+      @extend .details-wrapper;
+    }
+  }
+  .field--name-field-manufacturers-represented .description {
+    color: $blue;
+    font-size: 15px;
+    padding-right: 10px;
+  }
+  .field--name-field-after-sales-service {
+    margin: 35px 0 20px;
+    legend {
+      font-size: $r15;
+      font-weight: bold;
+      color: #000;
+    }
+    .webform-options-display-one-column {
+      input {
+        opacity: 0;
+      }
+      label {
+        &:before {
+          font-family: FontAwesome;
+          content: '\f096';
+          position: absolute;
+          margin-left: -20px;
+        }
+      }
+      label.checked {
+        color: $ltblue;
+        &:before {
+          font-family: FontAwesome;
+          content: '\f046';
+        }
+      }
+      div.form-item:first-child {
+        display: inline-block;
+      }
+      div.form-item:last-child {
+        float: left;
+        margin-top: 0px;
+        margin-right: 50px;
+      }
+    }
+  }
+  #edit-trade-shows {
+    .panel-body {
+      max-width: 470px;
+      .form-group {
+        display: inline-block;
+      }
+      .form-group > .form-item {
+        float: right;
+        label {
+          display: inline-block;
+          text-transform: uppercase;
+          padding-right: 10px;
+        }
+        input {
+          max-width: 370px;
+          display: inline-block;
+        }
+      }
+      .checkbox label {
+        font-weight: bold;
+      }
+    }
+  }
+  .button {
+    width: 470px;
+    float: left;
+    font-size: $r25;
+    text-transform: uppercase;
+    font-weight: bold;
+    height: 50px;
+    border-radius: 6px;
+    margin-bottom: 35px;
+    margin-top: 30px;
+  }
+  @include tablet-max {
+    max-width: 500px;
+    .company-info,
+    .main-contact {
+      .panel-body {
+        label {
+          text-align: left;
+        }
+        .description {
+          padding-left: 0;
+        }
+      }
+    }
+    .selectize-control {
+      max-width: 500px;
+    }
+    .field--name-field-address {
+      .input-group,
+      .select-wrapper {
+        display: block;
+      }
+      .address-container-inline .form-item .select-wrapper {
+        margin-left: auto;
+      }
+    }
+    .equipment-sold,
+    .industries-served {
+      .panel-body {
+        label {
+          padding-left: 20px;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          padding-right: 20px;
+        }
+      }
+    }
+    #edit-trade-shows {
+      label {
+        display: block;
+      }
+      input {
+        display: block;
+        margin-left: 0;
+      }
+    }
+    .button {
+      width: 100%;
+      max-width: 350px;
+      margin-bottom: 20px;
+    }
+  }
+  .form-item-field-privacy-policy-agreement {
+    label {
+      padding-left: 0;
+    }
+    * {
+      display: inline-block;
+      text-align: justify;
+    }
+    .radio {
+      margin-bottom: 0;
+      .form-radio {
+        margin-right: 10px;
+      }
+    }
+
+
+  }
+}
+
+/**
+ * block-pmmi-sales-agent-action-toolbar.
+ */
+.block-pmmi-sales-agent-action-toolbar,
+.field--name-dynamic-block-fieldnode-sales-agent-action-toolbar {
+  min-height: 50px;
+  display: block;
+  background-color: #d8e1e1;
+  ul {
+    margin: 0 auto;
+    max-width: 1200px;
+    text-align: right;
+    height: 100%;
+    li {
+      display: inline-block;
+      margin: 15px 10px;
+      a {
+        line-height: $r19;
+        color: $blue;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
+      .pmmi-company-add:before {
+        font-family: FontAwesome;
+        content: '\f055';
+        padding-right: 5px;
+        font-weight: normal;
+        text-decoration: none;
+      }
+      .pmmi-download-favorites:before {
+        font-family: FontAwesome;
+        content: '\f019';
+        @extend .pmmi-company-add:before;
+      }
+      .pmmi-search-new:before {
+        font-family: FontAwesome;
+        content: '\f002';
+        @extend .pmmi-company-add:before;
+      }
+      .flag-favorites_content:before {
+        font-family: FontAwesome;
+        content: '\f006';
+        @extend .pmmi-company-add:before;
+      }
+    }
+  }
+  @include tablet-max {
+    ul {
+      margin-right: 0;
+      padding: 4px 15px;
+      text-align: left;
+      li:first-child {
+        background-color: $blue;
+        float: left;
+        margin-right: 1%;
+        a {
+          color: #fff;
+        }
+      }
+      li {
+        width: 100%;
+        max-width: 49%;
+        text-align: center;
+        border: 2px solid $blue;
+        border-radius: 3px;
+        margin: 5px 0;
+        height: 30px;
+        padding-top: 2px;
+        a {
+          font-size: $r13;
+        }
+        .pmmi-company-add:before,
+        .pmmi-download-favorites:before,
+        .pmmi-search-new:before,
+        .flag-favorites_content:before {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.compare-forms-inner {
+  display: flex;
+  justify-content: space-between;
+  > div {
+    border: 1px solid $mdgrey;
+    padding: 10px;
+    > h4 {
+      color: $dkblue;
+      font-size: $r20;
+      font-weight: 700;
+      text-align: center;
+      background: $ltbluebg;
+      padding: 10px;
+      margin: -10px -10px 20px -10px;
+    }
+  }
+  .previous-revision-form {
+    margin-right: 10px;
+  }
+  .main-contact,
+  .company-info {
+    .panel-body {
+      label {
+        width: auto;
+        text-align: left;
+      }
+      .description {
+        padding-left: 0;
+      }
+    }
+  }
+  .field--name-field-address .control-label {
+    padding: 7px 0 0;
+    vertical-align: top;
+  }
+  .button {
+    width: 100%;
+    float: none;
+    margin: 0 0 20px;
+  }
+}

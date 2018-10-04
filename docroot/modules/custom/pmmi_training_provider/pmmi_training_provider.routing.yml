@@ -1,0 +1,27 @@
+pmmi_training_provider.training_provider_directory:
+  path: '/admin/config/tpd'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Training Provider Directory'
+  requirements:
+    _permission: 'pmmi training provider administration'
+
+# Training provider migrate: import form.
+pmmi_training_provider.migrate:
+  path: '/admin/config/tpd/migrate'
+  defaults:
+    _form: '\Drupal\pmmi_training_provider\Form\PMMITPDMigrateForm'
+    _title: 'Company migration'
+  requirements:
+    _permission: 'pmmi training provider administration'
+
+# Training provider migrate: result messages.
+pmmi_training_provider.migrate_messages:
+  path: '/admin/config/tpd/migrate/messages'
+  defaults:
+    _controller: '\Drupal\migrate_tools\Controller\MessageController::overview'
+    _title: 'Migrate result messages'
+    migration_group: 'PMMI import'
+    migration: 'training_provider'
+  requirements:
+    _permission: 'pmmi training provider administration'

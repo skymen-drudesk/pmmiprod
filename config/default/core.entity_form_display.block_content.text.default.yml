@@ -1,0 +1,98 @@
+uuid: 1f7f1d2c-5cfe-4be8-9bfb-4b41dd0435ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+    - entity_browser.browser.browse_files_modal
+    - field.field.block_content.text.body
+    - field.field.block_content.text.field_button
+    - field.field.block_content.text.field_center_text
+    - field.field.block_content.text.field_head
+    - field.field.block_content.text.field_image
+    - field.field.block_content.text.field_link
+  module:
+    - entity_browser
+    - link_attributes
+    - text
+id: block_content.text.default
+targetEntityType: block_content
+bundle: text
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_button:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_center_text:
+    weight: 8
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_head:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    weight: 5
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_edit: true
+      field_widget_remove: true
+      selection_mode: selection_append
+      view_mode: thumbnail
+      open: false
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_link:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

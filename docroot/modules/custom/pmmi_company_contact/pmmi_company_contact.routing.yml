@@ -1,0 +1,62 @@
+
+# PMMICompanyContactEntity routing definition
+entity.pmmi_company_contact.canonical:
+  path: '/admin/pmmi_company_contact/{pmmi_company_contact}'
+  defaults:
+    _entity_view: 'pmmi_company_contact'
+    _title: 'Company contact'
+  requirements:
+    _entity_access: 'pmmi_company_contact.view'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_company_contact.collection:
+  path: '/admin/pmmi_company_contact'
+  defaults:
+    _entity_list: 'pmmi_company_contact'
+    _title: 'Company contact list'
+  requirements:
+    _permission: 'view company contact entities'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_company_contact.add_form:
+  path: '/admin/pmmi_company_contact/add'
+  defaults:
+    _entity_form: pmmi_company_contact.add
+    _title: 'Add Company contact'
+  requirements:
+    _permission: 'add company contact entities'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_company_contact.edit_form:
+  path: '/admin/pmmi_company_contact/{pmmi_company_contact}/edit'
+  defaults:
+    _entity_form: pmmi_company_contact.edit
+    _title: 'Edit Company contact'
+  requirements:
+    _permission: 'edit company contact entities'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_company_contact.delete_form:
+  path: '/admin/pmmi_company_contact/{pmmi_company_contact}/delete'
+  defaults:
+    _entity_form: pmmi_company_contact.delete
+    _title: 'Delete Company contact'
+  requirements:
+    _permission: 'delete company contact entities'
+  options:
+    _admin_route: TRUE
+
+pmmi_company_contact.settings:
+  path: 'admin/structure/pmmi_company_contact'
+  defaults:
+   _form: '\Drupal\pmmi_company_contact\Entity\Form\PMMICompanyContactEntitySettingsForm'
+   _title: 'Company contact settings'
+  requirements:
+    _permission: 'administer company contact entities'
+  options:
+    _admin_route: TRUE
+

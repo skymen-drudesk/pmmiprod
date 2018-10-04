@@ -1,0 +1,29 @@
+uuid: b411a76f-24d0-46f6-b5a5-e1c4cf503801
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pmmi_company_contact.field_trade_show
+    - taxonomy.vocabulary.trade_shows
+  module:
+    - pmmi_company_contact
+id: pmmi_company_contact.pmmi_company_contact.field_trade_show
+field_name: field_trade_show
+entity_type: pmmi_company_contact
+bundle: pmmi_company_contact
+label: 'Trade show'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      trade_shows: trade_shows
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

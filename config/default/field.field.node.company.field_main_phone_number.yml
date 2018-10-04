@@ -1,0 +1,21 @@
+uuid: aeaffda7-7f3c-4715-bdfa-1436a2017691
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_phone_number
+    - node.type.company
+  module:
+    - telephone
+id: node.company.field_main_phone_number
+field_name: field_main_phone_number
+entity_type: node
+bundle: company
+label: 'Main Phone Number'
+description: 'Must include country code, area code and phone number, in that order'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

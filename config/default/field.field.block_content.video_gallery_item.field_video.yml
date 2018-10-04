@@ -1,0 +1,26 @@
+uuid: d8b2e555-d92c-4177-9162-be4c003b6d70
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.video_gallery_item
+    - field.storage.block_content.field_video
+  module:
+    - video
+id: block_content.video_gallery_item.field_video
+field_name: field_video
+entity_type: block_content
+bundle: video_gallery_item
+label: Video
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  file_extensions: ''
+  file_directory: 'videos/[date:custom:Y]-[date:custom:m]'
+  max_filesize: ''
+  handler: 'default:file'
+  handler_settings: {  }
+field_type: video

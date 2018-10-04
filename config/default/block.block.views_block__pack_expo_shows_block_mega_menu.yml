@@ -1,0 +1,24 @@
+uuid: abd030d7-4368-4c0a-b410-153207290943
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.pack_expo_shows
+  module:
+    - views
+  theme:
+    - pmmi_bootstrap
+id: views_block__pack_expo_shows_block_mega_menu
+theme: pmmi_bootstrap
+region: navigation
+weight: 0
+provider: null
+plugin: 'views_block:pack_expo_shows-block_mega_menu'
+settings:
+  id: 'views_block:pack_expo_shows-block_mega_menu'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

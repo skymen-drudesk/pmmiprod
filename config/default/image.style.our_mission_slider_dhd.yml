@@ -1,0 +1,14 @@
+uuid: 6090d8fc-c6c2-48af-aa91-e86dfd3e2890
+langcode: en
+status: true
+dependencies: {  }
+name: our_mission_slider_dhd
+label: 'Our mission slider - DHD (1440px by 390px)'
+effects:
+  3976543a-5bab-47de-89fd-e23dd5e0e228:
+    uuid: 3976543a-5bab-47de-89fd-e23dd5e0e228
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 390

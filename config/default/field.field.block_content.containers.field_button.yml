@@ -1,0 +1,23 @@
+uuid: 19ad8fb3-7376-4d22-87d7-264a43be876b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_button
+  module:
+    - link
+id: block_content.containers.field_button
+field_name: field_button
+entity_type: block_content
+bundle: containers
+label: Button
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

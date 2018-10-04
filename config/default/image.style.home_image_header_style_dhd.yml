@@ -1,0 +1,14 @@
+uuid: 08c13f8d-7883-4c93-a653-e70d53329dd0
+langcode: en
+status: true
+dependencies: {  }
+name: home_image_header_style_dhd
+label: 'Home Image Header Style - DHD (1440px by 420px)'
+effects:
+  9e19a732-4b3b-4d9a-9fac-7b1294e3131a:
+    uuid: 9e19a732-4b3b-4d9a-9fac-7b1294e3131a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1440
+      height: 420

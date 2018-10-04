@@ -1,0 +1,15 @@
+dev:
+  host: pmmistg.ssh.prod.acquia-sites.com
+  options:
+    ac-env: test
+    ac-realm: prod
+    ac-site: pmmi
+  paths:
+    drush-script: drush9
+  root: /var/www/html/pmmi.test/docroot
+  uri: pmmistg.prod.acquia-sites.com
+  user: pmmi.test
+livedev:
+  options:
+    parent: '@pmmi.test'
+  root: /mnt/gfs/pmmi.test/livedev/docroot

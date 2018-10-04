@@ -1,0 +1,23 @@
+uuid: f48e823e-a290-4904-baa5-b8b8822bfe6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_link
+    - node.type.certification_test
+  module:
+    - link
+id: node.certification_test.field_link
+field_name: field_link
+entity_type: node
+bundle: certification_test
+label: 'Register Link'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

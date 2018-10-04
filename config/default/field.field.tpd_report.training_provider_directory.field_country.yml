@@ -1,0 +1,22 @@
+uuid: e69d091e-71c5-4925-9bcb-30ce0ab6904b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tpd_report.field_country
+    - pmmi_training_provider.tpd_report_type.training_provider_directory
+  module:
+    - address
+id: tpd_report.training_provider_directory.field_country
+field_name: field_country
+entity_type: tpd_report
+bundle: training_provider_directory
+label: 'Countries Searched'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  available_countries: {  }
+field_type: address_country

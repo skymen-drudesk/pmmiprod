@@ -1,0 +1,18 @@
+uuid: d0a20899-2a3b-4f80-9dcc-0b407b6a198a
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: Video
+type: video
+description: "For video pages using a view (Member Watch Videos, Business Intelligence Video Webinars, and Global Marketing Video Webinars).\r\n"
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

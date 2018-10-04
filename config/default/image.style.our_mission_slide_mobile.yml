@@ -1,0 +1,14 @@
+uuid: d997af68-c923-4288-a456-f6de26cd136a
+langcode: en
+status: true
+dependencies: {  }
+name: our_mission_slide_mobile
+label: 'Our mission slide - Mobile (320px by 328px)'
+effects:
+  39eb5b9a-5f2e-438e-a63a-11001b9bed31:
+    uuid: 39eb5b9a-5f2e-438e-a63a-11001b9bed31
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 328

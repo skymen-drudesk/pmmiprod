@@ -1,0 +1,14 @@
+uuid: 854d8fd9-e3d5-4d8a-9176-862c8d54cf13
+langcode: en
+status: true
+dependencies: {  }
+name: 4_up_cards_desktop
+label: '4-up cards - Desktop (212px by 133px)'
+effects:
+  d0d000e3-ee33-4213-8080-af5c0072057b:
+    uuid: d0d000e3-ee33-4213-8080-af5c0072057b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 212
+      height: 133

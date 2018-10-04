@@ -1,0 +1,10 @@
+uuid: 7ef7ee2a-a0c4-4496-955b-2d656ae95253
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.all_blocks_unformatted
+label: 'All blocks - unformatted'
+targetEntityType: block_content
+cache: true

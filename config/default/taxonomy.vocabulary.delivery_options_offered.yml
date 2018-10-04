@@ -1,0 +1,9 @@
+uuid: ed9f8711-1287-4537-afc1-84e155028db4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Delivery Options Offered'
+vid: delivery_options_offered
+description: ''
+hierarchy: 0
+weight: 0

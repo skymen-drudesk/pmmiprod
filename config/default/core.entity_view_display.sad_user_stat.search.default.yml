@@ -1,0 +1,30 @@
+uuid: 6396d507-7128-48c4-91a0-d2aa15ebe782
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.sad_user_stat.search.field_countries_searched
+    - pmmi_sales_agent.sad_user_stat_type.search
+  module:
+    - country
+    - user
+id: sad_user_stat.search.default
+targetEntityType: sad_user_stat
+bundle: search
+mode: default
+content:
+  field_countries_searched:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: country_default
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

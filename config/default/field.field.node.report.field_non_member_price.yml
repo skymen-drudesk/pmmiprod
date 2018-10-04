@@ -1,0 +1,19 @@
+uuid: e90506ec-2792-47c0-a69e-2207a3d18984
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_non_member_price
+    - node.type.report
+id: node.report.field_non_member_price
+field_name: field_non_member_price
+entity_type: node
+bundle: report
+label: 'Non-Member Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

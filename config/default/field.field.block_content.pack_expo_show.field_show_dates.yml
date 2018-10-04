@@ -1,0 +1,21 @@
+uuid: c8a32d61-7873-414c-9116-96c0626ba169
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pack_expo_show
+    - field.storage.block_content.field_show_dates
+  module:
+    - datetime_range
+id: block_content.pack_expo_show.field_show_dates
+field_name: field_show_dates
+entity_type: block_content
+bundle: pack_expo_show
+label: 'Show Date(s)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

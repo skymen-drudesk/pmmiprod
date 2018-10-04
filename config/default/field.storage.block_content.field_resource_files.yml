@@ -1,0 +1,23 @@
+uuid: e8e306d7-ec77-4376-a7b2-25a93e4716d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - file
+id: block_content.field_resource_files
+field_name: field_resource_files
+entity_type: block_content
+type: file
+settings:
+  display_field: false
+  display_default: false
+  uri_scheme: public
+  target_type: file
+module: file
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

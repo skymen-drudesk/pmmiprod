@@ -1,0 +1,10 @@
+uuid: 36cee5c2-45ec-4f60-b71e-b852c64bf619
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.video_ajax_mode
+label: 'Video ajax mode'
+targetEntityType: node
+cache: true

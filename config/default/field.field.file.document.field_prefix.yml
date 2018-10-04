@@ -1,0 +1,19 @@
+uuid: b7f16f97-a2ea-4401-898d-d2f12a0ebb50
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_prefix
+    - file_entity.type.document
+id: file.document.field_prefix
+field_name: field_prefix
+entity_type: file
+bundle: document
+label: Prefix
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

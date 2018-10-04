@@ -1,0 +1,14 @@
+uuid: 8ff2a0d2-14bc-4a1b-828c-f423d1c4f083
+langcode: en
+status: true
+dependencies: {  }
+name: accordion_styles_desktop
+label: 'Accordion Styles - Desktop (240px by 135px)'
+effects:
+  8dc541a3-eb8f-4b53-b0f6-74a1df135a96:
+    uuid: 8dc541a3-eb8f-4b53-b0f6-74a1df135a96
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 240
+      height: 135

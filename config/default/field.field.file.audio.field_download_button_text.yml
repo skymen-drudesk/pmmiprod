@@ -1,0 +1,19 @@
+uuid: d22bfba7-b8df-4136-9afa-121427c5aed2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_download_button_text
+    - file_entity.type.audio
+id: file.audio.field_download_button_text
+field_name: field_download_button_text
+entity_type: file
+bundle: audio
+label: 'Download Button Text'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

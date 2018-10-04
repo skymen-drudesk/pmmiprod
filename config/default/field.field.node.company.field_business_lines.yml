@@ -1,0 +1,21 @@
+uuid: 8d1b921c-219c-4590-93c9-8bda1f3e78ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_business_lines
+    - node.type.company
+  module:
+    - options
+id: node.company.field_business_lines
+field_name: field_business_lines
+entity_type: node
+bundle: company
+label: 'Lines of  business'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

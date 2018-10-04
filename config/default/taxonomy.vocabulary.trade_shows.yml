@@ -1,0 +1,9 @@
+uuid: 7b77845a-388a-4748-8cc2-22944d969202
+langcode: en
+status: true
+dependencies: {  }
+name: 'Trade shows'
+vid: trade_shows
+description: ''
+hierarchy: 0
+weight: 0

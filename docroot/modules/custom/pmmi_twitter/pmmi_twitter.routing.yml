@@ -1,0 +1,10 @@
+
+pmmi_twitter.pm_twitter_settings:
+  path: '/admin/config/services/pmmi_twitter'
+  defaults:
+    _form: '\Drupal\pmmi_twitter\Form\PMMITwitterSettings'
+    _title: 'PMMITwitterSettings'
+  requirements:
+    _permission: 'administer pmmi twitter'
+  options:
+    _admin_route: TRUE

@@ -1,0 +1,5 @@
+
+administer pmmi facebook:
+  title: 'Administer PMMI Facebook'
+  description: 'Administer PMMI Facebook block'
+  restrict access: true

@@ -1,0 +1,23 @@
+uuid: 79921093-61b9-4b0e-8849-17e88ef5d6fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - field.storage.block_content.field_button
+  module:
+    - link
+id: block_content.image_slide.field_button
+field_name: field_button
+entity_type: block_content
+bundle: image_slide
+label: Button
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

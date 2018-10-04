@@ -1,0 +1,37 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_facebook.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_facebook_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_facebook module.
+    case 'help.page.pmmi_facebook':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Facebook') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pmmi_facebook_theme() {
+  $theme = [];
+  $theme['pmmi_facebook_block'] = array(
+    'render element' => 'elements',
+    'file' => 'pmmi_facebook.page.inc',
+    'template' => 'pmmi-facebook-block',
+  );
+  return $theme;
+}

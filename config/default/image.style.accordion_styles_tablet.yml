@@ -1,0 +1,14 @@
+uuid: 009f2a2d-6197-412a-b544-10fda45af8c3
+langcode: en
+status: true
+dependencies: {  }
+name: accordion_styles_tablet
+label: 'Accordion Styles - Tablet (273px by 154px)'
+effects:
+  c2f1c854-8adb-438d-b1a7-0480e97649f6:
+    uuid: c2f1c854-8adb-438d-b1a7-0480e97649f6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 273
+      height: 154

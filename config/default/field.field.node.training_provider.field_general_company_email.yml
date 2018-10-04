@@ -1,0 +1,19 @@
+uuid: 5e84f130-a623-4979-ad18-0a17408bb76c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_general_company_email
+    - node.type.training_provider
+id: node.training_provider.field_general_company_email
+field_name: field_general_company_email
+entity_type: node
+bundle: training_provider
+label: 'General Organization Email'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

@@ -1,0 +1,10 @@
+uuid: 5fb9b286-1871-46a5-9fca-5d122b687bcc
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.container_mode
+label: 'Container mode'
+targetEntityType: block_content
+cache: true

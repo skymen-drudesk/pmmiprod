@@ -1,0 +1,9 @@
+uuid: b8b1d7c0-4e39-4eff-9550-7786be8cf297
+langcode: en
+status: true
+dependencies: {  }
+id: pmc_committee
+label: 'PMC Committee'
+weight: 9
+is_admin: null
+permissions: {  }

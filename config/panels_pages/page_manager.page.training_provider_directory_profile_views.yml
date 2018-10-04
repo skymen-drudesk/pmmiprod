@@ -1,0 +1,12 @@
+uuid: 9ca98b94-9746-4523-b29f-51109412a5b2
+langcode: en
+status: true
+dependencies: {  }
+id: training_provider_directory_profile_views
+label: 'Training Provider Directory - Profile Views'
+description: ''
+use_admin_theme: true
+path: /admin/config/tpd/reporting/profile-views
+access_logic: and
+access_conditions: {  }
+parameters: {  }

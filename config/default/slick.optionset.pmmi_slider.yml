@@ -1,0 +1,31 @@
+uuid: ea916a3f-c985-4a3d-b611-5478fd5c7bfc
+langcode: en
+status: false
+dependencies:
+  enforced:
+    module:
+      - slick
+_core:
+  default_config_hash: Zyx4BsKtbNFnRU7WTHAF0DGHMenI0b_Czn4dwl1bQTc
+id: pmmi_slider
+name: pmmi_slider
+label: 'PMMI Slider'
+weight: -10
+group: ''
+skin: default
+breakpoints: 0
+optimized: true
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    adaptiveHeight: true
+    autoplay: true
+    autoplaySpeed: 4000
+    prevArrow: '<button type="button" data-role="none" class="slick-prev" aria-label="Previous" tabindex="0" role="button">&#10094;</button>'
+    nextArrow: '<button type="button" data-role="none" class="slick-next" aria-label="Next" tabindex="0" role="button">&#10095;</button>'
+    lazyLoad: ondemand
+    respondTo: slider
+    slidesToShow: 1
+    swipeToSlide: true
+    useCSS: false
+    easing: swing

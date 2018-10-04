@@ -1,0 +1,4 @@
+name: Job Scheduler
+description: Scheduler API
+type: module
+core: 8.x

@@ -1,0 +1,17 @@
+id: company_trade_shows
+label: 'Company trade shows'
+ui_limit: 'company|*'
+properties:
+  block: 'views_block:company_trade_shows_contacts-block_1'
+  use_block_title: false
+  config:
+    id: 'views_block:company_trade_shows_contacts-block_1'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+type: block
+type_label: 'Block field'
+entities:
+  node: node

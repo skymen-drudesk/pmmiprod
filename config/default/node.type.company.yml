@@ -1,0 +1,25 @@
+uuid: 0ece86c2-ee80-44a1-afc5-2e40ee73cd56
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_moderation
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  content_moderation:
+    enabled: true
+    allowed_moderation_states:
+      - published
+      - draft
+    default_moderation_state: draft
+name: Company
+type: company
+description: 'For company profile'
+help: ''
+new_revision: true
+preview_mode: 1
+display_submitted: false

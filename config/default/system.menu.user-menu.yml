@@ -1,0 +1,8 @@
+uuid: 158ee809-fbc3-435d-9103-6c8076dc4559
+langcode: en
+status: true
+dependencies: {  }
+id: user-menu
+label: 'User menu'
+description: 'Custom user account menu'
+locked: false

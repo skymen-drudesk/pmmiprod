@@ -1,0 +1,32 @@
+uuid: 58ddb6a6-02bc-41cc-8c78-6677864a9958
+langcode: en
+status: true
+dependencies: {  }
+id: local
+label: Local
+folder: ../config/local
+module:
+  blazy_ui: 0
+  config_devel: 0
+  config_update_ui: 0
+  dblog: 0
+  devel: 0
+  devel_debug_log: 0
+  field_ui: 0
+  kint: 0
+  maillog: 0
+  purge_ui: 0
+  queue_ui: 0
+  slick_ui: 0
+  views_ui: 0
+theme: {  }
+blacklist:
+  - maillog.settings
+  - system.menu.devel
+graylist:
+  - core.extension
+  - mailsystem.settings
+  - system.performance
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

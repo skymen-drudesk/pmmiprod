@@ -1,0 +1,21 @@
+uuid: 955f5a32-2ebe-410f-86c3-985c7980587a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_updated_on
+    - node.type.company
+  module:
+    - datetime
+id: node.company.field_last_updated_on
+field_name: field_last_updated_on
+entity_type: node
+bundle: company
+label: 'Date updated by company user'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,12 @@
+uuid: 8f511a8f-ef25-4e29-a7c1-08cdb6ccc030
+langcode: en
+status: true
+dependencies: {  }
+id: business_intelligence_industry_reports
+label: 'Business Intelligence - Industry Reports'
+description: ''
+use_admin_theme: false
+path: /business-intelligence/industry-reports
+access_logic: and
+access_conditions: {  }
+parameters: {  }

@@ -1,0 +1,19 @@
+uuid: ace5bacd-52d7-49a6-bc45-8549c092f535
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_member_price
+    - node.type.report
+id: node.report.field_member_price
+field_name: field_member_price
+entity_type: node
+bundle: report
+label: 'Member Price'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

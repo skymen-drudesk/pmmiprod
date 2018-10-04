@@ -1,0 +1,177 @@
+/* Enticement VIEW MODES */
+.block-enticement {
+  @extend .clear-after;
+  .button {
+    margin: 10px 0;
+    a {
+      min-width: 270px;
+    }
+  }
+  .image {
+    margin-bottom: 10px;
+    float: left;
+    margin-right: 32px;
+  }
+  .title {
+    @extend .headline3;
+    @include mobile {
+      font-size: $r20;
+      margin-bottom: 7px;
+    }
+  }
+  .block-body {
+    @extend .paragraph2;
+    margin-bottom: 15px;
+  }
+  .right {
+    overflow: hidden;
+  }
+  @include desktop {
+    .button {
+      a {
+        min-width: 250px;
+      }
+    }
+  }
+  @include tablet {
+    .image {
+      margin-right: 10px;
+    }
+    .button {
+      a {
+        min-width: 210px;
+      }
+    }
+  }
+  @include mobile {
+    text-align: center;
+    .image {
+      float: none;
+      display: inline-block;
+      margin: 0 0 15px;
+      max-width: 100%;
+    }
+    .button {
+      a {
+        min-width: 210px;
+      }
+    }
+  }
+  &.mode-enticement-full-width {
+    background: $ltgrey;
+    margin: 35px 0 50px;
+    .image {
+      max-width: 170px;
+      margin-top: -27px;
+      margin-bottom: -27px;
+    }
+    .button {
+      position: absolute;
+      right: 25px;
+      top: 50%;
+      margin-top: -15px;
+    }
+    .title-body {
+      margin-right: 305px;
+      padding: 30px 0 10px;
+    }
+    .right {
+      padding: 0;
+      position: relative;
+    }
+    @include desktop {
+      .image {
+        max-width: 143px;
+        margin: -10px 10px -10px 0;
+      }
+      .button {
+        right: 0;
+        a {
+          min-width: 225px;
+        }
+      }
+      .title-body {
+        padding: 20px 0 10px;
+        margin-right: 230px;
+      }
+    }
+    @include tablet-max {
+      margin: 30px 0 40px;
+      padding: 15px 0 20px;
+      .button {
+        position: static;
+        margin: 25px 0 0;
+      }
+      .image {
+        margin: 0 15px 0 0;
+      }
+      .title-body {
+        margin: 0;
+        padding: 30px 0 0;
+      }
+    }
+    @include mobile {
+      margin: 6px 0 20px;
+      .image {
+        max-width: 100%;
+        margin: 0 0 10px;
+      }
+      .right {
+        text-align: center;
+      }
+      .title-body {
+        padding: 0;
+      }
+    }
+    // When not full width enticement.
+    .container & {
+      .image {
+        margin-left: 15px;
+      }
+      .title-body {
+        margin: 0 0 10px;
+        padding: 15px 0 0;
+      }
+      .button {
+        position: static;
+        margin: 0 0 15px;
+      }
+      .wrapper {
+        width: auto;
+        padding: 0;
+      }
+      @include desktop {
+        .image {
+          max-width: 170px;
+        }
+      }
+      @include tablet-max {
+        padding: 15px;
+        .image {
+          margin: 0 15px 0 0;
+        }
+        .title-body {
+          margin: 0;
+          padding: 30px 0 0;
+        }
+      }
+      @include mobile {
+        .image {
+          margin: 0 0 10px;
+        }
+        .button {
+          margin-bottom: 0;
+        }
+        .title-body {
+          padding: 0;
+        }
+      }
+    }
+  }
+}
+
+.enticement-region {
+  .block {
+    margin-bottom: 0;
+  }
+}

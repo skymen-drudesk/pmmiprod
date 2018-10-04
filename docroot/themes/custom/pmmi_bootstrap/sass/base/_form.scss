@@ -1,0 +1,214 @@
+.selector {
+  height: 30px;
+  position: relative;
+  font-weight: 900;
+  color: $blue;
+  border: 1px solid $blue;
+  width: auto !important;
+  &:before {
+    @extend .fa;
+    @extend .fa-caret-down;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 30px;
+    height: 28px;
+    font-size: 30px;
+    line-height: 100%;
+    text-align: center;
+    background: #fff;
+  }
+  span {
+    padding: 5px 14px;
+    line-height: $r18;
+    display: block;
+    background: #fff;
+    margin-right: 33px;
+    box-sizing: content-box;
+    white-space: nowrap;
+    overflow: hidden;
+    width: auto !important;
+    text-overflow: ellipsis;
+  }
+  select.form-control {
+    opacity: 0;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 0;
+    border: none;
+    height: 100%;
+    width: 100%;
+  }
+}
+.form-control {
+  border-radius: 0;
+  height: 30px;
+  padding: 5px 10px;
+  line-height: 20px;
+  border-color: $mdgrey;
+}
+input[type="text"]::-webkit-input-placeholder {
+  color: $dkgrey;
+}
+input[type="text"]::-moz-placeholder {
+  color: $dkgrey;
+}
+input[type="text"]:-ms-input-placeholder {
+  color: $dkgrey;
+}
+form {
+  h3 {
+    margin: 15px 0 10px;
+  }
+  .webform-flex--container,
+  .webform-flexbox {
+    margin-top: 10px;
+    margin-bottom: 10px;
+  }
+  .webform-flex--0 {
+    .webform-flex--container {
+      margin: 0;
+    }
+    .form-group,
+    .js-form-wrapper,
+    .form-wrapper {
+      margin: 0 .5em;
+    }
+  }
+  .js-form-wrapper,
+  .webform-flex {
+    align-self: flex-end;
+  }
+}
+.label {
+  color: inherit;
+}
+.form-required:after {
+  font-family: "FontAwesome";
+  font-size: 8px;
+  content: "\f069";
+  color: $red;
+  padding: 0 0 0 3px;
+  vertical-align: top;
+}
+.selectize-control {
+  position: relative;
+  border: none;
+  padding: 35px 0 0;
+  height: auto;
+  input {
+    width: 100% !important;
+    max-width: 100%;
+    border: 1px solid $grey;
+    height: 30px;
+    padding: 5px 10px;
+    position: absolute !important;
+    top: 0;
+    left: 0 !important;
+    opacity: 1 !important;
+    border-radius: 0;
+  }
+  &.multi {
+    .selectize-input {
+      padding: 0;
+      border: none;
+      box-shadow: none;
+      border-radius: 0;
+      &.has-items {
+        padding: 0;
+        border: none;
+        .item {
+          vertical-align: baseline;
+          display: inline-block;
+          background: $ltblue;
+          border: none;
+          color: #fff;
+          height: 22px;
+          line-height: 22px;
+          border-radius: 6px;
+          box-shadow: none;
+          position: relative;
+          padding: 5px 10px 5px 25px;
+          margin: 0 10px 5px 0;
+          box-sizing: content-box;
+          .remove {
+            border: none;
+            color: $ltblue;
+            position: absolute;
+            left: 0;
+            top: 50%;
+            height: 32px;
+            line-height: 32px;
+            width: 27px;
+            margin: -16px 0 0;
+            text-align: center;
+            overflow: hidden;
+            &:before {
+              display: block;
+              color: #fff;
+              font-family: FontAwesome;
+              content: '\f00d';
+            }
+          }
+        }
+      }
+    }
+  }
+  .selectize-dropdown {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    border: 1px solid $mdgrey;
+    background: #ffffff;
+    margin: -1px 0 0 0;
+    border-top: 0 none;
+    box-sizing: border-box;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    border-radius: 0 0 3px 3px;
+    height: auto;
+    float: none;
+    padding: 0;
+    top: 30px !important;
+  }
+  .selectize-dropdown-content {
+    background: #fff;
+    overflow-y: auto;
+    overflow-x: hidden;
+    max-height: 200px;
+    -webkit-overflow-scrolling: touch;
+    .option {
+      padding: 3px 10px;
+      cursor: pointer;
+      &.active {
+        background-color: #f5fafd;
+        color: #495c68;
+      }
+      .highlight {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.copy-button {
+  display: block;
+  position: relative;
+  padding-right: 30px;
+  br {
+    display: none;
+  }
+  .copy-link {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin: -10px 0 0;
+    color: $ltblue;
+    font-size: 20px;
+    &:hover {
+      color: darken($ltblue, 10%);
+      text-decoration: none;
+    }
+  }
+}

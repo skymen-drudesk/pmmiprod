@@ -1,0 +1,183 @@
+uuid: 9e38d3d1-1d64-4f7e-b927-3b5c7ceebf45
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - core.entity_view_mode.block_content.accordion
+    - field.field.block_content.accordion.body
+    - field.field.block_content.accordion.field_accordions
+    - field.field.block_content.accordion.field_button
+    - field.field.block_content.accordion.field_head
+    - field.field.block_content.accordion.field_image
+    - field.field.block_content.accordion.field_link
+    - field.field.block_content.accordion.field_resources_block
+    - field.field.block_content.accordion.field_video_node
+  module:
+    - blazy
+    - ds
+    - link
+    - pmmi_fields
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: accordion
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      header:
+        - field_head
+      left_side:
+        - field_video_node
+        - field_image
+      body:
+        - body
+        - field_resources_block
+        - field_button
+        - field_link
+      nested_accordion:
+        - field_accordions
+id: block_content.accordion.accordion
+targetEntityType: block_content
+bundle: accordion
+mode: accordion
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  field_accordions:
+    type: entity_reference_entity_view
+    weight: 7
+    label: hidden
+    settings:
+      view_mode: accordion
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: nested_accordion
+  field_button:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: link
+    region: body
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: header
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      responsive_image_style: accordion_styles
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: left_side
+  field_link:
+    type: link
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: body
+  field_resources_block:
+    type: pmmi_entity_reference_entity_view
+    weight: 4
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: body
+  field_video_node:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: video_thumbnail
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: entity_reference_entity_view
+    region: left_side
+hidden: {  }

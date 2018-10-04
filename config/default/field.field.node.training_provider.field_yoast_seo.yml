@@ -1,0 +1,21 @@
+uuid: 811a6ba9-6fd9-4311-a724-3b21bfa4a5fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yoast_seo
+    - node.type.training_provider
+  module:
+    - yoast_seo
+id: node.training_provider.field_yoast_seo
+field_name: field_yoast_seo
+entity_type: node
+bundle: training_provider
+label: 'Real-time SEO'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: yoast_seo

@@ -1,0 +1,5 @@
+name: PMMI Forms
+type: module
+description: PMMI Forms stuff.
+core: 8.x
+package: PMMI

@@ -1,0 +1,9 @@
+uuid: 31f13b93-2e40-4fa2-89ba-6ee721b62456
+langcode: en
+status: true
+dependencies: {  }
+name: 'Course Topics Offered'
+vid: course_topics_offered
+description: ''
+hierarchy: 0
+weight: 0

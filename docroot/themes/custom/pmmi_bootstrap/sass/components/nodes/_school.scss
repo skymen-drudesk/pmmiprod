@@ -1,0 +1,91 @@
+.school {
+  .address {
+    margin: 0;
+    font-size: $r14;
+    line-height: $r18;
+    color: $textdark;
+    font-weight: 500;
+    span {
+      font-style: italic;
+      &.given-name,
+      &.family-name {
+        font-weight: $extrabold;
+        font-style: normal;
+      }
+    }
+    .country {
+      display: none;
+    }
+  }
+  .field-name-field-phone {
+    a {
+      color: $textdark;
+    }
+  }
+}
+.school-info {
+  font-size: $r14;
+  line-height: $r18;
+  color: $textdark;
+  font-weight: 500;
+  margin-bottom: 25px;
+  .title {
+    @extend .sidehead1;
+  }
+  .logo {
+    margin-bottom: 6px;
+  }
+  .address {
+    margin: 0;
+    .address-line1 {
+      & + br {
+        display: none;
+      }
+      &:after {
+        content: ",";
+      }
+    }
+  }
+  .email,
+  .website {
+    border-top: 1px solid $mdgrey;
+    padding-top: 6px;
+    margin-top: 6px;
+  }
+  .website a {
+    @extend .text-link;
+  }
+  .email .field {
+    @extend .text-link;
+  }
+}
+.school-node {
+  .node-title {
+    margin-bottom: 10px;
+  }
+  .img {
+    margin-bottom: 25px;
+  }
+  .focus {
+    margin-bottom: 25px;
+    .field-label-inline {
+      font-weight: $extrabold;
+    }
+    @extend .paragraph1;
+  }
+  .content-verified {
+    margin-bottom: 25px;
+    @extend .paragraph1;
+    font-style: italic;
+  }
+  @include desktop {
+    .node-title {
+      margin-bottom: 20px;
+    }
+  }
+  @include tablet-max {
+    .node-title {
+      margin-bottom: 25px;
+    }
+  }
+}

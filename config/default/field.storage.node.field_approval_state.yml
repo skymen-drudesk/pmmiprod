@@ -1,0 +1,30 @@
+uuid: a612fdf0-7245-4e03-8fce-b6fc82302e87
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_approval_state
+field_name: field_approval_state
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: approved
+      label: Approved
+    -
+      value: not_approved
+      label: 'Not approved'
+    -
+      value: updated
+      label: 'Updated (needs approve)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

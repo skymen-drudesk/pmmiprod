@@ -1,0 +1,18 @@
+id: videos_left_block
+label: 'Videos left block'
+ui_limit: 'video|*'
+properties:
+  block: 'views_block:page_videos_about-video_type_about'
+  use_block_title: false
+  config:
+    id: 'views_block:page_videos_about-video_type_about'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+type: block
+type_label: 'Block field'
+entities:
+  node: node

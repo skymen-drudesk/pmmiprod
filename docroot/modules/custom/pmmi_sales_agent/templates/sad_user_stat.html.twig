@@ -1,0 +1,22 @@
+{#
+/**
+ * @file sad_user_stat.html.twig
+ * Default theme implementation to present Sales agent user stat data.
+ *
+ * This template is used when viewing Sales agent user stat pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_sad_user_stat()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('sad_user_stat') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

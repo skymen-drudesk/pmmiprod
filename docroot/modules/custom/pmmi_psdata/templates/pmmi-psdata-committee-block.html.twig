@@ -1,0 +1,48 @@
+{#
+/**
+ * @file
+ * Theme implementation to display the PMMI Personify Committee block.
+ *
+ * Available variables:
+ *
+ * Committee block variables:
+ * - data: The array of data.
+ * - columns: Number of columns.
+ * - rows: Number of rows.
+
+ * @ingroup themeable
+ */
+#}
+{% set r = 1 %}
+<div class="block" id="block--committee-block">
+  {% if data %}
+    {% for key, collection in data %}
+      {% set class_key = key | lower | replace(' ', '-') %}
+      {% if temp_key is not defined %}
+          {% set temp_key = key %}
+      {% endif %}
+      {% if temp_key != key %}
+          {% set r, temp_key = 1, key %}
+      {% endif %}
+      {% set classes, one_member_class = class_key ~ ' col-lg-12 member', ' one-member' %}
+      {% if collection|length > 1 %}
+        {% set classes, one_member_class = class_key ~ ' col-lg-4 col-sm-6 member', '' %}
+      {% endif %}
+      <div class="committee-block committee-block-{{ class_key ~ one_member_class }}">
+        <h3>{{ key }}</h3>
+        <div class="row">
+        {% for member in collection %}
+          <div class="{{ classes ~ ' member-' ~ r }}">
+            <div><strong>{{ member.label_name }} ({{ member.end_date }})</strong></div>
+            {% if member.job_title %}
+              <div class="job">{{ member.job_title }}</div>
+            {% endif %}
+            <div class="company">{{ member.company_name }}</div>
+          </div>
+          {% set r = r + 1 %}
+        {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  {% endif %}
+</div>

@@ -1,0 +1,11 @@
+<div{{ content['#attrs'].addClass('article-news match-height') }}>
+
+  {{ field_render([content.press_date, 'press-date']) }}
+
+  {{ field_render([content.title, 'title', 'h2']) }}
+
+  {{ field_render([content.body, 'body']) }}
+
+  {{ field_render([content.button, 'button btn-prm-wrap']) }}
+
+</div>

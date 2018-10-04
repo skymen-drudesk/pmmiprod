@@ -1,0 +1,55 @@
+uuid: 9f663788-a987-424a-839a-63ad56c18532
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.membership_application_review_page
+    - views.view.membership_application_submissions
+  module:
+    - panels
+    - pmmi_page_manager_search
+    - views
+third_party_settings:
+  pmmi_page_manager_search:
+    index_page_variant: 0
+id: membership_application_review_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    c7e8b922-2af8-4931-8f9a-e57bdec8d7f3:
+      id: 'views_block:membership_application_submissions-block_all'
+      label: 'Membership Application Review'
+      provider: views
+      label_display: visible
+      views_label: 'Membership Application Review'
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: c7e8b922-2af8-4931-8f9a-e57bdec8d7f3
+      context_mapping: {  }
+    9f09477a-9ff2-4aab-9a65-36d91596663f:
+      id: 'views_exposed_filter_block:membership_application_submissions-block_all'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      region: top
+      weight: 0
+      uuid: 9f09477a-9ff2-4aab-9a65-36d91596663f
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 980b704c-6929-45a8-9ec2-262507118645
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: membership_application_review_page-panels_variant-0
+  builder: standard
+page: membership_application_review_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

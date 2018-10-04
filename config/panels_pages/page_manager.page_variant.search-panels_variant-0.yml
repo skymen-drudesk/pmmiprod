@@ -1,0 +1,66 @@
+uuid: 861eace7-5404-47f4-9d47-9854cea90f65
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.search
+    - views.view.search_page
+  module:
+    - panels
+    - pmmi_search
+    - views
+id: search-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    a44b6662-19e9-48ff-a5f7-f80ea9e365dc:
+      id: pmmi_search_result_title_block
+      label: 'PMMI Search Result Title block'
+      provider: pmmi_search
+      label_display: '0'
+      search_title: 'Search Results for:'
+      fallback_title: 'All results'
+      search_path: 'internal:/search?text=text'
+      search_identifier: text
+      region: oneone
+      weight: -1
+      block_title: ''
+      uuid: a44b6662-19e9-48ff-a5f7-f80ea9e365dc
+      context_mapping: {  }
+    bceed1a4-ea25-4a3b-95d1-601a6f33e96f:
+      id: 'views_block:search_page-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: oneone
+      weight: 0
+      uuid: bceed1a4-ea25-4a3b-95d1-601a6f33e96f
+      context_mapping: {  }
+    796b5443-a60c-4e61-acfc-ff02e2f12116:
+      id: 'views_exposed_filter_block:search_page-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      region: top
+      weight: 0
+      uuid: 796b5443-a60c-4e61-acfc-ff02e2f12116
+      context_mapping: {  }
+  id: panels_variant
+  uuid: fb36ba8b-4370-4280-a936-ee36b0721fe3
+  label: null
+  weight: 0
+  layout: oneone
+  layout_settings: {  }
+  page_title: Search
+  storage_type: page_manager
+  storage_id: search-panels_variant-0
+  builder: standard
+page: search
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

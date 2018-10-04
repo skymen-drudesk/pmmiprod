@@ -1,0 +1,14 @@
+uuid: 3d5edcfe-fce4-440a-863e-952a12259da4
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_2_mobile
+label: 'Block style 2 - Mobile (250px by 172px)'
+effects:
+  e308e694-9d5a-41d8-ba6e-dbd3de9d88d7:
+    uuid: e308e694-9d5a-41d8-ba6e-dbd3de9d88d7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 172

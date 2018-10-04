@@ -1,0 +1,7 @@
+services:
+  pmmi_reports.reports_import:
+    class: Drupal\pmmi_reports\Service\PMMIReportsImport
+    arguments: ['@pmmi_psdata.request_helper', '@pmmi_reports.reports_storage', '@config.factory', '@queue', '@plugin.manager.queue_worker']
+  pmmi_reports.reports_storage:
+    class: Drupal\pmmi_reports\Service\ReportsImportStorage
+    arguments: ['@keyvalue']

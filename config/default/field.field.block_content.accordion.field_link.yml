@@ -1,0 +1,23 @@
+uuid: 38183ae7-5db5-4f94-9c20-f213b6375abb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - field.storage.block_content.field_link
+  module:
+    - link
+id: block_content.accordion.field_link
+field_name: field_link
+entity_type: block_content
+bundle: accordion
+label: Link
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

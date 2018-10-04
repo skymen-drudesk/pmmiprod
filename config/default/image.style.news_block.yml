@@ -1,0 +1,14 @@
+uuid: cce46621-32f5-405e-b71b-b4f77517a94f
+langcode: en
+status: true
+dependencies: {  }
+name: news_block
+label: 'News block (154px by 181px)'
+effects:
+  3d25081b-b682-4932-9bd8-7f7b985afd23:
+    uuid: 3d25081b-b682-4932-9bd8-7f7b985afd23
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 154
+      height: 181

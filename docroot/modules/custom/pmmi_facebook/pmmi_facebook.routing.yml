@@ -1,0 +1,11 @@
+
+pmmi_facebook.pmmi_facebook_settings:
+  path: '/admin/config/services/pmmi_facebook'
+  defaults:
+    _form: '\Drupal\pmmi_facebook\Form\PMMIFacebookSettings'
+    _title: 'PMMIFacebookSettings'
+  requirements:
+    _permission: 'administer pmmi facebook'
+  options:
+    _admin_route: TRUE
+

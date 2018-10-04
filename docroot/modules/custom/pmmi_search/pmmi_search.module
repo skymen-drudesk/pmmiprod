@@ -1,0 +1,39 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_search.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_search_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_search module.
+    case 'help.page.pmmi_search':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Search') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pmmi_search_theme() {
+  return [
+    'pmmi_search' => [
+      'template' => 'pmmi_search',
+      'render element' => 'children',
+    ],
+    'pmmi_company_search_results' => [
+      'variables' => ['title' => '', 'filters' => [], 'class' => ''],
+    ],
+  ];
+}

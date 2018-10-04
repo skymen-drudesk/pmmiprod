@@ -1,0 +1,9 @@
+uuid: 048d8198-6373-455a-a34d-77e2752fd60e
+langcode: en
+status: true
+dependencies: {  }
+name: Tags
+vid: tags
+description: 'Used for general purpose tagging.'
+hierarchy: 0
+weight: 0

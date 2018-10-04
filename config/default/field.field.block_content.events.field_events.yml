@@ -1,0 +1,28 @@
+uuid: aba34066-5862-43b1-ba5f-ba6c2076834e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - block_content.type.events
+    - field.storage.block_content.field_events
+id: block_content.events.field_events
+field_name: field_events
+entity_type: block_content
+bundle: events
+label: Events
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      event: event
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

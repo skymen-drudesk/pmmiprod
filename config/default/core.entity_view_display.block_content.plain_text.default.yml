@@ -1,0 +1,46 @@
+uuid: fe5db673-7f34-4861-bf33-0ae9b5d82741
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.plain_text
+    - field.field.block_content.plain_text.body
+    - field.field.block_content.plain_text.field_head
+  module:
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      main:
+        - body
+id: block_content.plain_text.default
+targetEntityType: block_content
+bundle: plain_text
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: main
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: head
+hidden: {  }

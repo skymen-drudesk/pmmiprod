@@ -1,0 +1,8 @@
+uuid: e8aedf95-830e-4676-a81f-242233f84e7b
+langcode: en
+status: true
+dependencies: {  }
+id: image_slide
+label: 'Image Slide'
+revision: 1
+description: ''

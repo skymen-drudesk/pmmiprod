@@ -1,0 +1,23 @@
+uuid: f9704027-41f3-419a-ad86-8e73f53e1fae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website
+    - node.type.school
+  module:
+    - link
+id: node.school.field_website
+field_name: field_website
+entity_type: node
+bundle: school
+label: Website
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

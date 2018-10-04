@@ -1,0 +1,19 @@
+uuid: 4ba26316-1edb-4e00-8c2e-e60a0bd59c72
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - pmmi_address
+id: node.field_territory_served
+field_name: field_territory_served
+entity_type: node
+type: country_area
+settings: {  }
+module: pmmi_address
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

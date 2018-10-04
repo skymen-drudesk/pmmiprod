@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Template for a 3-up (1 row of 3 columns) layout.
+ */
+#}
+<div {{ content['#attrs'].addClass('layout-3up clearfix') }}>
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  <div class="rows container">
+    <div class="row-1 row">
+      {{ field_render([content.oneone, 'col col-1 col-sm-4']) }}
+      {{ field_render([content.onetwo, 'col col-2 col-sm-4']) }}
+      {{ field_render([content.onethree, 'col col-3 col-sm-4']) }}
+    </div>
+  </div>
+  <div class="region-bottom">
+    {{ content.bottom }}
+  </div>
+</div>

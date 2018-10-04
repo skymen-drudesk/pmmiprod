@@ -1,0 +1,23 @@
+uuid: 7d96dda5-5c0b-4f58-8457-72227e36896f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_immediate_release
+    - node.type.article
+id: node.article.field_immediate_release
+field_name: field_immediate_release
+entity_type: node
+bundle: article
+label: 'For Immediate Release'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

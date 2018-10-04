@@ -1,0 +1,156 @@
+uuid: 6e78ee7d-920c-4793-9cbe-fe8cd01f46b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.download.body
+    - field.field.node.download.field_block_button_text
+    - field.field.node.download.field_document_link
+    - field.field.node.download.field_file_download_button
+    - field.field.node.download.field_image
+    - field.field.node.download.field_image_header
+    - field.field.node.download.field_links
+    - field.field.node.download.field_meta_tags
+    - field.field.node.download.field_yoast_seo
+    - node.type.download
+  module:
+    - blazy
+    - ds
+    - pmmi_fields
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: download
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - content_moderation_control
+        - field_image_header
+      title:
+        - node_title
+      body:
+        - body
+      image:
+        - field_image
+      links:
+        - field_links
+      file_download_button:
+        - field_document_link
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 2
+        label: hidden
+        formatter: default
+id: node.download.full
+targetEntityType: node
+bundle: download
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_trimmed
+    weight: 3
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: body
+  content_moderation_control:
+    weight: 0
+    region: image_header
+    settings: {  }
+    third_party_settings: {  }
+  field_document_link:
+    type: link_as_label
+    weight: 6
+    region: file_download_button
+    label: hidden
+    settings:
+      trim_length: '80'
+      target: _blank
+      link_label: 'Document link'
+      url_only: ''
+      url_plain: ''
+      rel: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+  field_image:
+    weight: 4
+    label: hidden
+    settings:
+      responsive_image_style: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+  field_image_header:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: image_header
+  field_links:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_label: ''
+    third_party_settings: {  }
+    type: link_as_label
+    region: links
+hidden:
+  field_block_button_text: true
+  field_file_download_button: true
+  field_meta_tags: true
+  field_yoast_seo: true
+  links: true

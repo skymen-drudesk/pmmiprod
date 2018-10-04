@@ -1,0 +1,8 @@
+name: PMMI Training Provider Directory
+type: module
+description: Contains PMMI Training Provider Directory stuff.
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi_sales_agent
+  - default_content

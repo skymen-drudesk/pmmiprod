@@ -1,0 +1,38 @@
+uuid: b593babe-dd0a-488e-aa45-6e8c609d7248
+langcode: en
+status: true
+dependencies: {  }
+id: dev
+label: Dev
+folder: ../config/dev
+module:
+  acquia_connector: 0
+  blazy_ui: 0
+  config_devel: 0
+  config_update_ui: 0
+  devel: 0
+  devel_debug_log: 0
+  field_ui: 0
+  kint: 0
+  maillog: 0
+  purge_ui: 0
+  queue_ui: 0
+  seckit: 0
+  shield: 0
+  slick_ui: 0
+  views_ui: 0
+  syslog: 0
+theme: {  }
+blacklist:
+  - maillog.settings
+  - seckit.settings
+  - shield.settings
+  - system.menu.devel
+graylist:
+  - core.extension
+  - mailsystem.settings
+  - system.logging
+  - system.performance
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 2

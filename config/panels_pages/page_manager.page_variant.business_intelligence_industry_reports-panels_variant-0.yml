@@ -1,0 +1,119 @@
+uuid: 3ea115c5-3ca3-4cd5-99e0-bc532eb3e3d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.business_intelligence_industry_reports
+    - taxonomy.vocabulary.report_type
+    - views.view.reports
+  content:
+    - 'block_content:image_header:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+  module:
+    - block_content
+    - panels
+    - pmmi_reports
+    - pmmi_search
+    - views
+id: business_intelligence_industry_reports-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    36820933-94ac-44dc-ab7a-155f8349c817:
+      id: reports_years
+      label: 'Industry Archives'
+      provider: pmmi_reports
+      label_display: visible
+      personify_class: INDUSTRY-RPTS
+      select_type: class
+      region: sidebar
+      weight: -1
+      uuid: 36820933-94ac-44dc-ab7a-155f8349c817
+      context_mapping: {  }
+    4d351441-0490-4820-a80b-363323a076c6:
+      id: other_reports
+      label: 'Other Reports & Research'
+      provider: pmmi_reports
+      label_display: visible
+      links:
+        -
+          url: /business-intelligence/benchmarking-reports
+          link_text: 'Benchmarking reports'
+        -
+          url: /business-intelligence/economic-reports
+          link_text: 'Economic Reports'
+        -
+          url: /business-intelligence/international-research
+          link_text: 'International Research'
+      region: sidebar
+      weight: 0
+      uuid: 4d351441-0490-4820-a80b-363323a076c6
+      context_mapping: {  }
+    0bd14835-65c5-4562-940d-2d05a6b05539:
+      id: 'views_block:reports-reports_category'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: 0bd14835-65c5-4562-940d-2d05a6b05539
+      context_mapping:
+        field_personify_class_value: class
+    c997c1c4-2618-4526-9703-2f1d25a90cd6:
+      id: pmmi_search_library_block
+      label: 'Search Reports & Research'
+      provider: pmmi_search
+      label_display: visible
+      vid: report_type
+      term_identifier: category
+      search_path: 'internal:/business-intelligence/search'
+      search_identifier: text
+      region: sidebar
+      weight: 0
+      uuid: c997c1c4-2618-4526-9703-2f1d25a90cd6
+      context_mapping: {  }
+    b2564523-536a-41f6-ae3f-44a443fd7b96:
+      id: reports_title
+      label: null
+      provider: pmmi_reports
+      label_display: null
+      title: 'Industry Reports'
+      region: head
+      weight: -2
+      uuid: b2564523-536a-41f6-ae3f-44a443fd7b96
+      context_mapping: {  }
+    d9cf2250-273f-4a1b-ac29-b7f690d1a487:
+      id: 'block_content:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+      label: 'Business Intelligence - Reports'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: d9cf2250-273f-4a1b-ac29-b7f690d1a487
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 193dbf5a-6ef9-4466-9860-20ca6826f623
+  label: null
+  weight: 0
+  layout: panel_landing_left_sidebar_collapsible
+  layout_settings:
+    query_params: 'category, year, text'
+  page_title: ''
+  storage_type: page_manager
+  storage_id: business_intelligence_industry_reports-panels_variant-0
+  builder: standard
+page: business_intelligence_industry_reports
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context:
+  class:
+    label: CLASS
+    type: string
+    description: ''
+    value: INDUSTRY-RPTS

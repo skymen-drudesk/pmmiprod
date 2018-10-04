@@ -1,0 +1,18 @@
+id: tpd_contact_questions
+label: 'Training Provider Directory - contact for questions'
+ui_limit: 'training_provider|*'
+properties:
+  block: 'block_content:6e57e5f7-0b59-463c-94fb-ed11169d8375'
+  use_block_title: false
+  config:
+    id: 'block_content:6e57e5f7-0b59-463c-94fb-ed11169d8375'
+    label: ''
+    provider: block_content
+    label_display: visible
+    status: true
+    info: ''
+    view_mode: default
+type: block
+type_label: 'Block field'
+entities:
+  node: node

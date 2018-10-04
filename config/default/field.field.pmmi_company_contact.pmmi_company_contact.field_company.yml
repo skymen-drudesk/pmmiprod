@@ -1,0 +1,29 @@
+uuid: ddc1469d-86e8-4caa-98cc-366a020232fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pmmi_company_contact.field_company
+    - node.type.company
+  module:
+    - pmmi_company_contact
+id: pmmi_company_contact.pmmi_company_contact.field_company
+field_name: field_company
+entity_type: pmmi_company_contact
+bundle: pmmi_company_contact
+label: Company
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      company: company
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

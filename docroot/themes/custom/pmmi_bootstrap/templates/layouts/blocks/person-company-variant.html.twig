@@ -1,0 +1,11 @@
+<div class="block-person-company-style col-md-4 col-sm-6 col-xs-12">
+  <div class="inline-text">
+    {{ field_render([content.name, 'name sidehead3']) }}
+    <span class="separator">, </span>
+    {{ field_render([content.job_title, 'job-title side-paragraph']) }}
+    <span class="separator">, </span>
+    {{ field_render([content.company, 'company side-paragraph']) }}
+  </div>
+
+  {{ field_render([content.logo, 'image']) }}
+</div>

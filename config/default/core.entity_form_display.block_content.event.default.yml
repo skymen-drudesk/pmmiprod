@@ -1,0 +1,91 @@
+uuid: 76c608d1-d3fa-4e15-9612-2cbccc5c6aff
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - field.field.block_content.event.field_dates
+    - field.field.block_content.event.field_event_types
+    - field.field.block_content.event.field_exclude_main_calendar
+    - field.field.block_content.event.field_head
+    - field.field.block_content.event.field_hosted_by
+    - field.field.block_content.event.field_link
+    - field.field.block_content.event.field_location
+  module:
+    - address
+    - content_moderation
+    - datetime_range
+    - link_attributes
+id: block_content.event.default
+targetEntityType: block_content
+bundle: event
+mode: default
+content:
+  field_dates:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  field_event_types:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_exclude_main_calendar:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_head:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_hosted_by:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_link:
+    type: link_attributes
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    region: content
+  field_location:
+    type: address_default
+    weight: 7
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

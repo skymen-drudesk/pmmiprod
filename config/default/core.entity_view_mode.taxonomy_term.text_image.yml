@@ -1,0 +1,10 @@
+uuid: 3eaca0d1-5e71-4692-ae68-885290160b31
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.text_image
+label: Text+Image
+targetEntityType: taxonomy_term
+cache: true

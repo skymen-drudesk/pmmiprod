@@ -1,0 +1,3 @@
+application-review filter permissions:
+  title: 'Application review filter access'
+  description: 'Allow user to use filters for Application review page'

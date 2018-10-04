@@ -1,0 +1,54 @@
+uuid: 67bf49af-4f31-4dc4-ba2b-86d48c4a0b15
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.404_page
+  module:
+    - panels
+    - pmmi
+    - pmmi_search
+id: 404_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    5dfe026d-eb76-4c7d-a32f-0d04b1dd4d2a:
+      id: panels_text_block
+      label: 'Panels Text block'
+      provider: pmmi
+      label_display: '0'
+      block_title: '404 Page Not Found'
+      block_text:
+        value: "<p>We’re sorry, the resource you requested is no longer available or has moved to a new location.<br />\r\n<a href=\"/\">Return home</a> or begin a new search.</p>\r\n"
+        format: full_html
+      region: main
+      weight: 0
+      uuid: 5dfe026d-eb76-4c7d-a32f-0d04b1dd4d2a
+      context_mapping: {  }
+    0a9b153b-47fa-4469-ab03-4d9558ceb6db:
+      id: pmmi_search_block
+      label: 'PMMI Search block'
+      provider: pmmi_search
+      label_display: '0'
+      search_path: 'internal:/search'
+      search_identifier: text
+      region: main
+      weight: 1
+      uuid: 0a9b153b-47fa-4469-ab03-4d9558ceb6db
+      context_mapping: {  }
+  id: panels_variant
+  uuid: b6802bf5-b276-4c08-ab4c-938ed06937e8
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: 404_page-panels_variant-0
+  builder: standard
+page: 404_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

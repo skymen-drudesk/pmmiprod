@@ -1,0 +1,11 @@
+name: PMMI Search
+type: module
+description: PMMI Search
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi
+  - search_api
+  - search_api_solr
+  - selectize
+  - views

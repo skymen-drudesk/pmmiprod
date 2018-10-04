@@ -1,0 +1,36 @@
+uuid: 11ad429e-7510-492b-9c0d-75a754df9db0
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.our_mission_slide_desktop
+    - image.style.our_mission_slide_mobile
+    - image.style.our_mission_slide_tablet
+    - image.style.our_mission_slider_dhd
+  theme:
+    - pmmi_bootstrap
+id: our_mission_slide
+label: 'Our mission slide'
+image_style_mappings:
+  -
+    breakpoint_id: pmmi_bootstrap.desktop-hd
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: our_mission_slider_dhd
+  -
+    breakpoint_id: pmmi_bootstrap.desktop
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: our_mission_slide_desktop
+  -
+    breakpoint_id: pmmi_bootstrap.tablet
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: our_mission_slide_tablet
+  -
+    breakpoint_id: pmmi_bootstrap.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: our_mission_slide_mobile
+breakpoint_group: pmmi_bootstrap
+fallback_image_style: our_mission_slide_tablet

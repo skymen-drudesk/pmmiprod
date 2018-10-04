@@ -1,0 +1,14 @@
+uuid: 2ed2221e-d80a-4b48-b7ef-f4b4a7c85778
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_1_tablet
+label: 'Block style 1 - Tablet (111px by 133px)'
+effects:
+  622e3e8f-3ad3-492b-8541-75ec2b385d1c:
+    uuid: 622e3e8f-3ad3-492b-8541-75ec2b385d1c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 111
+      height: 133

@@ -1,0 +1,112 @@
+uuid: 298bb5b0-2933-4345-a662-dccc79884781
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.field.block_content.person.field_commission_member
+    - field.field.block_content.person.field_company
+    - field.field.block_content.person.field_date
+    - field.field.block_content.person.field_image
+    - field.field.block_content.person.field_job_title
+    - field.field.block_content.person.field_logo
+    - field.field.block_content.person.field_name
+    - field.field.block_content.person.field_p_p_hall_of_fame_honorees
+    - field.field.block_content.person.field_pmmi_member_since
+    - field.field.block_content.person.field_retired
+  module:
+    - blazy
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: block_person
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image:
+        - field_image
+      name:
+        - field_name
+      job_title:
+        - field_job_title
+      company:
+        - field_company
+id: block_content.person.default
+targetEntityType: block_content
+bundle: person
+mode: default
+content:
+  field_company:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: company
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: person_block
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+  field_job_title:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: job_title
+  field_name:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: name
+hidden:
+  field_commission_member: true
+  field_date: true
+  field_logo: true
+  field_p_p_hall_of_fame_honorees: true
+  field_pmmi_member_since: true
+  field_retired: true

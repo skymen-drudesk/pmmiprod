@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_default_content.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_default_content_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_default_content module.
+    case 'help.page.pmmi_default_content':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Default Content') . '</p>';
+      return $output;
+
+    default:
+  }
+}

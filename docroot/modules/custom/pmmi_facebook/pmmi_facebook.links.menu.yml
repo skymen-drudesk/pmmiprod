@@ -1,0 +1,7 @@
+pmmi_facebook.pmmi_facebook_settings:
+  title: 'PMMI Facebook Settings'
+  route_name: pmmi_facebook.pmmi_facebook_settings
+  description: 'Configure PMMI Facebook Block'
+  parent: system.admin_config_services
+  weight: 99
+

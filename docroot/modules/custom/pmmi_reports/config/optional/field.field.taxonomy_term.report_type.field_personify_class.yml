@@ -1,0 +1,19 @@
+uuid: b880b572-dbcd-41ce-917e-3cd89a1470e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_personify_class
+    - taxonomy.vocabulary.report_type
+id: taxonomy_term.report_type.field_personify_class
+field_name: field_personify_class
+entity_type: taxonomy_term
+bundle: report_type
+label: 'Personify product class'
+description: 'This name belongs to personify service, i.e. <em>"BENCHMARKING, ECONOMIC-TRENDS, INDUSTRY-RPTS, INTL-RESEARCH"</em>.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

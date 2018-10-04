@@ -1,0 +1,30 @@
+uuid: 31645eb0-13f2-46c0-8909-aec8d1194bb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - block_content.type.resources
+    - field.storage.block_content.field_resources_block
+  module:
+    - pmmi_fields
+id: block_content.accordion.field_resources_block
+field_name: field_resources_block
+entity_type: block_content
+bundle: accordion
+label: 'Resources Block'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      resources: resources
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: pmmi_entity_reference

@@ -1,0 +1,19 @@
+uuid: 2c2a63aa-137f-46b3-bc78-6a2e4fa9e354
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_featured_speaker
+    - node.type.video
+id: node.video.field_featured_speaker
+field_name: field_featured_speaker
+entity_type: node
+bundle: video
+label: 'Featured Speaker'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

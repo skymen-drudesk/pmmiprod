@@ -1,0 +1,65 @@
+uuid: 70456eaa-80ad-4e9a-a63a-358184567f63
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.accordion
+    - field.field.node.basic_page.body
+    - field.field.node.basic_page.field_image_header
+    - field.field.node.basic_page.field_meta_tags
+    - field.field.node.basic_page.field_page_name
+    - field.field.node.basic_page.field_tags
+    - field.field.node.basic_page.field_yoast_seo
+    - node.type.basic_page
+  module:
+    - ds
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: accordion
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      header:
+        - field_page_name
+      body:
+        - body
+id: node.basic_page.accordion
+targetEntityType: node
+bundle: basic_page
+mode: accordion
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_page_name:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    type: string
+    region: header
+hidden:
+  field_image_header: true
+  field_meta_tags: true
+  field_tags: true
+  field_yoast_seo: true
+  links: true

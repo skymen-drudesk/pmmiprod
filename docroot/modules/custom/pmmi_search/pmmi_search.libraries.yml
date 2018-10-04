@@ -1,0 +1,9 @@
+# Ajax.
+
+pmmi_search.ajax:
+  version: VERSION
+  js:
+    js/pmmi_search.ajax.js:  {}
+  dependencies:
+    - core/drupal
+    - core/jquery

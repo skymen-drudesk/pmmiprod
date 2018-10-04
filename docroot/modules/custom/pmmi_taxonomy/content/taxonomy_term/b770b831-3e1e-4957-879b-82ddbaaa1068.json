@@ -1,0 +1,78 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/10?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/video_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/video_type\/parent": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/9?_format=hal_json"
+            }
+        ]
+    },
+    "tid": [
+        {
+            "value": "10"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b770b831-3e1e-4957-879b-82ddbaaa1068"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "video_type"
+        }
+    ],
+    "name": [
+        {
+            "value": "Business Intelligence",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": "0"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/video_type\/parent": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/9?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/video_type"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "bf70c326-acbb-4d2c-a7c9-8f0fcef28fda"
+                    }
+                ]
+            }
+        ]
+    },
+    "changed": [
+        {
+            "value": "1481737330",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ]
+}

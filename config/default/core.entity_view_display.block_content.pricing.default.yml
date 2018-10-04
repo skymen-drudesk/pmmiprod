@@ -1,0 +1,63 @@
+uuid: 6d82e1a6-0546-4b4a-be74-e36d6ebea321
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pricing
+    - field.field.block_content.pricing.field_head
+    - field.field.block_content.pricing.field_pricings
+  module:
+    - ds
+    - pmmi_fields
+third_party_settings:
+  ds:
+    layout:
+      id: block_pricing
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      pricings:
+        - field_pricings
+id: block_content.pricing.default
+targetEntityType: block_content
+bundle: pricing
+mode: default
+content:
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_pricings:
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: pmmi_entity_reference_entity_view
+    region: pricings
+hidden: {  }

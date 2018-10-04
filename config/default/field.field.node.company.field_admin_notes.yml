@@ -1,0 +1,21 @@
+uuid: 8e64bf04-d381-4ad3-a67a-17043a2a3143
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_admin_notes
+    - node.type.company
+  module:
+    - text
+id: node.company.field_admin_notes
+field_name: field_admin_notes
+entity_type: node
+bundle: company
+label: 'Admin Notes'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

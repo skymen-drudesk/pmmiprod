@@ -1,0 +1,13 @@
+services:
+  pmmi.twig.field_render:
+    class: Drupal\pmmi\Twig\Extension\FieldRender
+    tags:
+      - { name: twig.extension }
+  theme.negotiator.pmmi:
+    class: Drupal\pmmi\Theme\PMMINegotiator
+    tags:
+      - { name: theme_negotiator, priority: 0 }
+  pmmi.route_subscriber:
+    class: Drupal\pmmi\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

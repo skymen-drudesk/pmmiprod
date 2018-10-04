@@ -1,0 +1,6 @@
+name: Job Scheduler Trigger
+description: "Creates scheduler triggers that fire up at certain days, times"
+type: module
+core: 8.x
+dependencies:
+  - job_scheduler

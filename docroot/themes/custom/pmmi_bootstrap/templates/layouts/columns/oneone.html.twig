@@ -1,0 +1,21 @@
+{#
+/**
+ * @file
+ * Template for a 1-up (1 row of 1 column) layout.
+ */
+#}
+<div {{ content['#attrs'].addClass('layout-1up clearfix') }} >
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  <div class="rows container">
+    <div class="row-1 row">
+      <div class="col col-1 col-sm-12">
+        {{ content.oneone }}
+      </div>
+    </div>
+  </div>
+  <div class="region-bottom">
+    {{ content.bottom }}
+  </div>
+</div>

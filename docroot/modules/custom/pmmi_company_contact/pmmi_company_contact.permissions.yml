@@ -1,0 +1,15 @@
+add company contact entities:
+  title: 'Create new Company contact entities'
+
+administer company contact entities:
+  title: 'Administer Company contact entities'
+  description: 'Allow to access the administration form to configure Company contact entities.'
+
+delete company contact entities:
+  title: 'Delete Company contact entities'
+
+edit company contact entities:
+  title: 'Edit Company contact entities'
+
+view company contact entities:
+  title: 'View Company contact entities'

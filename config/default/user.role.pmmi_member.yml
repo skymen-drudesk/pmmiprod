@@ -1,0 +1,16 @@
+uuid: c6322ff3-1878-4905-8781-517ad8ab22ce
+langcode: en
+status: true
+dependencies: {  }
+id: pmmi_member
+label: 'PMMI Member'
+weight: 6
+is_admin: null
+permissions:
+  - 'create company content'
+  - 'edit any company content'
+  - 'edit own company content'
+  - 'pmmi sales agent favorites'
+  - 'pmmi sales agent search'
+  - 'view own files'
+  - 'view own private files'

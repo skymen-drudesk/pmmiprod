@@ -1,0 +1,72 @@
+# Sales agent directory - admin panel.
+pmmi_sales_agent.admin_panel:
+  route_name: page_manager.page_view_sales_agent_directory_admin_panel_sales_agent_directory_admin_panel-panels_variant-0
+  base_route: page_manager.page_view_sales_agent_directory_admin_panel_sales_agent_directory_admin_panel-panels_variant-0
+  title: 'Company contacts'
+pmmi_sales_agent.admin_panel_shows:
+  route_name: view.agent_trade_shows.page_1
+  base_route: page_manager.page_view_sales_agent_directory_admin_panel_sales_agent_directory_admin_panel-panels_variant-0
+  title: 'Company contacts by show'
+
+# Sales agent directory - migration.
+pmmi_sales_agent.migrate:
+  route_name: pmmi_sales_agent.migrate
+  base_route: pmmi_sales_agent.migrate
+  title: 'Import'
+pmmi_sales_agent.migrate_messages:
+  route_name: pmmi_sales_agent.migrate_messages
+  base_route: pmmi_sales_agent.migrate
+  title: 'Messages'
+
+# Sales agent directory - reporting.
+pmmi_sales_agent.reporting:
+  route_name: page_manager.page_view_sales_agent_directory_usage_export_sales_agent_directory_usage_export-panels_variant-0
+  base_route: page_manager.page_view_sales_agent_directory_usage_export_sales_agent_directory_usage_export-panels_variant-0
+  title: 'Export list of users'
+pmmi_sales_agent.reporting_user_log_usage:
+  route_name: view.reporting_usage_by_user_log.page_1
+  base_route: page_manager.page_view_sales_agent_directory_usage_export_sales_agent_directory_usage_export-panels_variant-0
+  title: 'Usage by user log'
+pmmi_sales_agent.reporting_month_usage:
+  route_name: view.reporting_usage_by_month.page_1
+  base_route: page_manager.page_view_sales_agent_directory_usage_export_sales_agent_directory_usage_export-panels_variant-0
+  title: 'Usage by month'
+
+# Sales agent directory - reporting settings.
+pmmi_sales_agent.reporting_settings:
+  route_name: pmmi_sales_agent.report_settings
+  base_route: pmmi_sales_agent.report_settings
+  title: 'Reporting settings'
+pmmi_sales_agent.downloads_quota:
+  route_name: entity.sad_downloads_quota.collection
+  base_route: pmmi_sales_agent.report_settings
+  title: 'User-level quota'
+
+# Sales agent directory - mail settings.
+pmmi_sales_agent.mail_settings:
+  route_name: pmmi_sales_agent.mail_settings
+  base_route: pmmi_sales_agent.mail_settings
+  title: 'Mail Settings'
+pmmi_sales_agent.mass_email:
+  route_name: pmmi_sales_agent.mass_email
+  base_route: pmmi_sales_agent.mail_settings
+  title: 'PMMI Mass Email'
+pmmi_sales_agent.send_one_time_update:
+  route_name: page_manager.page_view_company_listing_update_company_listing_update-panels_variant-0
+  base_route: pmmi_sales_agent.mail_settings
+  title: 'Send one-time-update'
+
+# Sales agent user stat routing definition
+entity.sad_user_stat.canonical:
+  route_name: entity.sad_user_stat.canonical
+  base_route: entity.sad_user_stat.canonical
+  title: 'View'
+entity.sad_user_stat.edit_form:
+  route_name: entity.sad_user_stat.edit_form
+  base_route: entity.sad_user_stat.canonical
+  title: 'Edit'
+entity.sad_user_stat.delete_form:
+  route_name:  entity.sad_user_stat.delete_form
+  base_route:  entity.sad_user_stat.canonical
+  title: Delete
+  weight: 10

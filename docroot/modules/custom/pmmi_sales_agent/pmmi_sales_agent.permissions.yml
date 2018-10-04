@@ -1,0 +1,32 @@
+pmmi sales agent administration:
+  title: 'Administer sales agent directory'
+  'restrict access': TRUE
+
+pmmi sales agent favorites:
+  title: "Access to 'My favorites' page"
+
+pmmi sales agent bypass one time access:
+  title: "Bypass bypass one time access"
+
+pmmi sales agent search:
+  title: 'Use sales agent directory search'
+  'restrict access': TRUE
+add sales agent user stat entities:
+  title: 'Create new Sales agent user stat entities'
+
+administer sales agent user stat entities:
+  title: 'Administer Sales agent user stat entities'
+  description: 'Allow to access the administration form to configure Sales agent user stat entities.'
+  restrict access: true
+
+delete sales agent user stat entities:
+  title: 'Delete Sales agent user stat entities'
+
+edit sales agent user stat entities:
+  title: 'Edit Sales agent user stat entities'
+
+access sales agent user stat overview:
+  title: 'Access the Sales agent user stat overview page'
+
+view sales agent user stat entities:
+  title: 'View Sales agent user stat entities'

@@ -1,0 +1,24 @@
+title: 'Fetch reports content from personify'
+id: fetch_content
+weight: 0
+module: pmmi_reports
+callback: pmmi_reports_fetch_content
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0 * * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

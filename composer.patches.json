@@ -1,0 +1,56 @@
+{
+  "patches": {
+    "drupal/core": {
+      "Avoid illegal characters in database name": "https://www.drupal.org/files/issues/fix-dbname-validation-2443839-40.patch",
+      "Install profile is disabled for lots of different reasons and core doesn't allow for that": "https://www.drupal.org/files/issues/1170362-239.patch",
+      "SystemBrandingBlock causes fatal error if theme is not set when place it in Panels": "https://www.drupal.org/files/issues/2838601-11.patch",
+      "Batch API should use the current theme to run the batches": "https://www.drupal.org/files/issues/wrong-route-check-539022-71.patch",
+      "Lock system is broken in many regards": "https://www.drupal.org/files/issues/lock_system_needs_a-2077827-49_0.patch",
+      "HtmlEscapedText object to string conversation error" : "https://www.drupal.org/files/issues/drupal_8_3_2_HtmlEscapedText_to_string_01.patch",
+      "Twig - only search for templates in templates directory of themes": "patches/3879__twig__only_scan_templates_dir.patch"
+    },
+    "drupal/acquia_purge" : {
+      "Don't require late runtime processor": "https://www.drupal.org/files/issues/remove-runime.patch"
+    },
+    "drupal/ds": {
+      "Only search for templates in templates directory of themes": "patches/3879__ds__only_scan_templates_dir.patch",
+      "Language Render Problem": "https://www.drupal.org/files/issues/2018-05-17/ds-getLangcode.patch"
+    },
+    "drupal/page_manager": {
+      "Don't call getCacheTagsToInvalidate() when null": "https://www.drupal.org/files/issues/2696345-2.patch",
+      "Custom attributes in blocks": "https://www.drupal.org/files/issues/page_manager-block-css-attributes-9.patch",
+      "Page variants cannot be selected": "https://www.drupal.org/files/issues/page_manager-page_variants_selection-2868216-7.patch"
+    },
+    "drupal/panels_everywhere": {
+      "Latest version of module doesn't work for panels pages.": "https://www.drupal.org/files/issues/2018-05-18/panels_everywhere-dont-work-for-panels-pages-2973881-2.patch"
+    },
+    "drupal/ctools": {
+      "Avoid unserialization of blockPluginCollection in BlockDisplayVariant": "https://www.drupal.org/files/issues/ctools-unserialize-plugin-collection-2831521-1.patch"
+    },
+    "drupal/migrate_plus": {
+      "FormatDate process plugin": "https://www.drupal.org/files/issues/formatdate_process_plugin-2820490-2_0.patch"
+    },
+    "derhasi/viewfield": {
+      "Fix issue with empty argument and update https://github.com/derhasi/viewfield/pull/6 with added hook_update_N and column improvements. Updated.": "https://patch-diff.githubusercontent.com/raw/derhasi/viewfield/pull/9.patch"
+    },
+    "drupal/views_data_export": {
+      "Support for batch operations": "https://www.drupal.org/files/issues/2018-08-16/2789531-144.patch"
+    },
+    "drupal/address": {
+      "Address field formatter strip whitespace between inline span tags." : "https://www.drupal.org/files/issues/dissapers_whitespace_fix-2893544-2.patch"
+    },
+    "drupal/tb_megamenu": {
+      "Missing array keys cause notices": "https://www.drupal.org/files/issues/missing_array_keys-2921195-3.patch",
+      "Incorrect contextual link generation leads to an error": "https://www.drupal.org/files/issues/2018-09-03/tb_megamenu-fix-contextual-link-for-magamenu-2996857-3.patch"
+    },
+    "drupal/link_attributes": {
+      "Add title attribute" : "https://www.drupal.org/files/issues/2018-06-05/link_attributes-title-attribute-2920269-5.patch"
+    },
+    "drupal/search_api": {
+      "Remove 'Search API Taxonomy Term Handlers' module" : "https://www.drupal.org/files/issues/2018-08-30/remove_search_api_taxonomy_term_handlers_module-2867479-7.patch"
+    },
+    "drupal/password_policy": {
+      "Field field_last_password_reset is unknown" : "https://www.drupal.org/files/issues/2018-07-30/password_policy-config_import_field_error-2771129-57.patch"
+    }
+  }
+}

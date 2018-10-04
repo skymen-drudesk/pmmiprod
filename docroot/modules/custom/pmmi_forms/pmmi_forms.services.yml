@@ -1,0 +1,5 @@
+services:
+  pmmi_forms.route_subscriber:
+    class: Drupal\pmmi_forms\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

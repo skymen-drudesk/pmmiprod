@@ -1,0 +1,13 @@
+uuid: 093cf2ee-898a-41e5-ac15-9f99d24bfcf4
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.favorites_content.flag
+label: 'Add to favorites'
+type: node
+plugin: 'flag_action:favorites_content.flag'
+configuration:
+  flag_id: favorites_content
+  flag_action: flag

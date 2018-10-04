@@ -1,0 +1,9 @@
+uuid: 365c937f-a58e-4d06-8117-a0b65105b49d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Type of equipment sold'
+vid: equipment_sold_type
+description: ''
+hierarchy: 0
+weight: 0

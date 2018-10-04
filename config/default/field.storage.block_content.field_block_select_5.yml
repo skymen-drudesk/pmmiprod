@@ -1,0 +1,30 @@
+uuid: 3a5f9173-9004-4ebe-b8f6-877d2c2e8223
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_block_select_5
+field_name: field_block_select_5
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: field_block_5
+      label: 'Block content'
+    -
+      value: field_block_plugin_5
+      label: 'Block plugin'
+    -
+      value: field_block_views_5
+      label: 'Block views'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

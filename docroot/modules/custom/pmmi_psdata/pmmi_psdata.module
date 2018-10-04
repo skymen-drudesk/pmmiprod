@@ -1,0 +1,105 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_psdata.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_psdata_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_psdata module.
+    case 'help.page.pmmi_psdata':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Personify Service Data') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function pmmi_psdata_theme($existing, $type, $theme, $path) {
+  return [
+    'pmmi_psdata_committee_block' => [
+      'variables' => [
+        'data' => '',
+        'columns' => '',
+        'rows' => '',
+      ],
+      'template' => 'pmmi-psdata-committee-block',
+    ],
+    'pmmi_psdata_company_staff_block' => [
+      'variables' => [
+        'data' => '',
+        'staff_enabled' => '',
+        'staff_label' => '',
+      ],
+      'template' => 'pmmi-psdata-company-staff-block',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_rebuild().
+ */
+function pmmi_psdata_rebuild() {
+  $cron_config = \Drupal::configFactory()->get('pmmi_psdata.updatesettings');
+  $committee_warm_up = $cron_config->get('committee.warm_up');
+  $company_warm_up = $cron_config->get('company.warm_up');
+  $staff_warm_up = $cron_config->get('company.warm_up');
+  if ($committee_warm_up || $company_warm_up) {
+    /** @var \Drupal\pmmi_psdata\Service\PMMIDataCollector $data_collector */
+    $data_collector = \Drupal::service('pmmi_psdata.collector');
+    $configs = $data_collector->collectConfigsToUpdate();
+    foreach ($configs as $type => $collection) {
+      if (${$type . '_warm_up'} && !empty($collection)) {
+        foreach ($collection as $item) {
+          $data_collector->processQueue("pmmi_psdata_{$type}_real", $item);
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_cron().
+ */
+function pmmi_psdata_cron() {
+  // We access our configuration.
+  $cron_config = \Drupal::configFactory()->get('pmmi_psdata.updatesettings');
+  $committee_enabled = $cron_config->get('committee.enabled');
+  $company_enabled = $cron_config->get('company.enabled');
+  if ($committee_enabled && $company_enabled) {
+    /** @var \Drupal\pmmi_psdata\Service\PMMIDataCollector $data_collector */
+    $data_collector = \Drupal::service('pmmi_psdata.collector');
+    $configs = $data_collector->collectConfigsToUpdate();
+    $expired_items = $data_collector->getExpiredData($configs);
+    $company_interval = $cron_config->get('company.interval');
+    $staff_interval = $cron_config->get('company.interval');
+    $committee_interval = $cron_config->get('committee.interval');
+    foreach ($expired_items as $type => $collection) {
+      $last_execution = \Drupal::state()
+        ->get("cron_pmmi_psdata.{$type}_execution");
+      $last_execution = !empty($last_execution) ? $last_execution : 0;
+      if (REQUEST_TIME > $last_execution) {
+        $queue = \Drupal::queue("pmmi_psdata_$type");
+        foreach ($collection as $item) {
+          $queue->createItem($item);
+        }
+        \Drupal::state()
+          ->set(
+            "cron_pmmi_psdata.{$type}_execution",
+            REQUEST_TIME + ${$type . '_interval'}
+          );
+      }
+    }
+  }
+}

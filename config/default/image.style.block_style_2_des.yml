@@ -1,0 +1,14 @@
+uuid: 3b870c0c-f9fd-48fe-9c15-39949329dbaf
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_2_des
+label: 'Block style 2 - Desktop (230px by 158px)'
+effects:
+  43363999-691e-4c0d-b423-77df6425b437:
+    uuid: 43363999-691e-4c0d-b423-77df6425b437
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 230
+      height: 158

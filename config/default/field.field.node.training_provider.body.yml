@@ -1,0 +1,22 @@
+uuid: 7d761cfb-036c-43db-b22d-6568e68400a8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.training_provider
+  module:
+    - text
+id: node.training_provider.body
+field_name: body
+entity_type: node
+bundle: training_provider
+label: 'Organization Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,14 @@
+uuid: 0e211aac-e91b-43b4-8302-becf7fcde7ad
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_3_dhd
+label: 'Block style 3 - DHD (246px by 187px)'
+effects:
+  8af5a2b2-d295-44a5-bef6-b8edf9fe35ae:
+    uuid: 8af5a2b2-d295-44a5-bef6-b8edf9fe35ae
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 246
+      height: 187

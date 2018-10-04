@@ -1,0 +1,7 @@
+services:
+  pmmi_psdata.collector:
+    class: Drupal\pmmi_psdata\Service\PMMIDataCollector
+    arguments: ['@cache.default','@cache_tags.invalidator', '@queue', '@plugin.manager.queue_worker', '@config.factory']
+  pmmi_psdata.request_helper:
+    class: Drupal\pmmi_psdata\Service\PMMIDataRequestHelper
+    arguments: ['@http_client','@pmmi_sso.helper', '@date.formatter']

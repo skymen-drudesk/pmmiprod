@@ -1,0 +1,23 @@
+uuid: be2a4f55-0b32-4158-b30c-b525a5291a8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.box
+    - field.storage.block_content.field_buttons
+  module:
+    - link
+id: block_content.box.field_buttons
+field_name: field_buttons
+entity_type: block_content
+bundle: box
+label: Button(s)
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

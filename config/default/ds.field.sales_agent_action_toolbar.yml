@@ -1,0 +1,18 @@
+id: sales_agent_action_toolbar
+label: 'Sales Agent Action Toolbar'
+ui_limit: 'company|*'
+properties:
+  block: pmmi_sales_agent_action_toolbar
+  use_block_title: false
+  config:
+    id: pmmi_sales_agent_action_toolbar
+    label: ''
+    provider: pmmi_sales_agent
+    label_display: visible
+    links:
+      favorites_add: favorites_add
+      favorites_download: favorites_download
+type: block
+type_label: 'Block field'
+entities:
+  node: node

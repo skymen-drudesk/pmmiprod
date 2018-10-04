@@ -1,0 +1,20 @@
+uuid: 766822a6-c9ec-4b1b-8c12-ebff1734072a
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_sales_agent
+id: sad_user_stat.field_records_number
+field_name: field_records_number
+entity_type: sad_user_stat
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

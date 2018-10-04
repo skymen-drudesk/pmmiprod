@@ -1,0 +1,11 @@
+display_variant.plugin.panels_everywhere_variant:
+  type: display_variant.plugin.panels_variant
+  label: 'Panels Everywhere variant plugin'
+
+page_manager.page.*.third_party.panels_everywhere:
+  type: mapping
+  label: 'Disable route override'
+  mapping:
+    disable_route_override:
+      type: boolean
+      label: 'Disable route override'

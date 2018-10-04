@@ -1,0 +1,19 @@
+uuid: c5ed9a19-e74a-4502-8906-a8110b0695a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_industries_served_other
+    - node.type.company
+id: node.company.field_industries_served_other
+field_name: field_industries_served_other
+entity_type: node
+bundle: company
+label: 'Other industries'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

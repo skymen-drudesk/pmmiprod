@@ -1,0 +1,13 @@
+<div{{ content['#attrs'].addClass('block-layout block-text') }}>
+
+  {{ field_render([content.head, 'title', 'h2']) }}
+
+  {{ field_render([content.body, 'block-body']) }}
+
+  {{ field_render([content.image, 'image']) }}
+
+  {{ field_render([content.button, 'button btn-prm-wrap']) }}
+
+  {{ field_render([content.link, 'link']) }}
+
+</div>

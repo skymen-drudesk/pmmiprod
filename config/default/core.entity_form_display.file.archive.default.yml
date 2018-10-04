@@ -1,0 +1,45 @@
+uuid: e6179030-51a9-476b-b707-5dd6b930cd69
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.file.archive.field_download_button_text
+    - field.field.file.archive.field_tags
+    - file_entity.type.archive
+id: file.archive.default
+targetEntityType: file
+bundle: archive
+mode: default
+content:
+  field_download_button_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_tags:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  filename:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

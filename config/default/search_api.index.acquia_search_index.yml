@@ -1,0 +1,74 @@
+uuid: 16b321c5-592c-4af3-a6d8-bc98668b8acf
+langcode: en
+status: false
+dependencies:
+  config:
+    - field.storage.node.body
+    - search_api.server.acquia_search_server
+  module:
+    - search_api
+    - pmmi_reports
+    - pmmi_search
+    - node
+_core:
+  default_config_hash: '-ggwZpvT2-Ey1fqPkREitA6TGI_m5dTHD9vZm9FrlSQ'
+id: acquia_search_index
+name: 'Acquia Search Solr Index'
+description: ''
+read_only: true
+field_settings:
+  body:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    dependencies:
+      config:
+        - field.storage.node.body
+  title:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+datasource_settings:
+  'entity:node':
+    plugin_id: 'entity:node'
+    settings:
+      bundles:
+        default: true
+        selected: {  }
+      languages:
+        default: true
+        selected: {  }
+    bundles:
+      default: true
+      selected: {  }
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  report_year: {  }
+  pmmi_shows: {  }
+  state: {  }
+  country: {  }
+  rendered_item: {  }
+  add_url:
+    plugin_id: add_url
+    settings: {  }
+  aggregated_field: {  }
+tracker_settings:
+  default:
+    plugin_id: default
+    settings: {  }
+    indexing_order: fifo
+options:
+  index_directly: false
+  cron_limit: 50
+  processors:
+    language:
+      status: '1'
+      weight: -50
+      settings: {  }
+      processorPluginId: language
+  overridden_by_acquia_search: 2
+server: acquia_search_server

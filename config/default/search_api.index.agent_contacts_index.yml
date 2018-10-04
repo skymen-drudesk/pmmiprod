@@ -1,0 +1,358 @@
+uuid: 2e24d2ea-b3dc-4e11-9e7a-fb250466167e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pmmi_company_contact.field_trade_show
+    - field.storage.pmmi_company_contact.field_company
+    - field.storage.pmmi_company_contact.field_email
+    - field.storage.pmmi_company_contact.field_name
+    - field.storage.pmmi_company_contact.field_title
+    - field.storage.node.field_main_phone_number
+    - field.storage.node.field_fax_number
+    - field.storage.node.field_website_url
+    - field.storage.node.field_general_company_email
+    - field.storage.node.field_address
+    - field.storage.node.field_company_description
+    - field.storage.node.field_primary_contact_first_name
+    - field.storage.node.field_primary_contact_last_name
+    - field.storage.node.field_primary_contact_email
+    - field.storage.node.field_business_lines
+    - field.storage.node.field_territory_served
+    - field.storage.node.field_industries_served
+    - field.storage.node.field_industries_served_other
+    - field.storage.node.field_equipment_sold_type
+    - field.storage.node.field_equipment_sold_type_other
+    - field.storage.node.field_manufacturers_represented
+    - field.storage.node.field_after_sales_service
+    - search_api.server.acquia_search_server
+  module:
+    - node
+    - search_api
+    - pmmi_reports
+    - pmmi_search
+    - pmmi_company_contact
+id: agent_contacts_index
+name: 'Agent Contacts Index'
+description: ''
+read_only: false
+field_settings:
+  field_trade_show:
+    label: 'Trade show'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: field_trade_show
+    type: integer
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_trade_show
+  field_company:
+    label: Company
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: field_company
+    type: integer
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+  field_email:
+    label: Email
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: field_email
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_email
+  field_name:
+    label: Name
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: field_name
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_name
+  field_title:
+    label: Title
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: field_title
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_title
+  title:
+    label: 'Company » Content » Title'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:title'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+      module:
+        - node
+  field_main_phone_number:
+    label: 'Company » Content » Main Phone Number'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_main_phone_number'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_main_phone_number
+      module:
+        - node
+  field_fax_number:
+    label: 'Company » Content » Fax Number'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_fax_number'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_fax_number
+      module:
+        - node
+  field_website_url:
+    label: 'Company » Content » Website URL'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_website_url'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_website_url
+      module:
+        - node
+  field_general_company_email:
+    label: 'Company » Content » General Company Email'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_general_company_email'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_general_company_email
+      module:
+        - node
+  country_code:
+    label: 'Company » Content » Address » The two-letter country code.'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_address:country_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_address
+      module:
+        - node
+  administrative_area:
+    label: 'Company » Content » Address » The top-level administrative subdivision of the country.'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_address:administrative_area'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_address
+      module:
+        - node
+  locality:
+    label: 'Company » Content » Address » The locality (i.e. city).'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_address:locality'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_address
+      module:
+        - node
+  address_line1:
+    label: 'Company » Content » Address » The first line of the address block.'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_address:address_line1'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_address
+      module:
+        - node
+  address_line2:
+    label: 'Company » Content » Address » The second line of the address block.'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_address:address_line2'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_address
+      module:
+        - node
+  postal_code:
+    label: 'Company » Content » Address » The postal code.'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_address:postal_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_address
+      module:
+        - node
+  field_company_description:
+    label: 'Company » Content » Company Description'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_company_description'
+    type: text
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_company_description
+      module:
+        - node
+  field_primary_contact_first_name:
+    label: 'Company » Content » Primary Contact First Name'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_primary_contact_first_name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_primary_contact_first_name
+      module:
+        - node
+  field_primary_contact_last_name:
+    label: 'Company » Content » Primary Contact Last Name'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_primary_contact_last_name'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_primary_contact_last_name
+      module:
+        - node
+  field_primary_contact_email:
+    label: 'Company » Content » Primary Contact Email'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_primary_contact_email'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_primary_contact_email
+      module:
+        - node
+  field_business_lines:
+    label: 'Company » Content » Lines of  business'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_business_lines'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_business_lines
+      module:
+        - node
+  field_territory_served:
+    label: 'Company » Content » Territory served'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_territory_served'
+    type: string
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_territory_served
+      module:
+        - node
+  field_industries_served:
+    label: 'Company » Content » Industries served'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_industries_served'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_industries_served
+      module:
+        - node
+  field_industries_served_other:
+    label: 'Company » Content » Industries served (Other)'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_industries_served_other'
+    type: text
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_industries_served_other
+      module:
+        - node
+  field_equipment_sold_type:
+    label: 'Company » Content » Type of equipment sold'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_equipment_sold_type'
+    type: integer
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_equipment_sold_type
+      module:
+        - node
+  field_equipment_sold_type_other:
+    label: 'Company » Content » Type of equipment sold (other)'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_equipment_sold_type_other'
+    type: text
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_equipment_sold_type_other
+      module:
+        - node
+  field_manufacturers_represented:
+    label: 'Company » Content » Manufacturers represented'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_manufacturers_represented'
+    type: text
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_manufacturers_represented
+      module:
+        - node
+  field_after_sales_service:
+    label: 'Company » Content » Do you provide after sales service?'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: 'field_company:entity:field_after_sales_service'
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.pmmi_company_contact.field_company
+        - field.storage.node.field_after_sales_service
+      module:
+        - node
+  country:
+    label: 'Company » Content » Country'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: country
+    type: string
+  state:
+    label: 'Company » Content » State'
+    datasource_id: 'entity:pmmi_company_contact'
+    property_path: state
+    type: string
+datasource_settings:
+  'entity:pmmi_company_contact': {  }
+processor_settings:
+  report_year: {  }
+  pmmi_shows: {  }
+  state: {  }
+  country: {  }
+  rendered_item: {  }
+  add_url: {  }
+  aggregated_field: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: acquia_search_server

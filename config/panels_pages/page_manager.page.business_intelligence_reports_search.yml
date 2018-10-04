@@ -1,0 +1,12 @@
+uuid: c575aa61-1b97-40bb-9150-a8263b47a87c
+langcode: en
+status: true
+dependencies: {  }
+id: business_intelligence_reports_search
+label: 'Business Intelligence - Reports search'
+description: ''
+use_admin_theme: false
+path: /business-intelligence/search
+access_logic: and
+access_conditions: {  }
+parameters: {  }

@@ -1,0 +1,18 @@
+id: other_reports_block
+label: 'Other reports block'
+ui_limit: download|full
+properties:
+  block: 'views_block:reports-block_other_reports'
+  use_block_title: true
+  config:
+    id: 'views_block:reports-block_other_reports'
+    label: ''
+    provider: views
+    label_display: visible
+    views_label: ''
+    items_per_page: none
+    context_mapping: {  }
+type: block
+type_label: 'Block field'
+entities:
+  node: node

@@ -1,0 +1,93 @@
+.page-gateway {
+  background: url(../i/gateway-bg-graphic.jpg) 50% 0 no-repeat #005883;
+  background-size: cover;
+}
+.page-gateway {
+  .page-wrapper {
+    background-image: linear-gradient(180deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0) 100%);
+    padding: 70px 0 0;
+    max-width: 1280px;
+    margin: 0 auto 20px;
+  }
+  .logo-main {
+    display: block;
+    width: 140px;
+    float: none !important;
+    margin: 0 auto 22px;
+  }
+  .block-text.centered {
+    .title {
+      font-size: $r65;
+      line-height: 1.2;
+      font-family: $lato;
+      padding: 0;
+      text-transform: none;
+      color: $dkblue;
+      font-weight: 900;
+      &:after {
+        display: none;
+      }
+    }
+    .block-body {
+      font-size: $r21;
+      line-height: $r25;
+      @extend .inherited-p;
+      br {
+        display: none;
+      }
+    }
+  }
+  @include tablet {
+    .page-wrapper {
+      padding-top: 48px;
+    }
+    .block-text.centered {
+      .title {
+        font-size: $r55;
+      }
+      .block-body {
+        font-size: $r18;
+        line-height: $r22;
+      }
+    }
+    .panel-gateway {
+      .col-sm-4 {
+        width: 50%;
+      }
+      .col-1 {
+        padding-right: 6px;
+      }
+      .col-2 {
+        padding-left: 6px;
+      }
+      .col-3 {
+        clear: both;
+        display: block;
+        float: none;
+        margin: 0 auto;
+      }
+    }
+  }
+  @include mobile {
+    .page-wrapper {
+      padding-top: 20px;
+    }
+    .block-text.centered {
+      .title {
+        font-size: $r35;
+        line-height: 1;
+      }
+      .block-body {
+        font-size: $r17;
+        line-height: $r19;
+        br {
+          display: block;
+        }
+      }
+    }
+    .panel-gateway {
+      max-width: 310px;
+      margin: 0 auto;
+    }
+  }
+}

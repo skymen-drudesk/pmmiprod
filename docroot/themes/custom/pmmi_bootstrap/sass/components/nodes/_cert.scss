@@ -1,0 +1,26 @@
+// Certification tests node.
+.cert-info {
+  padding: 0;
+  list-style: none;
+  li {
+    margin-bottom: 30px;
+    .field--label {
+      @extend .sidehead1;
+    }
+    .field--item {
+      @extend .side-paragraph;
+    }
+    @include tablet-max {
+      padding-left: 15px;
+      padding-right: 8%;
+      width: 49.5%;
+      display: inline-block;
+      vertical-align: top;
+    }
+    @include mobile {
+      display: block;
+      width: auto;
+      padding-left: 15px;
+    }
+  }
+}

@@ -1,0 +1,9 @@
+uuid: fd9db21e-f1db-4774-8ba5-2c8d8851a430
+langcode: en
+status: true
+dependencies: {  }
+id: membership_committee
+label: 'Membership Committee'
+weight: 8
+is_admin: null
+permissions: {  }

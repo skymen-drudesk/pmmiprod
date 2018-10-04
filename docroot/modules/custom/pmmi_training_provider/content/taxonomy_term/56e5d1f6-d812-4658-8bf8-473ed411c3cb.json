@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/124?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/course_topics_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 124
+        }
+    ],
+    "uuid": [
+        {
+            "value": "56e5d1f6-d812-4658-8bf8-473ed411c3cb"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "course_topics_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "Fluid Power",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511255002,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Fluid Power | PMMI"
+            }
+        }
+    ]
+}

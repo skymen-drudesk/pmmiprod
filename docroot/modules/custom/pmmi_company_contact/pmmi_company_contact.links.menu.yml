@@ -1,0 +1,12 @@
+# Company contact menu items definition
+entity.pmmi_company_contact.collection:
+  title: 'Company contact list'
+  route_name: entity.pmmi_company_contact.collection
+  description: 'List Company contact entities'
+
+pmmi_company_contact.admin.structure.settings:
+  title: Company contact settings
+  description: 'Configure Company contact entities'
+  route_name: pmmi_company_contact.settings
+  parent: system.admin_structure
+

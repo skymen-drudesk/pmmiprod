@@ -1,0 +1,21 @@
+uuid: d725634d-fa07-4264-a04a-1e21daabc6d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - field.storage.block_content.field_dates
+  module:
+    - datetime_range
+id: block_content.event.field_dates
+field_name: field_dates
+entity_type: block_content
+bundle: event
+label: Date(s)
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: daterange

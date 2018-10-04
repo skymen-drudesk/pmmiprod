@@ -1,0 +1,433 @@
+<?php
+
+/**
+ * @file
+ * Update hooks for the pmmi fields module.
+ */
+
+use Drupal\Core\Database\Database;
+use Drupal\Core\Field\BaseFieldDefinition;
+use Drupal\Core\Field\FieldStorageDefinitionInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\Component\Serialization\Json;
+
+/**
+ * Implements hook_install().
+ */
+function pmmi_fields_install() {
+  pmmi_fields_update_8002();
+}
+
+/**
+ * Create "submenu_background" field definition.
+ */
+function pmmi_fields_update_8001() {
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  \Drupal::service('entity.definition_update_manager')->applyUpdates();
+}
+
+/**
+ * Create "submenu_background" field definition.
+ *
+ * Previous update 8001 doesn't work for that field.
+ */
+function pmmi_fields_update_8002() {
+  \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+}
+
+/**
+ * Update PackExpoShow Block.
+ *
+ * Update fields in the PackExpoShow Block type.
+ */
+function pmmi_fields_update_8003() {
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $db = \Drupal::database();
+  // Get existing storage definitions.
+  $field_dates = $manager->getFieldStorageDefinition('field_dates', 'block_content');
+  $field_button = $manager->getFieldStorageDefinition('field_button', 'block_content');
+  // Create new field_shows_dates.
+  $field_shows_dates = $field_dates->toArray();
+  $field_shows_dates['uuid'] = '5b4aa174-15a5-4590-8438-45f6ed8480b7';
+  $field_shows_dates['id'] = 'block_content.field_show_dates';
+  $field_shows_dates['field_name'] = 'field_show_dates';
+  $field_shows_dates['settings']['datetime_type'] = 'date';
+  $field_shows_dates = FieldStorageConfig::create($field_shows_dates);
+  $field_shows_dates->enforceIsNew(TRUE);
+  $field_shows_dates->save();
+  // Create new field_shows_dates.
+  $field_buttons = $field_button->toArray();
+  $field_buttons['uuid'] = 'bc313d99-66e3-4a09-8b89-2bc7af20483a';
+  $field_buttons['id'] = 'block_content.field_buttons';
+  $field_buttons['field_name'] = 'field_buttons';
+  $field_buttons = FieldStorageConfig::create($field_buttons);
+  $field_buttons->setCardinality(FieldStorageConfig::CARDINALITY_UNLIMITED);
+  $field_buttons->enforceIsNew(TRUE);
+  $field_buttons->save();
+
+  // Migrate existing field data.
+  $entity_type = 'block_content';
+
+  $data_field = [
+    [
+      'old' => 'field_dates',
+      'new' => 'field_show_dates',
+      'fields' => [
+        'bundle',
+        'deleted',
+        'entity_id',
+        'revision_id',
+        'langcode',
+        'delta',
+        'field_show_dates_value',
+        'field_show_dates_end_value',
+      ],
+    ],
+    [
+      'old' => 'field_button',
+      'new' => 'field_buttons',
+      'fields' => [
+        'bundle',
+        'deleted',
+        'entity_id',
+        'revision_id',
+        'langcode',
+        'delta',
+        'field_buttons_uri',
+        'field_buttons_title',
+        'field_buttons_options',
+      ],
+    ],
+  ];
+
+  foreach ($data_field as $key => $row) {
+    $tables_old[$key] = [
+      "{$entity_type}__{$row['old']}",
+      "{$entity_type}_revision__{$row['old']}",
+    ];
+    $tables_new[$key] = [
+      "{$entity_type}__{$row['new']}",
+      "{$entity_type}_revision__{$row['new']}",
+    ];
+    $tables_fields[$key] = $row['fields'];
+  }
+
+  $existing_data = [];
+  foreach ($tables_old as $main => $tables) {
+    // Get the old data.
+    foreach ($tables as $secondary => $table) {
+      // Retrieve existing field data.
+      $existing_data = $db->select($table)
+        ->fields($table)
+        ->condition('bundle', 'pack_expo_show')
+        ->execute()
+        ->fetchAll(PDO::FETCH_NUM);
+      // Insert existing field data.
+      $insert_query = $db
+        ->insert($tables_new[$main][$secondary])
+        ->fields($tables_fields[$main]);
+
+      foreach ($existing_data as $row) {
+        if ($main == 0) {
+          $row[6] = date_create($row[6])->format('Y-m-d');
+          $row[7] = date_create($row[7])->format('Y-m-d');
+        }
+        $insert_query->values(array_values($row));
+      }
+      $insert_query->execute();
+    }
+  }
+
+}
+
+/**
+ * Update Container Block.
+ *
+ * Update fields (block_1 - 6) in the Container Block type.
+ */
+function pmmi_fields_update_8004() {
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $db = \Drupal::database();
+
+  for ($i = 1; $i < 7; $i++) {
+    $field_definition = [];
+    $field_update = [];
+    $field_id = 'field_block_' . $i;
+    // Get existing storage definitions.
+    /** @var \Drupal\field\Entity\FieldStorageConfig $field_definition */
+    $field_definition = $manager->getFieldStorageDefinition($field_id, 'block_content');
+    $field_update = $field_definition->toArray();
+    $field_update['type'] = 'pmmi_entity_reference';
+    $field_update = FieldStorageConfig::create($field_update);
+    $field_update->original = $field_update;
+    $field_update->enforceIsNew(FALSE);
+    $tables = [
+      'base' => "block_content__{$field_id}",
+      'revision' => "block_content_revision__{$field_id}",
+    ];
+    $fields = [
+      'bundle',
+      'deleted',
+      'entity_id',
+      'revision_id',
+      'langcode',
+      'delta',
+      $field_id . '_target_id',
+      $field_id . '_view_mode',
+    ];
+    $data = [];
+
+    foreach ($tables as $table_id => $table) {
+      // Retrieve existing field data.
+      $data[$table_id] = $db->select($table)
+        ->fields($table)
+        ->execute()
+        ->fetchAll(PDO::FETCH_NUM);
+      // Truncate table.
+      $db->truncate($table)->execute();
+    }
+    $manager->updateFieldStorageDefinition($field_update);
+    $field_update->save();
+    // Insert existing field data.
+    foreach ($tables as $table_id => $table) {
+      $insert_query = $db
+        ->insert($table)
+        ->fields($fields);
+      foreach ($data[$table_id] as $row) {
+        $row[] = 'default';
+        $insert_query->values(array_values($row));
+      }
+      $insert_query->execute();
+    }
+    $etm = \Drupal::entityTypeManager();
+
+    // Updating field config items.
+    if (!$entity_fields = $etm->getStorage('field_config')
+      ->loadByProperties(array('field_name' => $field_id))
+    ) {
+      continue;
+    }
+    foreach ($entity_fields as $field) {
+      $new_field = $field->toArray();
+      $new_field['field_type'] = 'pmmi_entity_reference';
+
+      $new_field = FieldConfig::create($new_field);
+      $new_field->original = $field;
+      $new_field->enforceIsNew(FALSE);
+      $new_field->save();
+    }
+    // Updating entity view display configs.
+    $properties = array(
+      'targetEntityType' => $field_update->getTargetEntityTypeId(),
+      'bundle' => 'containers',
+    );
+    if ($view_displays = $etm
+      ->getStorage('entity_view_display')
+      ->loadByProperties($properties)
+    ) {
+      foreach ($view_displays as $view_display) {
+        if ($component = $view_display->getComponent($field_id)) {
+          // Map field reference formatters to pmmi entity reference ones.
+          if ($component['type'] == 'entity_reference_entity_view') {
+            $result_component = array(
+                'type' => 'pmmi_entity_reference_entity_view',
+                'settings' => $component['settings'],
+              ) + $component;
+            $view_display->setComponent($field_id, $result_component)->save();
+          }
+        }
+      }
+    }
+
+    // Updating entity form configs.
+    if ($form_displays = $etm->getStorage('entity_form_display')
+      ->loadByProperties($properties)
+    ) {
+      foreach ($form_displays as $form_display) {
+        if ($component = $form_display->getComponent($field_id)) {
+          switch ($component['type']) {
+            case 'entity_reference_autocomplete':
+              $type = 'pmmi_entity_reference_autocomplete';
+              break;
+
+            case 'inline_entity_form_complex':
+              $type = 'pmmi_inline_entity_form_complex';
+              break;
+          }
+
+          $form_display->setComponent($field_id, array(
+              'type' => $type,
+              'settings' => $component['settings'],
+            ) + $component)->save();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Update Download Content Type.
+ *
+ * Delete fields (Member Price, Non-Member Price, Disclaimer, Report Type, Year).
+ */
+function pmmi_fields_update_8005() {
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $etm = \Drupal::entityTypeManager();
+
+  $fields = [
+    'field_member_price',
+    'field_non_member_price',
+    'field_disclaimer',
+    'field_report_type',
+    'field_year',
+  ];
+  // Get existing storage definitions.
+  foreach ($fields as $field) {
+    /** @var \Drupal\field\Entity\FieldStorageConfig $field_definition */
+    $field_definition = $manager->getFieldStorageDefinition($field, 'node');
+    $field_definition->delete();
+    // Updating field config items.
+    if (!$entity_fields = $etm->getStorage('field_config')
+      ->loadByProperties(array('field_name' => $field))
+    ) {
+      continue;
+    }
+    foreach ($entity_fields as $field_id) {
+      $field_id->delete();
+    }
+    // Updating entity view display configs.
+    $properties = array(
+      'targetEntityType' => 'node',
+      'bundle' => 'download',
+    );
+    if ($view_displays = $etm
+      ->getStorage('entity_view_display')
+      ->loadByProperties($properties)
+    ) {
+      foreach ($view_displays as $view_display) {
+        if ($component = $view_display->getComponent($field)) {
+          // Delete field reference formatters.
+          $view_display->removeComponent($field)->save();
+        }
+      }
+    }
+    // Updating entity form configs.
+    if ($form_displays = $etm->getStorage('entity_form_display')
+      ->loadByProperties($properties)
+    ) {
+      foreach ($form_displays as $form_display) {
+        if ($component = $form_display->getComponent($field)) {
+          $form_display->removeComponent($field)->save();
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Update Event Block Type.
+ *
+ * Delete field (Members).
+ */
+function pmmi_fields_update_8006() {
+  \Drupal::entityTypeManager()->clearCachedDefinitions();
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  $config_factory = \Drupal::configFactory();
+  $etm = \Drupal::entityTypeManager();
+
+  $field = 'field_members';
+  $properties = array(
+    'targetEntityType' => 'block_content',
+    'bundle' => 'event',
+  );
+  /** @var \Drupal\field\Entity\FieldStorageConfig $field_definition */
+  $field_definition = $manager->getFieldStorageDefinition($field, 'block_content');
+  // Updating entity view display configs.
+  if ($view_displays = $etm
+    ->getStorage('entity_view_display')
+    ->loadByProperties($properties)
+  ) {
+    foreach ($view_displays as $view_display) {
+      if ($component = $view_display->getComponent($field)) {
+        // Delete field reference formatters.
+        $view_display->removeComponent($field)->save();
+      }
+    }
+  }
+  // Updating entity form configs.
+  if ($form_displays = $etm->getStorage('entity_form_display')
+    ->loadByProperties($properties)
+  ) {
+    foreach ($form_displays as $form_display) {
+      if ($component = $form_display->getComponent($field)) {
+        $form_display->removeComponent($field)->save();
+      }
+    }
+  }
+
+  $field_definition->delete();
+  // Updating field config items.
+  if ($entity_fields = $etm->getStorage('field_config')
+    ->loadByProperties(array('field_name' => $field))
+  ) {
+    foreach ($entity_fields as $field_id) {
+      $field_id->delete();
+    }
+  }
+
+}
+
+/**
+ * Remove 'Trade shows' field as it no longer needed.
+ */
+function pmmi_fields_update_8007() {
+  $field_config = \Drupal::entityManager()->getStorage('field_config');
+
+  if ($field = $field_config->load('node.company.field_trade_shows')) {
+    $field->delete();
+    field_purge_field($field);
+  }
+}
+
+/**
+ * Remove 'Expired' field as it no longer needed.
+ */
+function pmmi_fields_update_8008() {
+  $field_config = \Drupal::entityManager()->getStorage('field_config');
+
+  if ($field = $field_config->load('taxonomy_term.trade_shows.field_expired')) {
+    $field->delete();
+    field_purge_field($field);
+  }
+}
+
+/**
+ * Replace serialized data to json data in viewfield type tables.
+ */
+function pmmi_fields_update_8009() {
+  $fields = \Drupal::entityTypeManager()->getStorage('field_config')->loadByProperties(array('field_type' => 'viewfield'));
+  foreach ($fields as $field) {
+    $field_name = $field->getName();
+    $table = 'block_content__' . $field_name;
+    $tables = [$table, 'block_content_revision__' . $field_name];
+    $block_ids = Database::getConnection()->select($table, 't')
+      ->fields('t', ['entity_id', $field_name . '_settings'])
+      ->execute()->fetchAllKeyed();
+    foreach ($block_ids as $id => $settings) {
+      // We need to "unserialize" twice, as it's already wrongly stored in database.
+      $unserialized = unserialize(unserialize($settings));
+      if (is_array($unserialized)) {
+        $settings = Json::encode($unserialized);
+        foreach ($tables as $table) {
+          Database::getConnection()->update($table)
+            ->fields([$field_name . '_settings' => $settings])
+            ->condition('entity_id', $id)
+            ->execute();
+        }
+      }
+    }
+  }
+}

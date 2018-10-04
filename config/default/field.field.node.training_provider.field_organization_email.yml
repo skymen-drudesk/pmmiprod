@@ -1,0 +1,37 @@
+uuid: edd6d71a-ac62-4974-a0ec-cb775f713da5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_organization_email
+    - node.type.training_provider
+  module:
+    - double_field
+id: node.training_provider.field_organization_email
+field_name: field_organization_email
+entity_type: node
+bundle: training_provider
+label: 'Organization Email'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  first:
+    required: false
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    on_label: 'On'
+    off_label: 'Off'
+  second:
+    required: true
+    list: false
+    allowed_values: {  }
+    max: null
+    min: null
+    on_label: 'On'
+    off_label: 'Off'
+field_type: double_field

@@ -1,0 +1,21 @@
+uuid: 9daed9bc-c379-413a-a655-9f428f4e248d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_main_phone_number
+    - node.type.training_provider
+  module:
+    - telephone
+id: node.training_provider.field_main_phone_number
+field_name: field_main_phone_number
+entity_type: node
+bundle: training_provider
+label: 'Main Phone Number'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

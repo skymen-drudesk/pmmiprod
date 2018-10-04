@@ -1,0 +1,137 @@
+# Configuration schema for the PMMI SSO module
+
+pmmi_sso.settings:
+  type: config_object
+  label: 'PMMI SSO Settings'
+  mapping:
+    login_uri:
+      type: string
+      label: 'Login URI'
+    service_uri:
+      type: string
+      label: 'Service URI'
+    vi:
+      type: number
+      label: 'Vendor Identifier'
+    vu:
+      type: string
+      label: 'Vendor username'
+    vp:
+      type: string
+      label: 'Vendor password (HEX)'
+    vib:
+      type: string
+      label: 'Vendor initilization block (HEX)'
+    ims_uri:
+      type: string
+      label: 'IM Service URI'
+    ims_vu:
+      type: string
+      label: 'IMS vendor username'
+    ims_vp:
+      type: string
+      label: 'IMS vendor password (HEX)'
+    expiration:
+      type: number
+      label: 'Token expiration time'
+    data_service:
+      type: mapping
+      label: 'Personify Data Service Information'
+      mapping:
+        endpoint:
+          type: string
+          label: 'Personify endpoint'
+        username:
+          type: string
+          label: 'Personify username'
+        password:
+          type: string
+          label: 'Personify password'
+    user_accounts:
+      type: mapping
+      label: 'User Accounts'
+      mapping:
+        role_mapping:
+          type: sequence
+          label: 'Role mapping'
+          sequence:
+            type: mapping
+            mapping:
+              sso_role:
+                type: string
+                label: 'SSO User Role'
+              drupal_role_label:
+                type: string
+                label: 'Drupal Role label'
+              service:
+                type: string
+                label: 'Personify Service'
+              committee_id:
+                type: string
+                label: 'SSO CommitteeMasterCustomer'
+        login_link_enabled:
+          type: boolean
+          label: 'Login Link Enabled'
+        login_link_label:
+          type: label
+          label: 'Login Link Label'
+    gateway:
+      type: mapping
+      label: 'Gateway & Token Feature'
+      mapping:
+        check_frequency:
+          type: integer
+          label: 'Check Frequency'
+        token_frequency:
+          type: integer
+          label: 'Check Token Frequency'
+        token_action:
+          type: integer
+          label: 'Default action for the Token validation result'
+        paths:
+          type: condition.plugin.request_path
+          label: 'Paths'
+    advanced:
+      type: mapping
+      label: 'Advanced'
+      mapping:
+        debug_log:
+          type: boolean
+          label: 'Log Debug Information'
+        connection_timeout:
+          type: integer
+          label: 'Connection Timeout'
+
+pmmi_sso.company.settings:
+  type: config_object
+  label: 'PMMI SSO Personify Company Settings'
+  mapping:
+    time_duration:
+      type: number
+      label: 'Time duration'
+
+pmmi_sso.update.settings:
+  type: config_object
+  label: 'PMMI SSO Update Settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enable cron jobs'
+    main_interval_users:
+      type: number
+      label: 'Frequency at which to update the Users data'
+    interval_block:
+      type: number
+      label: 'Frequency at which to update the user block status'
+    interval_info:
+      type: number
+      label: 'Frequency at which to update the user information'
+    interval_roles:
+      type: number
+      label: 'Frequency at which to update the user roles'
+    main_interval_companies:
+      type: number
+      label: 'Frequency of cron jobs for Personify Companies updates'
+    interval_company:
+      type: number
+      label: 'Frequency at which to update the Personify Company'

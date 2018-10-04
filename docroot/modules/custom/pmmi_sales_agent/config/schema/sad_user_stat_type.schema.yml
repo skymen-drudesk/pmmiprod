@@ -1,0 +1,12 @@
+pmmi_sales_agent.sad_user_stat_type.*:
+  type: config_entity
+  label: 'Sales agent user stat type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

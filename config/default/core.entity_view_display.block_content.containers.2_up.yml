@@ -1,0 +1,186 @@
+uuid: ba9920c9-6eb3-448f-ac5c-ca30bb4d9db1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - core.entity_view_mode.block_content.2_up
+    - field.field.block_content.containers.field_block_1
+    - field.field.block_content.containers.field_block_2
+    - field.field.block_content.containers.field_block_3
+    - field.field.block_content.containers.field_block_4
+    - field.field.block_content.containers.field_block_5
+    - field.field.block_content.containers.field_block_6
+    - field.field.block_content.containers.field_block_plugin_1
+    - field.field.block_content.containers.field_block_plugin_2
+    - field.field.block_content.containers.field_block_plugin_3
+    - field.field.block_content.containers.field_block_plugin_4
+    - field.field.block_content.containers.field_block_plugin_5
+    - field.field.block_content.containers.field_block_plugin_6
+    - field.field.block_content.containers.field_block_select_1
+    - field.field.block_content.containers.field_block_select_2
+    - field.field.block_content.containers.field_block_select_3
+    - field.field.block_content.containers.field_block_select_4
+    - field.field.block_content.containers.field_block_select_5
+    - field.field.block_content.containers.field_block_select_6
+    - field.field.block_content.containers.field_block_views_1
+    - field.field.block_content.containers.field_block_views_2
+    - field.field.block_content.containers.field_block_views_3
+    - field.field.block_content.containers.field_block_views_4
+    - field.field.block_content.containers.field_block_views_5
+    - field.field.block_content.containers.field_block_views_6
+    - field.field.block_content.containers.field_button
+    - field.field.block_content.containers.field_center_text
+    - field.field.block_content.containers.field_head
+  module:
+    - ds
+    - link
+    - pmmi_fields
+third_party_settings:
+  ds:
+    layout:
+      id: onetwo
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      top:
+        - field_head
+      oneone:
+        - field_block_1
+        - field_block_plugin_1
+        - field_block_views_1
+      onetwo:
+        - field_block_2
+        - field_block_plugin_2
+        - field_block_views_2
+      bottom:
+        - field_button
+id: block_content.containers.2_up
+targetEntityType: block_content
+bundle: containers
+mode: 2_up
+content:
+  field_block_1:
+    type: pmmi_entity_reference_entity_view
+    settings:
+      link: true
+      view_mode: default
+    weight: 1
+    label: hidden
+    third_party_settings: {  }
+    region: oneone
+  field_block_2:
+    type: pmmi_entity_reference_entity_view
+    settings:
+      link: true
+      view_mode: default
+    weight: 4
+    label: hidden
+    third_party_settings: {  }
+    region: onetwo
+  field_block_plugin_1:
+    type: entity_reference_rendered_block_plugin
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: oneone
+  field_block_plugin_2:
+    type: entity_reference_rendered_block_plugin
+    weight: 5
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: onetwo
+  field_block_views_1:
+    type: viewfield_with_more_link
+    weight: 3
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: oneone
+  field_block_views_2:
+    type: viewfield_with_more_link
+    weight: 6
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: onetwo
+  field_button:
+    type: link
+    weight: 7
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: bottom
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: expert
+          settings:
+            lb: ''
+            prefix: ''
+            lbw-el: ''
+            lbw-cl: ''
+            lbw-at: ''
+            ow: true
+            ow-el: h2
+            ow-cl: field-name-field-head
+            ow-at: ''
+            fis-el: ''
+            fis-cl: ''
+            fis-at: ''
+            fi-el: ''
+            fi-cl: ''
+            fi-at: ''
+            suffix: ''
+            lbw: false
+            lb-col: false
+            ow-def-at: false
+            ow-def-cl: false
+            fis: false
+            fis-def-at: false
+            fi: false
+            fi-def-at: false
+    type: string
+    region: top
+hidden:
+  field_block_3: true
+  field_block_4: true
+  field_block_5: true
+  field_block_6: true
+  field_block_plugin_3: true
+  field_block_plugin_4: true
+  field_block_plugin_5: true
+  field_block_plugin_6: true
+  field_block_select_1: true
+  field_block_select_2: true
+  field_block_select_3: true
+  field_block_select_4: true
+  field_block_select_5: true
+  field_block_select_6: true
+  field_block_views_3: true
+  field_block_views_4: true
+  field_block_views_5: true
+  field_block_views_6: true
+  field_center_text: true

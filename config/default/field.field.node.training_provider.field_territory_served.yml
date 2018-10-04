@@ -1,0 +1,21 @@
+uuid: 31669397-c314-4235-9e7f-45a69e878711
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_territory_served
+    - node.type.training_provider
+  module:
+    - pmmi_address
+id: node.training_provider.field_territory_served
+field_name: field_territory_served
+entity_type: node
+bundle: training_provider
+label: Locations
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: country_area

@@ -1,0 +1,23 @@
+uuid: 8ed9e82b-2478-4171-af40-8ef23d1f5c75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website_url
+    - node.type.company
+  module:
+    - link
+id: node.company.field_website_url
+field_name: field_website_url
+entity_type: node
+bundle: company
+label: 'Website URL'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 0
+field_type: link

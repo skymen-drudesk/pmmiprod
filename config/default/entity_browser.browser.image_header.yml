@@ -1,0 +1,17 @@
+uuid: f3396303-d957-498b-a3f4-e68b9995e0ca
+langcode: en
+status: true
+dependencies: {  }
+name: image_header
+label: 'Image Header'
+display: modal
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select image'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: single
+widget_selector_configuration: {  }
+widgets: {  }

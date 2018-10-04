@@ -1,0 +1,94 @@
+uuid: d735feb6-fae8-4b0d-94c7-820852c5d817
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.brand
+    - core.entity_view_mode.block_content.mega_menu
+    - field.field.block_content.brand.body
+    - field.field.block_content.brand.field_button
+    - field.field.block_content.brand.field_head
+    - field.field.block_content.brand.field_logo
+    - image.style.shows_block_desktop
+  module:
+    - ds
+    - image
+    - linked_field
+    - pmmi_fields
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_logo
+        - field_head
+        - body
+id: block_content.brand.mega_menu
+targetEntityType: block_content
+bundle: brand
+mode: mega_menu
+content:
+  body:
+    label: hidden
+    type: pmmi_trimmed
+    weight: 2
+    settings:
+      trim_length: '90'
+      word_boundary: '1'
+      strip_tags: '1'
+      preserve_tags: ''
+      ellipsis: 0
+      html: 0
+      nl2br: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: main
+  field_head:
+    type: string
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: main
+  field_logo:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: shows_block_desktop
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      linked_field:
+        linked: '1'
+        type: field
+        destination: field_button
+        advanced: {  }
+    type: image
+    region: main
+hidden:
+  field_button: true

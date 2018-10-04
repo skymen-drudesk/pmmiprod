@@ -1,0 +1,12 @@
+fieldset[id*='page-type'] {
+  display: inline-block;
+  margin-right: 15px;
+}
+fieldset[id*='page-type'] legend {
+  display: none;
+}
+fieldset[id*='page-type'] .checker {
+  display: inline-block;
+  vertical-align: top;
+  margin: -2px 4px 0 0;
+}

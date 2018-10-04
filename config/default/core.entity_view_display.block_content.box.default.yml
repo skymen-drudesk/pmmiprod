@@ -1,0 +1,103 @@
+uuid: 7ce87a67-3ad0-4613-9639-561c9ad84b9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.box
+    - field.field.block_content.box.body
+    - field.field.block_content.box.field_box_type
+    - field.field.block_content.box.field_buttons
+    - field.field.block_content.box.field_head
+    - field.field.block_content.box.field_image
+    - responsive_image.styles.block_style_5
+  module:
+    - ds
+    - link
+    - responsive_image
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_image
+        - field_head
+        - body
+        - field_buttons
+id: block_content.box.default
+targetEntityType: block_content
+bundle: box
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: head
+  field_buttons:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: link
+    region: head
+  field_head:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: block_style_5
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: responsive_image
+    region: head
+hidden:
+  field_box_type: true

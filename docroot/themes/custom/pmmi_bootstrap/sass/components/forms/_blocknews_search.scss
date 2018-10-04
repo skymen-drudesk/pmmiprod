@@ -1,0 +1,28 @@
+// Override default styles for exposed filter press-releases form.
+.region-top {
+  .block.block-views-exposed-filter-blocknews-search-api-paged,
+  .block.block-views-exposed-filter-blockblog-search-api-block-1 {
+    form {
+      .select-wrapper {
+        @include dhd {
+          width: 220px;
+        }
+        @include desktop {
+          width: 220px;
+        }
+      }
+      @include tablet {
+        label {
+          margin-right: 3px;
+        }
+        .select-wrapper {
+          width: 175px;
+          margin-right: 10px;
+        }
+        button {
+          min-width: 100px;
+        }
+      }
+    }
+  }
+}

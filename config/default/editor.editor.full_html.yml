@@ -1,0 +1,82 @@
+uuid: a5a18d10-1b8d-485a-aa9d-785606632381
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+            - Superscript
+            - Subscript
+            - RemoveFormat
+            - Format
+            - Styles
+            - TextColor
+        -
+          name: Alignment
+          items:
+            - JustifyLeft
+            - JustifyCenter
+            - JustifyRight
+            - JustifyBlock
+            - Outdent
+            - Indent
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+      -
+        -
+          name: Media
+          items:
+            - Table
+            - Blockquote
+            - DrupalImage
+            - SpecialChar
+            - HorizontalRule
+            - file_browser
+        -
+          name: Tools
+          items:
+            - Source
+            - Undo
+            - Redo
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+  plugins:
+    stylescombo:
+      styles: "h2.title|H2 block title\r\ntable.responsive|Responsive promo table with image\r\ntable.cardtable| Responsive table with stacked columns\r\nh2.headline2|Headline 2\r\nh3.headline3|Headline 3\r\nh4.headline4|Headline 4\r\np.paragraph1|Paragraph 1\r\np.paragraph3|Paragraph 3\r\nspan.button.btn-prm-wrap|Primary button\r\na.button-primary|Dark blue button\r\na.btn-primary-opacity|Light blue button\r\nspan.copy-button|Copy button\r\n"
+    language:
+      language_list: un
+    colorbutton:
+      colors: '004D74,0D70B9'
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

@@ -1,0 +1,19 @@
+{% set color = content.color[0][0]['#markup'] ? 'blue': 'red' %}
+<div{{ content['#attrs'].addClass('block-news') }}">
+
+  {{ field_render([content.block_title, 'title', 'h2']) }}
+
+  {{ field_render([content.logo, 'logo']) }}
+
+  <div class="info">
+
+    {{ field_render([content.date, 'date']) }}
+
+    {{ field_render([content.head, 'head']) }}
+
+    {{ field_render([content.body, 'block-body']) }}
+
+    {{ field_render([content.button, 'button btn-prm-wrap']) }}
+
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div {{ content['#attrs'].addClass('school-node node-layout') }}>
+  <div class="top-banner clearfix">
+    {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="content-right col-md-9 col-md-push-3">
+        <h2 class="node-title">
+          {{ content.title }}
+        </h2>
+
+        {{ field_render([content.image, 'img']) }}
+
+        {{ field_render([content.progarm_focus, 'focus']) }}
+
+        {{ field_render([content.body, 'node-body']) }}
+
+        {{ field_render([content.content_verified, 'content-verified']) }}
+
+      </div>
+      <div class="content-left col-md-3 col-md-pull-9">
+        {% set info = [
+        'logo',
+        'address',
+        'phone',
+        'email',
+        'website',
+        ] %}
+        <div class="school-info">
+          <h2 class="title">
+            {{ 'School Information'|trans }}
+          </h2>
+
+          {% for field in info %}
+            {{ field_render([content[field], field|clean_class]) }}
+          {% endfor %}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,19 @@
+uuid: fc2b9c6f-6df7-4dfd-b72a-5e3bb0e0ff6a
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_sales_agent
+id: sales_agent_directory_my_favorites
+label: 'Sales Agent Directory - My favorites'
+description: ''
+use_admin_theme: false
+path: /sales-agent-directory/favorites
+access_logic: and
+access_conditions:
+  -
+    id: sales_agent_permission
+    permission: 'pmmi sales agent favorites'
+    negate: false
+    context_mapping: {  }
+parameters: {  }

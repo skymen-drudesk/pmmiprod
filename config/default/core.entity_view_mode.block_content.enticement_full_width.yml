@@ -1,0 +1,10 @@
+uuid: 438980fa-6d33-48d7-9de1-27e8a9057caa
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.enticement_full_width
+label: 'Enticement grey(full width or parial)'
+targetEntityType: block_content
+cache: true

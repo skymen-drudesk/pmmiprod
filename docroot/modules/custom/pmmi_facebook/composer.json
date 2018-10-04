@@ -1,0 +1,8 @@
+{
+  "name": "pmmi/pmmi_facebook",
+  "type": "drupal-module",
+  "description": "PMMI Facebook",
+  "require": {
+    "facebook/graph-sdk": "^5.4"
+  }
+}

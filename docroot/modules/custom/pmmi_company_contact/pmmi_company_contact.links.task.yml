@@ -1,0 +1,22 @@
+# Company contact routing definition
+pmmi_company_contact.settings_tab:
+  route_name: pmmi_company_contact.settings
+  title: 'Settings'
+  base_route: pmmi_company_contact.settings
+
+entity.pmmi_company_contact.canonical:
+  route_name: entity.pmmi_company_contact.canonical
+  base_route: entity.pmmi_company_contact.canonical
+  title: 'View'
+
+entity.pmmi_company_contact.edit_form:
+  route_name: entity.pmmi_company_contact.edit_form
+  base_route: entity.pmmi_company_contact.canonical
+  title: Edit
+
+entity.pmmi_company_contact.delete_form:
+  route_name:  entity.pmmi_company_contact.delete_form
+  base_route:  entity.pmmi_company_contact.canonical
+  title: Delete
+  weight: 10
+

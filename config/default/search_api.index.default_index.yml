@@ -1,0 +1,232 @@
+uuid: f9299671-c1e5-44ad-9790-7e27da66a240
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - field.storage.node.field_address
+    - field.storage.node.field_news_category
+    - field.storage.node.field_date
+    - field.storage.node.field_category
+    - field.storage.node.field_available_from_date
+    - field.storage.node.field_blog_date
+    - field.storage.node.field_blog_category
+    - field.storage.node.field_keywords
+    - search_api.server.acquia_search_server
+  module:
+    - search_api_solr
+    - search_api
+    - pmmi_reports
+    - pmmi_search
+    - node
+    - pmmi_page_manager_search
+id: default_index
+name: 'Default Index'
+description: ''
+read_only: false
+field_settings:
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  report_year:
+    label: 'Report available date(year)'
+    property_path: report_year
+    type: integer
+  title:
+    label: 'Title String'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  title_f:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 13
+  body_f:
+    label: Body
+    datasource_id: 'entity:node'
+    property_path: body
+    type: text
+    boost: !!float 13
+    dependencies:
+      config:
+        - field.storage.node.body
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  administrative_area:
+    label: 'Address » The top-level administrative subdivision of the country.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:administrative_area'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  field_news_category:
+    label: 'News Category'
+    datasource_id: 'entity:node'
+    property_path: field_news_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_news_category
+  locality:
+    label: 'Address » The locality (i.e. city).'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:locality'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  postal_code:
+    label: 'Address » The postal code.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:postal_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  address_line1:
+    label: 'Address » The first line of the address block.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:address_line1'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  address_line2:
+    label: 'Address » The second line of the address block.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:address_line2'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  field_date:
+    label: Date
+    datasource_id: 'entity:node'
+    property_path: field_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_date
+  field_category:
+    label: Category
+    datasource_id: 'entity:node'
+    property_path: field_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_category
+  field_available_from_date:
+    label: 'Available from date'
+    datasource_id: 'entity:node'
+    property_path: field_available_from_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_available_from_date
+  field_blog_date:
+    label: Date
+    datasource_id: 'entity:node'
+    property_path: field_blog_date
+    type: date
+    dependencies:
+      config:
+        - field.storage.node.field_blog_date
+  field_blog_category:
+    label: 'Blog category'
+    datasource_id: 'entity:node'
+    property_path: field_blog_category
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_blog_category
+  field_keywords:
+    label: Keywords
+    datasource_id: 'entity:node'
+    property_path: field_keywords
+    type: text
+    boost: !!float 13
+    dependencies:
+      config:
+        - field.storage.node.field_keywords
+  content:
+    label: Content
+    datasource_id: 'entity:pmmi_page_manager_search'
+    property_path: content
+    type: solr_text_omit_norms
+    boost: !!float 13
+  title_1:
+    label: Title
+    datasource_id: 'entity:pmmi_page_manager_search'
+    property_path: title
+    type: solr_text_omit_norms
+    boost: !!float 21
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: true
+      selected:
+        - company
+        - training_provider
+    languages:
+      default: true
+      selected: {  }
+  'entity:pmmi_page_manager_search': {  }
+processor_settings:
+  report_year: {  }
+  pmmi_shows: {  }
+  country: {  }
+  state: {  }
+  aggregated_field: {  }
+  add_url: {  }
+  rendered_item: {  }
+  content_access:
+    weights:
+      preprocess_query: -30
+  ignorecase:
+    all_fields: false
+    fields:
+      - title
+      - title_f
+      - body_f
+      - content
+      - title_1
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+  entity_status: {  }
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: acquia_search_server

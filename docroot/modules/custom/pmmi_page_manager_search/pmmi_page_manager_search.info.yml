@@ -1,0 +1,7 @@
+name: 'PMMI: Page Manager Search'
+description: 'Integration Page Manager with core Search and Search API'
+type: module
+package: PMMI
+core: 8.x
+dependencies:
+  - page_manager

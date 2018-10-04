@@ -1,0 +1,30 @@
+uuid: cd027979-6f61-4fc6-9285-cabc6bdf77ab
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: j5zLMOdJBqC0bMvSdth5UebkprJB8g_2FXHqhfpJzow
+id: anonymous
+label: 'Anonymous user'
+weight: 0
+is_admin: false
+permissions:
+  - 'access content'
+  - 'create company content'
+  - 'download any archive files'
+  - 'download any audio files'
+  - 'download any document files'
+  - 'download any image files'
+  - 'download any video files'
+  - 'download own archive files'
+  - 'download own audio files'
+  - 'download own document files'
+  - 'download own image files'
+  - 'download own video files'
+  - 'dropzone upload files'
+  - 'edit any company content'
+  - 'use draft_draft transition'
+  - 'use sales_agent_admin transition create_new_draft'
+  - 'view files'
+  - 'view own unpublished content'
+  - 'view pmmi_page_manager_search entity'

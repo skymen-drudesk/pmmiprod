@@ -1,0 +1,14 @@
+uuid: 0b3c00ff-e8b2-4c04-86f5-bb30c5416f5e
+langcode: en
+status: true
+dependencies: {  }
+name: accordion_styles_dhd
+label: 'Accordion Styles - DHD (269px by 152px)'
+effects:
+  3f334255-e34d-436f-a239-dbb6e1caf941:
+    uuid: 3f334255-e34d-436f-a239-dbb6e1caf941
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 269
+      height: 152

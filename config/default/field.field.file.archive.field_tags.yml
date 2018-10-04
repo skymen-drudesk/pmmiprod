@@ -1,0 +1,28 @@
+uuid: 6f2a7e52-7094-4ad5-9103-dc6bdc4c63af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.file.field_tags
+    - file_entity.type.archive
+    - taxonomy.vocabulary.tags
+id: file.archive.field_tags
+field_name: field_tags
+entity_type: file
+bundle: archive
+label: Tags
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      tags: tags
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,12 @@
+uuid: 4cbdecd0-b5e8-4381-be99-be428aa9935e
+langcode: en
+status: true
+dependencies: {  }
+id: business_intelligence_international_research
+label: 'Business Intelligence - International Research'
+description: ''
+use_admin_theme: false
+path: /business-intelligence/international-research
+access_logic: and
+access_conditions: {  }
+parameters: {  }

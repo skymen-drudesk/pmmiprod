@@ -1,0 +1,154 @@
+uuid: 9937af69-7874-4375-8a7f-50614ee552ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - field.field.block_content.event.field_button
+    - field.field.block_content.event.field_dates
+    - field.field.block_content.event.field_event_types
+    - field.field.block_content.event.field_exclude_main_calendar
+    - field.field.block_content.event.field_head
+    - field.field.block_content.event.field_hosted_by
+    - field.field.block_content.event.field_link
+    - field.field.block_content.event.field_location
+  module:
+    - ds
+    - pmmi_fields
+    - pmmi_training_provider
+third_party_settings:
+  ds:
+    layout:
+      id: block_event_default
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      dates:
+        - field_dates
+      head:
+        - field_head
+      location:
+        - field_location
+      hosted_by:
+        - field_hosted_by
+      link:
+        - field_link
+id: block_content.event.default
+targetEntityType: block_content
+bundle: event
+mode: default
+content:
+  field_dates:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format_month: F
+      date_format_day: j
+      date_format_year: 'Y'
+      show_end_date: '1'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: daterange_event_custom
+    region: dates
+  field_head:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_hosted_by:
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Hosted by:'
+            lb-col: false
+            classes: {  }
+    type: string
+    region: hosted_by
+  field_link:
+    type: link_as_label
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+      link_label: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: link
+  field_location:
+    type: address_simple
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: location
+  field_locations:
+    weight: 8
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_members_only:
+    type: views_field_formatter
+    weight: 0
+    label: above
+    settings:
+      view: ''
+      arguments:
+        field_value:
+          checked: true
+        entity_id:
+          checked: true
+        delta:
+          checked: true
+      multiple: false
+      implode_character: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_button: true
+  field_event_types: true
+  field_exclude_main_calendar: true

@@ -1,0 +1,23 @@
+uuid: 9b1003b3-0c53-4313-9a1d-b072d457424a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_media
+    - field.storage.block_content.field_youtube
+  module:
+    - link
+id: block_content.social_media.field_youtube
+field_name: field_youtube
+entity_type: block_content
+bundle: social_media
+label: YouTube
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 2
+field_type: link

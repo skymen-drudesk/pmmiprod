@@ -1,0 +1,16 @@
+<div id="video-node-info">
+  <h2 class="node-title">
+    {{ content.title }}
+  </h2>
+
+  {{ field_render([content.video, 'video-container']) }}
+
+  {{ field_render([content.date, 'date']) }}
+
+  {{ field_render([content.body, 'node-body']) }}
+
+  {{ field_render([content.featured_speaker, 'featured-speaker']) }}
+
+  {{ field_render([content.link, 'link']) }}
+
+</div>

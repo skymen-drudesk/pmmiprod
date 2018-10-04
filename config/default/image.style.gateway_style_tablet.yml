@@ -1,0 +1,14 @@
+uuid: ba4fb836-39ee-4654-8b07-1ab9e73e1c17
+langcode: en
+status: true
+dependencies: {  }
+name: gateway_style_tablet
+label: 'Gateway style - Tablet (353px by 228px)'
+effects:
+  8f6071ee-cec5-4aa2-9e93-27c08fb2c59e:
+    uuid: 8f6071ee-cec5-4aa2-9e93-27c08fb2c59e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 353
+      height: 228

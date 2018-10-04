@@ -1,0 +1,15 @@
+uuid: e4b298f1-8dfd-4bd0-a97f-3d895113f1f0
+langcode: en
+status: true
+dependencies: {  }
+name: shows_block_desktop
+label: 'Shows Block - Desktop and Mobile (auto by 70px)'
+effects:
+  c56ebd7f-312b-45ed-822c-6b38e2946703:
+    uuid: c56ebd7f-312b-45ed-822c-6b38e2946703
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 70
+      upscale: false

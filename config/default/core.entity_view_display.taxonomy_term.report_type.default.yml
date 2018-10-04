@@ -1,0 +1,30 @@
+uuid: d0ceb5a6-a86c-4688-b5cf-90be80ec97dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.report_type.field_personify_class
+    - taxonomy.vocabulary.report_type
+  module:
+    - text
+id: taxonomy_term.report_type.default
+targetEntityType: taxonomy_term
+bundle: report_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_personify_class:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden: {  }

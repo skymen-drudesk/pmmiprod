@@ -1,0 +1,5 @@
+services:
+  pmmi_page_manager_search_event_subscriber:
+     class: Drupal\pmmi_page_manager_search\EventSubscriber\PageManagerSearchRedirect
+     tags:
+       - {name: event_subscriber}

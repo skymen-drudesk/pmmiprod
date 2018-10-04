@@ -1,0 +1,178 @@
+uuid: b60b4da3-aecd-4eba-9a82-ef737092df61
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_featured_speaker
+    - field.field.node.video.field_image_header
+    - field.field.node.video.field_link
+    - field.field.node.video.field_meta_tags
+    - field.field.node.video.field_video
+    - field.field.node.video.field_video_type
+    - field.field.node.video.field_yoast_seo
+    - node.type.video
+  module:
+    - datetime
+    - ds
+    - link
+    - text
+    - user
+    - video
+third_party_settings:
+  ds:
+    layout:
+      id: video
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - content_moderation_control
+        - field_image_header
+      title:
+        - node_title
+      body:
+        - body
+      video:
+        - field_video
+      date:
+        - field_date
+      featured_speaker:
+        - field_featured_speaker
+      link:
+        - field_link
+      left_block:
+        - 'dynamic_block_field:node-videos_left_block'
+      view_region:
+        - 'dynamic_block_field:node-videos_view'
+    fields:
+      'dynamic_block_field:node-videos_left_block':
+        plugin_id: 'dynamic_block_field:node-videos_left_block'
+        weight: 8
+        label: hidden
+        formatter: default
+      'dynamic_block_field:node-videos_view':
+        plugin_id: 'dynamic_block_field:node-videos_view'
+        weight: 9
+        label: hidden
+        formatter: default
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      node_title:
+        plugin_id: node_title
+        weight: 2
+        label: hidden
+        formatter: default
+id: node.video.full
+targetEntityType: node
+bundle: video
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: body
+  content_moderation_control:
+    weight: 0
+    region: image_header
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    weight: 5
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_year
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: datetime_default
+    region: date
+  field_featured_speaker:
+    weight: 6
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Featured Speaker:'
+            lb-col: false
+            classes: {  }
+    type: string
+    region: featured_speaker
+  field_image_header:
+    type: entity_reference_entity_view
+    weight: 1
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: image_header
+  field_link:
+    type: link
+    weight: 7
+    region: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_video:
+    weight: 4
+    label: hidden
+    settings:
+      width: '870'
+      height: '480'
+      autoplay: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: video_embed_player
+    region: video
+hidden:
+  field_meta_tags: true
+  field_video_type: true
+  field_yoast_seo: true
+  links: true

@@ -1,0 +1,21 @@
+uuid: 16c41c0a-df3f-4a7a-a3e0-5620d962b009
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_territory_served
+    - node.type.company
+  module:
+    - pmmi_address
+id: node.company.field_territory_served
+field_name: field_territory_served
+entity_type: node
+bundle: company
+label: 'Territory served'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: country_area

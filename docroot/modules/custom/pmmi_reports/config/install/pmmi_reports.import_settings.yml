@@ -1,0 +1,9 @@
+dependencies:
+  config:
+    - field.field.taxonomy_term.report_type.field_personify_class
+categories:
+  - BENCHMARKING
+  - ECONOMIC-TRENDS
+  - INDUSTRY-RPTS
+  - INTL-RESEARCH
+images_base_path: 'https://pmmiprod3ebiz.personifycloud.com/ProductImages/'

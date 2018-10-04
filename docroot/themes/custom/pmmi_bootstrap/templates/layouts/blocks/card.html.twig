@@ -1,0 +1,25 @@
+<div {{ content['#attrs'].addClass('block-card') }}>
+  <div class="flipper">
+    <div class="front-side side">
+      <div class="card-content">
+
+        {{ field_render([content.image, 'image']) }}
+
+        {{ field_render([content.head, 'title', 'h2']) }}
+
+      </div>
+
+    </div>
+    <div class="back-side side">
+      <div class="align-center card-content">
+
+        {{ field_render([content.icon, 'card-icon']) }}
+
+        {{ field_render([content.body, 'block-body']) }}
+
+        {{ field_render([content.button, 'button btn-prm-wrap']) }}
+
+      </div>
+    </div>
+  </div>
+</div>

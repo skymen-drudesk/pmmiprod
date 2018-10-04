@@ -1,0 +1,129 @@
+/* EVENT VIEW MODES. */
+// Default event view.
+.block-event-default {
+  @include event_news;
+  .link {
+    a {
+      background-color: $blue;
+      border-color: $blue;
+    }
+    a:hover {
+      background-color: $dkblue;
+      border-color: $dkblue;
+    }
+  }
+}
+
+.block-event-ribbon {
+  padding-left: 76px;
+  color: #fff;
+  background: $blue;
+  @extend .clearfix;
+  .date {
+    float: left;
+    margin-left: -76px;
+  }
+  .date_range {
+    font-size: $r12;
+    line-height: $r16;
+    margin-bottom: 5px;
+    font-style: italic;
+    font-weight: bold;
+    @extend .inherited-p;
+  }
+  .start-date,
+  .end-date {
+    background: #fff;
+    width: 64px;
+    height: 119px;
+    text-align: center;
+    color: $blue;
+    padding: 6px 0 0;
+    position: relative;
+    overflow: hidden;
+    &:after {
+      content: "";
+      display: block;
+      border-right: 130px solid transparent;
+      border-bottom: 70px solid $blue;
+      border-left: 130px solid transparent;
+      position: absolute;
+      left: 50%;
+      margin-left: -130px;
+      bottom: -48px;
+    }
+    span {
+      display: block;
+    }
+    .month,
+    .year {
+      font-size: $r14;
+      line-height: $r17;
+      font-weight: 900;
+    }
+    .day {
+      font-family: $trumpgothicpro;
+      font-size: $r50;
+      line-height: 1;
+      font-weight: 700;
+    }
+  }
+  .title {
+    font-size: $r16;
+    line-height: 1;
+    color: #fff;
+    font-weight: 900;
+    margin-bottom: 3px;
+  }
+  .location {
+    font-size: $r13;
+    line-height: $r17;
+    margin-bottom: 10px;
+    @extend .inherited-p;
+  }
+  .link {
+    a {
+      font-size: $r14;
+      line-height: $r16;
+      color: #fff;
+      font-weight: 900;
+      &:after {
+        content: "»";
+        padding-left: 2px;
+      }
+    }
+  }
+}
+.mode-event-left-rail {
+  margin-bottom: 7px;
+  padding-bottom: 13px;
+  border-bottom: 1px solid $mdgrey;
+  .field {
+    margin-bottom: 2px;
+  }
+  .field-name-field-dates {
+    @extend .headline4;
+  }
+  .field-name-field-head {
+    @extend .sidehead3;
+  }
+  .field-name-field-location {
+    @extend .side-paragraph;
+    p {
+      margin: 0;
+    }
+    .country {
+      display: none;
+    }
+  }
+  .field-name-field-link {
+    margin: 5px 0;
+    a {
+      @extend .text-link;
+    }
+  }
+  .field-name-field-button {
+    margin: 5px 0;
+    @extend .btn-prm-wrap;
+  }
+}

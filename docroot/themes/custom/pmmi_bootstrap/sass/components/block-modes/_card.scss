@@ -1,0 +1,295 @@
+/* CARD BLOCK. */
+.block-card {
+  margin: 0 auto 20px;
+  max-width: 370px;
+  .flipper {
+    height: 290px;
+    text-align: center;
+    position: relative;
+    .ie11 & {
+      transition: 0.5s ease-out;
+      -o-transition: 0.5s ease-out;
+      -ms-transition: 0.5s ease-out;
+
+      transform-style: preserve-3d;
+      -o-transform-style: preserve-3d;
+      -ms-transform-style: preserve-3d;
+
+      backface-visibility: visible;
+      -o-backface-visibility: visible;
+      -ms-backface-visibility: visible;
+    }
+  }
+  .side {
+    transform-style: preserve-3d;
+    transition: transform 0.5s linear;
+    background-color: white;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    padding: 10px;
+    backface-visibility: hidden;
+    overflow: hidden;
+    @include box-shadow(0 1px 6px #8c8888);
+    .ie11 & {
+      backface-visibility: hidden;
+      -o-backface-visibility: hidden;
+      -ms-backface-visibility: visible;
+    }
+  }
+  .image {
+    margin-bottom: 19px;
+  }
+  .title {
+    color: $blue;
+    text-transform: uppercase;
+    font-size: $r19;
+    line-height: $r21;
+    font-weight: 900;
+    @include tablet-max {
+      font-size: $r15;
+      line-height: $r17;
+    }
+  }
+  .block-body {
+    font-size: $r16;
+    line-height: $r21;
+    font-weight: $medium;
+    color: $blue;
+    margin-bottom: 22px;
+    @include tablet-max {
+      font-size: $r12;
+      line-height: $r14;
+    }
+    @extend .inherited-p;
+  }
+  .front-side {
+    .ie11 & {
+      transform: rotateY(0deg);
+      -o-transform: rotateY(0deg);
+      -ms-transform: rotateY(0deg);
+
+      animation: stayvisible 0.7s both;
+      -o-animation: stayvisible 0.7s both;
+      -ms-animation: donothing 0.5s;
+      -ms-transition: visibility 0s linear 0.17s;
+      visibility: visible;
+    }
+  }
+  .back-side {
+    transform: rotateY(-180deg);
+    font-size: 0;
+    &:before {
+      display: inline-block;
+      content: "";
+      vertical-align: middle;
+      height: 100%;
+    }
+    .align-center {
+      display: inline-block;
+      vertical-align: middle;
+      width: 100%;
+      padding: 0 10px;
+    }
+    .card-icon {
+      margin-bottom: 10px;
+      img {
+        display: inline-block;
+      }
+    }
+    .ie11 & {
+      transform: rotateY(-180deg);
+      -o-transform: rotateY(-180deg);
+      -ms-transform: rotateY(-180deg);
+
+      animation: stayvisible 0.5s both;
+      -o-animation: stayvisible 0.5s both;
+      -ms-animation: donothing 0.5s;
+      -ms-transition: visibility 0s linear 0.17s;
+      visibility: hidden;
+    }
+  }
+  &:hover {
+    .flipper {
+      .ie11 & {
+        transform: rotateY(180deg);
+        -o-transform: rotateY(180deg);
+        -ms-transform: rotateY(180deg);
+      }
+    }
+    .front-side {
+      transform: rotateY(180deg);
+      .ie11 & {
+        transform: rotateY(0deg);
+        -o-transform: rotateY(0deg);
+        -ms-transform: rotateY(0deg);
+
+        animation: stayvisible 0.5s both;
+        -o-animation: stayvisible 0.5s both;
+        -ms-animation: donothing 0.5s;
+        -ms-transition: visibility 0s linear 0.17s;
+        visibility: hidden;
+      }
+    }
+    .back-side {
+      transform: rotateY(0deg);
+      .ie11 & {
+        transform: rotateY(-180deg);
+        -o-transform: rotateY(-180deg);
+        -ms-transform: rotateY(-180deg);
+
+        animation: stayvisible 0.5s both;
+        -o-animation: stayvisible 0.5s both;
+        -ms-animation: donothing 0.5s;
+        -ms-transition: visibility 0s linear 0.17s;
+        visibility: visible;
+      }
+    }
+  }
+  @include desktop {
+    max-width: 310px;
+    .side {
+      padding: 8px;
+    }
+    .image {
+      margin-bottom: 16px;
+    }
+    .flipper {
+      height: 244px;
+    }
+  }
+  @include tablet {
+    max-width: 230px;
+    .side {
+      padding: 6px;
+    }
+    .image {
+      margin-bottom: 11px;
+    }
+    .flipper {
+      height: 180px;
+    }
+  }
+  @include mobile {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    .side {
+      padding: 6px;
+    }
+    .flipper {
+      height: 218px;
+    }
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  // Mode 4-up.
+  &.mode-4-up {
+    @include dhd {
+      .flipper {
+        height: 230px;
+      }
+    }
+    // Desktop.
+    @include desktop {
+      max-width: 230px;
+      .flipper {
+        height: 205px;
+      }
+      .block-body {
+        font-size: $r12;
+        line-height: $r14;
+      }
+    }
+    // Tablet.
+    @include tablet {
+      max-width: 290px;
+      margin-bottom: 16px;
+      .side {
+        padding: 10px;
+      }
+      .button a {
+        min-width: 140px;
+      }
+      .flipper {
+        height: 255px;
+      }
+      .image {
+        margin-bottom: 15px;
+      }
+      .title {
+        font-size: $r17;
+        line-height: $r21;
+      }
+    }
+    // Mobile.
+    @include mobile {
+      max-width: 282px;
+    }
+  }
+  // Mode 5-up.
+  &.mode-5-up {
+    @include dhd {
+      max-width: 170px;
+      .flipper {
+        height: 170px;
+      }
+      .title {
+        font-size: $r16;
+        line-height: $r19;
+        @include tablet-max {
+          font-size: $r15;
+          line-height: $r17;
+        }
+      }
+      .block-body {
+        font-size: $r12;
+        line-height: $r14;
+        font-weight: 500;
+      }
+      .side {
+        padding: 4px;
+      }
+      .button {
+        a {
+          width: 100%;
+          min-width: 0;
+        }
+      }
+    }
+    // Desktop.
+    @include desktop {
+      max-width: 310px;
+      .flipper {
+        height: 244px;
+      }
+      .title {
+        font-size: $r19;
+        line-height: $r21;
+      }
+      .block-body {
+        font-size: $r16;
+        line-height: $r21;
+      }
+    }
+    // Tablet.
+    @include tablet {
+      max-width: 230px;
+      .flipper {
+        height: 180px;
+      }
+    }
+    // Mobile.
+    @include mobile {
+      max-width: 280px;
+      .flipper {
+        height: 218px;
+      }
+    }
+  }
+}
+

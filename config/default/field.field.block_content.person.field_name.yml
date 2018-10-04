@@ -1,0 +1,19 @@
+uuid: fee7665e-ba51-49ee-b757-dae6cc7b6030
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_name
+id: block_content.person.field_name
+field_name: field_name
+entity_type: block_content
+bundle: person
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

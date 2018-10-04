@@ -1,0 +1,233 @@
+/* IMAGE SLIDE VIEW MODES. */
+// Image slide default.
+nav.slick__arrow {
+  position: relative;
+  margin: auto;
+}
+button.slick-arrow {
+  position: absolute;
+  top: 50%;
+  width: auto;
+  margin-top: -200px;
+  padding: 16px;
+  color: white;
+  font-weight: bold;
+  font-size: 18px;
+  transition: 0.6s ease;
+  border-radius: 0 3px 3px 0;
+  border: 0;
+  background: none;
+}
+button.slick-arrow:hover {
+  background-color: rgba(0,0,0,0.8);
+}
+button.slick-arrow.slick-next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+@media (max-width: 1023px) {
+  button.slick-arrow {
+    margin-top: -138px;
+  }
+}
+.block-image-slide-default {
+  position: relative;
+  min-height: 380px;
+  .slide-info-wrapper {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: 58px;
+    margin-bottom: 58px;
+  }
+  .slide-info {
+    height: 100%;
+    background: rgba(#fff, 0.83);
+    padding: 34px 70px 60px;
+    text-align: center;
+  }
+  .img {
+    max-height: 390px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .title {
+    @extend .headline2;
+    margin-bottom: 15px;
+  }
+  .block-body {
+    @extend .paragraph3;
+  }
+  @include desktop {
+    min-height: 260px;
+    .img {
+      max-height: 277px;
+    }
+    .title {
+      margin-bottom: 10px;
+    }
+    .field-name-body {
+      img {
+        max-height: 40px;
+      }
+    }
+    .slide-info-wrapper {
+      margin: 28px auto 22px;
+    }
+    .slide-info {
+      padding: 23px 40px 35px;
+    }
+  }
+  @include tablet-max {
+    .slide-info-wrapper {
+      margin: 15px auto;
+    }
+    .field-name-body {
+      img {
+        display: none;
+      }
+    }
+  }
+  @include tablet {
+    min-height: 209px;
+    .img {
+      max-height: 209px;
+    }
+    .slide-info {
+      padding: 15px 30px 35px;
+    }
+  }
+  @include mobile {
+    min-height: 320px;
+    .img {
+      max-height: 328px;
+    }
+    .slide-info-wrapper {
+      max-width: 310px;
+    }
+    .slide-info {
+      padding: 15px 25px 35px;
+    }
+  }
+}
+// Image slide.
+.block-image-slide {
+  color: #fff;
+  position: relative;
+  .img {
+    max-height: 420px;
+    overflow: hidden;
+    img {
+      width: 100%;
+    }
+  }
+  .slide-info {
+    width: 370px;
+    position: absolute;
+    right: 135px;
+    top: 0;
+    bottom: 0;
+    background: rgba($dkblue, 0.8);
+    padding: 30px 50px 20px 40px;
+    @media screen and (min-width: 1300px) {
+      padding-top: 70px;
+    }
+  }
+  .title {
+    font-size: $r40;
+    line-height: $r40;
+    font-weight: 300;
+    margin-bottom: 10px;
+  }
+  .sub-title,
+  .block-body {
+    font-size: $r14;
+    line-height: $r18;
+    font-weight: 500;
+  }
+  .sub-title {
+    text-transform: uppercase;
+    margin-bottom: 13px;
+  }
+  .block-body {
+    margin-bottom: 31px;
+    font-weight: $medium;
+    @extend .inherited-p;
+  }
+  @include desktop {
+    min-height: 290px;
+    .img {
+      max-height: 299px;
+    }
+    .slide-info {
+      right: 27px;
+      width: 393px;
+      padding: 20px 20px 20px 40px;
+    }
+    .block-body {
+      margin-bottom: 20px;
+    }
+  }
+  @include tablet {
+    min-height: 220px;
+    .slide-info {
+      right: 25px;
+      width: 350px;
+      padding: 10px 10px 20px 10px;
+    }
+    .img {
+      max-height: 224px;
+    }
+    .title {
+      font-size: $r30;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+    .sub-title {
+      margin-bottom: 10px;
+    }
+    .block-body {
+      margin-bottom: 12px;
+    }
+  }
+  @include mobile {
+    min-height: 200px;
+    .slide-info {
+      right: 20px;
+      left: 20px;
+      width: auto;
+      padding: 10px 15px 10px 20px;
+    }
+    .img {
+      max-height: 223px;
+    }
+    .title {
+      font-size: $r24;
+      line-height: 1;
+      margin-bottom: 7px;
+    }
+    .sub-title,
+    .block-body {
+      font-size: $r13;
+      line-height: $r15;
+    }
+    .block-body {
+      margin-bottom: 10px;
+    }
+  }
+  .slide-info {
+    @media (min-width: 400px) {
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+    }
+    @media (max-width: 320px) {
+      left: 0;
+      right: 0;
+    }
+  }
+}

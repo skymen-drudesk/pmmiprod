@@ -1,0 +1,45 @@
+uuid: 3042f481-ce7b-4401-9710-13e70677f908
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.training_provider_directory_profile_views
+    - views.view.training_provider_profile_view
+  module:
+    - panels
+    - pmmi_page_manager_search
+    - views
+third_party_settings:
+  pmmi_page_manager_search:
+    index_page_variant: 1
+id: training_provider_directory_profile_views-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    43f3f8b9-5459-45d6-b82d-341ae7f95608:
+      id: 'views_block:training_provider_profile_view-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 43f3f8b9-5459-45d6-b82d-341ae7f95608
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 678503d4-3edb-4c33-989f-22b1aa8b5c2a
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Profile Views'
+  storage_type: page_manager
+  storage_id: training_provider_directory_profile_views-panels_variant-0
+  builder: standard
+page: training_provider_directory_profile_views
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

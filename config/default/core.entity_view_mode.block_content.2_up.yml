@@ -1,0 +1,10 @@
+uuid: cdbd97b3-db4b-4388-bc23-fddee301a199
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.2_up
+label: 2-up
+targetEntityType: block_content
+cache: true

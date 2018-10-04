@@ -1,0 +1,28 @@
+uuid: 934a65dd-20cd-45b8-a137-b8e7aa51b064
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_header
+    - field.storage.node.field_image_header
+    - node.type.article
+id: node.article.field_image_header
+field_name: field_image_header
+entity_type: node
+bundle: article
+label: 'Image Header'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      image_header: image_header
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

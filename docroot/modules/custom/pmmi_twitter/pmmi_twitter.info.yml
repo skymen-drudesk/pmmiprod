@@ -1,0 +1,8 @@
+name: PMMI Twitter
+type: module
+description: PMMI Twitter
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi
+configure: pmmi_twitter.pm_twitter_settings

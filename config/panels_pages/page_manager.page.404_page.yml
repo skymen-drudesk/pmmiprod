@@ -1,0 +1,12 @@
+uuid: bfb8263f-fa29-4e20-a6d6-b1ee579ba46e
+langcode: en
+status: true
+dependencies: {  }
+id: 404_page
+label: '404 Page'
+description: ''
+use_admin_theme: false
+path: /404
+access_logic: and
+access_conditions: {  }
+parameters: {  }

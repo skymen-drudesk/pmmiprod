@@ -1,0 +1,14 @@
+uuid: fbeb0b5b-c03d-4417-a705-b61429f96645
+langcode: en
+status: true
+dependencies: {  }
+name: video_feature_block
+label: 'Video feature block (116px by 85px)'
+effects:
+  5714d97d-f773-4752-a755-9a171603dfdc:
+    uuid: 5714d97d-f773-4752-a755-9a171603dfdc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 116
+      height: 85

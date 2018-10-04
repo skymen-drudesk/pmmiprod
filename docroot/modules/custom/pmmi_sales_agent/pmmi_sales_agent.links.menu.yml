@@ -1,0 +1,60 @@
+# Sales agent directory configuration page.
+pmmi_sales_agent.sales_agent_directory:
+  title: Sales agent directory
+  route_name: pmmi_sales_agent.sales_agent_directory
+  parent: system.admin_config
+  weight: 99
+
+pmmi_sales_agent.migrate:
+  title: Import new companies
+  description: 'Upload a file and import new companies.'
+  route_name: pmmi_sales_agent.migrate
+  parent: pmmi_sales_agent.sales_agent_directory
+
+pmmi_sales_agent.reporting:
+  title: Reporting
+  description: 'The sales agent directory reportings.'
+  route_name: page_manager.page_view_sales_agent_directory_usage_export_sales_agent_directory_usage_export-panels_variant-0
+  parent: pmmi_sales_agent.sales_agent_directory
+
+pmmi_sales_agent.reporting_settings:
+  title: Reporting settings
+  description: 'The sales agent directory reporting settings.'
+  route_name: pmmi_sales_agent.report_settings
+  parent: pmmi_sales_agent.sales_agent_directory
+
+# Sales agent directory mail settings.
+pmmi_sales_agent.mail_settings:
+  title: Mail settings
+  route_name: pmmi_sales_agent.mail_settings
+  parent: pmmi_sales_agent.sales_agent_directory
+
+# Panel page: Sales Agent Directory - Admin Panel.
+pmmi_sales_agent.admin_panel:
+  title: Admin Panel
+  route_name: page_manager.page_view_sales_agent_directory_admin_panel_sales_agent_directory_admin_panel-panels_variant-0
+  parent: pmmi_sales_agent.sales_agent_directory
+
+# Sales agent user stat menu items definition.
+entity.sad_user_stat.collection:
+  title: 'Sales agent user stat list'
+  route_name: entity.sad_user_stat.collection
+  description: 'List Sales agent user stat entities'
+  parent: system.admin_structure
+  weight: 100
+
+# Sales agent user stat type menu items definition.
+entity.sad_user_stat_type.collection:
+  title: 'Sales agent user stat type'
+  route_name: entity.sad_user_stat_type.collection
+  description: 'List Sales agent user stat type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
+# Sales agent directory configuration page.
+pmmi_sales_agent.clear_territory_served:
+  title: Clear territory_served field values
+  route_name: pmmi_sales_agent.clear_territory_served
+  parent: pmmi_sales_agent.sales_agent_directory
+  weight: 100
+

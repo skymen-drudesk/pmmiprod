@@ -1,0 +1,47 @@
+{#
+/**
+ * @file
+ * Template file for gallery layout `Expanded` view mode.
+ *
+ * Available variables:
+ * - content: The content of this block including:
+ *   - title: Title of the gallery block.
+ *   - additional_info: Additional information.
+ *   - description: Description of the gallery block.
+ *   - gallery_items: Video gallery items.
+ *   - first_item: First gallery item data including:
+ *     - video_url: Valid url to the video.
+ *     - image_url: Valid url to thumbnail image.
+ *
+ * @ingroup templates
+ */
+#}
+
+{%
+  set classes = [
+    'block-layout',
+    'video-gallery',
+    'video-gallery--expanded',
+  ]
+%}
+
+{{ attach_library('pmmi_bootstrap/gallery') }}
+
+<div{{ content['#attrs'].addClass(classes) }}>
+
+  {# Firstly render the first item from list. Then it will be changed by selecting another item. #}
+  <div class="video-gallery__expanded-main-info">
+    {{ field_render([content.title, 'video-gallery__title', 'h2']) }}
+    {{ field_render([content.additional_info, 'video-gallery__additional-info']) }}
+  </div>
+
+  <div class="video-gallery__expanded-video--wrapper">
+    <img src="{{ content.first_item.image_url|e }}" class="video-gallery__expanded-image">
+  </div>
+
+  <div class="video-gallery__expanded-items">
+    {{ field_render([content.description, 'video-gallery__expanded-items-title']) }}
+    {{ field_render([content.gallery_items, 'video-gallery__expanded-items-wrapper']) }}
+  </div>
+
+</div>

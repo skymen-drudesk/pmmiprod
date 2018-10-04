@@ -1,0 +1,7 @@
+pmmi_psdata.update_settings:
+  title: 'Committees & Company Staff Pages'
+  route_name: pmmi_psdata.update_settings
+  description: 'Update settings: committees and companies blocks'
+  parent: pmmi_sso.admin
+  weight: 5
+

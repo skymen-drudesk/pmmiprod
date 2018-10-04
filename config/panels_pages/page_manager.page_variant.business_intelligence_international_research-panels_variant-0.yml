@@ -1,0 +1,119 @@
+uuid: 5791d2ec-3499-4e23-bdfd-07646b118215
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.business_intelligence_international_research
+    - taxonomy.vocabulary.report_type
+    - views.view.reports
+  content:
+    - 'block_content:image_header:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+  module:
+    - block_content
+    - panels
+    - pmmi_reports
+    - pmmi_search
+    - views
+id: business_intelligence_international_research-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    b750f8dd-dbc9-4beb-9c6d-7b161416a619:
+      id: reports_years
+      label: 'International Reports Archives'
+      provider: pmmi_reports
+      label_display: visible
+      personify_class: INTL-RESEARCH
+      select_type: class
+      region: sidebar
+      weight: 0
+      uuid: b750f8dd-dbc9-4beb-9c6d-7b161416a619
+      context_mapping: {  }
+    3657432b-97a1-4ff5-ab75-a768ac324111:
+      id: other_reports
+      label: 'Other Reports & Research'
+      provider: pmmi_reports
+      label_display: visible
+      links:
+        -
+          url: /business-intelligence/benchmarking-reports
+          link_text: 'Benchmarking reports'
+        -
+          url: /business-intelligence/economic-reports
+          link_text: 'Economic Reports'
+        -
+          url: /business-intelligence/industry-reports
+          link_text: 'Industry Reports'
+      region: sidebar
+      weight: 0
+      uuid: 3657432b-97a1-4ff5-ab75-a768ac324111
+      context_mapping: {  }
+    1fbc232b-9842-424a-8d44-44bd471762f7:
+      id: 'views_block:reports-reports_category'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: 1fbc232b-9842-424a-8d44-44bd471762f7
+      context_mapping:
+        field_personify_class_value: class
+    21a9a8c9-2080-44ee-8f50-4bde36b9c38f:
+      id: pmmi_search_library_block
+      label: 'Search Reports & Research'
+      provider: pmmi_search
+      label_display: visible
+      vid: report_type
+      term_identifier: category
+      search_path: 'internal:/business-intelligence/search'
+      search_identifier: text
+      region: sidebar
+      weight: 0
+      uuid: 21a9a8c9-2080-44ee-8f50-4bde36b9c38f
+      context_mapping: {  }
+    5460e62f-6196-41a1-99b7-e571656325b6:
+      id: reports_title
+      label: null
+      provider: pmmi_reports
+      label_display: null
+      title: 'International Research'
+      region: head
+      weight: 0
+      uuid: 5460e62f-6196-41a1-99b7-e571656325b6
+      context_mapping: {  }
+    470e1ef1-1a95-4311-895e-914248589f49:
+      id: 'block_content:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+      label: 'Business Intelligence - Reports'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 470e1ef1-1a95-4311-895e-914248589f49
+      context_mapping: {  }
+  id: panels_variant
+  uuid: bbecea46-ebfd-41b7-a9d3-2c648a61483a
+  label: null
+  weight: 0
+  layout: panel_landing_left_sidebar_collapsible
+  layout_settings:
+    query_params: 'category, year, text'
+  page_title: ''
+  storage_type: page_manager
+  storage_id: business_intelligence_international_research-panels_variant-0
+  builder: standard
+page: business_intelligence_international_research
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context:
+  class:
+    label: CLASS
+    type: string
+    description: ''
+    value: INTL-RESEARCH

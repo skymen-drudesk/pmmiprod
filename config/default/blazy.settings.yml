@@ -1,0 +1,7 @@
+admin_css: false
+responsive_image: true
+one_pixel: true
+blazy:
+  loadInvisible: false
+  offset: null
+  saveViewportOffsetDelay: null

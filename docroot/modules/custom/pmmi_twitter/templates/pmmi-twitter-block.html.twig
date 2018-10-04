@@ -1,0 +1,30 @@
+{#
+/**
+ * @file pmmi-twitter-block.html.twig
+ * Default theme implementation to present PMMI Twitter block.
+ *
+ * This template is used when viewing PMMI Twitter block.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *
+ * @see template_preprocess_pmmi_twitter_block()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('pmmi-twitter-block social-block') }}>
+    {% if content %}
+        {% if content.messages %}
+            {% for message in content.messages %}
+                <div class="message{{ (loop.last) ? ' last' : '' }}">
+                    <div class="date">{{ message.date }}</div>
+                    <div class="text">{{ message.text }}</div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <div>{{ content.auth_messages }}</div>
+        {% endif %}
+    {% endif %}
+</div>

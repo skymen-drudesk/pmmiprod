@@ -1,0 +1,19 @@
+uuid: 4b64ba71-1099-4365-8be9-516787a4fe4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+    - field.storage.block_content.field_head
+id: block_content.countdown.field_head
+field_name: field_head
+entity_type: block_content
+bundle: countdown
+label: Head
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

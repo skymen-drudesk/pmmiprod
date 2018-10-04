@@ -1,0 +1,75 @@
+uuid: 56c0f04b-ba23-412c-bf82-0bda299a4790
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.basic_page.body
+    - field.field.node.basic_page.field_image_header
+    - field.field.node.basic_page.field_meta_tags
+    - field.field.node.basic_page.field_page_name
+    - field.field.node.basic_page.field_tags
+    - field.field.node.basic_page.field_yoast_seo
+    - node.type.basic_page
+  module:
+    - ds
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: basic
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - field_image_header
+      node_title:
+        - node_title
+      body:
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+id: node.basic_page.default
+targetEntityType: node
+bundle: basic_page
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_image_header:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: image_header
+  field_yoast_seo:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+hidden:
+  field_meta_tags: true
+  field_page_name: true
+  field_tags: true
+  links: true

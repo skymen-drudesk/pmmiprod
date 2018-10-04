@@ -1,0 +1,5 @@
+other-field:
+  js:
+    js/other-field.js: {}
+  dependencies:
+    - core/drupal.states

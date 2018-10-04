@@ -1,0 +1,28 @@
+uuid: eb279676-94d8-4bcc-9e19-515ae9b6b2e7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_header
+    - field.storage.node.field_image_header
+    - node.type.certification_test
+id: node.certification_test.field_image_header
+field_name: field_image_header
+entity_type: node
+bundle: certification_test
+label: 'Image Header'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      image_header: image_header
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

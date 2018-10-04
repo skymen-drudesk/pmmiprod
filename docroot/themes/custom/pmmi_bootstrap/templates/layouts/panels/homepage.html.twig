@@ -1,0 +1,35 @@
+{#
+/**
+ * @file
+ * Template for a homepage layout.
+ */
+#}
+<div class="layout-homepage clearfix">
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  {% if content.grey %}
+    <div class="grey-region">
+      <div class="container">
+        {{ content.grey }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.blue %}
+    <div class="blue-region">
+      <div class="container">
+        {{ content.blue }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.white %}
+    <div class="white-region">
+      <div class="container">
+        {{ content.white }}
+      </div>
+    </div>
+  {% endif %}
+  <div class="region-bottom">
+    {{ content.bottom }}
+  </div>
+</div>

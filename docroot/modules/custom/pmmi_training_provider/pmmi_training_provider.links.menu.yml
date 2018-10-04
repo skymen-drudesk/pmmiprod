@@ -1,0 +1,42 @@
+# Training provider directory configuration page.
+pmmi_training_provider.training_provider_directory:
+  title: Training provider directory
+  route_name: pmmi_training_provider.training_provider_directory
+  parent: system.admin_config
+  weight: 99
+
+# Training provider directory menu items definition.
+entity.tpd_report.collection:
+  title: 'Training provider reports list'
+  route_name: entity.tpd_report.collection
+  description: 'List training provider report entities'
+  parent: system.admin_structure
+  weight: 100
+
+# Training provider directory type menu items definition.
+entity.tpd_report_type.collection:
+  title: 'Training provider report type'
+  route_name: entity.tpd_report_type.collection
+  description: 'List training provider report type (bundles)'
+  parent: system.admin_structure
+  weight: 99
+
+# ADMIN LINKS.
+# Panel page: Training provider directory - Admin Panel.
+pmmi_training_provider.admin_panel:
+  title: Admin Panel
+  route_name: page_manager.page_view_training_provider_directory_admin_panel_training_provider_directory_admin_panel-panels_variant-0
+  parent: pmmi_training_provider.training_provider_directory
+
+# Panel page: Training provider directory - Reporting.
+pmmi_training_provider.reporting:
+  title: Reporting
+  description: 'The Training provider directory reports.'
+  route_name: page_manager.page_view_training_provider_directory_list_of_searches_training_provider_directory_list_of_searches-panels_variant-0
+  parent: pmmi_training_provider.training_provider_directory
+
+pmmi_training_provider.migrate:
+  title: Import new training providers
+  description: 'Upload a file and import new training providers.'
+  route_name: pmmi_training_provider.migrate
+  parent: pmmi_training_provider.training_provider_directory

@@ -1,0 +1,23 @@
+uuid: 1392a553-f9e0-472a-b428-28910a574ed8
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: membership_application_review_page
+label: 'Membership Application Review page'
+description: ''
+use_admin_theme: false
+path: /membership/application-review
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      editor: editor
+      manager: manager
+      membership_committee: membership_committee
+    negate: false
+    context_mapping:
+      user: current_user
+parameters: {  }

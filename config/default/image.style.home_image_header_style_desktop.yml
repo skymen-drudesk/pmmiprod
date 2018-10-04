@@ -1,0 +1,14 @@
+uuid: 97e8ad06-17bd-4964-a3fe-ba1ce200bab0
+langcode: en
+status: true
+dependencies: {  }
+name: home_image_header_style_desktop
+label: 'Home Image Header Style - Desktop (1024px by 299px)'
+effects:
+  8d7a80ee-6b0a-4dff-b72c-7c230aac686c:
+    uuid: 8d7a80ee-6b0a-4dff-b72c-7c230aac686c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 299

@@ -1,0 +1,42 @@
+$gutter-width-tablet: 25px;
+$gutter-width-tablet-deep: 7px;
+$gutter-width-desktop: 10px;
+$tablet_width: 718px;
+$desktop_width: $container-md;
+
+@mixin prepare-layout($width, $gutter) {
+  .container-fluid {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+  .container {
+    width: ($width + $gutter * 2);
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+  .row {
+    margin-left: -($gutter);
+    margin-right: -($gutter);
+  }
+  @for $i from (1) through $grid-columns {
+    .col-md-#{$i},
+    .col-lg-#{$i},
+    .col-sm-#{$i} {
+      padding-left: $gutter;
+      padding-right: $gutter;
+    }
+  }
+}
+@include desktop {
+  @include prepare-layout($desktop_width, $gutter-width-desktop);
+}
+@include tablet {
+  @include prepare-layout($tablet_width, $gutter-width-tablet);
+  .container {
+    .containers .container {
+      padding-left: $gutter-width-tablet-deep;
+      padding-right: $gutter-width-tablet-deep;
+      @include prepare-layout($tablet_width, $gutter-width-tablet-deep);
+    }
+  }
+}

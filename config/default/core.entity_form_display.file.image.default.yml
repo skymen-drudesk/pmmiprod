@@ -1,0 +1,74 @@
+uuid: c0b3c6f8-6993-4905-8d0c-e10d5b747465
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.file.image.field_download_button_text
+    - field.field.file.image.field_image_alt_text
+    - field.field.file.image.field_image_label
+    - field.field.file.image.field_image_title_text
+    - field.field.file.image.field_tags
+    - file_entity.type.image
+_core:
+  default_config_hash: HYzof_QiEoo7449yRhD_uJoLXMEAmSafqexxGS9OmjQ
+id: file.image.default
+targetEntityType: file
+bundle: image
+mode: default
+content:
+  field_download_button_text:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image_alt_text:
+    type: string_textfield
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_image_label:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image_title_text:
+    type: string_textfield
+    weight: 2
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_tags:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete_tags
+    region: content
+  filename:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

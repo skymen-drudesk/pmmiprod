@@ -1,0 +1,18 @@
+uuid: 83658ee4-2637-47c7-a9d0-fce749c9138f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_general_company_email
+field_name: field_general_company_email
+entity_type: node
+type: email
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

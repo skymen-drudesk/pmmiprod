@@ -1,0 +1,227 @@
+uuid: 6cee3533-e71e-4b92-8499-f7d36c4eea8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.article.body
+    - field.field.node.article.field_author
+    - field.field.node.article.field_author_title
+    - field.field.node.article.field_company
+    - field.field.node.article.field_date
+    - field.field.node.article.field_email
+    - field.field.node.article.field_image
+    - field.field.node.article.field_image_header
+    - field.field.node.article.field_immediate_release
+    - field.field.node.article.field_link
+    - field.field.node.article.field_meta_tags
+    - field.field.node.article.field_news_category
+    - field.field.node.article.field_page_name
+    - field.field.node.article.field_phone
+    - field.field.node.article.field_tags
+    - field.field.node.article.field_yoast_seo
+    - node.type.article
+  module:
+    - blazy
+    - datetime
+    - ds
+    - link
+    - telephone
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: article
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - content_moderation_control
+        - field_image_header
+      title:
+        - node_title
+      image:
+        - field_image
+      date:
+        - field_date
+      link:
+        - field_link
+      immediate_release:
+        - field_immediate_release
+      body:
+        - body
+      author:
+        - field_author
+      author_title:
+        - field_author_title
+      company:
+        - field_company
+      phone:
+        - field_phone
+        - field_email
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+id: node.article.full
+targetEntityType: node
+bundle: article
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 6
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  content_moderation_control:
+    weight: -20
+    region: image_header
+    settings: {  }
+    third_party_settings: {  }
+  field_author:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: author
+  field_author_title:
+    weight: 8
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: author_title
+  field_company:
+    weight: 9
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: company
+  field_date:
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings: {  }
+    type: datetime_default
+    region: date
+  field_email:
+    type: email_mailto
+    weight: 11
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: phone
+  field_image:
+    type: blazy
+    weight: 2
+    label: hidden
+    settings:
+      responsive_image_style: detail_page
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: image
+  field_image_header:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: image_header
+  field_immediate_release:
+    weight: 5
+    label: hidden
+    settings:
+      format: custom
+      format_custom_true: 'FOR IMMEDIATE RELEASE'
+      format_custom_false: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: boolean
+    region: immediate_release
+  field_link:
+    weight: 4
+    label: inline
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Follow PMMI on Twitter'
+            lb-col: true
+            classes: {  }
+    type: link
+    region: link
+  field_phone:
+    weight: 10
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings: {  }
+    type: telephone_link
+    region: phone
+hidden:
+  field_meta_tags: true
+  field_news_category: true
+  field_page_name: true
+  field_tags: true
+  field_yoast_seo: true
+  links: true

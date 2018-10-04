@@ -1,0 +1,36 @@
+uuid: fb3ee7c6-8070-4df6-bb2c-9a2a0bbf36f2
+langcode: en
+status: true
+dependencies:
+  module:
+    - double_field
+    - field_permissions
+    - node
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_organization_email
+field_name: field_organization_email
+entity_type: node
+type: double_field
+settings:
+  storage:
+    first:
+      type: string
+      maxlength: 255
+      precision: 10
+      scale: 2
+      datetime_type: datetime
+    second:
+      type: email
+      maxlength: 255
+      precision: 10
+      scale: 2
+      datetime_type: datetime
+module: double_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

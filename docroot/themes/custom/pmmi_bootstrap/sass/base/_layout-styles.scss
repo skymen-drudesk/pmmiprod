@@ -1,0 +1,250 @@
+body.toolbar-tray-open.toolbar-vertical.toolbar-fixed {
+  width: 100%;
+}
+.main-section {
+  clear: both;
+}
+body.use-container {
+  .block-region-main,
+  .region-content {
+    @include container;
+    margin-bottom: 20px;
+  }
+  .page-title.hidden {
+    margin: 20px 0;
+    display: block !important;
+  }
+}
+.container {
+  .containers .container {
+    width: auto;
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+.block-region-top,
+.block-region-bottom {
+  div.view,
+  .block {
+    margin-bottom: 0;
+  }
+}
+.block-region-sidebar {
+  .block {
+    margin-bottom: 40px;
+  }
+}
+.layout-landing,
+.layout-homepage {
+  .grey-region {
+    background: $ltgrey;
+    border: {
+      width: 5px 0;
+      style: solid;
+      color: #fff;
+    }
+    padding: 30px 0 20px;
+    .block,
+    div.view {
+      margin-bottom: 0;
+    }
+  }
+  .blue-region {
+    background: $blue;
+    padding: 40px 0 30px;
+    .block,
+    div.view {
+      margin-bottom: 0;
+    }
+  }
+  .white-region {
+    padding: 50px 0 30px;
+    .block {
+      margin-top: 0;
+      margin-bottom: 0;
+    }
+  }
+  @include tablet {
+    .white-region {
+      padding: 30px 0 10px;
+    }
+  }
+  @include mobile {
+    .white-region {
+      padding: 25px 0 15px;
+    }
+  }
+}
+.node-layout,
+.landing-left-sidebar {
+  .content-left {
+    @include tablet-max {
+      background: $ltgrey;
+      padding-top: 15px ;
+      padding-bottom: 15px;
+    }
+    @include tablet {
+      .block-region-sidebar > .field,
+      .block-region-sidebar > .block,
+      > .field,
+      > .block {
+        padding-right: 5%;
+        width: 49.5%;
+        display: inline-block;
+        vertical-align: top;
+      }
+    }
+    div.containers {
+      margin-bottom: 30px;
+      .region-top .field-name-field-head {
+        @extend .sidehead1;
+      }
+      .col {
+        width: 100%;
+      }
+    }
+  }
+}
+.landing-left-sidebar-collapsible {
+  .refine-title {
+    font-size: $r20;
+    line-height: $r24;
+    font-weight: 800;
+    text-transform: uppercase;
+    margin: 0;
+    a {
+      display: block;
+      color: #000;
+      text-decoration: none;
+    }
+    .collapse-btn {
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      background: $ltblue;
+      color: #fff;
+      display: block;
+      width: 42px;
+      &:before {
+        display: block;
+        content: "\2014";
+        font-size: 30px;
+        line-height: 42px;
+        text-align: center;
+        font-weight: 900;
+      }
+    }
+    .collapsed {
+      .collapse-btn {
+        background: $blue;
+        &:before {
+          content: "+";
+        }
+      }
+    }
+  }
+  .content-left-inner {
+    position: relative;
+    @include desktop-min {
+      #refine-collapse {
+        display: block;
+      }
+    }
+    @include tablet-max {
+      background: $ltgrey;
+      padding: 9px 17px 9px 55px;
+      margin-bottom: 24px;
+      .block {
+        margin-bottom: 18px;
+      }
+      .block-region-sidebar {
+        margin-top: 13px;
+      }
+    }
+    @include tablet {
+      .block-region-sidebar {
+        font-size: 0;
+        > .block {
+          font-size: 1rem;
+          width: 33.3%;
+          padding: 0  0 0 20px;
+          display: inline-block;
+          vertical-align: top;
+          &:first-child {
+            padding-left: 0;
+          }
+        }
+      }
+      .sidehead1 {
+        font-size: $r15;
+      }
+    }
+    @include mobile {
+      .sidehead1 {
+        font-size: $r14;
+      }
+    }
+  }
+}
+.col-sm-x5 {
+  padding-left: 15px;
+  padding-right: 15px;
+  float: left;
+  width: 20%;
+}
+.layout-5up {
+  .container {
+    max-width: 970px;
+    text-align: center;
+    @include desktop-max {
+      font-size: 0;
+      .col-sm-x5 {
+        font-size: $r16;
+        display: inline-block;
+        float: none;
+        width: 33.3%;
+        padding-left: 10px;
+        padding-right: 10px;
+      }
+    }
+    @include tablet {
+      .col-sm-x5 {
+        padding-left: 6px;
+        padding-right: 6px;
+      }
+    }
+    @include mobile {
+      .col-sm-x5 {
+        display: block;
+        width: auto;
+      }
+    }
+  }
+}
+.sitewide {
+  > .region-top {
+    margin-bottom: 35px;
+  }
+}
+.node-layout,
+.sitewide {
+  .region-bottom .container,
+  .container.region-main {
+    @include desktop {
+      max-width: 830px;
+    }
+    .container {
+      margin-left: -($grid-gutter-width / 2);
+      margin-right: -($grid-gutter-width / 2);
+      @include tablet {
+        margin-left: -($gutter-width-tablet);
+        margin-right: -($gutter-width-tablet);
+      }
+    }
+    .containers .container {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

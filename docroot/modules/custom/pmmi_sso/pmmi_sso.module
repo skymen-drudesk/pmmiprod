@@ -1,0 +1,141 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_sso.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_sso_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_sso module.
+    case 'help.page.pmmi_sso':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI SSO integration') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Alters the user entity form.
+ */
+function pmmi_sso_form_user_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $sso_user_manager = \Drupal::service('pmmi_sso.user_manager');
+  $account = $form_state->getFormObject()->getEntity();
+  $sso_username = $sso_user_manager->getSsoUserIdForAccount($account->id());
+
+  // If a SSO username was found for this user, then remove the password
+  // management fields.
+  if ($sso_username) {
+
+    if (!\Drupal::currentUser()->hasPermission('administer users')) {
+      $form['account']['pass']['#access'] = FALSE;
+
+      // Users are normally required to entier their current password when
+      // changing their password or email address. Since we are disabling
+      // access to change their password, and since a SSO user would not know
+      // their local Drupal password anyway, we remove this field as well.
+      if (isset($form['account']['current_pass'])) {
+        $form['account']['current_pass']['#access'] = FALSE;
+      }
+
+      if (isset($form['account']['mail'])) {
+        $form['account']['mail']['#disabled'] = TRUE;
+      }
+
+    }
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add a link to login via CAS on the user login form.
+ */
+function pmmi_sso_form_user_login_form_alter(&$form, FormStateInterface $form_state) {
+  $config = Drupal::config('pmmi_sso.settings');
+
+  // Cached form must be busted if we alter CAS settings.
+  $form['#cache']['tags'] = array_merge($form['#cache']['tags'], $config->getCacheTags());
+
+  $enabled = $config->get('user_accounts.login_link_enabled');
+  if ($enabled) {
+    $url = new Url('pmmi_sso.login', [], [
+      'attributes' => [
+        'class' => ['pmmi-sso-login-link'],
+      ],
+    ]);
+    $form['pmmi_sso_login_link'] = [
+      '#type' => 'link',
+      '#url' => $url,
+      '#title' => $config->get('user_accounts.login_link_label'),
+      '#weight' => -1,
+    ];
+  }
+}
+
+/**
+ * Implements hook_cron().
+ *
+ * Queues Personify Service data for updates once their refresh interval has
+ * elapsed.
+ */
+function pmmi_sso_cron() {
+  // We access our configuration.
+  $cron_config = \Drupal::configFactory()
+    ->getEditable('pmmi_sso.update.settings');
+  if ($cron_config->get('enabled')) {
+    /** @var \Drupal\pmmi_sso\Service\PMMISSOCronDataCollector $data_collector */
+    $data_collector = \Drupal::service('pmmi_sso.cron_data_collector');
+
+    // Add cron job to update Personify Users.
+    // Default to an hourly interval. Of course, cron has to be running at least
+    // hourly for this to work.
+    $main_interval_users = $cron_config->get('main_interval_users');
+    $main_interval_users = !empty($main_interval_users) ? $main_interval_users : 3600;
+
+    $users_execution = \Drupal::state()->get('cron_pmmi_sso.users_execution');
+    $users_execution = !empty($users_execution) ? $users_execution : 0;
+    if (REQUEST_TIME > $users_execution) {
+      $users = $data_collector->getUsersForUpdate();
+      if (!empty($users)) {
+        $queue_users = \Drupal::queue('pmmi_sso_users');
+        foreach ($users as $user) {
+          $queue_users->createItem($user);
+        }
+        \Drupal::state()
+          ->set('cron_pmmi_sso.users_execution', REQUEST_TIME + $main_interval_users);
+      }
+    }
+
+    // Add cron job to update Personify Companies.
+    $main_interval_pc = $cron_config->get('main_interval_companies');
+    $main_interval_pc = !empty($main_interval_pc) ? $main_interval_pc : 3600;
+
+    $pc_execution = \Drupal::state()->get('cron_pmmi_sso.pc_execution');
+    $pc_execution = !empty($pc_execution) ? $pc_execution : 0;
+    if (REQUEST_TIME > $pc_execution) {
+      $companies = $data_collector->getCompaniesForUpdate();
+      if (!empty($companies)) {
+        $queue = \Drupal::queue('pmmi_sso_personify_companies');
+        foreach ($companies as $id => $company) {
+          $queue->createItem(['id' => $id, 'pid' => $company]);
+        }
+        \Drupal::state()
+          ->set('cron_pmmi_sso.pc_execution', REQUEST_TIME + $main_interval_pc);
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+diff --git a/themes/engines/twig/twig.engine b/themes/engines/twig/twig.engine
+index 791f9083b8..4c36aba650 100644
+--- a/themes/engines/twig/twig.engine
++++ b/themes/engines/twig/twig.engine
+@@ -14,7 +14,12 @@ use Drupal\Core\Extension\Extension;
+  */
+ function twig_theme($existing, $type, $theme, $path) {
+   $templates = drupal_find_theme_functions($existing, [$theme]);
+-  $templates += drupal_find_theme_templates($existing, '.html.twig', $path);
++  if (in_array($path, ["themes/contrib/bootstrap", "themes/custom/pmmi_bootstrap"])) {
++    $templates += drupal_find_theme_templates($existing, '.html.twig', "$path/templates");
++  }
++  else {
++    $templates += drupal_find_theme_templates($existing, '.html.twig', $path);
++  }
+   return $templates;
+ }
+ 

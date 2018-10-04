@@ -1,0 +1,21 @@
+uuid: c858cc02-7379-4d74-92ec-c6d9c99d18de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_primary_contact_mobile
+    - node.type.company
+  module:
+    - telephone
+id: node.company.field_primary_contact_mobile
+field_name: field_primary_contact_mobile
+entity_type: node
+bundle: company
+label: 'Primary Contact Mobile'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

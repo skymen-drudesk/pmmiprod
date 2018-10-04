@@ -1,0 +1,20 @@
+<div{{ content['#attrs'].addClass('block-enticement') }}>
+
+  <div class="container wrapper">
+
+    {{ field_render([content.image, 'image']) }}
+
+    <div class="right">
+      <div class="title-body">
+
+        {{ field_render([content.head, 'title', 'h2']) }}
+
+        {{ field_render([content.teaser, 'block-body']) }}
+
+      </div>
+
+      {{ field_render([content.button, 'button btn-prm-wrap']) }}
+
+    </div>
+  </div>
+</div>

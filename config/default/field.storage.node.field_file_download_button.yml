@@ -1,0 +1,20 @@
+uuid: 3336be94-cb06-42af-b2da-a7b72013e75c
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+    - node
+id: node.field_file_download_button
+field_name: field_file_download_button
+entity_type: node
+type: entity_reference
+settings:
+  target_type: file
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

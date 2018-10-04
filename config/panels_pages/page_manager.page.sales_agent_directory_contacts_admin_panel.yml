@@ -1,0 +1,23 @@
+uuid: 4fc479bf-2294-4531-9ba5-3976e84b7f5b
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_sales_agent
+id: sales_agent_directory_contacts_admin_panel
+label: 'Sales Agent Directory Contacts - Admin Panel'
+description: ''
+use_admin_theme: true
+path: '/admin/config/sad/admin-panel/contacts/{node}'
+access_logic: and
+access_conditions:
+  -
+    id: sales_agent_permission
+    permission: 'pmmi sales agent administration'
+    negate: false
+    context_mapping: {  }
+parameters:
+  node:
+    machine_name: node
+    type: 'entity:node'
+    label: 'Company ID'

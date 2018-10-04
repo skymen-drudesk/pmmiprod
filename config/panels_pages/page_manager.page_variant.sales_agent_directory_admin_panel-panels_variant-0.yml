@@ -1,0 +1,51 @@
+uuid: f0aa4e9d-27ef-4ca2-9c5e-e5b4be57a8cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.sales_agent_directory_admin_panel
+    - views.view.search_sales_agent_directory
+  module:
+    - panels
+    - pmmi_search
+    - views
+id: sales_agent_directory_admin_panel-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    03367626-8283-4935-883f-45b27cd8d230:
+      id: 'views_block:search_sales_agent_directory-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 03367626-8283-4935-883f-45b27cd8d230
+      context_mapping: {  }
+    5322dd3e-3aac-4f58-a8ca-f96ae3de7817:
+      id: pmmi_admin_panel_agent_search_block
+      label: 'PMMI Company Admin Panel block'
+      provider: pmmi_search
+      label_display: '0'
+      region: content
+      weight: 0
+      uuid: 5322dd3e-3aac-4f58-a8ca-f96ae3de7817
+      context_mapping: {  }
+  id: panels_variant
+  uuid: ea620012-1a66-4b86-8d66-3b0d4f2c48e9
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Sales Agent Directory - Admin Panel'
+  storage_type: page_manager
+  storage_id: sales_agent_directory_admin_panel-panels_variant-0
+  builder: standard
+page: sales_agent_directory_admin_panel
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

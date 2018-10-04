@@ -1,0 +1,14 @@
+uuid: 06a931f9-5c6b-4ce0-9e03-31dbf90e480e
+langcode: en
+status: true
+dependencies: {  }
+name: image_header_style_tablet
+label: 'Image Header Style - Tablet (768px by 86px)'
+effects:
+  109f5edc-c766-4ff2-8ca3-195c73737038:
+    uuid: 109f5edc-c766-4ff2-8ca3-195c73737038
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 86

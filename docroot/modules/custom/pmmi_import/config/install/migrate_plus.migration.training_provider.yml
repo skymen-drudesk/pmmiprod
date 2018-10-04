@@ -1,0 +1,81 @@
+id: training_provider
+migration_tags: null
+migration_group: 'PMMI import'
+dependencies:
+  enforced:
+    module:
+      - pmmi_import
+label: 'Training Provider migrate'
+source:
+  plugin: spreadsheet
+  worksheet: 'Sheet1'
+  origin: A2
+  header_row: 1
+  columns:
+    - Country
+    - 'Organization Name'
+    - 'General Email'
+    - State
+    - 'Main Phone Number'
+    - URL
+    - Locations
+    - Description
+    - 'Course Topics'
+    - 'Delivery Options'
+  keys:
+    'Organization Name':
+      type: string
+process:
+  type:
+    plugin: default_value
+    default_value: training_provider
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  title: 'Organization Name'
+  body: Description
+  field_main_phone_number: 'Main Phone Number'
+  field_website_url: URL
+  field_general_company_email: 'General Email'
+  field_address/country_code:
+    plugin: pmmiaddressfield
+    source: Country
+  field_address/administrative_area:
+    plugin: pmmiaddressfield
+    parent: Country
+    source: State
+  field_company_description: Description
+  field_territory_served:
+    -
+      plugin: explode
+      source: Locations
+      delimiter: ';'
+    -
+      plugin: pmmi_territory_served
+      source_type: string
+      delimeter: ', '
+  field_course_topics_offered:
+    -
+      plugin: explode
+      source: 'Course Topics'
+      delimiter: ', '
+    -
+      plugin: entity_generate
+      bundle: course_topics_offered
+      entity_type: taxonomy_term
+      ignore_case: true
+      value_key: name
+  field_delivery_options_offered:
+    -
+      plugin: explode
+      source: 'Delivery Options'
+      delimiter: ', '
+    -
+      plugin: entity_generate
+      bundle: delivery_options_offered
+      entity_type: taxonomy_term
+      ignore_case: true
+      value_key: name
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

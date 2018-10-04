@@ -1,0 +1,30 @@
+
+administer pmmi personify sso settings:
+  title: 'Administer PMMI SSO Settings'
+  description: 'Allow access to PMMI SSO Settings page'
+  restrict access: true
+
+administer pmmi personify sso token:
+  title: 'Administer PMMI SSO Token'
+  description: 'Allow access to PMMI SSO Token pages'
+  restrict access: true
+
+administer personify company entities:
+  title: 'Administer Personify company entities'
+  description: 'Allow to access the administration form to configure Personify company entities.'
+  restrict access: true
+
+delete personify company entities:
+  title: 'Delete Personify company entities'
+
+edit personify company entities:
+  title: 'Edit Personify company entities'
+
+access personify company overview:
+  title: 'Access the Personify company overview page'
+
+view published personify company entities:
+  title: 'View published Personify company entities'
+
+view unpublished personify company entities:
+  title: 'View unpublished Personify company entities'

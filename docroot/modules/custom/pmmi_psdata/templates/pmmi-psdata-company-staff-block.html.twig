@@ -1,0 +1,122 @@
+{#
+/**
+ * @file
+ * Theme implementation to display the PMMI Personify Company Staff block.
+ *
+ * Available variables:
+ *
+ * Company Staff block variables:
+ * - data: The array of data.
+ * - staff_enabled: The flag indicates that the staff section is enabled.
+ * - staff_label: The label for the Staff section.
+ * - columns: Number of columns in the Staff section.
+ * - rows: Number of rows in the Staff section.
+
+ * @ingroup themeable
+ */
+#}
+{% import _self as func %}
+{% macro format_link(value, main_class, type, title = '') %}
+  {% set result_class =  main_class ~ "-" ~ type %}
+  {% if type == 'phone' %}
+    <a href="tel:{{ value }}" class="{{ result_class }}">{{ value }}</a>
+  {% elseif type == 'email' and title is not empty %}
+    <a href="mailto:{{ value }}" class="{{ result_class }}">{{ title }}</a>
+  {% elseif type == 'email' and title is empty %}
+    <a href="mailto:{{ value }}" class="{{ result_class }}">{{ value }}</a>
+  {% else %}
+    <span class="{{ result_class }}">{{ value }}</span>
+  {% endif %}
+{% endmacro %}
+{% macro fill_multiply(values, main_class, display_key) %}
+  {% import _self as func %}
+  {% for key, value in values %}
+    {% if display_key %}
+      <div class="container-inline">
+        <strong>{{ key|capitalize }}:</strong>
+        <div>{{ func.format_link(value, main_class, key) }}</div>
+      </div>
+    {% else %}
+      <div>{{ func.format_link(value, main_class, key) }}</div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+{% macro fill_multidim(collection, main_class, display_key) %}
+  {% import _self as func %}
+  {% for key, values in collection %}
+    <div class="{{ main_class }}-{{ key|lower }}">
+      {{ func.fill_multiply(values, main_class, display_key) }}
+    </div>
+  {% endfor %}
+{% endmacro %}
+{% macro fill_section(values, css_class, pattern, display_key) %}
+  {% for key, value in values %}
+    {% if pattern in key %}
+      <div>{{ value }}</div>
+    {% endif %}
+  {% endfor %}
+{% endmacro %}
+<div class="block company-staff-block" id="block--company-staff-block">
+  {% if data %}
+    <div class="company-section row">
+      {% if data.company.label %}
+        <h3>{{ data.company.label }}</h3>
+      {% endif %}
+      <div class="company-section-info col-lg-3 col-sm-4">
+        {{ func.fill_section(data.company, 'addresse', 'address', false) }}
+        {{ func.fill_section(data.company, 'formatted-address', 'formatted_postal', false) }}
+        {{ func.fill_multidim(data.company.comm, 'communications', true) }}
+      </div>
+      {% set more_main_members = (data.company.staff|length > 2) %}
+      <div class="company-section-info-staff col-lg-6 col-sm-8">
+        {% set r = 1 %}
+        {% if more_main_members %}
+          <div class="row">
+        {% endif %}
+        {% for member in data.company.staff %}
+          <div class="info-member member member-row-{{ r }}{{ (more_main_members) ? ' col-sm-6' : '' }}">
+            {% if member.comm.email %}
+              <div class="name"><strong>{{ func.format_link(member.comm.email, 'communication', 'email', member.label_name) }}</strong></div>
+              {% if member.job_title %}
+                <div class="job">{{ member.job_title }}</div>
+              {% endif %}
+              <div class="phone">{{ func.fill_multiply(member.comm|without('email'), 'communication', false) }}</div>
+            {% else %}
+              <div><strong>{{ member.label_name }}</strong></div>
+              {% if member.job_title %}
+                <div class="job">{{ member.job_title }}</div>
+              {% endif %}
+              {% if member.comm %}
+                <div class="phone">{{ func.fill_multiply(member.comm, 'communication', false) }}</div>
+              {% endif %}
+            {% endif %}
+          </div>
+          {% set r = r + 1 %}
+        {% endfor %}
+        {% if more_main_members %}
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    {% if staff_enabled %}
+      <div class="company-staff">
+        <h3>{{ staff_label }}</h3>
+        <div class="row">
+          {% set r = 1 %}
+          {% for member in data.staff %}
+            <div class="member col-lg-3 col-sm-4 member-row-{{ r }}">
+              <div class="name"><strong>{{ member.label_name }}</strong></div>
+              {% if member.job_title %}
+                <div class="job">{{ member.job_title }}</div>
+              {% endif %}
+              {% if member.comm is iterable %}
+                <div class="phone">{{ func.fill_multiply(member.comm, 'communication', false) }}</div>
+              {% endif %}
+            </div>
+            {% set r = r + 1 %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,59 @@
+uuid: 99e5c52c-b0c3-44c2-b3f1-6fd33917b88c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.tpd_report.training_provider_directory.field_country
+    - field.field.tpd_report.training_provider_directory.field_course_topics
+    - field.field.tpd_report.training_provider_directory.field_delivery_options
+    - field.field.tpd_report.training_provider_directory.field_keywords
+    - pmmi_training_provider.tpd_report_type.training_provider_directory
+  module:
+    - address
+id: tpd_report.training_provider_directory.default
+targetEntityType: tpd_report
+bundle: training_provider_directory
+mode: default
+content:
+  field_country:
+    weight: 9
+    settings: {  }
+    third_party_settings: {  }
+    type: address_country_default
+    region: content
+  field_course_topics:
+    weight: 8
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_delivery_options:
+    weight: 7
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_keywords:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    region: content
+    third_party_settings: {  }
+hidden: {  }

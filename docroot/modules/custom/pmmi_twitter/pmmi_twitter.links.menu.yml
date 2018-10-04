@@ -1,0 +1,7 @@
+pmmi_twitter.pm_twitter_settings:
+  title: 'PMMI Twitter Settings'
+  route_name: pmmi_twitter.pm_twitter_settings
+  description: 'Configure PMMI Twitter Block'
+  parent: system.admin_config_services
+  weight: 99
+

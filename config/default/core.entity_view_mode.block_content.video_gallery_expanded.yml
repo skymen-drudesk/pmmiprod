@@ -1,0 +1,10 @@
+uuid: c007c507-d487-4d9a-98b0-aae965cb5f57
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.video_gallery_expanded
+label: 'Video gallery (Expanded)'
+targetEntityType: block_content
+cache: true

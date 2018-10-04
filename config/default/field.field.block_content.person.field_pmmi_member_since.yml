@@ -1,0 +1,21 @@
+uuid: 29640c18-27f8-404e-998f-bf8a86139cc2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_pmmi_member_since
+  module:
+    - datetime
+id: block_content.person.field_pmmi_member_since
+field_name: field_pmmi_member_since
+entity_type: block_content
+bundle: person
+label: 'PMMI Member Since'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

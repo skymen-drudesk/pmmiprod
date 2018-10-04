@@ -1,0 +1,150 @@
+uuid: e895ad4a-f459-4ba4-95e6-ccf163569b75
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - core.entity_view_mode.block_content.5_up
+    - field.field.block_content.card.body
+    - field.field.block_content.card.field_button
+    - field.field.block_content.card.field_head
+    - field.field.block_content.card.field_icon
+    - field.field.block_content.card.field_image
+  module:
+    - blazy
+    - ds
+    - link
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_card
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      body:
+        - body
+      head:
+        - field_head
+      button:
+        - field_button
+      image:
+        - field_image
+      icon:
+        - field_icon
+id: block_content.card.5_up
+targetEntityType: block_content
+bundle: card
+mode: 5_up
+content:
+  body:
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 180
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: text_summary_or_trimmed
+    region: body
+  field_button:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: button
+  field_head:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: head
+  field_icon:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings: {  }
+    type: blazy
+    region: icon
+  field_image:
+    weight: 3
+    label: hidden
+    settings:
+      responsive_image_style: 5_up_cards
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+hidden: {  }

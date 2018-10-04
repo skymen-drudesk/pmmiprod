@@ -1,0 +1,15 @@
+dev:
+  host: pmmiode3.ssh.prod.acquia-sites.com
+  options:
+    ac-env: ode3
+    ac-realm: prod
+    ac-site: pmmi
+  paths:
+    drush-script: drush9
+  root: /var/www/html/pmmi.ode3/docroot
+  uri: pmmiode3.prod.acquia-sites.com
+  user: pmmi.ode3
+livedev:
+  options:
+    parent: '@pmmi.ode3'
+  root: /mnt/gfs/pmmi.ode3/livedev/docroot

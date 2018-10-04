@@ -1,0 +1,65 @@
+uuid: 1ae2ffa0-fa76-42d0-b8d7-40ca3a0c4983
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.filtered_html
+  module:
+    - ckeditor
+format: filtered_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+            - Superscript
+            - Subscript
+            - RemoveFormat
+            - Format
+            - Styles
+        -
+          name: Links
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+        -
+          name: Editing
+          items:
+            - Source
+            - Cut
+            - Copy
+            - Paste
+            - PasteText
+            - PasteFromWord
+  plugins:
+    stylescombo:
+      styles: "h2.title|H2 block title\r\ntable.responsive|Responsive promo table with image\r\ntable.cardtable| Responsive table with stacked columns\r\nh2.headline2|Headline 2\r\nh3.headline3|Headline 3\r\nh4.headline4|Headline 4\r\np.paragraph1|Paragraph 1\r\np.paragraph3|Paragraph 3\r\nspan.button.btn-prm-wrap|Primary button\r\na.button-primary|Dark blue button\r\na.btn-primary-opacity|Light blue button\r\nspan.copy-button|Copy button"
+    language:
+      language_list: un
+    colorbutton:
+      colors: ''
+image_upload:
+  status: false
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

@@ -1,0 +1,19 @@
+uuid: 49cff628-34eb-4609-baea-ce64a9440c81
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_general_company_email
+    - node.type.company
+id: node.company.field_general_company_email
+field_name: field_general_company_email
+entity_type: node
+bundle: company
+label: 'General Company Email'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

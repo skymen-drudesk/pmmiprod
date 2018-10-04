@@ -1,0 +1,14 @@
+uuid: 972b77b7-8638-40c3-ab73-bfa6767a8227
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_4_desktop
+label: 'Block style 4 - Desktop and Tablet (229px by 275px)'
+effects:
+  302f7edf-8362-40d0-bce7-080035f89370:
+    uuid: 302f7edf-8362-40d0-bce7-080035f89370
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 229
+      height: 275

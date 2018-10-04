@@ -1,0 +1,8 @@
+map:
+  audience_1:
+    audience_title: 'Default Audience'
+    audience_redirect_url: 'internal:/'
+    audience_image: {  }
+gateway_url: 'internal:/gateway'
+excluded_pages: "/admin\r\n/admin/*\r\n/user\r\n/user/*\r\n/node/add\r\n/node/*/edit"
+default_bot_audience: audience_1

@@ -1,0 +1,40 @@
+{#
+/**
+ * @file
+ * Template file for gallery layout `Slider` view mode.
+ * Gallery block is displayed as slider.
+ *
+ * Available variables:
+ * - content: The content of this block including:
+ *   - title: Title of the gallery block.
+ *   - description: Description of the gallery block.
+ *   - gallery_items: Video gallery items.
+ *
+ * @ingroup templates
+ */
+#}
+
+{%
+  set classes = [
+    'block-layout',
+    'video-gallery',
+    'video-gallery--slider',
+  ]
+%}
+
+{{ attach_library('pmmi_bootstrap/gallery') }}
+
+{{ attach_library('slick/slick') }}
+{{ attach_library('slick/slick.theme') }}
+
+<div{{ content['#attrs'].addClass(classes) }}>
+  {{ field_render([content.title, 'video-gallery__title']) }}
+  {{ field_render([content.description, 'video-gallery__description']) }}
+
+  <div class="video-gallery__slider-wrapper">
+    {{ field_render([content.gallery_items, 'video-gallery__slider']) }}
+    <div class="video-gallery__slider-navigation">
+      <div class="video-gallery__slider-counter"></div>
+    </div>
+  </div>
+</div>

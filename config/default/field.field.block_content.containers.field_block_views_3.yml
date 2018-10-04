@@ -1,0 +1,46 @@
+uuid: b68f1b94-ee79-4f83-ab48-52f536d79166
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_block_views_3
+  module:
+    - viewfield
+id: block_content.containers.field_block_views_3
+field_name: field_block_views_3
+entity_type: block_content
+bundle: containers
+label: 'Block views 3'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  force_default: false
+  allowed_views:
+    aggregator_rss_feed: '0'
+    aggregator_sources: '0'
+    block_content: '0'
+    certification_tests: '0'
+    content: '0'
+    content_recent: '0'
+    events: '0'
+    features_downloads: '0'
+    features_videos: '0'
+    file_download_button: '0'
+    file_entity_browser: '0'
+    file_entity_files: '0'
+    frontpage: '0'
+    news: '0'
+    page_videos: '0'
+    page_videos_about: '0'
+    partner_schools: '0'
+    reports: '0'
+    slideshow: '0'
+    taxonomy_term: '0'
+    user_admin_people: '0'
+    who_s_new: '0'
+    who_s_online: '0'
+field_type: viewfield

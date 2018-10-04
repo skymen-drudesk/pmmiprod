@@ -1,0 +1,29 @@
+uuid: 69f51458-c85e-4944-880a-5e362767366d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.equipment_sold_type.field_migration_keys
+    - taxonomy.vocabulary.equipment_sold_type
+  module:
+    - text
+id: taxonomy_term.equipment_sold_type.default
+targetEntityType: taxonomy_term
+bundle: equipment_sold_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_migration_keys:
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+hidden: {  }

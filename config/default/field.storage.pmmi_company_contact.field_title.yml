@@ -1,0 +1,21 @@
+uuid: ae81f13f-0183-4c8c-b9e9-dea920b376d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_company_contact
+id: pmmi_company_contact.field_title
+field_name: field_title
+entity_type: pmmi_company_contact
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

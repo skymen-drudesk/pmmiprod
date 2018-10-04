@@ -1,0 +1,14 @@
+uuid: ddce39c0-b3c8-46f4-af96-ba4b6faf6b34
+langcode: en
+status: true
+dependencies: {  }
+name: person_block
+label: 'Person block (70px by 70px)'
+effects:
+  6f34b4a1-67f8-4690-b68d-9ed8c83cde6a:
+    uuid: 6f34b4a1-67f8-4690-b68d-9ed8c83cde6a
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 70
+      height: 70

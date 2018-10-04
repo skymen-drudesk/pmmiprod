@@ -1,0 +1,44 @@
+gateway:
+  check_frequency: -2
+  token_frequency: 1
+  token_action: 0
+  paths:
+    id: request_path
+    pages: "/about\r\n/about/*\r\n/calendar\r\n/calendar/*"
+    negate: false
+advanced:
+  debug_log: true
+  connection_timeout: 10
+login_uri: 'https://pmmiprod3ebiz.personifycloud.com/SSO/login.aspx'
+service_uri: 'https://pmmiprod3ebiz.personifycloud.com/sso/webservice/service.asmx'
+vi: '14'
+vu: PMG
+vp: B5996798E5428FDC01DAD7BFC972D73E
+vib: CE32886246107DA7747ED3D55553CD6C
+ims_uri: 'http://pmmiprod3ebiz.personifycloud.com/IMS/IMService.asmx'
+ims_vu: resultsdirect
+ims_vp: D2DB541D9E6FB8E91ADF6C1C9BEB6009
+data_service:
+  endpoint: 'https://pmmiprod3ebiz.personifycloud.com/PersonifyDataServices/personifydatapmmi.svc'
+  username: SUMMIT
+  password: pmg@123
+user_accounts:
+  login_link_enabled: true
+  login_link_label: 'Member Login'
+  role_mapping:
+    staff:
+      sso_role: Staff
+      service: ims
+      committee_id: ''
+      drupal_role_label: Staff
+    membership_committee:
+      sso_role: 'Membership Committee'
+      service: data
+      committee_id: C0000007
+      drupal_role_label: 'Membership Committee'
+    pmmi_member:
+      sso_role: 'PMMI Members'
+      service: ims
+      committee_id: ''
+      drupal_role_label: 'PMMI Member'
+expiration: '3600'

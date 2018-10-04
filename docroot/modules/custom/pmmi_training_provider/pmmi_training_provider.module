@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_training_provider.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Render\Element;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\pmmi_training_provider\Entity\EntityViewCount;
+
+/**
+ * Implements hook_form_alter().
+ */
+function pmmi_training_provider_form_alter(array &$form, FormStateInterface $form_state) {
+  switch ($form['#form_id']) {
+    case 'node_training_provider_form':
+    case 'node_training_provider_edit_form':
+      // Hide unnecessary data from the display.
+      $form['advanced']['#access'] = FALSE;
+      $form['revision_information']['#access'] = FALSE;
+      $form['menu']['#access'] = FALSE;
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_view() for node entities.
+ */
+function pmmi_training_provider_node_view(array &$build, NodeInterface $node, EntityViewDisplayInterface $display, $view_mode) {
+  if ($node->getType() == 'training_provider' && $view_mode == 'full') {
+    $entity = EntityViewCount::record([
+      'user_id' => \Drupal::currentUser()->id(),
+      'bundle' => 'training_provider',
+      'entity_type' => 'node',
+      'entity_id' => $node->id(),
+    ]);
+    $entity->save();
+  }
+}

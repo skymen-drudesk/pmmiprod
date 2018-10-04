@@ -1,0 +1,10 @@
+id: sales_agent_directory_image_head
+label: 'Sales Agent Directory - Image Header'
+ui_limit: 'company|*'
+properties:
+  block: 'block_content:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+  use_block_title: false
+type: block
+type_label: 'Block field'
+entities:
+  node: node

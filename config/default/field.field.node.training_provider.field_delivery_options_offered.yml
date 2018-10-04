@@ -1,0 +1,28 @@
+uuid: 2ae653fa-09de-482f-bf1a-b286fc768699
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_delivery_options_offered
+    - node.type.training_provider
+    - taxonomy.vocabulary.delivery_options_offered
+id: node.training_provider.field_delivery_options_offered
+field_name: field_delivery_options_offered
+entity_type: node
+bundle: training_provider
+label: 'Delivery Options Offered'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      delivery_options_offered: delivery_options_offered
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference

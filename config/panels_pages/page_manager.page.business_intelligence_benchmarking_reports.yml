@@ -1,0 +1,12 @@
+uuid: 833b32a1-8969-474d-83da-d5a48a82f5b3
+langcode: en
+status: true
+dependencies: {  }
+id: business_intelligence_benchmarking_reports
+label: 'Business Intelligence - Benchmarking reports'
+description: ''
+use_admin_theme: false
+path: /business-intelligence/benchmarking-reports
+access_logic: and
+access_conditions: {  }
+parameters: {  }

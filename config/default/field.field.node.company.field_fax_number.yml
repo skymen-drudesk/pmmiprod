@@ -1,0 +1,21 @@
+uuid: 384c3516-ce6e-4667-ab30-69aacf401215
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_fax_number
+    - node.type.company
+  module:
+    - telephone
+id: node.company.field_fax_number
+field_name: field_fax_number
+entity_type: node
+bundle: company
+label: 'Fax Number'
+description: 'Must include country code, area code and phone number, in that order'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

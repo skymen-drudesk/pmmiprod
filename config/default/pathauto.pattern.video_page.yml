@@ -1,0 +1,22 @@
+uuid: 14786cc4-0dca-478a-841b-e28d23cb1c1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: video_page
+label: 'Video page'
+type: 'canonical_entities:node'
+pattern: '/[node:field_video_type:pmmi_video_path]/[node:title]'
+selection_criteria:
+  fb772929-61a2-4926-ad23-17dcfb1822de:
+    id: node_type
+    bundles:
+      video: video
+    negate: false
+    context_mapping:
+      node: node
+    uuid: fb772929-61a2-4926-ad23-17dcfb1822de
+selection_logic: and
+weight: -5
+relationships: {  }

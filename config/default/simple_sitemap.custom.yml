@@ -1,0 +1,503 @@
+links:
+  -
+    path: /
+    priority: '1.0'
+    changefreq: daily
+  -
+    path: /about
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-highlights
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-meeting/agenda
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-meeting/contact
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annualmeeting
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-meeting/hotel-travel
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-meeting/app
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-meeting/speakers
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /annual-meeting/technology-test-drive
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/webinars
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /blogs
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /about/committees/board_of_directors
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/benchmarking-reports
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/economic-reports
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/industry-reports
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/international-research
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/search
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /automationreport
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/business-intelligence
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /calendar
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/certified-trainer-workshops
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /ctresources
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /connect-with-customers
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /contact
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/education
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /emerging-leaders-network/about
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /emerging-leaders-network/contact
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /emerging-leaders-network/criteria
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /emergingleaders
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /emerging-leaders-network/register
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /emerging-leaders-network/program
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/emerging-leaders
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /executive-leadership-conference/agenda
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /executive-leadership-conference/contact
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /executive-leadership-conference/general-info
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /elc
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /executive-leadership-conference/hotel-travel
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /executive-leadership-conference/speakers
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /gateway
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/andina-pack
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/anuga-foodtec
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/envase-argentina
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/global-marketing
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/export-assistance
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /exportEXPERTS
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/government-resources
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/international-matchmaking-form
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/international-trade-shows
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/export-experts-program/inquiry-form
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/international-trade-show-assistance-program
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/registration-form
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/testimonials
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/webinar-registration-form
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/expo-pack-guadalajara
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/expo-pack-mexico
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/fispal-tecnologia
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/gulfood-manufacturing
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/interpack
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/propak-asia
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-services/propak-china
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/events-and-webinars
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/export-events
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /global-marketing/webinars
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/industry-relations
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /industry-services
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /infographics
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /join
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /conveyor
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/apprenticeship-guidelines
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/employers
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/professionals
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/students
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/certification-tests
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /membership/application
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /video-highlights
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /my-pmmi
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /network
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /news
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/online-technical-training
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /hall-of-fame
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /packaging-inquiry-form
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /trade-shows
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /packsafe-software
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/partner-schools
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /media
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /roadshow
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /press-releases
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /business-intelligence/quickie-surveys
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /resources
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /resources/logos
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /risk-assessment-workshops
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /risk-assessment/agenda
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /sales-agent-directory
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/scholarships/claude-s-breeden
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /sales-agent-directory/search/results
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /training-provider-directory/search/results
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /training-provider-directory
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/show
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /standards-and-regulations
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /committees/strategic-planning
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /womens-leadership-network
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /womens-leadership-network/about
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /womens-leadership-network/blog
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /womens-leadership-network/events
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/partner-schools
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /amazing-packaging-race/student-registration
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/foundation
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /industrytraining
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /connection
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /core-skills
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /on-the-road
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /education-and-workforce/scholarship-application
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/scholarships
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /workforce-development/mechatronics/study-guides
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /tuitionreimbursement
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /education-workforce
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /form/amazing-packaging-race-registrat
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /form/nextgenregistration
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /form/scholarship-application-universa
+    priority: '0.5'
+    changefreq: always
+  -
+    path: /form/scholarship-claude-s-breeden
+    priority: '0.5'
+    changefreq: always
+_core:
+  default_config_hash: 25hWeYa4sasuJtHqKKcEN_nYiuEC1lMPYHsn5dawJEw

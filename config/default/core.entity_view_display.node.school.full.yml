@@ -1,0 +1,276 @@
+uuid: 2216a41a-360a-42f2-8b29-3ea9f2377ac1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.school.body
+    - field.field.node.school.field_address
+    - field.field.node.school.field_content_verified
+    - field.field.node.school.field_email
+    - field.field.node.school.field_image
+    - field.field.node.school.field_image_header
+    - field.field.node.school.field_logo
+    - field.field.node.school.field_meta_tags
+    - field.field.node.school.field_partner_school_type
+    - field.field.node.school.field_phone
+    - field.field.node.school.field_programs_focus
+    - field.field.node.school.field_school_contact
+    - field.field.node.school.field_website
+    - field.field.node.school.field_yoast_seo
+    - node.type.school
+  module:
+    - address
+    - blazy
+    - datetime
+    - ds
+    - pmmi_fields
+    - telephone
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: school
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - content_moderation_control
+        - field_image_header
+      title:
+        - node_title
+      body:
+        - body
+      image:
+        - field_image
+      progarm_focus:
+        - field_programs_focus
+      content_verified:
+        - field_content_verified
+      logo:
+        - field_logo
+      school_contact:
+        - field_school_contact
+      address:
+        - field_address
+      phone:
+        - field_phone
+      email:
+        - field_email
+      website:
+        - field_website
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+id: node.school.full
+targetEntityType: node
+bundle: school
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  content_moderation_control:
+    weight: -20
+    region: image_header
+    settings: {  }
+    third_party_settings: {  }
+  field_address:
+    weight: 108
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: address_default
+    region: address
+  field_content_verified:
+    weight: 105
+    label: inline
+    settings:
+      timezone_override: ''
+      format_type: custom_m_d_y
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: datetime_default
+    region: content_verified
+  field_email:
+    weight: 110
+    label: inline
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Email:'
+            lb-col: false
+            classes: {  }
+    type: email_mailto
+    region: email
+  field_image:
+    weight: 103
+    label: hidden
+    settings:
+      responsive_image_style: detail_page
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+  field_image_header:
+    type: entity_reference_entity_view
+    weight: 0
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    region: image_header
+  field_logo:
+    weight: 106
+    label: hidden
+    settings:
+      image_style: ''
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings: {  }
+    type: blazy
+    region: logo
+  field_phone:
+    weight: 109
+    label: hidden
+    settings:
+      title: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: telephone_link
+    region: phone
+  field_programs_focus:
+    weight: 104
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Programs focus on:'
+            lb-col: false
+            classes: {  }
+    type: string
+    region: progarm_focus
+  field_school_contact:
+    weight: 107
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: school_contact
+  field_website:
+    weight: 111
+    label: hidden
+    settings:
+      trim_length: '80'
+      rel: nofollow
+      target: _blank
+      link_label: 'Visit school’s website '
+      url_only: false
+      url_plain: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: link_as_label
+    region: website
+hidden:
+  field_meta_tags: true
+  field_partner_school_type: true
+  field_yoast_seo: true
+  links: true

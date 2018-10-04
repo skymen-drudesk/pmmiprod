@@ -1,0 +1,79 @@
+uuid: 1a144467-bfe7-47a6-b9a6-e894820fa66d
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_view
+  content:
+    - 'block_content:image_header:53d5b466-0d78-418d-9e85-fe99b0d42ac6'
+    - 'block_content:text:76584907-586f-48fb-b160-03376290824e'
+  module:
+    - block_content
+    - ctools
+    - panels
+    - pmmi_page_manager_search
+third_party_settings:
+  pmmi_page_manager_search:
+    index_page_variant: 0
+id: node_view-panels_variant-0
+label: 'Training Provider'
+variant: panels_variant
+variant_settings:
+  blocks:
+    c0fb73d1-dc73-4f32-a46e-420f9df19fb4:
+      id: 'entity_view:node'
+      label: 'Entity view (Content)'
+      provider: ctools
+      label_display: '0'
+      view_mode: full
+      region: content
+      weight: 0
+      uuid: c0fb73d1-dc73-4f32-a46e-420f9df19fb4
+      context_mapping:
+        entity: node
+    b4b0151d-ef19-4745-a5b8-1a310653a815:
+      id: 'block_content:53d5b466-0d78-418d-9e85-fe99b0d42ac6'
+      label: 'Training Provider Directory - Image header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: content
+      weight: -1
+      uuid: b4b0151d-ef19-4745-a5b8-1a310653a815
+      context_mapping: {  }
+    6b81b02a-09fc-40d2-a453-1875f7b98ba8:
+      id: 'block_content:76584907-586f-48fb-b160-03376290824e'
+      label: 'Training Provider Directory - Disclaimer / Contact Info'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: container_mode
+      region: content
+      weight: 1
+      uuid: 6b81b02a-09fc-40d2-a453-1875f7b98ba8
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 64f82866-7968-4608-8e1c-2e49d2cb4274
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: node_view-panels_variant-0
+  builder: standard
+page: node_view
+weight: 0
+selection_criteria:
+  -
+    id: 'entity_bundle:node'
+    bundles:
+      training_provider: training_provider
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

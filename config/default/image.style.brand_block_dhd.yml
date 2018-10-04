@@ -1,0 +1,15 @@
+uuid: 32905c9b-06cd-4ffc-99aa-c1bbf64929d3
+langcode: en
+status: true
+dependencies: {  }
+name: brand_block_dhd
+label: 'Brand Block - DHD and Tablet (auto by 93px)'
+effects:
+  17d85055-53e9-4396-b861-059c061424d3:
+    uuid: 17d85055-53e9-4396-b861-059c061424d3
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 93
+      upscale: false

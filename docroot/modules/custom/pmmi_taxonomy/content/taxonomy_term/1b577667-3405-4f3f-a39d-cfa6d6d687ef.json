@@ -1,0 +1,78 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/11?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/video_type"
+        },
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/video_type\/parent": [
+            {
+                "href": "http:\/\/default\/taxonomy\/term\/9?_format=hal_json"
+            }
+        ]
+    },
+    "tid": [
+        {
+            "value": "11"
+        }
+    ],
+    "uuid": [
+        {
+            "value": "1b577667-3405-4f3f-a39d-cfa6d6d687ef"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "video_type"
+        }
+    ],
+    "name": [
+        {
+            "value": "Global Marketing",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": "0"
+        }
+    ],
+    "_embedded": {
+        "http:\/\/drupal.org\/rest\/relation\/taxonomy_term\/video_type\/parent": [
+            {
+                "_links": {
+                    "self": {
+                        "href": "http:\/\/default\/taxonomy\/term\/9?_format=hal_json"
+                    },
+                    "type": {
+                        "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/video_type"
+                    }
+                },
+                "uuid": [
+                    {
+                        "value": "bf70c326-acbb-4d2c-a7c9-8f0fcef28fda"
+                    }
+                ]
+            }
+        ]
+    },
+    "changed": [
+        {
+            "value": "1481737351",
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": "1",
+            "lang": "en"
+        }
+    ]
+}

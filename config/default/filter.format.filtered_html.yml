@@ -1,0 +1,63 @@
+uuid: f50fce95-864e-42bd-a300-f011143c7271
+langcode: en
+status: true
+dependencies:
+  module:
+    - editor
+    - entity_embed
+name: 'Filtered HTML'
+format: filtered_html
+weight: 0
+filters:
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 0
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 0
+    settings: {  }
+  filter_url:
+    id: filter_url
+    provider: filter
+    status: true
+    weight: 0
+    settings:
+      filter_url_length: 72
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<em> <strong> <cite> <blockquote cite> <code> <ul type> <ol start type> <li> <dl> <dt> <dd> <h5 id> <h6 id> <u> <s> <sup> <sub> <img src alt data-entity-type data-entity-uuid data-align data-caption> <drupal-entity data-entity-type data-entity-uuid data-view-mode data-entity-embed-display data-entity-embed-display-settings data-align data-caption data-embed-button> <div class=" show-site-btn-primary show-site-btn col-lg-4 col-md-4 col-sm-4 col-xs-12 show-site-btn-secondary show-site-btn-one show-site-btn-two show-site-btn-three show-site-btn-four show-site-btn-five show-site-btn-six show-site-btn-seven"> <p class="paragraph1 paragraph3"> <h2 id class="title headline2"> <h3 id class="headline3"> <h4 id class="headline4"> <table class="responsive cardtable"> <span class="button btn-prm-wrap copy-button"> <a hreflang href class=" button-primary btn-primary-opacity">'
+      filter_html_help: true
+      filter_html_nofollow: false
+  entity_embed:
+    id: entity_embed
+    provider: entity_embed
+    status: true
+    weight: 0
+    settings: {  }

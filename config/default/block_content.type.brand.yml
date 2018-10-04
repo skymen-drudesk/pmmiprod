@@ -1,0 +1,8 @@
+uuid: f79a2fe2-8b44-40ef-884e-8e4f4b73dccd
+langcode: en
+status: true
+dependencies: {  }
+id: brand
+label: Brand
+revision: 1
+description: ''

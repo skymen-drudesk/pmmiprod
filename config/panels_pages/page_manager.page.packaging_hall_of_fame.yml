@@ -1,0 +1,12 @@
+uuid: 3acdb7e9-aee0-47a4-9d9a-f44f3ffacf8c
+langcode: en
+status: true
+dependencies: {  }
+id: packaging_hall_of_fame
+label: 'Packaging Hall of Fame'
+description: ''
+use_admin_theme: false
+path: /hall-of-fame
+access_logic: and
+access_conditions: {  }
+parameters: {  }

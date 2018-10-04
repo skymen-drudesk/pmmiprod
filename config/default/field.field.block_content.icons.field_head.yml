@@ -1,0 +1,19 @@
+uuid: e1a9135e-c26b-4f24-8850-16490ae45c64
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icons
+    - field.storage.block_content.field_head
+id: block_content.icons.field_head
+field_name: field_head
+entity_type: block_content
+bundle: icons
+label: Head
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

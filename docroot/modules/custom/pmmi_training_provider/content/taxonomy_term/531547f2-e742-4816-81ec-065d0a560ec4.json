@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/123?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/course_topics_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 123
+        }
+    ],
+    "uuid": [
+        {
+            "value": "531547f2-e742-4816-81ec-065d0a560ec4"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "course_topics_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "PLCs",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511254996,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "PLCs | PMMI"
+            }
+        }
+    ]
+}

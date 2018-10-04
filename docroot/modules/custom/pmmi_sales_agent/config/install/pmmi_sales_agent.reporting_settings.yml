@@ -1,0 +1,6 @@
+records_per_year: 250
+exceeded_message: 'Your download limit has been exceeded. For questions, please contact Paige Jarvi, <a href="mailto:pjarvi@pmmi.org">pjarvi@pmmi.org</a>.'
+success_message: 'Your export has been created. View/download the file <a href="[:download_url]">here</a> (will automatically download in 3 seconds).'
+failed_message: 'Export failed. Make sure the private file system is configured and check the error log.'
+write_failed_message: 'Could not write to temporary output file for result export. Check permissions.'
+img_header: 0

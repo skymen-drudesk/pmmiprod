@@ -1,0 +1,30 @@
+{#
+/**
+ * @file pmmi-facebook-block.html.twig
+ * Default theme implementation to present PMMI Facebook block.
+ *
+ * This template is used when viewing PMMI Facebook block.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ *
+ * @see template_preprocess_pmmi_facebook_block()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('pmmi-facebook-block social-block') }}>
+  {% if content %}
+    {% if content.messages %}
+      {% for message in content.messages %}
+      <div class="message{{ (loop.last) ? ' last' : '' }}">
+        <div class="date">{{ message.date }}</div>
+        <div class="text">{{ message.text }}</div>
+      </div>
+      {% endfor %}
+    {% else %}
+      <div>{{ content.auth_messages }}</div>
+    {% endif %}
+  {% endif %}
+</div>

@@ -1,0 +1,69 @@
+uuid: 25df35d7-b8ea-4337-8bba-9bd4ed7263e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icons
+    - field.field.block_content.icons.field_head
+    - field.field.block_content.icons.field_icon_1
+    - field.field.block_content.icons.field_icon_2
+    - field.field.block_content.icons.field_icon_3
+    - field.field.block_content.icons.field_icon_4
+id: block_content.icons.default
+targetEntityType: block_content
+bundle: icons
+mode: default
+content:
+  field_head:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_icon_1:
+    weight: 2
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_icon_2:
+    weight: 3
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_icon_3:
+    weight: 4
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_icon_4:
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

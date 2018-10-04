@@ -1,0 +1,9 @@
+pmmi_reports.import_settings:
+  path: '/admin/config/pmmi_sso/reports-import'
+  defaults:
+    _form: '\Drupal\pmmi_reports\Form\PMMIReportsSettings'
+    _title: 'PMMI Reports Import Settings'
+  requirements:
+    _permission: 'administer pmmi personify sso settings'
+  options:
+    _admin_route: TRUE

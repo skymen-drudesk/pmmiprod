@@ -1,0 +1,46 @@
+uuid: ac8b3dd6-4ceb-4329-af32-d81e7afe0b79
+langcode: en
+status: true
+dependencies: {  }
+id: ignore
+label: Ignore
+folder: ''
+module:
+  acquia_connector: 0
+  seckit: 0
+  shield: 0
+  update: 0
+  blazy_ui: 0
+  config_devel: 0
+  config_update_ui: 0
+  dblog: 0
+  devel: 0
+  devel_debug_log: 0
+  field_ui: 0
+  kint: 0
+  maillog: 0
+  slick_ui: 0
+  stage_file_proxy: 0
+  views_ui: 0
+theme: {  }
+blacklist:
+  - audience_select.settings
+  - pmmi_sales_agent.mail_mass_settings
+  - pmmi_sales_agent.mail_settings
+  - pmmi_sales_agent.reporting_settings
+  - seckit.settings
+  - sendgrid_integration.settings
+  - shield.settings
+  - 'page_manager.page.*'
+  - 'page_manager.page_variant.*'
+  - 'tb_megamenu.menu_config.*'
+  - 'webform.webform.*'
+graylist:
+  - page_manager.page.node_add
+  - page_manager.page.node_edit
+  - page_manager.page.node_view
+  - page_manager.page_variant.node_add-panels_variant-0
+  - page_manager.page_variant.node_edit-panels_variant-0
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 4

@@ -1,0 +1,10 @@
+uuid: 6af3674a-7de2-47a5-adc1-d1321bcddf3e
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.landing
+label: Landing
+targetEntityType: node
+cache: true

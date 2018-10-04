@@ -1,0 +1,21 @@
+uuid: 4638b9c6-e1a2-43b0-820d-0d21d450f6c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yoast_seo
+    - node.type.download
+  module:
+    - yoast_seo
+id: node.download.field_yoast_seo
+field_name: field_yoast_seo
+entity_type: node
+bundle: download
+label: 'Real-time SEO'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: yoast_seo

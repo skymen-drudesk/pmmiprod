@@ -1,0 +1,11 @@
+name: 'PMMI Sales Agent Directory'
+type: module
+description: 'Includes PMMI Sales Agent Directory extensions.'
+package: PMMI
+core: 8.x
+dependencies:
+  - config_update
+  - content_moderation
+  - pmmi_import
+  - token
+  - workflows

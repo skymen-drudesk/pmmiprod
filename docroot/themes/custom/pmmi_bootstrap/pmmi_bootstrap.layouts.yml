@@ -1,0 +1,1040 @@
+sitewide:
+  label: Sitewide (Page)
+  category: 'PMMI: Layouts'
+  template: templates/layouts/sitewide
+  regions:
+    top:
+      label: Top content
+    main:
+      label: Main content
+    bottom:
+      label: Bottom content
+panel_homepage:
+  label: Homepage screens (with fullwidth regions, i.e. events(blue), cards(grey), etc.)
+  category: 'PMMI: Layouts'
+  template: templates/layouts/panels/homepage
+  regions:
+    top:
+      label: Top content
+    grey:
+      label: Grey row
+    blue:
+      label: Blue row
+    white:
+      label: White row
+    bottom:
+      label: Bottom content
+
+panel_landing_1:
+  label: Landing screen 1 (with fullwidth regions, white, grey, blue, white 2, grey 2, blue 2)
+  category: 'PMMI: Layouts'
+  template: templates/layouts/panels/landing-1
+  regions:
+    top:
+      label: Top content
+    white:
+      label: White row
+    grey:
+      label: Grey row
+    blue:
+      label: Blue row
+    enticement:
+      label: Enticement row
+    white_2:
+      label: White row 2
+    grey_2:
+      label: Grey row 2
+    blue_2:
+      label: Blue row 2
+    bottom:
+      label: Bottom content
+
+panel_landing_2:
+  label: Landing screen 2 (with fullwidth regions, blue, grey, white, blue 2, grey 2, white 2)
+  category: 'PMMI: Layouts'
+  template: templates/layouts/panels/landing-2
+  regions:
+    top:
+      label: Top content
+    blue:
+      label: Blue row
+    grey:
+      label: Grey row
+    white:
+      label: White row
+    blue_2:
+      label: Blue row 2
+    enticement:
+      label: Enticement row
+    grey_2:
+      label: Grey row 2
+    white_2:
+      label: White row 2
+    bottom:
+      label: Bottom content
+
+panel_landing_3:
+  label: Hall of Fame Landing page
+  category: 'PMMI: Layouts'
+  template: templates/layouts/panels/landing-3
+  regions:
+    top:
+      label: Top content
+    under_top_left:
+      label: Under Top content Left Side
+    under_top_right:
+      label: Under Top content Right Side
+    main:
+      label: Main content
+    bottom:
+      label: Bottom content
+
+panel_landing_left_sidebar:
+  label: Landing with left sidebar
+  category: 'PMMI: Layouts'
+  template: templates/layouts/panels/landing-left-sidebar
+  regions:
+    top:
+      label: Top content
+    sidebar:
+      label: Left sidebar
+    main:
+      label: Main content
+panel_landing_left_sidebar_collapsible:
+  label: Landing with left sidebar collapsible
+  category: 'PMMI: Layouts'
+  class: '\Drupal\pmmi\Plugin\CollapsibleLayout'
+  template: templates/layouts/panels/landing-left-sidebar-collapsible
+  regions:
+    top:
+      label: Top content
+    head:
+      label: Head content
+    sidebar:
+      label: Left sidebar
+    main:
+      label: Main content
+
+default_mode:
+  label: Default (view mode)
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/default-mode
+  regions:
+    content:
+      label: Content
+article:
+  label: Article
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/article
+  regions:
+    image_header:
+      label: Image Header
+    title:
+      label: Title
+    image:
+      label: Image
+    date:
+      label: Date
+    link:
+      label: Twitter Link
+    immediate_release:
+      label: For Immediate Release
+    body:
+      label: Body
+    author:
+      label: Author
+    author_title:
+      label: Author Title
+    company:
+      label: Company
+    phone:
+      label: Phone
+    email:
+      label:
+article_news_default:
+  label: Article news(default)
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/article-news-default
+  regions:
+    press_date:
+      label: Press Release and date
+    title:
+      label: Title
+    body:
+      label: Body
+    button:
+      label: Button
+basic:
+  label: Basic
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/basic
+  regions:
+    image_header:
+      label: Image Header
+    page_name:
+      label: Page Name
+    node_title:
+      label: Title
+    body:
+      label: Body
+cert_test:
+  label: Certification Test
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/cert-test
+  regions:
+    image_header:
+      label: Image Header
+    title:
+      label: Title
+    body:
+      label: Body
+    image:
+      label: Image
+    cert_test_price:
+      label: Price
+    cert_test_text_price:
+      label: Text Price
+    link:
+      label: Register Link
+    cert_test_who:
+      label: Cert test who
+    cert_test_length:
+      label: Cert test length
+    cert_test_time_to_take:
+      label: Cert test time
+    cert_test_num_attempts:
+      label: Cert test attempts
+    accordions:
+      label: Accordions
+company:
+  label: Company
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/company
+  regions:
+    image_header:
+      label: Image Header
+    header_menu:
+      label: Header Menu
+    title:
+      label: Title
+    general_line_1:
+      label: General line 1
+    general_line_2:
+      label: General line 2
+    content_row_blue:
+      label: Content row blue
+    territory_covered:
+      label: Territory covered
+    business:
+      label: Lines of business
+    manufactures:
+      label: Manufacturers represented
+    primary_contacts:
+      label: Primary contacts
+    company_contacts:
+      label: Company contacts
+    company_description:
+      label: Company description
+    industries_served:
+      label: Industries served
+    equipment_sold:
+      label: Type of equipment sold
+    after_sales:
+      label: Provide after sales service
+    footer_reg:
+      label: Footer
+training_provider:
+  label: Training Provider
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/training-provider
+  regions:
+    image_header:
+      label: Image Header
+    title:
+      label: Title
+    general_line_1:
+      label: General line 1
+    general_line_2:
+      label: General line 2
+    course_topics:
+      label: Course Topics
+    delivery_options:
+      label: Delivery Options
+    locations:
+      label: Locations
+    company_description:
+      label: Company description
+    last_updated:
+      label: Last updated
+download:
+  label: Download
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/download
+  regions:
+    image_header:
+      label: Image Header
+    title:
+      label: Title
+    body:
+      label: Body
+    image:
+      label: Image
+    links:
+      label: Links
+    file_download_button:
+      label: File Download Button
+school:
+  label: School
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/school
+  regions:
+    image_header:
+      label: Image Header
+    title:
+      label: Title
+    body:
+      label: Body
+    image:
+      label: Image
+    progarm_focus:
+      label: Programs focus on
+    content_verified:
+      label: Content Verified as of
+    logo:
+      label: School Logo
+    school_contact:
+      label: School Contact
+    address:
+      label: Address
+    phone:
+      label: Phone
+    email:
+      label: Email
+    website:
+      label: Website
+video:
+  label: Video
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/video
+  regions:
+    image_header:
+      label: Image Header
+    title:
+      label: Title
+    body:
+      label: Body
+    video:
+      label: Video
+    date:
+      label: Date
+    featured_speaker:
+      label: Featured Speaker
+    link:
+       label: Link
+    left_block:
+      label: Left Block
+    view_region:
+      label: Videos View
+video_ajax:
+  label: Video ajax (view mode)
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/video-ajax
+  regions:
+    title:
+      label: Title
+    body:
+      label: Body
+    video:
+      label: Video
+    date:
+      label: Date
+    featured_speaker:
+      label: Featured Speaker
+    link:
+       label: Link
+video_default_mode:
+  label: Video default (view mode)
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/video-default
+  regions:
+    content:
+      label: Content
+    links:
+      label: Links
+report:
+  label: Report
+  category: 'PMMI: Nodes'
+  template: templates/layouts/nodes/report
+  regions:
+    image_header:
+      label: Image Header
+    left_block:
+      label: Left block
+    title:
+      label: Title
+    body:
+      label: Body
+    image:
+      label: Image
+    links:
+      label: Links
+    member_price:
+      label: Member Price
+    non_member_price:
+      label: Non-Member Price
+    file_download_button:
+      label: File Download Button
+oneone:
+  label: Column 1-up (1 row of 1 column)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/oneone
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    bottom:
+      label: Bottom content
+onetwo:
+  label: Column 2-up (1 row of 2 columns)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onetwo
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    bottom:
+      label: Bottom content
+onetwomiddle:
+  label: Column 2-up (1 row of 2 columns middle)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onetwomiddle
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    bottom:
+      label: Bottom content
+onetwouneven:
+  label: Column 2-up Uneven (1 row of 2 uneven columns)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onetwouneven
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    bottom:
+      label: Bottom content
+onethree:
+  label: Column 3-up (1 row of 3 columns)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onethree
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    onethree:
+      label: 1st row 3rd column
+    bottom:
+      label: Bottom content
+onefour:
+  label: Column 4-up (1 row of 4 columns)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onefour
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    onethree:
+      label: 1st row 3rd column
+    onefour:
+      label: 1st row 4th column
+    bottom:
+      label: Bottom content
+onefive:
+  label: Column 5-up (1 row of 5 columns)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onefive
+  css: css/layouts/one-five.css
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    onethree:
+      label: 1st row 3rd column
+    onefour:
+      label: 1st row 4th column
+    onefive:
+      label: 1st row 5th column
+    bottom:
+      label: Bottom content
+onesix:
+  label: Column 6-up (2 rows of 3 columns each)
+  category: 'PMMI: Columns'
+  template: templates/layouts/columns/onesix
+  regions:
+    top:
+      label: Top content
+    oneone:
+      label: 1st row 1st column
+    onetwo:
+      label: 1st row 2nd column
+    onethree:
+      label: 1st row 3rd column
+    twoone:
+      label: 2nd row 1st column
+    twotwo:
+      label: 2nd row 2nd column
+    twothree:
+      label: 2nd row 3rd column
+    bottom:
+      label: Bottom content
+
+block_news:
+  label: News
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/news
+  regions:
+    block_title:
+      label: Block Title
+    logo:
+      label: Logo
+    date:
+      label: Date
+    head:
+      label: Head
+    body:
+      label: Body
+    button:
+      label: Button
+
+block_news_header:
+  label: News (Header)
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/news-header
+  regions:
+    block_title:
+      label: Block Title
+    logo:
+      label: Logo
+    date:
+      label: Date
+    head:
+      label: Head
+    body:
+      label: Body
+    button:
+      label: Button
+
+block_card:
+  label: Card
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/card
+  regions:
+    head:
+      label: Head
+    image:
+      label: Image
+    icon:
+      label: Icon
+    body:
+      label: Body
+    button:
+      label: Button
+block_text:
+  label: Text
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/text
+  regions:
+    head:
+      label: Head
+    image:
+      label: Image
+    body:
+      label: Body
+    button:
+      label: Button
+    link:
+      label: Link
+block_text_image:
+  label: Text+Image
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/text-image
+  regions:
+    head:
+      label: Head
+    body:
+      label: Body
+    image:
+      label: Image
+    button:
+      label: Button
+    link:
+      label: Link
+block_image_text:
+  label: Image+Text
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/image-text
+  regions:
+    image:
+      label: Image
+    head:
+      label: Head
+    body:
+      label: Body
+    button:
+      label: Button
+    link:
+      label: Link
+block_image_slide_default:
+  label: Image Slide Default
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/image-slide-default
+  regions:
+    image:
+      label: Image
+    head:
+      label: Head
+    body:
+      label: Body
+block_image_slide:
+  label: Image Slide
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/image-slide
+  regions:
+    image:
+      label: Image
+    head:
+      label: Head
+    subhead:
+      label: Subhead
+    body:
+      label: Body
+    button:
+      label: Button
+block_accordion:
+  label: Accordion
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/accordion
+  regions:
+    head:
+      label: Head
+    video:
+      label: Video
+    image:
+      label: Image
+    body:
+      label: Body
+    button:
+      label: Button
+    link:
+      label: Link
+    accordions:
+      label: Accordion(s)
+block_event_default:
+  label: Event Default
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/event-default
+  regions:
+    dates:
+      label: Date(s)
+    head:
+      label: Head
+    location:
+      label: Location
+    hosted_by:
+      label: Hosted By
+    link:
+      label: Link
+block_event_ribbon:
+  label: Event Ribbon
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/event-ribbon
+  regions:
+    dates:
+      label: Date(s)
+    head:
+      label: Head
+    dates_copy:
+      label: Date(s) - Copy
+    location:
+      label: Location
+    hosted_by:
+      label: Hosted By
+    link:
+      label: Link
+block_pack_expo_show:
+  label: Pack Expo Show
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/pack-expo-show
+  regions:
+    logo:
+      label: Logo
+    dates:
+      label: Date(s)
+    location:
+      label: Location
+    body:
+      label: Body
+    button:
+      label: Button
+block_brand:
+  label: Brand
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/brand
+  regions:
+    logo:
+      label: Logo
+    body:
+      label: Body
+    button:
+      label: Button
+block_person:
+  label: Person
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/person
+  regions:
+    image:
+      label: Image
+    name:
+      label: Name
+    job_title:
+      label: Job Title
+    company:
+      label: Company
+block_person_company:
+  label: Person Company Variant
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/person-company-variant
+  regions:
+    name:
+      label: Name
+    job_title:
+      label: Job Title
+    company:
+      label: Company
+    logo:
+      label: Company Logo
+block_pricing:
+  label: Pricing
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/pricing
+  regions:
+    head:
+      label: Head
+    pricings:
+      label: Pricings
+block_image_header:
+  label: Image Header
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/image-header
+  regions:
+    head:
+      label: Head
+    image:
+      label: Image
+block_icon:
+  label: Icon
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/icon
+  regions:
+    image:
+      label: Image
+    head:
+      label: Head
+    body:
+      label: Body
+    link:
+      label: Link
+block_social_media:
+  label: Social Media
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/social-media
+  regions:
+    head:
+      label: Head
+    facebook:
+      label: Facebook
+    twitter:
+      label: Twitter
+    linkedin:
+      label: LinkedIn
+    google_plus:
+      label: Google+
+    youtube:
+      label: YouTube
+    instagram:
+      label: Instagram
+block_social_media_text:
+  label: Social Media with text
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/social-media
+  regions:
+    head:
+      label: Head
+    body:
+      label: Body
+    facebook:
+      label: Facebook
+    twitter:
+      label: Twitter
+    linkedin:
+      label: LinkedIn
+    google_plus:
+      label: Google+
+    youtube:
+      label: YouTube
+    instagram:
+      label: Instagram
+block_social_footer:
+  label: Social Media Footer
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/social-media-footer
+  regions:
+    facebook:
+      label: Facebook
+    twitter:
+      label: Twitter
+    linkedin:
+      label: LinkedIn
+    google_plus:
+      label: Google+
+    youtube:
+      label: YouTube
+    instagram:
+      label: Instagram
+block_enticement:
+  label: Enticement
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/enticement
+  regions:
+    image:
+      label: Image
+    head:
+      label: Head
+    teaser:
+      label: Teaser
+    button:
+      label: Button
+block_enticement_full_width:
+  label: Enticement full width
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/enticement-full-width
+  regions:
+    image:
+      label: Image
+    head:
+      label: Head
+    teaser:
+      label: Teaser
+    button:
+      label: Button
+block_default_single:
+  label: Default(with single column, i.e. for block containers)
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/default-single
+  regions:
+    head:
+        label: Head
+    main:
+      label: Main content
+block_icons:
+  label: Icons
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/icons
+  regions:
+    head:
+        label: Head
+    main:
+      label: Main content
+
+block_box:
+  label: Box
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/box
+  regions:
+    head:
+      label: Head
+    main:
+      label: Main content
+block_box_vetical:
+  label: Box vertical
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/box-vertical
+  regions:
+    main:
+      label: Main content
+    button:
+      label: Button
+
+block_countdown:
+  label: Countdown
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/countdown
+  library: pmmi_bootstrap/countdown
+  regions:
+    head:
+      label: Head
+    countdown:
+      label: Countdown
+    button:
+      label: Button
+
+block_countdown_circle:
+  label: Countdown circle
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/countdown-circle
+  library: pmmi_bootstrap/countdown
+  regions:
+    countdown:
+      label: Countdown
+    button:
+      label: Button
+
+block_video_gallery_slider:
+  label: Video gallery (Slider)
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/video-gallery-slider
+  regions:
+    title:
+      label: Video gallery title
+    description:
+      label: Video gallery description
+    gallery_items:
+      label: Video gallery items
+
+block_video_gallery_expanded:
+  label: Video gallery (Expanded)
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/video-gallery-expanded
+  regions:
+    title:
+      label: Video gallery title
+    additional_info:
+      label: Video gallery additional information
+    description:
+      label: Video gallery description
+    gallery_items:
+      label: Video gallery items
+
+block_video_gallery_item_slider:
+  label: Video gallery item (Slider)
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/video-gallery-slider-item
+  regions:
+    video:
+      label: Video Info
+    video_title:
+      label: Video title
+    video_description:
+      label: Video description
+
+block_video_gallery_item_expanded:
+  label: Video gallery item (Expanded)
+  category: 'PMMI: Blocks'
+  template: templates/layouts/blocks/video-gallery-expanded-item
+  regions:
+    video:
+      label: Video Info
+    video_title:
+      label: Video title
+    video_description:
+      label: Video description
+
+panel_default:
+  label: Default panel layout
+  category: 'PMMI: Panels'
+  template: templates/layouts/panels/panel-default
+  regions:
+    header_logo:
+      label: Header logo
+    header_utility_nav:
+      label: Header utility navigation
+    header_main_nav:
+      label: Header main navigation
+    topbar:
+      label: Top bar (tabs, breadcrumbs, page title, etc.)
+    main:
+      label: Main content
+    footer:
+      label: Footer content
+panel_microsite_exln:
+  label: Panel layout for Executive Leadership Network (Microsite)
+  category: 'PMMI: Panels'
+  template: templates/layouts/panels/panel-microsite-exln
+  regions:
+    header_logo:
+      label: Header logo
+    header_microsite_info:
+      label: Header microsite info
+    header_main_nav:
+      label: Header main navigation
+    topbar:
+      label: Top bar (tabs, breadcrumbs, page title, etc.)
+    main:
+      label: Main content
+    footer:
+      label: Footer content
+panel_microsite_an:
+  label: Panel layout for Annual Meeting (Microsite)
+  category: 'PMMI: Panels'
+  template: templates/layouts/panels/panel-microsite-an
+  regions:
+    header_logo:
+      label: Header logo
+    header_microsite_info:
+      label: Header microsite info
+    header_main_nav:
+      label: Header main navigation
+    topbar:
+      label: Top bar (tabs, breadcrumbs, page title, etc.)
+    main:
+      label: Main content
+    footer:
+      label: Footer content
+panel_microsite_eln:
+  label: Panel layout for Emerging Leaders Network (Microsite)
+  category: 'PMMI: Panels'
+  template: templates/layouts/panels/panel-microsite-eln
+  regions:
+    header_logo:
+      label: Header logo
+    header_main_nav:
+      label: Header main navigation
+    topbar:
+      label: Top bar (tabs, breadcrumbs, page title, etc.)
+    main:
+      label: Main content
+    footer:
+      label: Footer content
+accordion:
+  label: Accordion
+  category: 'PMMI: Other'
+  template: templates/layouts/other/field-accordion
+  regions:
+    header:
+      label: Header
+    left_side:
+      label: Left side(video, image)
+    body:
+      label: Body
+    nested_accordion:
+      label: Nested accordion

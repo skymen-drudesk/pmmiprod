@@ -1,0 +1,60 @@
+uuid: 6e08edeb-0765-438c-aa8f-dcd1594af777
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.user.user.field_company
+    - field.field.user.user.field_first_name
+    - field.field.user.user.field_last_name
+    - field.field.user.user.field_last_password_reset
+    - field.field.user.user.field_password_expiration
+  module:
+    - datetime
+    - path
+    - user
+id: user.user.default
+targetEntityType: user
+bundle: user
+mode: default
+content:
+  account:
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_last_password_reset:
+    type: datetime_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_password_expiration:
+    type: boolean_checkbox
+    weight: 3
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    region: content
+  google_analytics:
+    weight: 3
+    region: content
+  language:
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  timezone:
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_company: true
+  field_first_name: true
+  field_last_name: true

@@ -1,0 +1,10 @@
+entity.tpd_report.add_form:
+  route_name: 'entity.tpd_report.add_page'
+  title: 'Add training provider report'
+  appears_on:
+    - entity.tpd_report.collection
+entity.tpd_report_type.add_form:
+  route_name: 'entity.tpd_report_type.add_form'
+  title: 'Add training provider report type'
+  appears_on:
+    - entity.tpd_report_type.collection

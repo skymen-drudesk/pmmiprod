@@ -1,0 +1,21 @@
+uuid: dcd0d97c-32e8-464b-801e-aaa9c9cb43ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_p_p_hall_of_fame_honorees
+  module:
+    - datetime
+id: block_content.person.field_p_p_hall_of_fame_honorees
+field_name: field_p_p_hall_of_fame_honorees
+entity_type: block_content
+bundle: person
+label: 'P&P Hall of Fame Honorees Year'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

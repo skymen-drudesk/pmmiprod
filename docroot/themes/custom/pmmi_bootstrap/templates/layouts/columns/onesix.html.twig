@@ -1,0 +1,26 @@
+{#
+/**
+ * @file
+ * Template for a 6-up (3 rows of 3 columns each) layout.
+ */
+#}
+<div class="layout-3up clearfix">
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  <div class="rows container">
+    <div class="row-1 clearfix">
+      {{ field_render([content.oneone, 'col col-1 col-sm-4']) }}
+      {{ field_render([content.onetwo, 'col col-2 col-sm-4']) }}
+      {{ field_render([content.onethree, 'col col-3 col-sm-4']) }}
+    </div>
+    <div class="row-2 clearfix">
+      {{ field_render([content.twoone, 'col col-1 col-sm-4']) }}
+      {{ field_render([content.twotwo, 'col col-2 col-sm-4']) }}
+      {{ field_render([content.twothree, 'col col-3 col-sm-4']) }}
+    </div>
+  </div>
+  <div class="region-bottom">
+    {{ content.bottom }}
+  </div>
+</div>

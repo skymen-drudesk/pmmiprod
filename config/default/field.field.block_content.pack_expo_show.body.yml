@@ -1,0 +1,22 @@
+uuid: b3e0ce12-13db-41da-b9b8-56d1f6b064e9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pack_expo_show
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.pack_expo_show.body
+field_name: body
+entity_type: block_content
+bundle: pack_expo_show
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

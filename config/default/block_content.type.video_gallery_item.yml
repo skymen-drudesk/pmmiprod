@@ -1,0 +1,8 @@
+uuid: 8532817b-48ee-4704-b316-79d4e8f4d300
+langcode: en
+status: true
+dependencies: {  }
+id: video_gallery_item
+label: 'Video Gallery Item'
+revision: 1
+description: 'Single video gallery block'

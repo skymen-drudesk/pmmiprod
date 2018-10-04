@@ -1,0 +1,19 @@
+uuid: c50eb45d-ad37-467b-98da-519e00d41f21
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_block_6
+field_name: field_block_6
+entity_type: block_content
+type: pmmi_entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

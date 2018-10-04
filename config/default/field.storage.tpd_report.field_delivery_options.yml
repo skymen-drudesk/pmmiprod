@@ -1,0 +1,20 @@
+uuid: 6e85b51e-e7d0-4288-9c40-63694da2643b
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_training_provider
+    - taxonomy
+id: tpd_report.field_delivery_options
+field_name: field_delivery_options
+entity_type: tpd_report
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

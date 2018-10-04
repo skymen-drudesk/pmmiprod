@@ -1,0 +1,31 @@
+uuid: 164a6a97-c8ab-4b26-8c18-8cbff3f9eb14
+langcode: en
+status: true
+dependencies: {  }
+id: sales_agent_admin
+label: 'Sales Agent Admin'
+weight: 5
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access sales agent user stat overview'
+  - 'access toolbar'
+  - 'create company content'
+  - 'edit any company content'
+  - 'edit own company content'
+  - 'pmmi sales agent administration'
+  - 'pmmi sales agent bypass one time access'
+  - 'pmmi sales agent favorites'
+  - 'pmmi sales agent search'
+  - 'use draft_published transition'
+  - 'use published_published transition'
+  - 'use sales_agent_admin transition create_new_draft'
+  - 'use sales_agent_admin transition publish'
+  - 'view any unpublished company content'
+  - 'view any unpublished content'
+  - 'view latest version'
+  - 'view maillog'
+  - 'view own files'
+  - 'view own private files'
+  - 'view sales agent user stat entities'
+  - 'view the administration theme'

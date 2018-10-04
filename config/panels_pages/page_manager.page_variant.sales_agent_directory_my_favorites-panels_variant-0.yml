@@ -1,0 +1,81 @@
+uuid: 60d17aaa-4c09-40c4-b3ba-d90f3dd52b8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.sales_agent_directory_my_favorites
+    - views.view.my_favorites_companies
+  content:
+    - 'block_content:image_header:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+  module:
+    - block_content
+    - panels
+    - pmmi_sales_agent
+    - pmmi_search
+    - views
+id: sales_agent_directory_my_favorites-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    570e3126-b23a-41c4-82e3-95b79899979a:
+      id: 'block_content:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+      label: 'Sales Agent Directory - Image Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 570e3126-b23a-41c4-82e3-95b79899979a
+      context_mapping: {  }
+    1d805dcd-56a0-4d53-b490-7017898c7097:
+      id: pmmi_sales_agent_action_toolbar
+      label: 'PMMI Sales Agent Action Toolbar'
+      provider: pmmi_sales_agent
+      label_display: '0'
+      links:
+        favorites_download: favorites_download
+        search_new: search_new
+        favorites_add: 0
+      region: top
+      weight: 1
+      uuid: 1d805dcd-56a0-4d53-b490-7017898c7097
+      context_mapping: {  }
+    c8abc5d1-645d-4be3-8df1-53ca9824d54f:
+      id: 'views_block:my_favorites_companies-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: c8abc5d1-645d-4be3-8df1-53ca9824d54f
+      context_mapping: {  }
+    5c6b8bf8-2d4d-49a8-8c91-7b6b8e2d4ff8:
+      id: pmmi_favorites_header_block
+      label: 'PMMI Favorites Header block'
+      provider: pmmi_search
+      label_display: '0'
+      title: 'My Favorites'
+      region: main
+      weight: -1
+      uuid: 5c6b8bf8-2d4d-49a8-8c91-7b6b8e2d4ff8
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 66ee0aca-61de-4b7c-868a-541490ca542c
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: 'My favorites'
+  storage_type: page_manager
+  storage_id: sales_agent_directory_my_favorites-panels_variant-0
+  builder: standard
+page: sales_agent_directory_my_favorites
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

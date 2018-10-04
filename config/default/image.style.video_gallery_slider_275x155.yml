@@ -1,0 +1,15 @@
+uuid: 08da4ebc-7882-46d6-93be-832b8e1795a0
+langcode: en
+status: true
+dependencies: {  }
+name: video_gallery_slider_275x155
+label: 'Video Gallery Slider (275x155)'
+effects:
+  008eec54-de9b-4e37-9b5e-50a2e5554012:
+    uuid: 008eec54-de9b-4e37-9b5e-50a2e5554012
+    id: image_scale
+    weight: 1
+    data:
+      width: 275
+      height: 155
+      upscale: true

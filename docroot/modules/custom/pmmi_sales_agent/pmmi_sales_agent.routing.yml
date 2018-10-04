@@ -1,0 +1,100 @@
+pmmi_sales_agent.sales_agent_directory:
+  path: '/admin/config/sad'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'Sales agent directory'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+# Company migrate: import form.
+pmmi_sales_agent.migrate:
+  path: '/admin/config/sad/migrate'
+  defaults:
+    _form: '\Drupal\pmmi_sales_agent\Form\PMMISADMigrateForm'
+    _title: 'Company migration'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+# Company migrate: result messages.
+pmmi_sales_agent.migrate_messages:
+  path: '/admin/config/sad/migrate/messages'
+  defaults:
+    _controller: '\Drupal\migrate_tools\Controller\MessageController::overview'
+    _title: 'Migrate result messages'
+    migration_group: 'PMMI import'
+    migration: 'company_migrate'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+# Reporting: general settings.
+pmmi_sales_agent.report_settings:
+  path: '/admin/config/sad/report-settings'
+  defaults:
+    _form: '\Drupal\pmmi_sales_agent\Form\PMMISADReportSettingsForm'
+    _title: 'Reporting settings'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+entity.sad_downloads_quota.collection:
+  path: '/admin/config/sad/report-settings/downloads-quota'
+  defaults:
+    _entity_list: 'sad_downloads_quota'
+    _title: 'Downloads user quota'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+entity.sad_downloads_quota.add_form:
+  path: '/admin/config/sad/report-settings/downloads-quota/add'
+  defaults:
+    _entity_form: 'sad_downloads_quota.default'
+    _title: 'Add downloads user quota'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+pmmi_sales_agent.mail_settings:
+  path: '/admin/config/sad/mail-settings'
+  defaults:
+    _form: '\Drupal\pmmi_sales_agent\Form\PMMISalesAgentMailSettingsForm'
+    _title: 'PMMI Sales Agent Mail Settings'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+pmmi_sales_agent.mass_email:
+  path: '/admin/config/sad/mail-settings/mass'
+  defaults:
+    _form: '\Drupal\pmmi_sales_agent\Form\PMMISalesAgentMailMassForm'
+    _title: 'PMMI Mass Email'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+pmmi_sales_agent.mass_email_confirm:
+  path: '/admin/config/sad/mail-settings/mass/confirm'
+  defaults:
+    _form: '\Drupal\pmmi_sales_agent\Form\PMMISalesAgentMailMassConfirmForm'
+    _title: 'PMMI Mass Email Confirm'
+  requirements:
+    _permission: 'pmmi sales agent administration'
+
+pmmi_sales_agent.login:
+  path: '/sales_agent_directory/login/{node}/{timestamp}/{hash}'
+  defaults:
+    _controller: '\Drupal\pmmi_sales_agent\Controller\SADController::updateListingLogin'
+    _title: 'Login to update a listing'
+  requirements:
+    _access: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+    no_cache: TRUE
+    parameters:
+      node:
+        type: entity:node
+
+pmmi_sales_agent.clear_territory_served:
+  path: '/admin/config/sad/clear-territory-served'
+  defaults:
+    _form: '\Drupal\pmmi_sales_agent\Form\SADClearTerritoryServed'
+    _title: 'PMMI Clear territory_served field values'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE

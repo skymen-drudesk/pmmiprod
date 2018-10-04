@@ -1,0 +1,131 @@
+uuid: 7c299f4b-fdf7-4d11-98ec-ed2d228f7f09
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - core.entity_view_mode.block_content.ribbon
+    - field.field.block_content.event.field_button
+    - field.field.block_content.event.field_dates
+    - field.field.block_content.event.field_event_types
+    - field.field.block_content.event.field_exclude_main_calendar
+    - field.field.block_content.event.field_head
+    - field.field.block_content.event.field_hosted_by
+    - field.field.block_content.event.field_link
+    - field.field.block_content.event.field_location
+  module:
+    - ds
+    - pmmi_fields
+    - pmmi_training_provider
+third_party_settings:
+  ds:
+    layout:
+      id: block_event_ribbon
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      dates_copy:
+        - 'display_field_copy:block_content-dates_copy'
+      location:
+        - field_location
+      hosted_by:
+        - field_hosted_by
+      link:
+        - field_link
+      dates:
+        - field_dates
+    fields:
+      'display_field_copy:block_content-dates_copy':
+        plugin_id: 'display_field_copy:block_content-dates_copy'
+        weight: 0
+        label: hidden
+        formatter: daterange_event_custom
+        settings:
+          formatter:
+            timezone_override: ''
+            date_format_month: F
+            date_format_day: j
+            date_format_year: 'Y'
+            show_end_date: '1'
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: block_content.event.ribbon
+targetEntityType: block_content
+bundle: event
+mode: ribbon
+content:
+  field_dates:
+    weight: 1
+    label: hidden
+    settings:
+      timezone_override: ''
+      show_end_date: false
+      date_format_month: M
+      date_format_day: d
+      date_format_year: o
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: daterange_event_ribbon_custom
+    region: dates
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: head
+  field_hosted_by:
+    type: string
+    weight: 0
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Hosted by:'
+            lb-col: false
+            classes: {  }
+    region: hosted_by
+  field_link:
+    type: link_as_label
+    weight: 0
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+      link_label: ''
+    third_party_settings: {  }
+    region: link
+  field_location:
+    type: address_simple
+    weight: 0
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    region: location
+hidden:
+  field_button: true
+  field_event_types: true
+  field_exclude_main_calendar: true

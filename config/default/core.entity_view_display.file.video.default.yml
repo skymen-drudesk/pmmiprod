@@ -1,0 +1,73 @@
+uuid: a82367eb-3f67-4502-a045-3ce3ff4f523d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.file.video.field_download_button_text
+    - field.field.file.video.field_tags
+    - file_entity.type.video
+  module:
+    - file_entity
+id: file.video.default
+targetEntityType: file
+bundle: video
+mode: default
+content:
+  field_download_button_text:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tags:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  filemime:
+    type: string
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  filename:
+    type: string
+    label: hidden
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  filesize:
+    type: file_size
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: uri_link
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  uri:
+    type: file_image
+    label: hidden
+    weight: -5
+    settings:
+      title: field_image_title_text
+      alt: field_image_alt_text
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

@@ -1,0 +1,153 @@
+uuid: 91b99bcc-3323-4411-af64-7fa103ae4c01
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_media
+    - field.field.block_content.social_media.body
+    - field.field.block_content.social_media.field_facebook
+    - field.field.block_content.social_media.field_google
+    - field.field.block_content.social_media.field_head
+    - field.field.block_content.social_media.field_instagram
+    - field.field.block_content.social_media.field_linkedin
+    - field.field.block_content.social_media.field_twitter
+    - field.field.block_content.social_media.field_youtube
+  module:
+    - ds
+    - link
+third_party_settings:
+  ds:
+    layout:
+      id: block_social_media
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      facebook:
+        - field_facebook
+      twitter:
+        - field_twitter
+      linkedin:
+        - field_linkedin
+      google_plus:
+        - field_google
+      youtube:
+        - field_youtube
+      instagram:
+        - field_instagram
+id: block_content.social_media.default
+targetEntityType: block_content
+bundle: social_media
+mode: default
+content:
+  field_facebook:
+    weight: 1
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    type: link
+    region: facebook
+  field_google:
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    type: link
+    region: google_plus
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: head
+  field_instagram:
+    weight: 6
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: instagram
+  field_linkedin:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    type: link
+    region: linkedin
+  field_twitter:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    type: link
+    region: twitter
+  field_youtube:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: reset
+          settings:
+            lb: ''
+    type: link
+    region: youtube
+hidden:
+  body: true

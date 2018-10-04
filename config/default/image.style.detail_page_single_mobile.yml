@@ -1,0 +1,14 @@
+uuid: 0d7e3175-cd94-4ff9-b35e-dcdd6152e7b6
+langcode: en
+status: true
+dependencies: {  }
+name: detail_page_single_mobile
+label: 'Detail page single - Mobile (284px by 133px)'
+effects:
+  33d206a0-9f81-480f-becb-452220372a8f:
+    uuid: 33d206a0-9f81-480f-becb-452220372a8f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 284
+      height: 133

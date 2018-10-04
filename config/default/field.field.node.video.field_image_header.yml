@@ -1,0 +1,28 @@
+uuid: 8362fdae-1308-42d9-9fab-c5f9958538b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_header
+    - field.storage.node.field_image_header
+    - node.type.video
+id: node.video.field_image_header
+field_name: field_image_header
+entity_type: node
+bundle: video
+label: 'Image Header'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      image_header: image_header
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

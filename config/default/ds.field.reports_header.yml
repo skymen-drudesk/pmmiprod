@@ -1,0 +1,18 @@
+id: reports_header
+label: 'Reports image header'
+ui_limit: report|full
+properties:
+  block: 'block_content:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+  use_block_title: false
+  config:
+    id: 'block_content:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+    label: ''
+    provider: block_content
+    label_display: visible
+    status: true
+    info: ''
+    view_mode: full
+type: block
+type_label: 'Block field'
+entities:
+  node: node

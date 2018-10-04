@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/126?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/delivery_options_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 126
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b2ca779c-2b83-4e40-b11c-1d7ef0d1e2e1"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "delivery_options_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "In-person training",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511255040,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "In-person training | PMMI"
+            }
+        }
+    ]
+}

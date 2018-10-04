@@ -1,0 +1,4 @@
+services:
+  pmmi_crawler_detect:
+    class: Drupal\pmmi_crawler_detect\Service\CrawlerDetect
+    arguments: ['@request_stack']

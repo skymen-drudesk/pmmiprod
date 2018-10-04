@@ -1,0 +1,135 @@
+.visually-hidden {
+  position: absolute !important;
+  clip: rect(1px, 1px, 1px, 1px);
+  overflow: hidden;
+  height: 0;
+  width: 1px;
+  word-wrap: normal;
+}
+.clear-after {
+  &:after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+  }
+}
+.details-wrapper {
+  &.panel-default {
+    position: relative;
+    border: 1px solid $blueopacity;
+    border-radius: 0;
+    padding-left: 52px;
+    margin-bottom: 15px;
+    .panel-heading {
+      color: $grey;
+      background: none;
+      border: none;
+      padding: 0;
+      a {
+        display: block;
+        margin: 0;
+        padding: 10px 10px 10px 0;
+        line-height: 20px;
+        color: inherit;
+        font-size: $r16;
+        font-weight: $bold;
+        font-style: italic;
+        text-decoration: none;
+        &:before {
+          background-color: $blue;
+          width: 40px;
+          display: block;
+          font-family: FontAwesome;
+          color: #fff;
+          content: '\f067';
+          font-size: $r20;
+          padding-top: 9px;
+          text-align: center;
+          position: absolute;
+          left: 0;
+          top: 0;
+          bottom: 0;
+        }
+      }
+      a[aria-expanded="true"] {
+        font-weight: 700;
+        padding-left: 15px;
+      }
+    }
+    &.active {
+      .panel-heading {
+        a:before {
+          content: '\f068';
+          background-color: $ltblue;
+        }
+      }
+    }
+    .panel-body.in {
+      padding: 0 20px 20px 15px;
+      .form-type-textarea {
+        label {
+          text-transform: uppercase;
+          padding: 4px 5px 0 0;
+          width: 180px;
+          float: left;
+        }
+        .form-textarea-wrapper {
+          overflow: hidden;
+        }
+        @include tablet-max {
+          label {
+            float: none;
+            width: auto;
+          }
+        }
+        textarea {
+          line-height: $r22;
+        }
+      }
+    }
+    .checker {
+      opacity: 0;
+    }
+    .checkbox.checked {
+      color: $ltblue;
+      label {
+        color: $ltblue;
+      }
+      &:before {
+        font-family: FontAwesome;
+        content: '\f046';
+        position: absolute;
+      }
+    }
+    .checkbox {
+      color: #000;
+      label {
+        color: #000;
+      }
+      &:before {
+        font-family: FontAwesome;
+        content: '\f096';
+        position: absolute;
+      }
+    }
+  }
+}
+
+.hide-desktop-min {
+  display: none;
+  @include tablet-max {
+    display: block;
+  }
+}
+.hide-dhd {
+  @include dhd {
+    display: none;
+  }
+}
+.show-dhd {
+  display: none;
+  @include dhd {
+    display: block;
+  }
+}

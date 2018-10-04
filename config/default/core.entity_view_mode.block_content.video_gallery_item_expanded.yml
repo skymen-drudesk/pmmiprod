@@ -1,0 +1,10 @@
+uuid: 96c1070a-616e-481a-8f2d-70e4076d319c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.video_gallery_item_expanded
+label: "Video gallery item (Expanded)\t"
+targetEntityType: block_content
+cache: true

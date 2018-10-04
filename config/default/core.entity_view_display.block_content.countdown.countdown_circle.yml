@@ -1,0 +1,63 @@
+uuid: 9282c032-beb5-4474-af08-8daf105a0f05
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+    - core.entity_view_mode.block_content.countdown_circle
+    - field.field.block_content.countdown.field_button
+    - field.field.block_content.countdown.field_end_date_time
+    - field.field.block_content.countdown.field_head
+  module:
+    - ds
+    - link
+    - pmmi_fields
+third_party_settings:
+  ds:
+    layout:
+      id: block_countdown_circle
+      path: themes/custom/pmmi_bootstrap
+      library: pmmi_bootstrap/countdown
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      button:
+        - field_button
+      countdown:
+        - field_end_date_time
+id: block_content.countdown.countdown_circle
+targetEntityType: block_content
+bundle: countdown
+mode: countdown_circle
+content:
+  field_button:
+    weight: 2
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: button
+  field_end_date_time:
+    weight: 3
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format: 'Y-m-d H:i:s'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: datetime_timezone_custom
+    region: countdown
+hidden:
+  field_head: true

@@ -1,0 +1,23 @@
+uuid: 3bd1e87c-8384-45b4-926f-d29b02229a84
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: search_sales_agent_directory
+label: 'Search sales agent directory'
+description: ''
+use_admin_theme: false
+path: /sales-agent-directory/search
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      sales_agent_admin: sales_agent_admin
+      pmmi_member: pmmi_member
+      staff: staff
+    negate: false
+    context_mapping:
+      user: current_user
+parameters: {  }

@@ -1,0 +1,14 @@
+uuid: 65d785b7-592c-4bb0-b6eb-8220db6a4a6a
+langcode: en
+status: true
+dependencies: {  }
+name: gateway_style
+label: 'Gateway style (370px by 240px)'
+effects:
+  6b4b7bcb-4413-4bba-a63f-b7d354fbe744:
+    uuid: 6b4b7bcb-4413-4bba-a63f-b7d354fbe744
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 370
+      height: 240

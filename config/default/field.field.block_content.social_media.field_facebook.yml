@@ -1,0 +1,23 @@
+uuid: ba651dac-6ede-44b1-8a18-30ad5f8eba7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.social_media
+    - field.storage.block_content.field_facebook
+  module:
+    - link
+id: block_content.social_media.field_facebook
+field_name: field_facebook
+entity_type: block_content
+bundle: social_media
+label: Facebook
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 2
+field_type: link

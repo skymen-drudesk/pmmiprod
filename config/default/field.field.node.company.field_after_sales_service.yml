@@ -1,0 +1,21 @@
+uuid: 81f6b693-bda6-4a43-bcd2-49644abcfdc8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_after_sales_service
+    - node.type.company
+id: node.company.field_after_sales_service
+field_name: field_after_sales_service
+entity_type: node
+bundle: company
+label: 'Do you provide after sales service?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

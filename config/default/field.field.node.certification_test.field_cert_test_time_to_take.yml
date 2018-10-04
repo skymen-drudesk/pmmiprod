@@ -1,0 +1,21 @@
+uuid: 0fc56600-3a94-4e8a-a109-ef310304fab3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_test_time_to_take
+    - node.type.certification_test
+  module:
+    - text
+id: node.certification_test.field_cert_test_time_to_take
+field_name: field_cert_test_time_to_take
+entity_type: node
+bundle: certification_test
+label: ' From the time of purchase, how long do I have to take the test?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,12 @@
+uuid: b5be310e-e52d-49ca-b992-03e898fa8709
+langcode: en
+status: true
+dependencies: {  }
+id: training_provider_directory_list_of_searches
+label: 'Training Provider Directory - List of searches'
+description: ''
+use_admin_theme: true
+path: /admin/config/tpd/reporting
+access_logic: and
+access_conditions: {  }
+parameters: {  }

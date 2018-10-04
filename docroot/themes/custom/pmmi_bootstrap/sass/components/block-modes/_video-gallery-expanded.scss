@@ -1,0 +1,125 @@
+$title-color: #184e75;
+
+.video-gallery {
+  // .video-gallery--expanded
+  &#{&}--expanded {
+    .video-gallery__expanded-main-info {
+      margin-bottom: 25px;
+
+      .video-gallery__title {
+        margin: 0 0 5px;
+        color: $title-color;
+        font-size: $r28;
+        font-weight: 400;
+      }
+
+      .video-gallery__additional-info {
+        color: $dkgrey;
+        font-size: $r17;
+      }
+    }
+
+     .video-gallery__expanded-image {
+        width: 100%;
+        height: auto;
+
+        @include mobile {
+          margin: 0 auto;
+          max-width: 480px;
+        }
+      }
+
+    .video-gallery__expanded-items {
+      margin: 15px 0;
+      padding: 15px 0;
+      border-top: 1px solid $mdgrey;
+      border-bottom: 1px solid $mdgrey;
+
+      // .video-gallery__expanded-items-title
+      &-title {
+        color: $dkgrey;
+        font-size: $r25;
+
+        &:hover,
+        &:focus,
+        &:active {
+          cursor: pointer;
+        }
+
+        &:before {
+          content: '\f107';
+          transition: 0.25s linear;
+          color: $title-color;
+          margin-right: 10px;
+          float: left;
+          font-family: 'fontawesome';
+        }
+      }
+
+      // .video-gallery__expanded-items-wrapper
+      &-wrapper {
+        height: 0;
+        overflow: hidden;
+
+        &.active {
+          height: 100%;
+          margin-top: 15px;
+        }
+      }
+    }
+
+    .video-gallery__expanded-items-wrapper {
+      .video-gallery__expanded-item {
+        margin-bottom: 15px;
+
+        .video-gallery__expanded-link {
+          display: flex;
+          align-items: center;
+          color: $title-color;
+          font-weight: $bold;
+          font-size: $r17;
+
+          &:before {
+            content: '\f04b';
+            margin-right: 10px;
+            font-family: 'fontawesome';
+          }
+
+          // Remove underline on hover in caret icon.
+          &:hover {
+            text-decoration: none;
+            & > .field {
+              text-decoration: underline;
+            }
+          }
+        }
+
+        .video-gallery__expanded-description {
+          margin-top: 5px;
+          font-size: $r17;
+          color: $dkgrey;
+        }
+      }
+    }
+  }
+
+  &.active {
+    .video-gallery__expanded-items {
+
+      // .video-gallery__expanded-items-title
+      &-title {
+        color: $title-color;
+
+        &:before {
+          transform: rotate(180deg);
+        }
+      }
+
+      // .video-gallery__expanded-items-wrapper
+      &-wrapper {
+        height: 100%;
+        margin-top: 15px;
+      }
+    }
+  }
+}

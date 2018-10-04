@@ -1,0 +1,23 @@
+uuid: c27842d4-a94a-4eba-b216-fb7198dc5a13
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_links
+    - node.type.report
+  module:
+    - link
+id: node.report.field_links
+field_name: field_links
+entity_type: node
+bundle: report
+label: Links
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

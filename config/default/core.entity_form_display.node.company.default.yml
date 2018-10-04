@@ -1,0 +1,348 @@
+uuid: dfb7805d-952a-47e3-a5aa-cfca7960ff52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.company.field_address
+    - field.field.node.company.field_admin_notes
+    - field.field.node.company.field_after_sales_service
+    - field.field.node.company.field_approval_state
+    - field.field.node.company.field_business_lines
+    - field.field.node.company.field_company_description
+    - field.field.node.company.field_equipment_sold_type
+    - field.field.node.company.field_equipment_sold_type_other
+    - field.field.node.company.field_fax_number
+    - field.field.node.company.field_general_company_email
+    - field.field.node.company.field_industries_served
+    - field.field.node.company.field_industries_served_other
+    - field.field.node.company.field_last_mass_email_sent
+    - field.field.node.company.field_last_updated_on
+    - field.field.node.company.field_main_phone_number
+    - field.field.node.company.field_manufacturers_represented
+    - field.field.node.company.field_meta_tags
+    - field.field.node.company.field_primary_contact_email
+    - field.field.node.company.field_primary_contact_first_name
+    - field.field.node.company.field_primary_contact_last_name
+    - field.field.node.company.field_primary_contact_mobile
+    - field.field.node.company.field_primary_contact_title
+    - field.field.node.company.field_privacy_policy_agreement
+    - field.field.node.company.field_territory_served
+    - field.field.node.company.field_website_url
+    - field.field.node.company.field_yoast_seo
+    - node.type.company
+  module:
+    - address
+    - content_moderation
+    - field_group
+    - link
+    - pmmi_address
+    - pmmi_fields
+    - telephone
+    - text
+third_party_settings:
+  field_group:
+    group_company_information:
+      children:
+        - title
+        - field_main_phone_number
+        - field_fax_number
+        - field_website_url
+        - field_general_company_email
+        - field_address
+        - field_admin_notes
+      parent_name: ''
+      weight: 0
+      format_type: fieldset
+      format_settings:
+        label: 'Company information'
+        description: ''
+        id: ''
+        classes: company-info
+        required_fields: false
+      label: 'Company information'
+    group_main_contact_information:
+      children:
+        - field_primary_contact_first_name
+        - field_primary_contact_last_name
+        - field_primary_contact_title
+        - field_primary_contact_email
+        - field_primary_contact_mobile
+      parent_name: ''
+      weight: 2
+      format_type: fieldset
+      format_settings:
+        label: 'Main contact information'
+        description: ''
+        id: ''
+        classes: main-contact
+        required_fields: false
+      label: 'Main contact information'
+    group_industries_served:
+      children:
+        - group_select_all_that_apply
+      parent_name: ''
+      weight: 5
+      format_type: html_element
+      format_settings:
+        label: 'Industries served'
+        element: div
+        show_label: true
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: industries-served
+      label: 'Industries served'
+    group_type_of_equipment_sold:
+      children:
+        - group_s
+      parent_name: ''
+      weight: 6
+      format_type: html_element
+      format_settings:
+        label: 'Type of equipment sold'
+        element: div
+        show_label: true
+        label_element: h3
+        required_fields: true
+        attributes: ''
+        effect: none
+        speed: fast
+        id: ''
+        classes: equipment-sold
+      label: 'Type of equipment sold'
+    group_select_all_that_apply:
+      children:
+        - field_industries_served
+        - field_industries_served_other
+      parent_name: group_industries_served
+      weight: 4
+      format_type: details
+      format_settings:
+        label: 'Select all that apply'
+        required_fields: true
+        id: ''
+        classes: 'industries-served-details form-item'
+        open: false
+      label: 'Select all that apply'
+    group_s:
+      children:
+        - field_equipment_sold_type
+        - field_equipment_sold_type_other
+      parent_name: group_type_of_equipment_sold
+      weight: 20
+      format_type: details
+      format_settings:
+        label: 'Select all that apply'
+        required_fields: true
+        id: ''
+        classes: 'equipment-sold-details form-item'
+        open: false
+      label: 'Select all that apply'
+id: node.company.default
+targetEntityType: node
+bundle: company
+mode: default
+content:
+  field_address:
+    weight: 5
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_admin_notes:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+  field_after_sales_service:
+    weight: 8
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_business_lines:
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_company_description:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_equipment_sold_type:
+    weight: 10
+    settings:
+      other_field_name: field_equipment_sold_type_other
+    third_party_settings: {  }
+    type: options_buttons_other
+    region: content
+  field_equipment_sold_type_other:
+    weight: 11
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_fax_number:
+    weight: 2
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_general_company_email:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_industries_served:
+    weight: 11
+    settings:
+      other_field_name: field_industries_served_other
+    third_party_settings: {  }
+    type: options_buttons_other
+    region: content
+  field_industries_served_other:
+    weight: 12
+    settings:
+      rows: 1
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_main_phone_number:
+    weight: 1
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_manufacturers_represented:
+    weight: 7
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_primary_contact_email:
+    weight: 10
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_primary_contact_first_name:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_primary_contact_last_name:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_primary_contact_mobile:
+    weight: 11
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: telephone_default
+    region: content
+  field_primary_contact_title:
+    weight: 9
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_privacy_policy_agreement:
+    weight: 101
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_territory_served:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: country_area_autocomplete
+    region: content
+  field_website_url:
+    weight: 3
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+    type: link_default
+    region: content
+  moderation_state:
+    type: moderation_state_default
+    weight: 10
+    settings: {  }
+    region: content
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    settings:
+      display_label: true
+    weight: 11
+    region: content
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  url_redirects:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_address_1: true
+  field_address_2: true
+  field_approval_state: true
+  field_businbess_lines: true
+  field_city: true
+  field_country: true
+  field_image_header: true
+  field_last_mass_email_sent: true
+  field_last_updated_on: true
+  field_meta_tags: true
+  field_postal_code: true
+  field_state: true
+  field_trade_shows: true
+  field_yoast_seo: true
+  path: true
+  promote: true
+  sticky: true
+  uid: true

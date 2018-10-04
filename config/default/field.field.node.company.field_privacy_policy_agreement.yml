@@ -1,0 +1,21 @@
+uuid: 9f4bdb6d-c8a5-44c6-836a-19b74af2f3ac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_privacy_policy_agreement
+    - node.type.company
+  module:
+    - options
+id: node.company.field_privacy_policy_agreement
+field_name: field_privacy_policy_agreement
+entity_type: node
+bundle: company
+label: 'Privacy Policy agreement'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,275 @@
+<?php
+
+/**
+ * @file
+ * Update hooks for the 'PMMI Sales Agent Directory' module.
+ */
+
+use Drupal\Core\Database\Database;
+use Drupal\node\Entity\Node;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_schema().
+ */
+function pmmi_sales_agent_schema() {
+  $schema['pmmi_sales_agent_mails'] = array(
+    'description' => 'Stores information about sales agent mails.',
+    'fields' => array(
+      'mid'  => array(
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'The mail ID.',
+      ),
+      'nid' => array(
+        'description' => 'The node ID.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+      'type' => array(
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+        'default' => '',
+        'description' => 'The mails type.',
+      ),
+      'sending_date' => array(
+        'description' => 'The Unix timestamp when mail should be sent.',
+        'type' => 'int',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'default' => 0,
+      ),
+    ),
+    'primary key' => array('mid'),
+    'indexes' => array(
+      'type' => array('type'),
+      'sending_date' => array('sending_date'),
+    ),
+    'foreign keys' => array(
+      'nid' => array('node' => 'nid'),
+    ),
+  );
+
+  return $schema;
+}
+
+/**
+ * Revert configuration to the value from extension storage.
+ */
+function pmmi_sales_agent_update_8001() {
+  \Drupal::service('module_installer')->install(['config_update'], TRUE);
+  \Drupal::service('config_update.config_update')->revert('system.simple', 'pmmi_sales_agent.mail_settings');
+  \Drupal::service('config_update.config_update')->revert('system.simple', 'pmmi_sales_agent.mail_mass_settings');
+}
+
+/**
+ * Revert configuration to set default value for mail settings.
+ */
+function pmmi_sales_agent_update_8002() {
+  \Drupal::service('config_update.config_update')->revert('system.simple', 'pmmi_sales_agent.mail_settings');
+}
+
+/**
+ * Creates the 'pmmi_sales_agent_mails' table.
+ */
+function pmmi_sales_agent_update_8003() {
+  $schema = Database::getConnection()->schema();
+
+  if (!$schema->tableExists('pmmi_sales_agent_mails')) {
+    $spec = drupal_get_module_schema('pmmi_sales_agent', 'pmmi_sales_agent_mails');
+    $schema->createTable('pmmi_sales_agent_mails', $spec);
+  }
+}
+
+/**
+ * Set default value for the 'pmmi_sales_agent.mail_settings' config.
+ */
+function pmmi_sales_agent_update_8004() {
+  \Drupal::service('config.factory')->getEditable('pmmi_sales_agent.mail_settings')
+    ->set('remind_period', 604800)
+    ->save();
+}
+
+/**
+ * Remove 'field_mass_email_queue' field as it no longer needed.
+ */
+function pmmi_sales_agent_update_8005() {
+  $field_config =  \Drupal::entityTypeManager()->getStorage('field_config');
+  $field = $field_config->load('node.company.field_mass_email_queue');
+
+  if ($field) {
+    $field->delete();
+    field_purge_field($field);
+  }
+}
+
+/**
+ * Rerun previous updates.
+ */
+function pmmi_sales_agent_update_8006() {
+  for ($i = 1; $i <= 5; $i++) {
+    $function = 'pmmi_sales_agent_update_800' . $i;
+    $function();
+  }
+}
+
+/**
+ * Create new "Sales agent user stat" entity type.
+ */
+function pmmi_sales_agent_update_8007() {
+  $entity_type = \Drupal::entityTypeManager()->getDefinition('sad_user_stat');
+
+  if ($entity_type) {
+    $manager = \Drupal::entityDefinitionUpdateManager();
+    $manager->installEntityType($entity_type);
+  }
+}
+
+/**
+ * Re-run update function 8007.
+ */
+function pmmi_sales_agent_update_8008() {
+  pmmi_sales_agent_update_8007();
+}
+
+/**
+ * Drop the 'pmmi_sales_agent_search_stats' table.
+ */
+function pmmi_sales_agent_update_8009() {
+  $schema = Database::getConnection()->schema();
+
+  if ($schema->tableExists('pmmi_sales_agent_search_stats')) {
+    $schema->dropTable('pmmi_sales_agent_search_stats');
+  }
+}
+
+/**
+ * Revert configuration of the reporting configs.
+ */
+function pmmi_sales_agent_update_8010() {
+  \Drupal::service('module_installer')->install(['config_update'], TRUE);
+  \Drupal::service('config_update.config_update')
+    ->revert('system.simple', 'pmmi_sales_agent.reporting_settings');
+}
+
+/**
+ * Set default image header for the favorites batch page.
+ */
+function pmmi_sales_agent_update_8011() {
+  /** @var \Drupal\block_content\BlockContentInterface $block */
+  $block = \Drupal::entityManager()
+    ->loadEntityByUuid('block_content', '14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f');
+
+  if ($block) {
+    \Drupal::service('config.factory')
+      ->getEditable('pmmi_sales_agent.reporting_settings')
+      ->set('img_header', $block->id())
+      ->save();
+  }
+}
+
+/**
+ * Revert configuration to set default value for mail settings.
+ */
+function pmmi_sales_agent_update_8012() {
+  \Drupal::service('config_update.config_update')->revert('system.simple', 'pmmi_sales_agent.mail_settings');
+}
+
+/**
+ * Add alias to the '/node/add/company' route.
+ */
+function pmmi_sales_agent_update_8013() {
+  \Drupal::service('path.alias_storage')->save('/node/add/company', '/form/sales-agent-registration');
+}
+
+/**
+ * Change success message (reporting export).
+ */
+function pmmi_sales_agent_update_8014() {
+  \Drupal::service('config.factory')->getEditable('pmmi_sales_agent.reporting_settings')
+    ->set('success_message', 'Your export has been created. View/download the file <a href="[:download_url]">here</a> (will automatically download in 3 seconds).')
+    ->save();
+}
+
+/**
+ * Change quota exceeded message.
+ */
+function pmmi_sales_agent_update_8015() {
+  \Drupal::service('config.factory')->getEditable('pmmi_sales_agent.reporting_settings')
+    ->set('exceeded_message', 'Your download limit has been exceeded. For questions, please contact Paige Jarvi, <a href="mailto:pjarvi@pmmi.org">pjarvi@pmmi.org</a>.')
+    ->save();
+}
+
+/**
+ * Add approval state field programmatically if it missed.
+ */
+function pmmi_sales_agent_update_8016() {
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  if (!$field = $manager->getFieldStorageDefinition('field_approval_state', 'node')) {
+    FieldStorageConfig::create(array(
+      'field_name' => 'field_approval_state',
+      'entity_type' => 'node',
+      'type' => 'list_string',
+      'cardinality' => 1,
+      'module' => 'options',
+    ))->save();
+    FieldConfig::create([
+      'field_name' => 'field_approval_state',
+      'entity_type' => 'node',
+      'bundle' => 'company',
+      'label' => 'Approval state',
+    ])->save();
+  }
+}
+
+/**
+ * Update all nodes with "approval state" value.
+ */
+function pmmi_sales_agent_update_8017(&$sandbox = []) {
+  if (!isset($sandbox['nids'])) {
+    $nids = \Drupal::entityQuery('node')->condition('type', 'company')->execute();
+    $sandbox['nids'] = $nids;
+    $sandbox['max'] = count($nids);
+    $sandbox['progress'] = 0;
+  }
+  $chunk = array_slice($sandbox['nids'], 0, 5, TRUE);
+  foreach ($chunk as $key => $nid) {
+    $node = Node::load($nid);
+    $moderation_info = \Drupal::service('content_moderation.moderation_information');
+    $node = $moderation_info->getLatestRevision('node', $node->id());
+    $current_state = $node->moderation_state->value ?: '';
+    $approval_state = ($current_state == 'published') ? 'approved' : 'not_approved';
+    if ($current_state == 'draft' && $moderation_info->hasPendingRevision($node)) {
+      $approval_state = 'updated';
+    }
+    $node->set('field_approval_state', $approval_state);
+    $node->presave = TRUE;
+    $node->save();
+    unset($sandbox['nids'][$key]);
+    $sandbox['progress']++;
+  }
+  $sandbox['#finished'] = empty($sandbox['nids']) ? 1 : $sandbox['progress'] / $sandbox['max'];
+  if (function_exists('drush_print')) {
+    drush_print(t('Processed @index of @count...', ['@index' => $sandbox['progress'], '@count' => $sandbox['max']]));
+  }
+}
+
+/**
+ * Set default value for the 'pmmi_sales_agent.mail_settings' config.
+ */
+function pmmi_sales_agent_update_8018() {
+  $mail_settings = \Drupal::service('config.factory')->getEditable('pmmi_sales_agent.mail_settings');
+  $mail_settings->set('one_time_expiration', 432000);
+  $one_time = $mail_settings->get('one_time');
+  $one_time['body'] = str_replace(
+    'It expires after 48 hours',
+    'It expires after 120 hours(5 days)',
+    $one_time['body']
+  );
+  $mail_settings->set('one_time', $one_time);
+  $mail_settings->save();
+}

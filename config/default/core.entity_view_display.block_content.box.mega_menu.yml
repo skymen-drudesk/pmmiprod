@@ -1,0 +1,101 @@
+uuid: ae49b636-181d-4169-b6c4-af722a597d3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.box
+    - core.entity_view_mode.block_content.mega_menu
+    - field.field.block_content.box.body
+    - field.field.block_content.box.field_box_type
+    - field.field.block_content.box.field_buttons
+    - field.field.block_content.box.field_head
+    - field.field.block_content.box.field_image
+    - image.style.shows_block_dhd
+  module:
+    - ds
+    - image
+    - linked_field
+    - pmmi_fields
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_image
+        - field_head
+        - body
+id: block_content.box.mega_menu
+targetEntityType: block_content
+bundle: box
+mode: mega_menu
+content:
+  body:
+    label: hidden
+    type: pmmi_trimmed
+    weight: 2
+    settings:
+      trim_length: '90'
+      word_boundary: '1'
+      strip_tags: '1'
+      preserve_tags: ''
+      ellipsis: 0
+      html: 0
+      nl2br: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: main
+  field_head:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      linked_field:
+        linked: '1'
+        type: field
+        destination: field_buttons
+        advanced: {  }
+    type: string
+    region: main
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: shows_block_dhd
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      linked_field:
+        linked: '1'
+        type: field
+        destination: field_buttons
+        advanced: {  }
+    type: image
+    region: main
+hidden:
+  field_box_type: true
+  field_buttons: true

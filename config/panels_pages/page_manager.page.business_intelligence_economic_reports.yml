@@ -1,0 +1,12 @@
+uuid: aa07c491-e7ec-4240-bbdc-79a7fe0741d7
+langcode: en
+status: true
+dependencies: {  }
+id: business_intelligence_economic_reports
+label: 'Business Intelligence - Economic Reports'
+description: ''
+use_admin_theme: false
+path: /business-intelligence/economic-reports
+access_logic: and
+access_conditions: {  }
+parameters: {  }

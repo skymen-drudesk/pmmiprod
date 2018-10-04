@@ -1,0 +1,14 @@
+uuid: 42b097d1-bc88-4b0f-9b0d-5679db142f4e
+langcode: en
+status: true
+dependencies: {  }
+name: 5_up_cards_dhd
+label: '5-up cards - DHD (161px by 100px)'
+effects:
+  8e2f2811-6b6b-4a18-95f4-2c3f66a6c36d:
+    uuid: 8e2f2811-6b6b-4a18-95f4-2c3f66a6c36d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 161
+      height: 100

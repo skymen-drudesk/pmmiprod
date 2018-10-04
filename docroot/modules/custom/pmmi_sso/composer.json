@@ -1,0 +1,10 @@
+{
+  "name": "drupal/pmmi_sso",
+  "type": "drupal-module",
+  "description": "PMMI SSO integration",
+  "keywords": ["Drupal"],
+  "minimum-stability": "dev",
+  "require": {
+    "phpseclib/phpseclib": "^2.0"
+  }
+}

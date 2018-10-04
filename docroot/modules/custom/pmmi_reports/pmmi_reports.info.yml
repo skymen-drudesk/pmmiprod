@@ -1,0 +1,8 @@
+name: PMMI Reports
+type: module
+description: PMMI Reports import and update stuff.
+core: 8.x
+package: PMMI
+dependencies:
+  - ultimate_cron
+  - pmmi_psdata

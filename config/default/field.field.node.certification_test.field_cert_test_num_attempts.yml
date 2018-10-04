@@ -1,0 +1,21 @@
+uuid: 204815f6-fe19-42cd-8370-b0b0e9834a34
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_test_num_attempts
+    - node.type.certification_test
+  module:
+    - text
+id: node.certification_test.field_cert_test_num_attempts
+field_name: field_cert_test_num_attempts
+entity_type: node
+bundle: certification_test
+label: 'How many times can I attempt the test?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

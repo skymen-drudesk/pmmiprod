@@ -1,0 +1,5 @@
+pmmi_psdata_update.settings_tab:
+  route_name: pmmi_psdata.update_settings
+  title: 'Committees & Company Staff Pages'
+  base_route: pmmi_sso.admin
+  weight: 5

@@ -1,0 +1,14 @@
+jsor.lity:
+  remote: https://github.com/jsor/lity
+  version: '2.3.1'
+  license:
+    name: MIT
+    url: http://opensource.org/licenses/mit-license.php
+    gpl-compatible: true
+  css:
+    component:
+      /libraries/lity/dist/lity.min.css: {}
+  js:
+    /libraries/lity/dist/lity.min.js: {}
+  dependencies:
+    - core/jquery

@@ -1,0 +1,59 @@
+uuid: ae319648-5574-407c-bb7d-bce82afbc0e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.slideshow
+    - core.entity_view_mode.block_content.image_slider
+    - field.field.block_content.slideshow.field_slides
+    - views.view.slideshow
+  module:
+    - ds
+    - views_field_formatter
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_slides
+id: block_content.slideshow.image_slider
+targetEntityType: block_content
+bundle: slideshow
+mode: image_slider
+content:
+  field_slides:
+    weight: 0
+    label: hidden
+    settings:
+      view: 'slideshow::block_image_slider'
+      arguments:
+        field_value:
+          checked: '1'
+          weight: '0'
+        entity_id:
+          weight: '0'
+          checked: 0
+        delta:
+          weight: '0'
+          checked: 0
+      multiple: '1'
+      implode_character: ','
+      hide_empty: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: views_field_formatter
+    region: main
+hidden: {  }

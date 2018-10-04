@@ -1,0 +1,28 @@
+uuid: a31526fe-ff28-4120-a28b-ac1d4246cff1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_partner_school_type
+    - node.type.school
+    - taxonomy.vocabulary.partner_school_type
+id: node.school.field_partner_school_type
+field_name: field_partner_school_type
+entity_type: node
+bundle: school
+label: 'Partner School Type'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      partner_school_type: partner_school_type
+    sort:
+      field: _none
+    auto_create: true
+    auto_create_bundle: ''
+field_type: entity_reference
