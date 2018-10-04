@@ -1,0 +1,19 @@
+uuid: f25a2b17-ce5f-46f3-9b5f-197f560d959d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_migration_keys
+    - taxonomy.vocabulary.industries_served
+id: taxonomy_term.industries_served.field_migration_keys
+field_name: field_migration_keys
+entity_type: taxonomy_term
+bundle: industries_served
+label: 'Migration keys'
+description: 'Enter one value per line. Use lowercase for all items.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

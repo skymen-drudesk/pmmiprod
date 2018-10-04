@@ -1,0 +1,14 @@
+uuid: 90520c2f-932e-4fdc-b1d0-a618274083fc
+langcode: en
+status: true
+dependencies: {  }
+name: home_image_header_style_mobile
+label: 'Home Image Header Style - Mobile (320px by 223px)'
+effects:
+  6328ce19-133c-4aed-bda4-019f1c04aea0:
+    uuid: 6328ce19-133c-4aed-bda4-019f1c04aea0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 223

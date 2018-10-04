@@ -1,0 +1,8 @@
+name: pmmi_default_content
+type: module
+description: PMMI Default Content
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi
+  - default_content

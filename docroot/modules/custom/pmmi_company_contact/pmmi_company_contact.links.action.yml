@@ -1,0 +1,7 @@
+entity.pmmi_company_contact.add_form:
+  route_name: entity.pmmi_company_contact.add_form
+  title: 'Add Company contact'
+  appears_on:
+    - entity.pmmi_company_contact.collection
+    - entity.pmmi_company_contact.canonical
+

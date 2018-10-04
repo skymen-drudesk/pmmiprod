@@ -1,0 +1,21 @@
+uuid: e1b0a692-3ae5-484a-9ec3-cb5de47a8b51
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_available_from_date
+    - node.type.report
+  module:
+    - datetime
+id: node.report.field_available_from_date
+field_name: field_available_from_date
+entity_type: node
+bundle: report
+label: 'Available from date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

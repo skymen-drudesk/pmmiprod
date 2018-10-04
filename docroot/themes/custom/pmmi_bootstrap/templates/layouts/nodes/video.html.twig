@@ -1,0 +1,38 @@
+<div class="node-layout video-node">
+  <div class="top-banner clearfix">
+    {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+
+  <div class="container">
+
+    {% set left_block = field_render([content.left_block, 'content-left col-md-3 col-md-pull-9']) %}
+
+    {% set classes = left_block ? 'content-right col-md-9 col-md-push-3' : 'content-full' %}
+    <div{{ left_block ? ' class="row"' : ''}}>
+      <div class="{{ classes }}">
+        <div id="video-node-info">
+          <h2 class="node-title">
+            {{ content.title }}
+          </h2>
+
+          {{ field_render([content.video, 'video-container']) }}
+
+          {{ field_render([content.date, 'date']) }}
+
+          {{ field_render([content.body, 'node-body']) }}
+
+          {{ field_render([content.featured_speaker, 'featured-speaker']) }}
+
+          {{ field_render([content.link, 'link']) }}
+
+        </div>
+
+        {{ field_render([content.view_region, 'videos-view', 'div', 'videos-view']) }}
+
+      </div>
+
+      {{ left_block|raw }}
+
+    </div>
+  </div>
+</div>

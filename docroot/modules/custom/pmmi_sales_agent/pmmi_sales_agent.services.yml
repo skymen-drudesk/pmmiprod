@@ -1,0 +1,8 @@
+services:
+  pmmi_sales_agent.downloads_quota:
+    class: Drupal\pmmi_sales_agent\DownloadsQuota
+
+  pmmi_sales_agent.mails_queue:
+    class: Drupal\pmmi_sales_agent\MailsQueue
+    arguments:
+      - '@database'

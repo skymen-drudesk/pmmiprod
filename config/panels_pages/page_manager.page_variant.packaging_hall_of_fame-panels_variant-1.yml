@@ -1,0 +1,140 @@
+uuid: 203ecba3-07ff-4424-9cbf-347d09f8ecbe
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.packaging_hall_of_fame
+    - views.view.past_hall_of_fame_honorees
+  content:
+    - 'block_content:containers:78dffc16-96a8-4087-9beb-848039ceb54a'
+    - 'block_content:image:2f538f45-13a4-4922-a150-e73e3eccb3b0'
+    - 'block_content:image_header:91cc974a-88a5-48c2-b3c9-696829e76225'
+    - 'block_content:plain_text:c16d91bb-39f6-4463-9891-2db97bf26e60'
+    - 'block_content:text:e8829ca2-0f24-4424-8a4d-5dad247c2af2'
+  module:
+    - block_content
+    - panels
+    - views
+id: packaging_hall_of_fame-panels_variant-1
+label: 'Hall of Fame Landing'
+variant: panels_variant
+variant_settings:
+  blocks:
+    d869bf43-25ce-4017-a221-2ec2ddbb5ab4:
+      id: 'views_block:past_hall_of_fame_honorees-block_2'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: under_top_left
+      weight: 0
+      uuid: d869bf43-25ce-4017-a221-2ec2ddbb5ab4
+      context_mapping: {  }
+    3b6dcdfd-0f2c-48aa-8cdf-deba9519d954:
+      id: 'views_exposed_filter_block:past_hall_of_fame_honorees-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      region: main
+      weight: -2
+      uuid: 3b6dcdfd-0f2c-48aa-8cdf-deba9519d954
+      context_mapping: {  }
+    36de2dd5-fa52-4375-9804-348ceb4f8faf:
+      id: 'views_block:past_hall_of_fame_honorees-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: 36de2dd5-fa52-4375-9804-348ceb4f8faf
+      context_mapping: {  }
+    f471a3a4-055e-44da-8ef2-e9ba479d1dba:
+      id: 'views_block:past_hall_of_fame_honorees-block_3'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: bottom
+      weight: -3
+      uuid: f471a3a4-055e-44da-8ef2-e9ba479d1dba
+      context_mapping: {  }
+    caccdeee-221b-43df-b001-31f06ff2c67e:
+      id: 'block_content:91cc974a-88a5-48c2-b3c9-696829e76225'
+      label: 'Packaging & Processing Hall of Fame - Image Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: caccdeee-221b-43df-b001-31f06ff2c67e
+      context_mapping: {  }
+    411fee78-aa5b-44e7-966c-b1faac5536a7:
+      id: 'block_content:2f538f45-13a4-4922-a150-e73e3eccb3b0'
+      label: 'Packaging & Processing HALL of FAME LOGO'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: under_top_left
+      weight: 0
+      uuid: 411fee78-aa5b-44e7-966c-b1faac5536a7
+      context_mapping: {  }
+    23fd6230-fe35-4210-b7c2-6329e12793da:
+      id: 'block_content:e8829ca2-0f24-4424-8a4d-5dad247c2af2'
+      label: 'Packaging & Processing Hall of Fame'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: default
+      region: under_top_right
+      weight: -3
+      uuid: 23fd6230-fe35-4210-b7c2-6329e12793da
+      context_mapping: {  }
+    e7575051-21db-44e3-8ca8-2f16bb9cc950:
+      id: 'block_content:78dffc16-96a8-4087-9beb-848039ceb54a'
+      label: 'Packaging & Processing Hall of Fame Supported By'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: all_blocks_unformatted
+      region: under_top_right
+      weight: 0
+      uuid: e7575051-21db-44e3-8ca8-2f16bb9cc950
+      context_mapping: {  }
+    92642534-7e10-4a1d-a66a-81f931c4e4a8:
+      id: 'block_content:c16d91bb-39f6-4463-9891-2db97bf26e60'
+      label: 'Past Hall of Fame: Commission Members'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: bottom
+      weight: -4
+      uuid: 92642534-7e10-4a1d-a66a-81f931c4e4a8
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 0870ba5f-d914-40c9-b24c-9e3d22a44f5e
+  label: null
+  weight: 0
+  layout: panel_landing_3
+  layout_settings: {  }
+  page_title: 'Packaging&Processing Hall of Fame'
+  storage_type: page_manager
+  storage_id: packaging_hall_of_fame-panels_variant-1
+  builder: ipe
+page: packaging_hall_of_fame
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

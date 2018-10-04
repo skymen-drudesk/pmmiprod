@@ -1,0 +1,75 @@
+uuid: 91d50aad-983c-458c-9d0a-e3636d67dcf6
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - pmmi_import
+_core:
+  default_config_hash: NTlo6ZYfhdQYCS2L6PwEOwgZ6KlB3G9vZmNDJ-cnNhw
+id: tech_notes
+migration_tags:
+  - CSV
+migration_group: null
+label: 'CSV file migration'
+source:
+  plugin: csv
+  path: /import_files/tech-notes.csv
+  header_row_count: 1
+  keys:
+    - id
+  column_names:
+    -
+      id: Identifier
+    -
+      resource_name: 'Resource Name'
+    -
+      abstract: abstract
+    -
+      body: Body
+    -
+      contact_email: 'Contact Email'
+    -
+      contact_name: 'Contact Name'
+    -
+      contact_phone: 'Contact Phone'
+    -
+      contact_title: 'Contact Title'
+    -
+      date_field: 'Date Field'
+process:
+  type:
+    plugin: default_value
+    default_value: article
+  title: resource_name
+  body/value: body
+  body/summary: abstract
+  body/format:
+    plugin: default_value
+    default_value: full_html
+  field_email: contact_email
+  uid:
+    plugin: default_value
+    default_value: 2
+  promote:
+    plugin: default_value
+    default_value: 0
+  status:
+    plugin: default_value
+    default_value: 0
+  field_news_category:
+    plugin: default_value
+    default_value: 18
+  field_author: contact_name
+  field_phone: contact_phone
+  field_author_title: contact_title
+  field_date:
+    plugin: format_date
+    from_format: n/j/Y
+    to_format: Y-m-d
+    source: date_field
+destination:
+  plugin: 'entity:node'
+migration_dependencies:
+  required: {  }
+  optional: {  }

@@ -1,0 +1,44 @@
+uuid: e41ed52a-529a-4a49-942f-58071085c3c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.trade_shows.field_date
+    - taxonomy.vocabulary.trade_shows
+  module:
+    - path
+    - text
+id: taxonomy_term.trade_shows.default
+targetEntityType: taxonomy_term
+bundle: trade_shows
+mode: default
+content:
+  description:
+    type: text_textarea
+    weight: 1
+    settings:
+      placeholder: ''
+      rows: 5
+    third_party_settings: {  }
+    region: content
+  field_date:
+    type: datetime_timestamp
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

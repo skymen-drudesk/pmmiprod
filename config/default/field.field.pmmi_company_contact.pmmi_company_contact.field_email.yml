@@ -1,0 +1,20 @@
+uuid: 3d0f7319-592d-4400-bb0d-eb876d116c38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.pmmi_company_contact.field_email
+  module:
+    - pmmi_company_contact
+id: pmmi_company_contact.pmmi_company_contact.field_email
+field_name: field_email
+entity_type: pmmi_company_contact
+bundle: pmmi_company_contact
+label: Email
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

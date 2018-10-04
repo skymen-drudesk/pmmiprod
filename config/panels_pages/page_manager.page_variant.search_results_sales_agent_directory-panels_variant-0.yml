@@ -1,0 +1,67 @@
+uuid: 98dd3a28-ddbc-439c-bfbb-78c4e877eb08
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.search_results_sales_agent_directory
+  content:
+    - 'block_content:image_header:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+  module:
+    - block_content
+    - panels
+    - pmmi_sales_agent
+    - pmmi_search
+id: search_results_sales_agent_directory-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    fd31fb19-2777-4972-bbba-7d0161af949f:
+      id: pmmi_company_search_results_block
+      label: 'PMMI Company Search Results block'
+      provider: pmmi_search
+      label_display: '0'
+      region: top
+      weight: 1
+      uuid: fd31fb19-2777-4972-bbba-7d0161af949f
+      context_mapping: {  }
+    0b6bd921-d77e-4cd6-b7cd-af96c98bf4cf:
+      id: 'block_content:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+      label: 'Sales Agent Directory - Image Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: -1
+      uuid: 0b6bd921-d77e-4cd6-b7cd-af96c98bf4cf
+      context_mapping: {  }
+    a500a64b-5a8a-44c2-a900-ddf8896ef6aa:
+      id: pmmi_sales_agent_action_toolbar
+      label: 'PMMI Sales Agent Action Toolbar'
+      provider: pmmi_sales_agent
+      label_display: '0'
+      links:
+        favorites_download: favorites_download
+        search_new: search_new
+        favorites_add: 0
+      region: top
+      weight: 0
+      uuid: a500a64b-5a8a-44c2-a900-ddf8896ef6aa
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 26926f96-7929-4534-826c-fb53a4fe5d5d
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: 'Search results sales agent directory'
+  storage_type: page_manager
+  storage_id: search_results_sales_agent_directory-panels_variant-0
+  builder: standard
+page: search_results_sales_agent_directory
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

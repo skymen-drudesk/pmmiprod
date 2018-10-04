@@ -1,0 +1,8 @@
+committee:
+  enabled: 1
+  interval: '43200'
+  warm_up: 1
+company:
+  enabled: 1
+  warm_up: 1
+  interval: '43200'

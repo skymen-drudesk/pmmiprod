@@ -1,0 +1,28 @@
+uuid: c7688417-244a-4d52-885c-6c87ae71f2b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icon
+    - block_content.type.icons
+    - field.storage.block_content.field_icon_2
+id: block_content.icons.field_icon_2
+field_name: field_icon_2
+entity_type: block_content
+bundle: icons
+label: 'Icon 2'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      icon: icon
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

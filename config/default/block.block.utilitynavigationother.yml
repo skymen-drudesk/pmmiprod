@@ -1,0 +1,24 @@
+uuid: 2a6232e9-9a54-46b1-8e72-4cc8823e16d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility-navigation-other
+  module:
+    - system
+  theme:
+    - pmmi_bootstrap
+id: utilitynavigationother
+theme: pmmi_bootstrap
+region: navigation
+weight: -5
+provider: null
+plugin: 'system_menu_block:utility-navigation-other'
+settings:
+  id: 'system_menu_block:utility-navigation-other'
+  label: 'Utility navigation - Other'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

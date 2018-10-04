@@ -1,0 +1,22 @@
+uuid: 884e5f9f-3dab-43df-acb6-6a877cf9dcf5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sad_user_stat.field_countries_searched
+    - pmmi_sales_agent.sad_user_stat_type.search
+  module:
+    - country
+id: sad_user_stat.search.field_countries_searched
+field_name: field_countries_searched
+entity_type: sad_user_stat
+bundle: search
+label: 'Countries searched'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  selectable_countries: {  }
+field_type: country

@@ -1,0 +1,28 @@
+uuid: a02c8745-ae0a-4b38-8bbc-a83a468bbc6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_equipment_sold_type
+    - node.type.company
+    - taxonomy.vocabulary.equipment_sold_type
+id: node.company.field_equipment_sold_type
+field_name: field_equipment_sold_type
+entity_type: node
+bundle: company
+label: 'Type of equipment sold'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      equipment_sold_type: equipment_sold_type
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

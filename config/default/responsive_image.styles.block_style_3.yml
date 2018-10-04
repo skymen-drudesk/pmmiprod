@@ -1,0 +1,35 @@
+uuid: 32c937a7-7dea-46bd-bf76-9255bd281c58
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.block_style_3_desktop
+    - image.style.block_style_3_dhd
+    - image.style.block_style_3_mobile
+  theme:
+    - pmmi_bootstrap
+id: block_style_3
+label: 'Block style 3'
+image_style_mappings:
+  -
+    breakpoint_id: pmmi_bootstrap.desktop-hd
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: block_style_3_dhd
+  -
+    breakpoint_id: pmmi_bootstrap.desktop
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: block_style_3_desktop
+  -
+    breakpoint_id: pmmi_bootstrap.tablet
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: block_style_3_desktop
+  -
+    breakpoint_id: pmmi_bootstrap.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: block_style_3_mobile
+breakpoint_group: pmmi_bootstrap
+fallback_image_style: block_style_3_desktop

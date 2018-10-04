@@ -1,0 +1,54 @@
+uuid: f638c2ba-b07c-4df8-8a55-6eb83d6999ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.403_page
+  module:
+    - panels
+    - pmmi
+    - pmmi_search
+id: 403_page-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    b28876c0-80a0-4350-912f-523385a5f33d:
+      id: pmmi_search_block
+      label: 'PMMI Search block'
+      provider: pmmi_search
+      label_display: '0'
+      search_path: 'internal:/search'
+      search_identifier: text
+      region: main
+      weight: 1
+      uuid: b28876c0-80a0-4350-912f-523385a5f33d
+      context_mapping: {  }
+    b482c314-5860-4300-8e2b-7641e7ee2477:
+      id: panels_text_block
+      label: 'Panels Text block'
+      provider: pmmi
+      label_display: '0'
+      block_title: 'Restricted Page'
+      block_text:
+        value: "<p>We’re sorry, this page is restricted to PMMI members only. If you are a PMMI member, please log in to&nbsp;access this content.</p>\r\n\r\n<p><a class=\"button-primary\" href=\"/ssologin\">Log in</a></p>\r\n\r\n<p>&nbsp;</p>\r\n\r\n<p>Otherwise <a href=\"/\">return home</a> or begin a new search.</p>\r\n"
+        format: full_html
+      region: main
+      weight: 0
+      uuid: b482c314-5860-4300-8e2b-7641e7ee2477
+      context_mapping: {  }
+  id: panels_variant
+  uuid: aacbccae-9852-4620-abcf-5af002146abb
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: '403 Restricted Page'
+  storage_type: page_manager
+  storage_id: 403_page-panels_variant-0
+  builder: standard
+page: 403_page
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

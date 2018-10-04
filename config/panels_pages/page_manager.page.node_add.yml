@@ -1,0 +1,16 @@
+uuid: 41becd71-3a9c-461a-9396-01e66df56c62
+langcode: en
+status: true
+dependencies: {  }
+id: node_add
+label: 'Node add'
+description: ''
+use_admin_theme: false
+path: '/node/add/{node_type}'
+access_logic: and
+access_conditions: {  }
+parameters:
+  node_type:
+    machine_name: node_type
+    type: 'entity:node_type'
+    label: 'Content type'

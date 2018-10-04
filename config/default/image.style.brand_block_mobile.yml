@@ -1,0 +1,15 @@
+uuid: 2fa2fafd-3801-411d-abac-ac6e8ef50b0d
+langcode: en
+status: true
+dependencies: {  }
+name: brand_block_mobile
+label: 'Brand Block - Mobile (auto by 40px)'
+effects:
+  10c8f696-2adc-4d55-b5e5-739b73eacd5f:
+    uuid: 10c8f696-2adc-4d55-b5e5-739b73eacd5f
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 40
+      upscale: false

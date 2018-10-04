@@ -1,0 +1,52 @@
+uuid: 012615a2-7049-4ced-b2e5-27502e5aa864
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.sales_agent_directory_contacts_admin_panel
+    - views.view.agent_trade_shows
+  module:
+    - panels
+    - views
+id: sales_agent_directory_contacts_admin_panel-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    3cbbfda6-a4f0-4c32-94e7-826d79eb8ec0:
+      id: 'views_block:agent_trade_shows-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 3cbbfda6-a4f0-4c32-94e7-826d79eb8ec0
+      context_mapping:
+        field_company: node
+    6e59c490-1026-4c34-ba6f-b6393d3b95ec:
+      id: 'views_exposed_filter_block:agent_trade_shows-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      region: content
+      weight: 0
+      uuid: 6e59c490-1026-4c34-ba6f-b6393d3b95ec
+      context_mapping: {  }
+  id: panels_variant
+  uuid: a46ac78f-efe3-4bcc-898a-6312c0b14cdb
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Show contacts of the "[node:title]" company'
+  storage_type: page_manager
+  storage_id: sales_agent_directory_contacts_admin_panel-panels_variant-0
+  builder: standard
+page: sales_agent_directory_contacts_admin_panel
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

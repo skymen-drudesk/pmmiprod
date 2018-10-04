@@ -1,0 +1,72 @@
+{#
+/**
+ * @file
+ * Template for a landing layout 2.
+ *  Regions:
+ *    - Top
+ *    - Blue
+ *    - Grey
+ *    - White
+ *    - Blue 2
+ *    - Grey 2
+ *    - White 2
+ *    - Bottom
+ */
+#}
+<div class="layout-landing layout-landing-2 clearfix">
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  {% if content.blue %}
+    <div class="blue-region">
+      <div class="container">
+        {{ content.blue }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.grey %}
+    <div class="grey-region">
+      <div class="container">
+        {{ content.grey }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.white %}
+    <div class="white-region">
+      <div class="container">
+        {{ content.white }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.blue_2 %}
+    <div class="blue-region">
+      <div class="container">
+        {{ content.blue_2 }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.enticement %}
+    <div class="enticement-region">
+      {{ content.enticement }}
+    </div>
+  {% endif %}
+  {% if content.grey_2 %}
+    <div class="grey-region">
+      <div class="container">
+        {{ content.grey_2 }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.white_2 %}
+    <div class="white-region">
+      <div class="container">
+        {{ content.white_2 }}
+      </div>
+    </div>
+  {% endif %}
+  {% if content.bottom %}
+    <div class="region-bottom">
+      {{ content.bottom }}
+    </div>
+  {% endif %}
+</div>

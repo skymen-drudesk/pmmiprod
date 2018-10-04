@@ -1,0 +1,85 @@
+theme:
+  js:
+    js/pmmi.theme.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery.once
+    - core/drupal.ajax
+    - bootstrap/drupal.bootstrap
+    - bootstrap/attributes
+    - pmmi_bootstrap/jquery-uniform
+    - pmmi_bootstrap/breakpoints
+    - pmmi_bootstrap/matchheight
+    - pmmi_bootstrap/imagesloaded
+    - pmmi_bootstrap/stacktable.js
+
+  css:
+    theme:
+      # Custom CSS file to be loaded in all media circumstances
+      css/style.css: {}
+
+countdown:
+  js:
+    js/countdown.js: {}
+  dependencies:
+    - pmmi_bootstrap/jquery.countdown
+
+gallery:
+  js:
+    js/pmmi.gallery.js: {}
+  dependencies:
+    - pmmi/jsor.lity
+
+bootstrap-scripts:
+  js:
+    bootstrap-sass/assets/javascripts/bootstrap/affix.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/alert.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/button.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/carousel.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/collapse.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/dropdown.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/modal.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/tooltip.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/popover.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/tab.js: {}
+    bootstrap-sass/assets/javascripts/bootstrap/transition.js: {}
+
+jquery-uniform:
+  js:
+    node_modules/jquery.uniform/src/js/jquery.uniform.js: {}
+
+breakpoints:
+  js:
+    js/breakpoints.js: {}
+  dependencies:
+    - core/underscore
+
+matchheight:
+  js:
+    node_modules/jquery-match-height/dist/jquery.matchHeight-min.js: {}
+
+imagesloaded:
+  js:
+    node_modules/imagesloaded/imagesloaded.pkgd.min.js: {}
+
+selectize-plugins:
+  js:
+    js/plugins/selectize/preventBackspaceSelectize.js: {}
+
+jquery.countdown:
+  js:
+    node_modules/moment/min/moment.min.js: {}
+    node_modules/moment-timezone/builds/moment-timezone-with-data.min.js: {}
+    node_modules/jquery-countdown/dist/jquery.countdown.min.js: {}
+
+blueconic:
+  header: true
+  js:
+    '//cdn.blueconic.net/pmmi.js': { type: external, weight: -22 }
+
+stacktable.js:
+  js:
+    node_modules/stacktable.js/stacktable.js: {}

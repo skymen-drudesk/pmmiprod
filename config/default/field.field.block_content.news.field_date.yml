@@ -1,0 +1,21 @@
+uuid: 716c9670-a910-4819-9526-210c1324c40c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.news
+    - field.storage.block_content.field_date
+  module:
+    - datetime
+id: block_content.news.field_date
+field_name: field_date
+entity_type: block_content
+bundle: news
+label: Date
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

@@ -1,0 +1,7 @@
+{
+  "name": "drupal/pmmi_fields",
+  "type": "drupal-module",
+  "description": "PMMI Fields",
+  "keywords": ["Drupal"],
+  "require": { }
+}

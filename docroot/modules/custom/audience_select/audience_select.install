@@ -1,0 +1,29 @@
+<?php
+
+/**
+ * @file
+ * Update hooks for the audience_select module.
+ */
+
+use Drupal\page_manager\Entity\Page;
+
+/**
+ * Apply new image style for "gateway" page audience blocks.
+ */
+function audience_select_update_8001() {
+  $gateway_variants = Page::load('gateway')->getVariants();
+  foreach ($gateway_variants as $variant) {
+    $save = FALSE;
+    $variant_settings = $variant->get('variant_settings');
+    foreach ($variant_settings['blocks'] as &$block) {
+      if ($block['id'] == 'audience_block') {
+        $block['image_style'] = 'gateway_style';
+        $save = TRUE;
+      }
+    }
+    if ($save) {
+      $variant->set('variant_settings', $variant_settings);
+      $variant->save();
+    }
+  }
+}

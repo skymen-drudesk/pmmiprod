@@ -1,0 +1,10 @@
+uuid: 69c93139-7c86-4bd6-ba5e-900a9bea072a
+langcode: en
+status: true
+dependencies: {  }
+id: page_variant__packsafe_designsafe_r_software-panels_variant-0
+label: 'Page Variant: PackSafe/designsafe® Software: PackSafe® Software'
+tags:
+  description: 'Risk assessments can be difficult, but PackSafe® helps minimize the pain and finish your assessments faster. This revision of the PackSafe® software focuses on creating a program that is more intuitive, more convenient, more visual and includes more resources and creates more with less.'
+  abstract: 'Risk assessments can be difficult, but PackSafe® helps minimize the pain and finish your assessments faster. This revision of the PackSafe® software focuses on creating a program that is more intuitive, more convenient, more visual and includes more resources and creates more with less.'
+  title: 'PackSafe® Software | PMMI'

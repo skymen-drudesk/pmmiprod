@@ -1,0 +1,21 @@
+uuid: 7ba417ec-c985-46b5-9e79-07c8e383eda2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - field.storage.block_content.field_exclude_main_calendar
+  module:
+    - options
+id: block_content.event.field_exclude_main_calendar
+field_name: field_exclude_main_calendar
+entity_type: block_content
+bundle: event
+label: 'Exclude from main calendar'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

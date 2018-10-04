@@ -1,0 +1,9 @@
+uuid: 3745fb5a-6fe3-4bd9-a7f9-b7f8924a8ec3
+langcode: en
+status: true
+dependencies: {  }
+name: Mechatronics
+vid: mechatronics
+description: ''
+hierarchy: 0
+weight: 0

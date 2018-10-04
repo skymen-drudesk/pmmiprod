@@ -1,0 +1,20 @@
+uuid: d7bd522f-20a7-4139-8e80-b42c6b353e9c
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_company_contact
+    - taxonomy
+id: pmmi_company_contact.field_trade_show
+field_name: field_trade_show
+entity_type: pmmi_company_contact
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

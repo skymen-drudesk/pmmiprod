@@ -1,0 +1,96 @@
+uuid: 34e99f56-d515-4854-bae8-9ce1f406d576
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.taxonomy_term.text_image
+    - field.field.taxonomy_term.video_type.field_head
+    - field.field.taxonomy_term.video_type.field_logo
+    - taxonomy.vocabulary.video_type
+  module:
+    - blazy
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_text_image
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      body:
+        - description
+      image:
+        - field_logo
+id: taxonomy_term.video_type.text_image
+targetEntityType: taxonomy_term
+bundle: video_type
+mode: text_image
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  field_head:
+    type: string
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: head
+  field_logo:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: brand_block_dhd
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+hidden: {  }

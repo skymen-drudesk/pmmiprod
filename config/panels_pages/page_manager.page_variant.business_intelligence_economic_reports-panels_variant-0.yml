@@ -1,0 +1,119 @@
+uuid: e226f65b-3a17-4bfb-9a36-11e2facd7d5e
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.business_intelligence_economic_reports
+    - taxonomy.vocabulary.report_type
+    - views.view.reports
+  content:
+    - 'block_content:image_header:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+  module:
+    - block_content
+    - panels
+    - pmmi_reports
+    - pmmi_search
+    - views
+id: business_intelligence_economic_reports-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    d4360279-e1a1-47a2-a3e9-b692d73eb8eb:
+      id: reports_years
+      label: 'Economic Archives'
+      provider: pmmi_reports
+      label_display: visible
+      personify_class: ECONOMIC-TRENDS
+      select_type: class
+      region: sidebar
+      weight: 0
+      uuid: d4360279-e1a1-47a2-a3e9-b692d73eb8eb
+      context_mapping: {  }
+    ec4bcc88-858e-4755-bab6-85e978ac1339:
+      id: other_reports
+      label: 'Other Reports & Research'
+      provider: pmmi_reports
+      label_display: visible
+      links:
+        -
+          url: /business-intelligence/benchmarking-reports
+          link_text: 'Benchmarking reports'
+        -
+          url: /business-intelligence/industry-reports
+          link_text: 'Industry Reports'
+        -
+          url: /business-intelligence/international-research
+          link_text: 'International Research'
+      region: sidebar
+      weight: 0
+      uuid: ec4bcc88-858e-4755-bab6-85e978ac1339
+      context_mapping: {  }
+    82a78caf-6303-4d36-92d5-268f8885708f:
+      id: 'views_block:reports-reports_category'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: main
+      weight: 0
+      uuid: 82a78caf-6303-4d36-92d5-268f8885708f
+      context_mapping:
+        field_personify_class_value: class
+    1c8057d7-53c0-46b3-978e-d47756ed8339:
+      id: pmmi_search_library_block
+      label: 'Search Reports & Research'
+      provider: pmmi_search
+      label_display: visible
+      vid: report_type
+      term_identifier: category
+      search_path: 'internal:/business-intelligence/search'
+      search_identifier: text
+      region: sidebar
+      weight: 0
+      uuid: 1c8057d7-53c0-46b3-978e-d47756ed8339
+      context_mapping: {  }
+    7536aa02-4cc1-416b-a16a-fabb6ac8173f:
+      id: reports_title
+      label: null
+      provider: pmmi_reports
+      label_display: null
+      title: 'Economic Reports'
+      region: head
+      weight: 0
+      uuid: 7536aa02-4cc1-416b-a16a-fabb6ac8173f
+      context_mapping: {  }
+    0cd67568-7ed9-4c34-9904-34b90850766a:
+      id: 'block_content:51ab98af-c4bf-40ac-9d7b-46e09f6e7e05'
+      label: 'Business Intelligence - Reports'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 0cd67568-7ed9-4c34-9904-34b90850766a
+      context_mapping: {  }
+  id: panels_variant
+  uuid: ebeda211-ecb2-455d-ae66-22deb7bc2f53
+  label: null
+  weight: 0
+  layout: panel_landing_left_sidebar_collapsible
+  layout_settings:
+    query_params: 'category, year, text'
+  page_title: ''
+  storage_type: page_manager
+  storage_id: business_intelligence_economic_reports-panels_variant-0
+  builder: standard
+page: business_intelligence_economic_reports
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context:
+  class:
+    label: CLASS
+    type: string
+    description: ''
+    value: ECONOMIC-TRENDS

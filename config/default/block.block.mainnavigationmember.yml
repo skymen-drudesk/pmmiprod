@@ -1,0 +1,20 @@
+uuid: dc46f9a7-901e-45d5-8276-0692fdea10cb
+langcode: en
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - pmmi_bootstrap
+id: mainnavigationmember
+theme: pmmi_bootstrap
+region: navigation
+weight: -3
+provider: null
+plugin: 'tb_megamenu_menu_block:main-navigation-member'
+settings:
+  id: 'tb_megamenu_menu_block:main-navigation-member'
+  label: 'Main navigation - Member'
+  provider: tb_megamenu
+  label_display: '0'
+visibility: {  }

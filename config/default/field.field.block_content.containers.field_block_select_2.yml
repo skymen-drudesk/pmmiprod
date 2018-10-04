@@ -1,0 +1,23 @@
+uuid: f3e9faca-a25e-41fd-a1b8-610943604b39
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_block_select_2
+  module:
+    - options
+id: block_content.containers.field_block_select_2
+field_name: field_block_select_2
+entity_type: block_content
+bundle: containers
+label: 'Block select 2'
+description: 'Select block type which should be added.'
+required: false
+translatable: false
+default_value:
+  -
+    value: field_block_2
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,11 @@
+name: 'PMMI'
+type: module
+description: 'Top module for PMMI D8 project'
+package: PMMI
+core: 8.x
+
+dependencies:
+  - config
+  - toolbar
+  - webform
+  - webform_views

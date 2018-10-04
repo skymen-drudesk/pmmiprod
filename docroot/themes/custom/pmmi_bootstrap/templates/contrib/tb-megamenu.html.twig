@@ -1,0 +1,22 @@
+{% if css_style is defined %}
+<style type="text/css">
+  .tb-megamenu.animate .mega > .mega-dropdown-menu, .tb-megamenu.animate.slide .mega > .mega-dropdown-menu > div {
+  {{ css_style }}
+  }
+</style>
+{% endif %}
+<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#{{ menu_name }}">
+  <span class="sr-only">{{ 'Toggle navigation'|t }}</span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+  <span class="icon-bar"></span>
+</button>
+<div {{ attributes.setAttribute('id', menu_name).addClass('collapse menu-container') }}>
+  {% if section == 'frontend' %}
+    <div class="nav-wrapper {{ block_config['always-show-submenu'] ? ' always-show' : '' }}">
+  {% endif %}
+  {{ content }}
+  {% if section == 'frontend' %}
+    </div>
+  {% endif %}
+</div>

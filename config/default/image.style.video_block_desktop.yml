@@ -1,0 +1,14 @@
+uuid: f4ae696d-e2db-405c-a94a-24a33032e639
+langcode: en
+status: true
+dependencies: {  }
+name: video_block_desktop
+label: 'Video block - Desktop and Tablet (209px by 118px)'
+effects:
+  25f206a6-0254-4db8-9eaf-3b1198c7f6e6:
+    uuid: 25f206a6-0254-4db8-9eaf-3b1198c7f6e6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 209
+      height: 118

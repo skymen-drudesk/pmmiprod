@@ -1,0 +1,23 @@
+uuid: 772f0df3-a378-4fe9-bd76-9f3d626a98cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.sad_user_stat.field_records_number
+    - pmmi_sales_agent.sad_user_stat_type.records_download
+id: sad_user_stat.records_download.field_records_number
+field_name: field_records_number
+entity_type: sad_user_stat
+bundle: records_download
+label: 'Number of records'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

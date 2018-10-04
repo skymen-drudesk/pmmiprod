@@ -1,0 +1,7 @@
+name: PMMI Taxonomy
+type: module
+description: Module for PMMI Taxonomy stuff.
+core: 8.x
+package: PMMI
+dependencies:
+  - default_content

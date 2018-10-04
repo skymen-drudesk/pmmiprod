@@ -1,0 +1,27 @@
+pmmi training provider administration:
+  title: 'Administer training provider directory'
+  'restrict access': TRUE
+
+administer training provider report entities:
+  title: 'Administer training provider report entities'
+  description: 'Allow to access the administration form to configure training provider report entities.'
+  restrict access: true
+
+access training provider report overview:
+  title: 'Access the training provider report overview page'
+
+add training provider report entities:
+  title: 'Create new training provider report entities'
+
+delete training provider report entities:
+  title: 'Delete training provider report entities'
+
+edit training provider report entities:
+  title: 'Edit training provider report entities'
+
+view training provider report entities:
+  title: 'View training provider report entities'
+
+pmmi training provider search:
+  title: 'Use training provider directory search'
+  'restrict access': TRUE

@@ -1,0 +1,203 @@
+// Sticky footer.
+html, body {
+  height: 100%;
+}
+body > .page-wrapper,
+.pmmi-panel {
+  min-height: 100%;
+  overflow: hidden;
+  clear: both;
+  &:after {
+    content: "";
+    display: block;
+    height: 60px;
+  }
+  @include tablet {
+    &:after {
+      height: 90px;
+    }
+  }
+  @include mobile {
+    &:after {
+      height: 125px;
+    }
+  }
+}
+.footer {
+  width: auto;
+  padding: 20px 0 15px;
+  background: $dkblue;
+  color: #fff;
+  margin: -60px 0 0;
+  min-height: 60px;
+  font-size: $r15;
+  line-height: $r18;
+  font-weight: 700;
+  vertical-align: middle;
+  a {
+    color: #fff;
+  }
+  .region-footer {
+    @extend .row;
+  }
+  .block {
+    margin-bottom: 0;
+  }
+  nav {
+    @extend .col-md-3;
+    padding-left: 0;
+    .menu {
+      li {
+        margin: 0;
+        display: inline-block;
+        vertical-align: top;
+        &:before {
+          height: 14px;
+          content: "";
+          display: inline-block;
+          vertical-align: top;
+          width: 1px;
+          background: #fff;
+          margin: 0 10px;
+          position: relative;
+          top: 2px;
+        }
+        a {
+          padding: 0;
+          display: inline;
+          &:hover {
+            text-decoration: underline;
+            background: none;
+          }
+        }
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .block-copyright-block {
+    @extend .col-sm-1;
+    width: auto;
+    padding-right: 0;
+  }
+  .block-audience-switcher {
+    @extend .col-md-5;
+    opacity: 0.75;
+    @include inherit-text-style(h2);
+    .block-title {
+      float: left;
+      margin: 0 10px 0 0;
+    }
+    .audience-switcher {
+      a {
+        @extend .fa-user;
+        display: inline-block;
+        font-weight: 500;
+        margin-right: 10px;
+        &:before {
+          @extend .fa;
+          font-weight: $medium;
+          line-height: $r15;
+          margin-right: 6px;
+        }
+        &:after {
+          height: 12px;
+          content: "";
+          display: inline-block;
+          width: 1px;
+          background: #fff;
+          margin-left: 10px;
+          position: relative;
+          top: 2px;
+        }
+        &:last-child {
+          margin-right: 0;
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+  .block-block-content {
+    @extend .col-md-2;
+    margin: 0;
+    @include dhd {
+      float: right;
+      width: auto;
+    }
+  }
+  .social-links {
+    text-align: right;
+  }
+  @include desktop-max {
+    font-size: $r13;
+    line-height: $r16;
+  }
+  @include tablet {
+    nav,
+    .block-copyright-block {
+      float: none;
+      display: inline-block;
+    }
+  }
+  @include tablet-max {
+    text-align: center;
+    padding: 10px 0;
+    min-height: 90px;
+    margin-top: -90px;
+    .block-audience-select {
+      padding-top: 5px;
+      margin-bottom: 5px;
+    }
+    .block-audience-switcher {
+      .block-title {
+        float: none;
+        display: inline;
+      }
+      .block {
+        display: inline;
+      }
+    }
+    .social-links {
+      text-align: center;
+    }
+  }
+  @include mobile {
+    min-height: 125px;
+    margin-top: -125px;
+    nav {
+      margin-bottom: 7px;
+      padding: 0;
+      .nav {
+        li {
+          &:first-child {
+            &:before {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .block-copyright-block {
+      margin-bottom: 7px;
+      padding: 0;
+    }
+    .block-audience-switcher {
+      margin-bottom: 7px;
+      .block-title {
+        display: block;
+      }
+      .audience-switcher {
+        a {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,15 @@
+uuid: e3d358d6-fe9c-474c-bbf0-51204904f44b
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_5_desktop_and_tablet_209px_by_159px
+label: 'Block style 5 - Desktop and Tablet (209px by 159px)'
+effects:
+  d5e764ef-85b4-4c27-809d-280a198769dd:
+    uuid: d5e764ef-85b4-4c27-809d-280a198769dd
+    id: image_scale
+    weight: 1
+    data:
+      width: 209
+      height: 160
+      upscale: true

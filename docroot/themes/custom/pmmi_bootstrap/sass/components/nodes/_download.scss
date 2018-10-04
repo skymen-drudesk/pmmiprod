@@ -1,0 +1,67 @@
+.report-node,
+.download-node {
+  margin-bottom: 40px;
+  .links {
+    margin-bottom: 5px;
+    .field--item {
+      display: inline-block;
+      margin: 0 25px 10px 0;
+    }
+    a {
+      @extend .text-link;
+      font-size: $r18;
+      line-height: $r23;
+      &:before {
+        margin-top: 3px;
+      }
+    }
+    @include tablet-max {
+      a {
+        font-size: $r17;
+      }
+    }
+    @include mobile {
+      margin-bottom: 15px;
+      .field--item {
+        display: block;
+      }
+    }
+  }
+  .download-link {
+    margin: 10px 0 20px;
+    @include mobile {
+      a {
+        width: 100%;
+      }
+    }
+  }
+  .content-right {
+    margin-bottom: 30px;
+  }
+  @include desktop-max {
+    > .container {
+      width: auto;
+    }
+    .content-right,
+    .content-full {
+      max-width: 830px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+  .col-sm-4 {
+    padding-right: 0;
+  }
+  .col-sm-8 {
+    padding-left: 15px;
+  }
+  .img {
+    margin-bottom: 20px;
+    @include mobile {
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+  }
+}

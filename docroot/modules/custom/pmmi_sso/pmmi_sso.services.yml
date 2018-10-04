@@ -1,0 +1,63 @@
+services:
+  pmmi_sso.subscriber:
+    class: Drupal\pmmi_sso\EventSubscriber\PMMISSOSubscriber
+    arguments: ['@request_stack', '@current_route_match', '@current_user', '@plugin.manager.condition', '@pmmi_sso.helper', '@pmmi_sso.redirector', '@pmmi_crawler_detect']
+    tags:
+      - { name: 'event_subscriber' }
+
+  pmmi_sso.sso_user_data_subscriber:
+    class: Drupal\pmmi_sso\EventSubscriber\PMMISSOGetUserDataSubscriber
+    arguments: ['@http_client', '@pmmi_sso.helper', '@pmmi_sso.xml_parser']
+    tags:
+      - { name: 'event_subscriber' }
+
+  pmmi_sso.sso_user_company_subscriber:
+    class: Drupal\pmmi_sso\EventSubscriber\PMMISSOGetUserCompanySubscriber
+    arguments: ['@http_client', '@entity_type.manager', '@pmmi_sso.helper']
+    tags:
+      - { name: 'event_subscriber' }
+
+  pmmi_sso.external_auth_subscriber:
+    class: Drupal\pmmi_sso\EventSubscriber\PMMISSOExternalAuthSubscriber
+    tags:
+      - { name: 'event_subscriber' }
+
+  pmmi_sso.prevent_password_reset_subscriber:
+    class: Drupal\pmmi_sso\EventSubscriber\PMMISSOPreventPasswordResetSubscriber
+    arguments: ['@config.factory']
+    tags:
+      - { name: 'event_subscriber' }
+
+  pmmi_sso.helper:
+    class: Drupal\pmmi_sso\Service\PMMISSOHelper
+    arguments: ['@config.factory', '@url_generator.non_bubbling', '@database', '@logger.factory', '@session', '@pmmi_sso.crypt']
+
+  pmmi_sso.xml_parser:
+    class: Drupal\pmmi_sso\Parsers\PMMISSOXmlParser
+
+  pmmi_sso.redirector:
+    class: Drupal\pmmi_sso\Service\PMMISSORedirector
+    arguments: ['@pmmi_sso.helper', '@event_dispatcher']
+
+  pmmi_sso.validator:
+    class: Drupal\pmmi_sso\Service\PMMISSOValidator
+    arguments: ['@http_client', '@pmmi_sso.helper', '@pmmi_sso.xml_parser']
+
+  pmmi_sso.user_manager:
+    class: Drupal\pmmi_sso\Service\PMMISSOUserManager
+    arguments: ['@externalauth.externalauth', '@externalauth.authmap', '@config.factory', '@session', '@user.data', '@event_dispatcher', '@entity_type.manager']
+
+  pmmi_sso.crypt:
+    class: Drupal\pmmi_sso\Service\PMMISSOCrypt
+    arguments: ['@config.factory', '@logger.factory']
+
+  pmmi_sso.page_cache_response_policy.deny_sso:
+    class: Drupal\pmmi_sso\PageCache\DenySSO
+    arguments: ['@config.factory', '@plugin.manager.condition']
+    public: false
+    tags:
+      - { name: page_cache_response_policy }
+
+  pmmi_sso.cron_data_collector:
+    class: Drupal\pmmi_sso\Service\PMMISSOCronDataCollector
+    arguments: ['@config.factory', '@entity_type.manager', '@user.data', '@database']

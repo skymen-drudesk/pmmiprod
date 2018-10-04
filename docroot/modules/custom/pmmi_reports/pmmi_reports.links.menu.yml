@@ -1,0 +1,7 @@
+pmmi_reports.import_settings:
+  title: 'Reports import settings'
+  route_name: pmmi_reports.import_settings
+  description: 'Reports import settings'
+  parent: pmmi_sso.admin
+  weight: 5
+

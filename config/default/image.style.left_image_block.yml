@@ -1,0 +1,15 @@
+uuid: 8671fdb8-c5d0-40c4-8367-985d6f2644bc
+langcode: en
+status: true
+dependencies: {  }
+name: left_image_block
+label: 'Left image block (288px by auto)'
+effects:
+  fb12571d-b243-4e4b-8504-7e2b19b5e7f4:
+    uuid: fb12571d-b243-4e4b-8504-7e2b19b5e7f4
+    id: image_scale
+    weight: 1
+    data:
+      width: 288
+      height: null
+      upscale: false

@@ -1,0 +1,4 @@
+pmmi_page_manager_search.view:
+  route_name: entity.pmmi_page_manager_search.canonical
+  base_route: entity.pmmi_page_manager_search.canonical
+  title: View

@@ -1,0 +1,31 @@
+uuid: 5e8059d4-2711-47fc-ac8e-408260d2cc9d
+langcode: en
+status: false
+dependencies:
+  content:
+    - 'block_content:containers:49b83588-4da7-4ee8-9c2c-749825530024'
+  module:
+    - block_content
+    - pmmi_sales_agent
+  theme:
+    - pmmi_bootstrap
+id: megamenuworkforcedevelopment
+theme: pmmi_bootstrap
+region: navigation
+weight: 0
+provider: null
+plugin: 'block_content:49b83588-4da7-4ee8-9c2c-749825530024'
+settings:
+  id: 'block_content:49b83588-4da7-4ee8-9c2c-749825530024'
+  label: 'Mega Menu - Workforce Development'
+  provider: block_content
+  label_display: '0'
+  status: true
+  info: ''
+  view_mode: default
+visibility:
+  sales_agent_permission:
+    id: sales_agent_permission
+    permission: 'pmmi sales agent search'
+    negate: false
+    context_mapping: {  }

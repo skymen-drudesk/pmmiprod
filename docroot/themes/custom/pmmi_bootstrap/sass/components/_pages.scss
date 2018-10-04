@@ -1,0 +1,154 @@
+.user-pass-reset,
+.user-login-form {
+  margin-bottom: 40px;
+}
+.path-workforce-development {
+  .white-region .containers.mode-2-up {
+    .col {
+      margin-bottom: 40px;
+    }
+    .col-1 {
+      border-right: 1px solid $mdgrey;
+      padding-right: 25px;
+    }
+    .col-2 {
+      border-left: 1px solid $mdgrey;
+      padding-left: 25px;
+      margin-left: -1px;
+    }
+    @include desktop-max {
+      .block-enticement .button a {
+        min-width: 0;
+        width: 270px;
+      }
+    }
+    @include tablet {
+      .col {
+        width: 50%;
+        float: left;
+      }
+      .col-1 {
+        padding-right: 10px;
+      }
+      .col-2 {
+        padding-left: 10px;
+      }
+    }
+    @include mobile {
+      .col {
+        padding-left: 15px;
+        padding-right: 15px;
+        border: none;
+        margin-left: 0;
+      }
+    }
+  }
+}
+.panel-404-page {
+  @include mobile {
+    .block-panels-text-block {
+      .text br {
+        display: none;
+      }
+    }
+  }
+}
+// 403 and 404 pages.
+.panel-404-page,
+.panel-403-page {
+  // Search block in main region.
+  .block-region-main .pmmi-search-block-form {
+    max-width: 270px;
+    padding-right: 35px;
+    position: relative;
+    .form-search {
+      border-radius: 3px 0 0 3px;
+      height: 32px;
+      border: 1px solid #c2c2c2;
+    }
+    .form-submit {
+      position: absolute;
+      right: 0;
+      top: 0;
+      height: 32px;
+      overflow: hidden;
+      width: 35px;
+      line-height: 100px;
+      margin: 0;
+      padding: 0;
+      border: none;
+      border-radius: 0 3px 3px 0;
+      span {
+        display: block;
+        text-indent: 0;
+        line-height: 32px;
+      }
+    }
+  }
+}
+
+// Batch page.
+body.path-batch {
+  .pmmi-panel {
+    .block-region-main {
+      width: 100%;
+      padding: 0;
+      .batch-container {
+        max-width: 1200px;
+        padding-left: 15px;
+        padding-right: 15px;
+        margin: 0 auto;
+        h2.favorites-block-title {
+          @extend .headline2;
+        }
+      }
+    }
+  }
+}
+.page-company-listing-update {
+  h2.block-title {
+    @extend .headline2;
+    margin-bottom: 30px;
+  }
+  .one-time-company-update-message {
+    color: $blue;
+    font-size: $r20;
+    font-weight: 900;
+    line-height: 26px;
+  }
+  .form-item-nid {
+    margin-bottom: 70px;
+    max-width: 772px;
+    label {
+      font-size: $r20;
+      color: $blue;
+    }
+    input {
+      height: 38px;
+      border: 1px solid #869fbe;
+    }
+    span.input-group-addon {
+      padding: 0px 12px;
+      border-color: $secondary-blue;
+    }
+  }
+  button {
+    max-width: 470px;
+    width: 100%;
+    height: 50px;
+    background-color: $blue;
+    border-radius: 6px;
+    font-size: $r25;
+    font-weight: $extrabold;
+    text-transform: uppercase;
+    .glyphicon-search:before {
+      content: none;
+    }
+  }
+}
+.report-node,
+.landing-left-sidebar-collapsible {
+  .block-image-header .field-name-field-head {
+    max-width: 270px;
+  }
+}

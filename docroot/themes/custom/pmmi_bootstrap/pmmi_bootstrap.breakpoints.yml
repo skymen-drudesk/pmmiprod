@@ -1,0 +1,28 @@
+pmmi_bootstrap.desktop-hd:
+  label: DHD
+  mediaQuery: 'all and (min-width: 1200px)'
+  weight: 1
+  multipliers:
+    - 1x
+  group: pmmi_bootstrap
+pmmi_bootstrap.desktop:
+  label: Desktop
+  mediaQuery: 'all and (min-width: 1024px) and (max-width: 1199px)'
+  weight: 1
+  multipliers:
+    - 1x
+  group: pmmi_bootstrap
+pmmi_bootstrap.tablet:
+  label: Tablet
+  mediaQuery: 'all and (min-width: 768px) and (max-width: 1023px)'
+  weight: 1
+  multipliers:
+    - 1x
+  group: pmmi_bootstrap
+pmmi_bootstrap.mobile:
+  label: Mobile
+  mediaQuery: 'all and (max-width: 767px)'
+  weight: 1
+  multipliers:
+    - 1x
+  group: pmmi_bootstrap

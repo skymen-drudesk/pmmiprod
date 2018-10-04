@@ -1,0 +1,19 @@
+uuid: 16eff7bb-8740-47fc-ad45-3b946f6657b9
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_company
+id: block_content.person.field_company
+field_name: field_company
+entity_type: block_content
+bundle: person
+label: Company
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

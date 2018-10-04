@@ -1,0 +1,51 @@
+uuid: c16121e4-d8ba-4d77-81fc-53e08c158f42
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.sales_agent_directory_usage_export
+    - views.view.sales_agent_search_stats
+  module:
+    - panels
+    - views
+id: sales_agent_directory_usage_export-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    83c80c8c-3c5f-494e-a6fe-4bf5705e9c46:
+      id: 'views_block:sales_agent_search_stats-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 1
+      uuid: 83c80c8c-3c5f-494e-a6fe-4bf5705e9c46
+      context_mapping: {  }
+    bdbb34cf-b32a-4576-847c-51e589d376f0:
+      id: 'views_exposed_filter_block:sales_agent_search_stats-block_1'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      region: content
+      weight: 0
+      uuid: bdbb34cf-b32a-4576-847c-51e589d376f0
+      context_mapping: {  }
+  id: panels_variant
+  uuid: ab305b4c-495b-4277-9ff2-00fcb2331a0e
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Usage export'
+  storage_type: page_manager
+  storage_id: sales_agent_directory_usage_export-panels_variant-0
+  builder: standard
+page: sales_agent_directory_usage_export
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

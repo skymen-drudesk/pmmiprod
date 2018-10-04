@@ -1,0 +1,670 @@
+/**
+* Sales Agent Directory and Training Provider Search Form.
+*/
+.page-search-training-provider-directory,
+.page-search-sales-agent-directory {
+  .main-container {
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    .block-title {
+      @extend .headline1;
+      display: inline-block;
+      &:after {
+        margin: 15px 45px 0 0;
+      }
+    }
+    .panel-default,
+    .chosen-choices,
+    .form-text {
+      border-color: $grey;
+      color: $textdark;
+      border-radius: 0;
+    }
+    a[aria-expanded="false"],
+    input[type="text"],
+    .form-text{
+      font-style: italic;
+    }
+    label {
+      padding-left: 0;
+    }
+    form {
+      width: 770px;
+      padding: 33px 0 0 0;
+      color: $blue;
+      .form-group {
+        margin-bottom: 16px;
+        .form-item-administrative-area,
+        .form-item-country-code {
+          @extend .clear-after;
+          .control-label {
+            float: left;
+            line-height: 40px;
+            padding-right: 10px;
+          }
+          .selectize-control {
+            min-width: 270px;
+            font-size: $r16;
+            padding-top: 45px;
+            input {
+              height: 40px;
+              color: $textdark;
+            }
+            .selectize-dropdown {
+              top: 40px !important;
+            }
+          }
+          .input-group {
+            display: inline-block;
+          }
+        }
+        .form-item-administrative-area {
+          z-index: 1;
+          position: relative;
+          .control-label {
+            margin-left: -34px;
+            padding-right: 10px;
+          }
+        }
+      }
+      .input-group,
+      .form-control {
+        display: inline;
+        min-height: 40px;
+        max-width: 270px;
+        .input-group-addon {
+          display: none;
+        }
+      }
+    }
+    #edit-delivery-options,
+    #edit-course-topics,
+    #edit-industries,
+    #edit-equipments,
+    #edit-shows {
+      position: relative;
+      padding-left: 52px;
+      margin-left: 70px;
+      .panel-body {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      .panel-heading {
+        color: $grey;
+        background: none;
+        border: none;
+        padding: 0;
+        border-radius: 0;
+        a {
+          font-size: $r16;
+          display: block;
+          color: $dkgrey;
+          padding: 10px 15px;
+          &:before {
+            background-color: $blue;
+            width: 40px;
+            display: block;
+            font-family: FontAwesome;
+            color: #fff;
+            content: '\f067';
+            font-size: $r20;
+            padding-top: 9px;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+          }
+          &[aria-expanded="true"] {
+            color: $blue;
+            font-weight: 700;
+            padding-left: 12px;
+            &:before {
+              content: '\f068';
+              background-color: $ltblue;
+            }
+          }
+          &:hover {
+            color: $blue;
+          }
+        }
+      }
+      .in {
+        margin-top: -20px;
+      }
+      .checkbox.checked {
+        color: $ltblue;
+        label {
+          color: $ltblue;
+          margin-left: 20px;
+        }
+      }
+      .checkbox {
+        color: #000;
+        label {
+          color: #000;
+          margin-left: 20px;
+        }
+        .checker {
+          float: left;
+          margin-left: -20px;
+          position: relative;
+          span {
+            display: block;
+            &:before {
+              font-family: FontAwesome;
+              font-size: 15px;
+              content: '\f096';
+            }
+            &.checked {
+              &:before {
+                content: '\f046';
+              }
+            }
+          }
+          input {
+            position: absolute;
+            left: 0;
+            right: 0;
+            top: 0;
+            opacity: 0;
+            margin: 0;
+          }
+        }
+      }
+      @include tablet-max {
+        margin-left: 0;
+      }
+      @include desktop-min {
+        .form-checkboxes {
+          padding: 0;
+          margin: 0 0 0 -10px;
+          font-size: 0;
+          .form-type-checkbox {
+            font-size: $r16;
+            display: inline-block;
+            vertical-align: top;
+            width: 50%;
+            padding: 0 10px;
+          }
+        }
+      }
+    }
+    .form-item-keywords {
+      .control-label {
+        padding-right: 8px;
+        margin-left: -8px;
+      }
+    }
+    .button {
+      margin-left: 66px;
+      margin-bottom: 100px;
+      width: 170px;
+      text-transform: uppercase;
+      font-size: 14px;
+      font-weight: bold;
+      .icon {
+        display: none;
+      }
+    }
+
+    @include tablet-max {
+      .block-title {
+        font-size: $r35;
+        margin: 0 10px 0 0;
+      }
+      label {
+        padding-left: 0;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        padding-right: 20px;
+        @include clearfix;
+      }
+      form {
+        width: auto;
+        .form-group {
+          > .form-item {
+            .control-label {
+              line-height: inherit;
+            }
+            .input-group {
+              max-width: 100%;
+              width: 100%;
+              min-width: 220px;
+            }
+          }
+          .form-item-administrative-area .control-label {
+            margin-left: 0;
+            line-height: inherit;
+          }
+        }
+        #edit-industries,
+        #edit-equipments,
+        #edit-shows,
+        .form-type-textfield,
+        .form-type-select {
+          width: 100%;
+          float: left;
+          margin-left: 0;
+        }
+        .form-type-select label {
+          float: left;
+          margin-right: 11px;
+          padding-right: 0;
+        }
+        .form-control {
+          max-width: 100%;
+        }
+      }
+      .form-item-keywords {
+        .control-label {
+          margin-left: 0;
+        }
+      }
+      .button {
+        margin: 30px auto;
+        font-weight: normal;
+        position: relative;
+        left: 50%;
+        margin-left: -85px;
+      }
+    }
+  }
+}
+
+
+// Directory search result header.
+%directory-search-results-header {
+  background-color: $ltgrey;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 20px;
+  h2 {
+    @extend .headline2;
+    &:after {
+      display: block;
+      margin-top: 10px;
+      content: ' ';
+      border-bottom: 1px solid $mdgrey;
+      width: 100%;
+    }
+    span {
+      font-weight: normal;
+    }
+  }
+  .filters,
+  h2 {
+    @include container;
+  }
+  .info-block {
+    display: inline-block;
+    vertical-align: top;
+    width: 20%;
+    @include tablet-max {
+      display: block;
+      width: 100%;
+    }
+  }
+  h3 {
+    font-size: $r16;
+    color: $blue;
+    font-weight: bold;
+  }
+  ul {
+    padding-left: 0;
+    padding-right: 40px;
+    white-space: nowrap;
+    overflow: hidden;
+    max-width: 266px;
+  }
+  li {
+    display: block;
+    color: $grey;
+    text-transform: uppercase;
+    font-size: $r14;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+// Directory search results view.
+%directory-search-results-view {
+  @include container;
+  .table th {
+    font-weight: $extrabold;
+    font-size: $r20;
+    color: $blue;
+    vertical-align: bottom;
+    border-right: none;
+    border-bottom: 1px solid $mdgrey;
+    background: transparent;
+    a {
+      color: $blue;
+    }
+  }
+  td.views-field-country {
+    width: 266px;
+  }
+  td.views-field-field-manufacturers-represented {
+    width: 442px;
+    white-space: normal;
+  }
+  .table > tbody > tr > td {
+    border: none;
+    vertical-align: inherit;
+  }
+  tbody {
+    tr {
+      background: none;
+      border-bottom: 1px solid $mdgrey;
+      &:hover {
+        background: $ltbluebg;
+      }
+    }
+    td {
+      &:first-child {
+        padding-top: 15px;
+        padding-bottom: 15px;
+        border: none;
+        padding-left: 20px;
+        display: inline-block;
+        width: 100%;
+        &:before {
+          float: left;
+          margin-left: -20px;
+          padding-left: 7px;
+          padding-right: 12px;
+          font-weight: $medium;
+          font-family: FontAwesome;
+          content: "\f138";
+          color: $twitterblue;
+        }
+        a {
+          color: $twitterblue;
+          white-space: nowrap;
+          text-overflow: ellipsis;
+          display: block;
+          overflow: hidden;
+          text-transform: uppercase;
+          font-weight: bold;
+          width: 90%;
+        }
+      }
+    }
+  }
+
+  @include tablet-max {
+    .table-responsive {
+      border: none;
+    }
+    .table > thead {
+      display: none;
+    }
+    table,
+    tbody {
+      display: block;
+    }
+    tbody > tr {
+      border-bottom: 0;
+      display: block;
+      padding-bottom: 5px;
+      td {
+        white-space: normal;
+        padding: 5px 0 0 32px;
+        width: auto;
+        &, &:first-child {
+          padding-bottom: 0;
+          display: block;
+        }
+        &.views-field-field-manufacturers-represented {
+          width: auto;
+        }
+        &.views-field-country {
+          font-style: italic;
+          width: auto;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Sales Agent Directory Search Results.
+ */
+.sales-agent-search-results-header {
+  @extend %directory-search-results-header;
+}
+.block-pmmi-company-search-results-block {
+  .view-search-sales-agent-directory {
+    @extend %directory-search-results-view;
+  }
+}
+/**
+ * Training Provider Search Results.
+ */
+.training-provider-search-results-header {
+  @extend %directory-search-results-header;
+}
+.block-pmmi-training-provider-search-results-block {
+  .view-search-training-provider-directory {
+    @extend %directory-search-results-view;
+    tbody td {
+      &:first-child {
+        padding-left: 8px;
+        &:before {
+          display: none;
+        }
+        a {
+          color: $blue;
+        }
+      }
+      @include desktop-min {
+        &.views-field {
+          max-width: 30%;
+          width: 30%;
+          &:first-child {
+            display: table-cell;
+            a {
+              white-space: normal;
+              text-overflow: initial;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+.page-search-training-provider-directory {
+  .region-bottom {
+    @include container;
+    .block.plain-text {
+      @extend %training-directory-question-block;
+      margin: 150px 0 20px 68px;
+      @include tablet-max {
+        margin-left: 0;
+      }
+    }
+  }
+}
+/**
+ * Sales Agent Directory Favorites Page.
+ */
+.favorites-header {
+  .title {
+    display: inline;
+    margin: 0 15px 0 0;
+    span {
+      font-weight: normal;
+    }
+  }
+}
+.page-sales-agent-directory-my-favorites {
+  h2 {
+    @extend .headline2;
+  }
+  .view-header {
+    a.pmmi-download-favorites {
+      display: none;
+    }
+  }
+  .favorites-header {
+    a.pmmi-download-favorites {
+      height: auto;
+      @extend .button-primary;
+      padding: 10px 12px;
+      margin: 5px;
+      vertical-align: top;
+      p {
+        margin: 0;
+      }
+      a {
+        color: #fff;
+        font-size: $r14;
+        padding: 5px;
+        font-weight: 700;
+      }
+    }
+
+    a.pmmi-clear-favorites {
+      display: inline-block;
+      margin: 5px;
+      padding: 5px 12px;
+      font-size: $r20;
+
+      &:before {
+        font-family: FontAwesome;
+        content: '\f00d';
+        padding-right: 5px;
+        font-weight: normal;
+        text-decoration: none;
+      }
+    }
+  }
+  thead > tr > th {
+    border: none;
+    border-bottom: 1px solid $mdgrey;
+    background: transparent;
+    font-weight: $extrabold;
+    font-size: $r20;
+    color: $blue;
+  }
+  tbody {
+    tr {
+      border-bottom: 1px solid $mdgrey;
+      &:hover,
+      &:nth-of-type(odd):hover {
+        background: $ltbluebg;
+      }
+      td {
+        border: none;
+        padding: 15px 8px;
+        &.views-field-title {
+          display: block;
+          max-width: 425px;
+          a {
+            color: $blue;
+            text-transform: uppercase;
+            font-weight: $bold;
+            display: block;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            overflow: hidden;
+          }
+        }
+        &.views-field-field-address-country-code {
+          width: 230px;
+        }
+        &.views-field-field-manufacturers-represented {
+          width: 400px;
+          display: block;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+        }
+        &.views-field-link-flag {
+          a {
+            color: $twitterblue;
+            font-style: italic;
+            font-size: $r14;
+            font-weight: 700;
+            &:before {
+              font-family: FontAwesome;
+              content: '\f00d';
+              font-style: normal;
+              padding-right: 5px;
+            }
+          }
+        }
+      }
+      &:nth-of-type(odd) {
+        background: none;
+      }
+    }
+  }
+  @include desktop {
+    tbody tr {
+      td.views-field-title,
+      td.views-field-field-manufacturers-represented {
+        width: 300px;
+      }
+    }
+  }
+  @include tablet-max {
+    .table-responsive {
+      border: none;
+      max-width: 100%;
+    }
+    h2 {
+      position: relative;
+    }
+    thead {
+      display: none;
+    }
+    table,
+    tbody {
+      display: block;
+    }
+    tbody > tr {
+      display: block;
+      max-width: 100%;
+      padding: 15px 0;
+      td {
+        display: block;
+        padding: 0;
+        &.views-field-field-manufacturers-represented {
+          width: 100%;
+        }
+        &.views-field-field-address-country-code {
+          font-style: italic;
+        }
+        &.views-field-link-flag {
+          margin-top: 10px;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Main search page.
+ */
+.block-views-exposed-filter-blocksearch-page-block-1 {
+  .form-type-textfield {
+    display: none;
+  }
+}
+.block-views-blocksearch-page-block-1 {
+  .views-row {
+    margin-bottom: 30px;
+  }
+  .views-field-body {
+    @extend .paragraph2;
+  }
+  @include mobile {
+    .views-row {
+      margin-bottom: 20px;
+    }
+  }
+}

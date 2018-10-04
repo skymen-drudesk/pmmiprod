@@ -1,0 +1,14 @@
+uuid: 499ebca5-33cf-4e67-bb47-9ac48794d248
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_3_mobile
+label: 'Block style 3 -  Mobile (249px by 189px)'
+effects:
+  0b80180b-c4a5-450c-bc32-2d2c0d3359ca:
+    uuid: 0b80180b-c4a5-450c-bc32-2d2c0d3359ca
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 249
+      height: 189

@@ -1,0 +1,20 @@
+uuid: 8f1e06fd-34b8-4cf8-9ad5-bb0751ed3c17
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - taxonomy
+id: block_content.field_event_types
+field_name: field_event_types
+entity_type: block_content
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

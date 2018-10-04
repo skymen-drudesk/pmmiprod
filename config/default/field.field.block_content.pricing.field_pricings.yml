@@ -1,0 +1,30 @@
+uuid: 4e8bbc54-405d-4e97-9f0c-157c3416ad10
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.plain_text
+    - block_content.type.pricing
+    - field.storage.block_content.field_pricings
+  module:
+    - pmmi_fields
+id: block_content.pricing.field_pricings
+field_name: field_pricings
+entity_type: block_content
+bundle: pricing
+label: Pricings
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      plain_text: plain_text
+    sort:
+      field: _none
+    auto_create: 0
+    auto_create_bundle: ''
+field_type: pmmi_entity_reference

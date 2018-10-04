@@ -1,0 +1,113 @@
+uuid: 68e8c9cf-dad1-41e5-819f-bdc5df05bceb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - field.field.block_content.image_slide.body
+    - field.field.block_content.image_slide.field_button
+    - field.field.block_content.image_slide.field_head
+    - field.field.block_content.image_slide.field_image
+    - field.field.block_content.image_slide.field_slide_type
+    - field.field.block_content.image_slide.field_subhead
+    - field.field.block_content.image_slide.field_video
+    - field.field.block_content.image_slide.field_weight
+  module:
+    - blazy
+    - ds
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_image_slide_default
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image:
+        - field_image
+      head:
+        - field_head
+      body:
+        - body
+id: block_content.image_slide.default
+targetEntityType: block_content
+bundle: image_slide
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: body
+  field_head:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: our_mission_slide
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+hidden:
+  field_button: true
+  field_slide_type: true
+  field_subhead: true
+  field_video: true
+  field_weight: true

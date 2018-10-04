@@ -1,0 +1,28 @@
+uuid: 7161ab57-3b68-475e-83f8-d42cfdacc8e3
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - block_content.type.slideshow
+    - field.storage.block_content.field_slides
+id: block_content.slideshow.field_slides
+field_name: field_slides
+entity_type: block_content
+bundle: slideshow
+label: Slides
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      image_slide: image_slide
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

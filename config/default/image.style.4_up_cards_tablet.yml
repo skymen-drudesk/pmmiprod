@@ -1,0 +1,14 @@
+uuid: 9f5122c3-91c1-4849-8e56-dbb947123088
+langcode: en
+status: true
+dependencies: {  }
+name: 4_up_cards_tablet
+label: '4-up cards - Tablet (269px by 174px)'
+effects:
+  2d65667d-41de-482e-bfc1-0c7d2004fc69:
+    uuid: 2d65667d-41de-482e-bfc1-0c7d2004fc69
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 269
+      height: 174

@@ -1,0 +1,73 @@
+uuid: 353b43f7-7cbe-4405-ab80-e4bfe2ebce2e
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_add
+  content:
+    - 'block_content:image_header:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+    - 'block_content:text:9475ba91-a451-4c81-a852-f1413a6b768a'
+  module:
+    - block_content
+    - panels
+    - pmmi_forms
+    - system
+id: node_add-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    efa68151-137f-46b6-8bf8-4a499a600f5a:
+      id: 'entity_form:node_type'
+      label: 'Entity form (Content type)'
+      provider: pmmi_forms
+      label_display: '0'
+      region: main
+      weight: 0
+      uuid: efa68151-137f-46b6-8bf8-4a499a600f5a
+      context_mapping:
+        entity: node_type
+    b2eee949-4995-4818-b70b-c2048e5fe10a:
+      id: 'block_content:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+      label: 'Sales Agent Directory - Image Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: b2eee949-4995-4818-b70b-c2048e5fe10a
+      context_mapping: {  }
+    3129aa01-1bf8-488c-9939-608611a00ef1:
+      id: 'block_content:9475ba91-a451-4c81-a852-f1413a6b768a'
+      label: 'New agent registration form'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: default
+      region: main
+      weight: -1
+      uuid: 3129aa01-1bf8-488c-9939-608611a00ef1
+      context_mapping: {  }
+  id: panels_variant
+  uuid: f0616422-cb4a-4757-a9c3-6af9ed6a70c4
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: 'New Agent Registration Form'
+  storage_type: page_manager
+  storage_id: node_add-panels_variant-0
+  builder: standard
+page: node_add
+weight: 0
+selection_criteria:
+  -
+    id: request_path
+    pages: /node/add/company
+    negate: false
+    context_mapping: {  }
+selection_logic: and
+static_context: {  }

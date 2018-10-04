@@ -1,0 +1,563 @@
+<?php
+/**
+ * @file
+ * The primary PHP file for this theme.
+ */
+
+use CommerceGuys\Addressing\Country\CountryRepository;
+use Drupal\Component\Utility\Html;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Template\Attribute;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function pmmi_bootstrap_preprocess_html(&$variables) {
+  $front_class = (\Drupal::service('path.matcher')->isFrontPage()) ? 'front' : 'not-front';
+  $variables['attributes']['class'][] = $front_class;
+
+  $page_variant = \Drupal::routeMatch()->getParameter('page_manager_page_variant');
+  if (!\Drupal::routeMatch()->getParameter('node') && !$page_variant) {
+    $variables['attributes']['class'][] = 'use-container';
+  }
+
+  // Add a class for node_add page to specify content type.
+  if ($page_variant && $page_variant->get('page') == 'node_add') {
+    $node_type = \Drupal::routeMatch()->getParameter('node_type');
+    $variables['attributes']['class'][] = 'page-node-type-' . $node_type->id();
+
+    // Fix empty title issue.
+    // @todo: find out why a title from panel isn't used!
+    $pc = $page_variant->getPluginCollections();
+    if (isset($pc['variant_settings']) && ($conf = $pc['variant_settings']->getConfiguration())) {
+      $site_name = \Drupal::config('system.site')->get('name');
+      $variables['head_title']['title'] = $conf['page_title'] . ' | ' . $site_name;
+    }
+  }
+  _pmmi_bootstrap_detect_browsers($variables);
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function pmmi_bootstrap_preprocess_block(&$variables) {
+  switch ($variables['base_plugin_id']) {
+    case 'system_menu_block':
+      // Add specific class to utility menus.
+      if (strpos($variables['plugin_id'], 'utility-navigation') !== FALSE) {
+        $variables['attributes']['class'][] = 'utility-navigation';
+      }
+      if (strpos($variables['plugin_id'], 'user-menu') !== FALSE) {
+        $variables['attributes']['class'][] = 'user-menu';
+      }
+      break;
+
+    case 'pmmi_twitter_block':
+      $url = Url::fromUri('https://www.twitter.com/@PMMIorg', [
+        'attributes' => [
+          'target' => '_blank',
+        ],
+      ]);
+      $variables['label'] = $variables['configuration']['block_title'];
+      $variables['subtitle'] = Link::fromTextAndUrl('@PMMIorg', $url);
+      break;
+
+    case 'pmmi_facebook_block':
+      $page_id = $variables['configuration']['page_id'];
+      $url = Url::fromUri('https://www.facebook.com/' . $page_id, [
+        'attributes' => [
+          'target' => '_blank',
+        ],
+      ]);
+      $variables['label'] = $variables['configuration']['block_title'];
+      $variables['subtitle'] = Link::fromTextAndUrl("facebook.com/{$page_id}", $url);
+      break;
+
+    case 'system_branding_block':
+      $current_path = \Drupal::service('path.current')->getPath();
+      if ($variables['content']['site_logo']['#access']
+      && $fold_logo_path = theme_get_setting('fold_logo_path')) {
+        $fold_logo_uri = file_url_transform_relative(file_create_url($fold_logo_path));
+        $variables['site_logo_fold'] = $fold_logo_uri;
+      }
+      break;
+
+    case 'block_content':
+      if (isset($variables['content']['#bundle'])) {
+        $variables['attributes']['class'][] = Html::cleanCssIdentifier($variables['content']['#bundle']);
+      }
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_ds_entity_view().
+ */
+function pmmi_bootstrap_preprocess_ds_entity_view(&$vars) {
+  $attributes = new Attribute();
+  $attributes['class'] = [
+    Html::cleanCssIdentifier($vars['content']['#bundle']),
+    Html::cleanCssIdentifier('mode-' . $vars['content']['#view_mode']),
+  ];
+  switch ($vars['content']['#bundle']) {
+    case 'certification_test':
+      $coming = $vars['content']['#node']->get('field_cert_test_coming')->value;
+      if (!empty($coming)) {
+        $attributes['class'][] = 'comming-soon';
+      }
+      break;
+
+    case 'video':
+      if ($vars['content']['#view_mode'] == 'default') {
+        $attributes['data-item-id'] = $vars['content']['#node']->id();
+      }
+      break;
+
+    case 'image_slide':
+      if ($vars['content']['#view_mode'] == 'image_slider') {
+        $slide_type = $vars['content']['#block_content']->get('field_slide_type')->value;
+        $ds_config = $vars['content']['#ds_configuration'];
+        $hide_slide = ($slide_type == 'image') ? 'field_video' : 'field_image';
+        $key = array_search($hide_slide, $ds_config['regions']['image']);
+        unset($vars['content']['image'][$key]);
+      }
+      break;
+
+    case 'text_image':
+    case 'text':
+    case 'containers':
+      $center = $vars['content']['#block_content']->get('field_center_text')->value;
+      if ($center) {
+        $attributes['class'][] = 'centered';
+      }
+      break;
+
+    case 'news':
+      $bg_color = $vars['content']['#block_content']->get('field_head_bkg_color_class')->value;
+      $attributes['class'][] = !empty($bg_color) ? 'color-blue' : 'color-red';
+      break;
+
+    case 'company':
+      $node = $vars['content']['#node'];
+
+      // Attach some address info to the "General line 1" region.
+      if ($address = $node->get('field_address')->getValue()) {
+        $country_repository = new CountryRepository();
+        $countries = $country_repository->getList();
+
+        $state = !empty($address[0]['administrative_area']) ? $address[0]['administrative_area'] : '';
+        $country = $countries[$address[0]['country_code']];
+
+        $new_element = array(
+          '#markup' => $state ? implode(', ', array($state, $country)) : $country,
+          '#prefix' => '<div class="address-simple">',
+          '#suffix' => '</div>',
+        );
+        array_unshift($vars['content']['general_line_1'], $new_element);
+      }
+      break;
+
+    case 'icons':
+      $cols = 0;
+      foreach ($vars['content']['main'] as $block) {
+        if (!empty($block[0])) {
+          $cols++;
+        }
+      }
+      $attributes['class'][] = 'cols-' . $cols;
+      break;
+
+    case 'countdown':
+      $config = \Drupal::config('system.date');
+      $timezone = $config->get('timezone.default');
+      break;
+
+    case 'video_gallery_item':
+      $video_url = '';
+      $image_url = '';
+
+      // Remove schema form URL.
+      if (isset($vars['content']['field_video'][0])) {
+        $video_url = $vars['content']['field_video'][0]['#attributes']['src'];
+        $video_url = str_replace(['http:', 'https:'], '', $video_url);
+      }
+
+      if (isset($vars['content']['field_image'][0])) {
+        $image_url = $vars['content']['field_image'][0];
+      }
+
+      $vars['content']['video'] = [
+        'video_url' => $video_url,
+        'image_url' => $image_url,
+      ];
+
+      break;
+
+    case 'video_gallery':
+      $video_url = '';
+      $image_url = '';
+
+      // Get default video data to initial rendering of expanded gallery.
+      $first_item = $vars['content']['field_video_gallery_item'][0];
+
+      // Remove schema form URL.
+      if (isset($first_item['field_video'][0])) {
+        $video_url = $first_item['field_video'][0]['#attributes']['src'];
+        $video_url = str_replace(['http:', 'https:'], '', $video_url);
+      }
+
+      if (isset($first_item['field_image'][0]['#markup'])) {
+        $image_url = $first_item['field_image'][0]['#markup'];
+      }
+
+      $vars['content']['first_item'] = [
+        'video_url' => $video_url,
+        'image_url' => $image_url,
+      ];
+
+      break;
+  }
+
+  switch ($vars['content']['#view_mode']) {
+    case 'accordion':
+      if (isset($vars['content']['#node'])) {
+        $vars['content']['#tab_id'] = $vars['content']['#node']->id();
+      }
+      elseif (isset($vars['content']['#block_content'])) {
+        $vars['content']['#tab_id'] = Html::getUniqueId($vars['content']['#block_content']->id());
+      }
+      break;
+  }
+
+  $vars['content']['#attrs'] = $attributes;
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function pmmi_bootstrap_page_attachments_alter(array &$page) {
+
+  $breakpoints = \Drupal::service('breakpoint.manager')->getBreakpointsByGroup('pmmi_bootstrap');
+  if (!empty($breakpoints)) {
+    $media_queries = array();
+    foreach ($breakpoints as $id => $breakpoint) {
+      $media_queries[str_replace('pmmi_bootstrap.', '', $id)] = $breakpoint->getMediaQuery();
+    }
+    $page['#attached']['drupalSettings']['responsive']['breakpoints'] = $media_queries;
+  }
+
+  $page['#attached']['html_head'][] = [
+    [
+      '#tag' => 'link',
+      '#attributes' => [
+        'rel' => 'stylesheet',
+        'href' => 'https://olytics.omeda.com/olytics/css/v1/p/olytics.css',
+      ],
+    ],
+    'omega_stylesheet',
+  ];
+}
+
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function pmmi_bootstrap_preprocess_viewfield_formatter_default(&$variables) {
+  $element = $variables['element'];
+  $variables['title'] = $element['#view']->getTitle();
+}
+
+
+/**
+ * Prepare variables for tb_megamenu_submenu.
+ */
+function pmmi_bootstrap_preprocess_tb_megamenu_submenu(&$vars) {
+  $parent = $vars['parent'];
+  $metadata = $parent->link->getMetaData();
+  $entity = \Drupal::entityTypeManager()->getStorage('menu_link_content')->load($metadata['entity_id']);
+  if ($entity && $submenu_background = $entity->submenu_background->entity) {
+    $background_uri = $submenu_background->getFileUri();
+    $styled_image_url = file_url_transform_relative(file_create_url($background_uri));
+    $style = "background-image: url(" . $styled_image_url . ");";
+    if (!empty($vars['attributes']['style'])) {
+      $vars['attributes']['style'] .= ' ' . $style;
+    }
+    else {
+      $vars['attributes']['style'] = $style;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function pmmi_bootstrap_form_system_theme_settings_alter(&$form, &$form_state) {
+  // Front logo settings, only available when $form['logo'] element exists.
+  if (isset($form['logo'])) {
+    $form['fold_logo'] = array(
+      '#type' => 'details',
+      '#title' => t('Fold logo image'),
+      '#open' => TRUE,
+      '#group' => 'global',
+    );
+    $form['fold_logo']['fold_default_logo'] = array(
+      '#type' => 'checkbox',
+      '#title' => t('Use the logo supplied by the theme'),
+      '#default_value' => theme_get_setting('fold_default_logo', 'pmmi_bootstrap'),
+      '#tree' => FALSE,
+    );
+    $form['fold_logo']['settings'] = array(
+      '#type' => 'container',
+      '#states' => array(
+        // Hide the logo settings when using the default logo.
+        'invisible' => array(
+          'input[name="fold_default_logo"]' => array('checked' => TRUE),
+        ),
+      ),
+    );
+    $form['fold_logo']['settings']['fold_logo_path'] = array(
+      '#type' => 'textfield',
+      '#title' => t('Path to custom logo'),
+      '#default_value' => theme_get_setting('fold_logo_path', 'pmmi_bootstrap'),
+    );
+    $form['fold_logo']['settings']['fold_logo_upload'] = array(
+      '#type' => 'file',
+      '#title' => t('Upload logo image'),
+      '#maxlength' => 40,
+      '#description' => t("If you don't have direct file access to the server, use this field to upload your logo.")
+    );
+  }
+  $form['#validate'][] = 'pmmi_bootstrap_form_system_theme_settings_validate';
+  $form['#submit'][] = 'pmmi_bootstrap_form_system_theme_settings_submit';
+}
+
+/**
+ * Validate function for "pmmi_bootstrap" theme settings.
+ *
+ * @see pmmi_bootstrap_form_system_theme_settings_alter()
+ */
+function pmmi_bootstrap_form_system_theme_settings_validate(array &$form, FormStateInterface $form_state) {
+  // Handle file uploads.
+  $validators = array('file_validate_is_image' => array());
+
+  // Check for a new uploaded logo.
+  $file = file_save_upload('fold_logo_upload', $validators, FALSE, 0);
+  if (isset($file)) {
+    // File upload was attempted.
+    if ($file) {
+      // Put the temporary file in form_values so we can save it on submit.
+      $form_state->setValue('fold_logo_upload', $file);
+    }
+    else {
+      // File upload failed.
+      $form_state->setErrorByName('fold_logo_upload', t('The logo could not be uploaded.'));
+    }
+  }
+}
+
+
+/**
+ * Submit function for "pmmi_bootstrap" theme settings.
+ *
+ * @see pmmi_bootstrap_form_system_theme_settings_alter()
+ */
+function pmmi_bootstrap_form_system_theme_settings_submit(array &$form, FormStateInterface &$form_state) {
+  $values = &$form_state->getValues();
+
+  // If the user uploaded a new logo or favicon, save it to a permanent location
+  // and use it in place of the default theme-provided file.
+  if (!empty($values['fold_logo_upload'])) {
+    $filename = file_unmanaged_copy($values['fold_logo_upload']->getFileUri());
+    $values['fold_default_logo'] = 0;
+    $values['fold_logo_path'] = $filename;
+  }
+  unset($values['fold_logo_upload']);
+}
+
+/**
+ * Implements hook_preprocess_pager().
+ */
+function pmmi_bootstrap_preprocess_pager(&$variables) {
+  $element = $variables['pager']['#element'];
+  $items = &$variables['items'];
+  global $pager_page_array, $pager_total;
+
+  // Nothing to do if there is only one page.
+  if ($pager_total[$element] <= 1) {
+    return;
+  }
+
+  // Create "previous" disabled element.
+  if ($pager_page_array[$element] == 0) {
+    $items['previous_disabled'] = TRUE;
+  }
+
+  // Create the "next" disabled element.
+  $pager_max = $pager_total[$element];
+  if ($pager_page_array[$element] == ($pager_max - 1)) {
+    $items['next_disabled'] = TRUE;
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_block_alter().
+ */
+function pmmi_bootstrap_theme_suggestions_block_alter(array &$suggestions, array $variables) {
+  if (!empty($variables['elements']['#plugin_id'])
+    && isset($variables['elements']['#configuration']['region'])
+  ) {
+    switch ($variables['elements']['#plugin_id']) {
+      case 'pmmi_search_block':
+        if ($variables['elements']['#configuration']['region'] == 'header_main_nav') {
+          $suggestions[] = 'block__header_search';
+        }
+        break;
+
+      case 'pmmi_search_library_block':
+      case 'other_reports':
+      case 'reports_years':
+        if ($variables['elements']['#configuration']['region'] == 'sidebar') {
+          $suggestions[] = 'block__sidebar';
+        }
+        break;
+    }
+    if ($variables['elements']['#base_plugin_id'] == 'system_menu_block'
+      && $variables['elements']['#configuration']['region'] == 'header_main_nav'
+    ) {
+      $suggestions[] = 'block__collapsible_menu';
+    }
+
+    if ($variables['elements']['#base_plugin_id'] === 'block_content'
+      && isset($variables['elements']['content']['#bundle'])
+      && $variables['elements']['content']['#bundle'] === 'video_gallery'
+    ) {
+      switch($variables['elements']['content']['#view_mode']) {
+        case 'video_gallery_expanded':
+          $suggestions[] = 'block__video_gallery__expanded';
+          break;
+
+        default:
+          $suggestions[] = 'block__video_gallery';
+          break;
+      }
+    }
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_tb_megamenu_item().
+ */
+function pmmi_bootstrap_preprocess_tb_megamenu_item(&$vars) {
+  $vars['attributes']['class'][] = 'link-' . Html::getClass($vars['link']['title']);
+  if (isset($vars['link']['options']['attributes'])) {
+    foreach ($vars['link']['options']['attributes'] as $attr => $value) {
+      if (!empty($value)) {
+        $vars['link']['attributes']->setAttribute($attr, $value);
+      }
+    }
+  }
+  if (!empty($vars['link']['description'])) {
+    $vars['link']['description'] = strip_tags($vars['link']['description'], '<br>');
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view_field().
+ */
+function pmmi_bootstrap_preprocess_views_view_field(&$variables) {
+  $view = $variables['view'];
+
+  switch ($view->id() . '-' . $view->current_display) {
+    case'my_favorites_companies-block_1':
+      // Override flag link text in the view.
+      if ($variables['field']->field == 'link_flag') {
+        $flag_link = $variables['output']->__toString();
+        $new_flag_link = str_replace('Remove from favorites', 'remove', $flag_link);
+        $variables['output'] = Markup::create($new_flag_link);
+      }
+      break;
+  }
+}
+
+/**
+ * Browser detection help funciton.
+ */
+function _pmmi_bootstrap_detect_browsers(&$variables) {
+  // Check Windows 10 with IE 11.
+  if (strpos($_SERVER['HTTP_USER_AGENT'], 'Windows NT 10') !== FALSE && strpos($_SERVER['HTTP_USER_AGENT'], 'rv:11') !== FALSE) {
+    $variables['attributes']['class'][] = 'ie11';
+  }
+}
+
+/**
+ * Implements template_preprocess_preprocess_file_link().
+ */
+function pmmi_bootstrap_preprocess_file_link(&$variables) {
+  $file = $variables['file'];
+  foreach (['prefix', 'suffix'] as $element) {
+    $field_name = 'field_' . $element;
+    $variables[$element] = '';
+    try {
+      if ($field = $file->get($field_name)) {
+        $variables[$element] = $file->{$field_name}->value;
+      }
+    }
+    catch (Exception $e) {}
+  }
+}
+
+/**
+ * Implements hook_preprocess_field().
+ */
+function pmmi_bootstrap_preprocess_field(&$vars) {
+  if (isset($vars['element'])) {
+    switch ($vars['element']['#field_name']) {
+      case 'field_industries_served':
+      case 'field_equipment_sold_type':
+        if (!empty($vars['items'])) {
+          foreach ($vars['items'] as $key => $item) {
+            if ($item['content']['#plain_text'] == 'Other') {
+              unset($vars['items'][$key]);
+            }
+          }
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_user().
+ */
+function pmmi_bootstrap_preprocess_menu(&$variables) {
+  /** @var User $account */
+  $account = \Drupal::currentUser()->getAccount();
+
+  $variables['username'] = $account->getDisplayName();
+}
+
+
+/**
+ * Implements template_preprocess_layout().
+ */
+function pmmi_bootstrap_preprocess_layout(&$variables) {
+  if (isset($variables['content']['#node'])
+    && $variables['content']['#node']->bundle() == 'report'
+  ) {
+    $variables['render_download_btn'] = TRUE;
+
+    /* @var $node \Drupal\node\Entity\Node */
+    $node = $variables['content']['#node'];
+    $member_price = $node->get('field_member_price')->getString();
+    $non_member_price = $node->get('field_non_member_price')->getString();
+
+    if ($member_price == '$0.00' && $non_member_price == '$0.00') {
+      $variables['render_download_btn'] = FALSE;
+    }
+  }
+}

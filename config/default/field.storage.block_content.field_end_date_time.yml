@@ -1,0 +1,20 @@
+uuid: abc79fa3-3648-4e82-922a-75c1c17935bf
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - pmmi_fields
+id: block_content.field_end_date_time
+field_name: field_end_date_time
+entity_type: block_content
+type: datetime_timezone
+settings:
+  datetime_type: datetime
+module: pmmi_fields
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

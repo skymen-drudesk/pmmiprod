@@ -1,0 +1,85 @@
+uuid: 426c599e-6607-4d7d-9121-9f634ef2bb18
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_header
+    - field.field.block_content.image_header.field_head
+    - field.field.block_content.image_header.field_image
+  module:
+    - blazy
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: block_image_header
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      image:
+        - field_image
+id: block_content.image_header.default
+targetEntityType: block_content
+bundle: image_header
+mode: default
+content:
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_image:
+    weight: 1
+    label: hidden
+    settings:
+      responsive_image_style: image_header_styles
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+hidden: {  }

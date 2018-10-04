@@ -1,0 +1,18 @@
+uuid: de610994-1b35-41de-8836-a65876e49d8c
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cert_test_coming
+field_name: field_cert_test_coming
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

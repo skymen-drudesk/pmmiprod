@@ -1,0 +1,39 @@
+<div{{ content['#attrs'].addClass('cert-test-node node-layout') }}>
+  <div class="top-banner clearfix">
+    {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="content-right col-md-9 col-md-push-3">
+        <h2 class="node-title">
+          {{ content.title }}
+        </h2>
+
+        {{ field_render([content.image, 'node-img img']) }}
+
+        {{ field_render([content.body, 'node-body']) }}
+
+        {{ field_render([content.cert_test_price, 'cert-price node-bold-label' ]) }}
+
+        {{ field_render([content.cert_test_text_price, 'cert-text-price node-bold-label']) }}
+
+        {{ field_render([content.link, 'register-link btn-prm-wrap']) }}
+
+        {{ field_render([content.accordions, 'node-accordion']) }}
+      </div>
+      <div class="content-left col-md-3 col-md-pull-9">
+        {% set info = [
+        'cert_test_who',
+        'cert_test_length',
+        'cert_test_time_to_take',
+        'cert_test_num_attempts',
+        ] %}
+        <ul class="cert-info">
+          {% for field in info %}
+            {{ field_render([content[field], field|clean_class, 'li']) }}
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,7 @@
+name: PMMI Crawler Detect
+type: module
+description: PMMI Crawler Detect
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi

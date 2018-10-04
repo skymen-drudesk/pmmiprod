@@ -1,0 +1,52 @@
+<div class="report-node">
+  <div class="top-banner clearfix">
+    {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+
+  <div class="container">
+
+    {% set left_block = field_render([content.left_block, 'left-block']) %}
+
+    <div class="row">
+      <div class="{{ left_block ? 'content-right col-lg-9 col-lg-push-3' : 'content-full col-lg-12' }}">
+        <h2 class="node-title">
+          {{ content.title }}
+        </h2>
+        <div class="row">
+
+          {% set image = field_render([content.image, 'img col-lg-4 col-sm-4']) %}
+
+          {{ image|raw }}
+
+          {% set classes = image ? 'content col-lg-8 col-sm-8' : 'content col-md-12' %}
+
+          <div class="{{ classes }}">
+
+            {{ field_render([content.body, 'node-body']) }}
+
+            {{ field_render([content.links, 'links']) }}
+
+            <div class="prices">
+              {{ content.member_price }}
+              {{ content.non_member_price }}
+            </div>
+
+            {% if render_download_btn %}
+              {% if content['#node'].field_product_id.0.value %}
+                {{ field_render([content.file_download_button, 'download-link btn-prm-wrap']) }}
+              {% endif %}
+            {% endif %}
+
+          </div>
+        </div>
+      </div>
+
+      {% if left_block %}
+        <div class="content-left col-lg-3 col-lg-pull-9">
+          {{ left_block|raw }}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+</div>

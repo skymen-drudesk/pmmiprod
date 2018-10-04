@@ -1,0 +1,180 @@
+uuid: 8ee74cea-dcd1-4106-8e35-a11b2e5b0087
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.training_provider.body
+    - field.field.node.training_provider.field_address
+    - field.field.node.training_provider.field_course_topics_offered
+    - field.field.node.training_provider.field_delivery_options_offered
+    - field.field.node.training_provider.field_general_company_email
+    - field.field.node.training_provider.field_main_phone_number
+    - field.field.node.training_provider.field_meta_tags
+    - field.field.node.training_provider.field_organization_email
+    - field.field.node.training_provider.field_territory_served
+    - field.field.node.training_provider.field_website_url
+    - field.field.node.training_provider.field_yoast_seo
+    - node.type.training_provider
+  module:
+    - ds
+    - link
+    - pmmi
+    - pmmi_address
+    - pmmi_fields
+    - pmmi_training_provider
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: training_provider
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      title:
+        - node_title
+      general_line_1:
+        - field_address
+        - field_main_phone_number
+      general_line_2:
+        - field_website_url
+        - field_organization_email
+      course_topics:
+        - field_course_topics_offered
+      delivery_options:
+        - field_delivery_options_offered
+      locations:
+        - field_territory_served
+      company_description:
+        - body
+      last_updated:
+        - node_changed_date
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 0
+        label: hidden
+        formatter: default
+      node_changed_date:
+        plugin_id: node_changed_date
+        weight: 9
+        label: inline
+        formatter: ds_post_date_custom_month_day_year
+        ft:
+          id: minimal
+          settings:
+            lb: 'Profile last updated'
+            lb-col: false
+            classes: {  }
+id: node.training_provider.full
+targetEntityType: node
+bundle: training_provider
+mode: full
+content:
+  body:
+    weight: 8
+    label: above
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Company Description'
+            lb-col: false
+            classes: {  }
+    type: text_default
+    region: company_description
+  field_address:
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_simple
+    region: general_line_1
+  field_course_topics_offered:
+    weight: 5
+    label: above
+    settings:
+      separator: '<br />'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: 'Course Topics'
+            lb-col: false
+            classes: {  }
+    type: pmmi_multiple_formatter
+    region: course_topics
+  field_delivery_options_offered:
+    weight: 6
+    label: above
+    settings:
+      separator: '<br />'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: 'Delivery Options'
+            lb-col: false
+            classes: {  }
+    type: pmmi_multiple_formatter
+    region: delivery_options
+  field_main_phone_number:
+    weight: 2
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: general_line_1
+  field_organization_email:
+    type: double_field_link
+    weight: 4
+    region: general_line_2
+    label: hidden
+    settings:
+      first:
+        hidden: false
+        prefix: ''
+        suffix: ''
+        link: false
+        format_type: medium
+      second:
+        hidden: false
+        prefix: ''
+        suffix: ''
+        link: false
+        format_type: medium
+    third_party_settings: {  }
+  field_territory_served:
+    weight: 7
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: country_area_plain
+    region: locations
+  field_website_url:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: general_line_2
+hidden:
+  field_general_company_email: true
+  field_meta_tags: true
+  field_yoast_seo: true
+  links: true

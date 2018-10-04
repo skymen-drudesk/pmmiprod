@@ -1,0 +1,19 @@
+uuid: 6bc4edef-a94a-490b-bf97-7428a7c77a2b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_manufacturers_represented
+    - node.type.company
+id: node.company.field_manufacturers_represented
+field_name: field_manufacturers_represented
+entity_type: node
+bundle: company
+label: 'Manufacturers represented'
+description: 'IMPORTANT! READ THIS: <b>Only list manufacturers with whom you have an ongoing or exclusive relationship in your territory.</b> Please do NOT list manufacturers from whom you sold a single machine two years ago! <i>Listing too many companies will limit potential inquiries from new manufacturers who will think you''re carrying a competitive product line.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

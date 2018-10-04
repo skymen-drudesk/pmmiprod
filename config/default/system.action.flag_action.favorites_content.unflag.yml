@@ -1,0 +1,13 @@
+uuid: 400c6da4-a070-4e53-a975-97632e098dbc
+langcode: en
+status: true
+dependencies:
+  module:
+    - flag
+id: flag_action.favorites_content.unflag
+label: 'Remove from favorites'
+type: node
+plugin: 'flag_action:favorites_content.unflag'
+configuration:
+  flag_id: favorites_content
+  flag_action: unflag

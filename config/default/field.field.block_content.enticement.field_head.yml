@@ -1,0 +1,19 @@
+uuid: dfb64207-4377-4a8e-a77e-4773c14aa03e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.enticement
+    - field.storage.block_content.field_head
+id: block_content.enticement.field_head
+field_name: field_head
+entity_type: block_content
+bundle: enticement
+label: Head
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

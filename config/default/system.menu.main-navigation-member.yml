@@ -1,0 +1,8 @@
+uuid: 35b2b045-adf1-4f9b-b0ef-cc4bb53cb041
+langcode: en
+status: true
+dependencies: {  }
+id: main-navigation-member
+label: 'Main navigation - Member'
+description: 'Main navigation - Member'
+locked: false

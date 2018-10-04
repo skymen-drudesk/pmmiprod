@@ -1,0 +1,23 @@
+<div {{ content['#attrs'].addClass('block-social-media') }}>
+
+  {{ field_render([content.head, 'title', 'h2']) }}
+
+  {{ field_render([content.body, 'block-body']) }}
+
+  <div class="social-links">
+
+    {{ field_render([content.facebook, 'facebook fa fa-facebook-official', 'span']) }}
+
+    {{ field_render([content.twitter, 'twitter fa fa-twitter-square', 'span']) }}
+
+    {{ field_render([content.linkedin, 'linkedin fa fa-linkedin-square', 'span']) }}
+
+    {{ field_render([content.google_plus, 'google-plus fa fa-google-plus-square', 'span']) }}
+
+    {{ field_render([content.youtube, 'youtube fa fa-youtube-square', 'span']) }}
+
+    {{ field_render([content.instagram, 'instagram fa fa-instagram', 'span']) }}
+
+  </div>
+
+</div>

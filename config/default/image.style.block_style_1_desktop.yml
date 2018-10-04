@@ -1,0 +1,14 @@
+uuid: b126bf71-5681-43c6-8e92-6169f81d1418
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_1_desktop
+label: 'Block style 1 - Desktop (145px by 174px)'
+effects:
+  4d28cbe3-0b5d-4257-af7f-aae057b2d53e:
+    uuid: 4d28cbe3-0b5d-4257-af7f-aae057b2d53e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 145
+      height: 174

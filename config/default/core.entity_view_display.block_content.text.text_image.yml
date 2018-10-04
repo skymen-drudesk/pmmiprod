@@ -1,0 +1,137 @@
+uuid: 41e69603-d391-4185-b238-9a6a39bf89e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.text
+    - core.entity_view_mode.block_content.text_image
+    - field.field.block_content.text.body
+    - field.field.block_content.text.field_button
+    - field.field.block_content.text.field_center_text
+    - field.field.block_content.text.field_head
+    - field.field.block_content.text.field_image
+    - field.field.block_content.text.field_link
+  module:
+    - blazy
+    - ds
+    - link
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_text_image
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      body:
+        - body
+      image:
+        - field_image
+      button:
+        - field_button
+      link:
+        - field_link
+id: block_content.text.text_image
+targetEntityType: block_content
+bundle: text
+mode: text_image
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 1
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: body
+  field_button:
+    type: link
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: button
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_image:
+    weight: 2
+    label: hidden
+    settings:
+      image_style: left_image_block
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+  field_link:
+    type: link
+    weight: 4
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    region: link
+hidden:
+  field_center_text: true

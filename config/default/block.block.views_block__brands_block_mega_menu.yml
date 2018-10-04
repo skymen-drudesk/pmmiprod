@@ -1,0 +1,24 @@
+uuid: 0d68cd4f-b0e7-4a62-944e-4728130edf6d
+langcode: en
+status: false
+dependencies:
+  config:
+    - views.view.brands
+  module:
+    - views
+  theme:
+    - pmmi_bootstrap
+id: views_block__brands_block_mega_menu
+theme: pmmi_bootstrap
+region: navigation
+weight: 0
+provider: null
+plugin: 'views_block:brands-block_mega_menu'
+settings:
+  id: 'views_block:brands-block_mega_menu'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,133 @@
+uuid: adf4cca8-ed0c-42bb-914e-03f47ac4598a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - entity_browser.browser.browse_files_modal
+    - field.field.block_content.image_slide.body
+    - field.field.block_content.image_slide.field_button
+    - field.field.block_content.image_slide.field_head
+    - field.field.block_content.image_slide.field_image
+    - field.field.block_content.image_slide.field_slide_type
+    - field.field.block_content.image_slide.field_subhead
+    - field.field.block_content.image_slide.field_video
+    - field.field.block_content.image_slide.field_weight
+  module:
+    - entity_browser
+    - field_group
+    - link_attributes
+    - text
+    - video
+third_party_settings:
+  field_group:
+    group_slide:
+      children:
+        - field_slide_type
+        - field_image
+        - field_video
+      parent_name: ''
+      weight: 4
+      format_type: fieldset
+      format_settings:
+        label: Slide
+        description: ''
+        id: ''
+        classes: ''
+        required_fields: false
+      label: Slide
+id: block_content.image_slide.default
+targetEntityType: block_content
+bundle: image_slide
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_button:
+    weight: 7
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_head:
+    weight: 4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_image:
+    weight: 11
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      view_mode: thumbnail
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_slide_type:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_buttons
+    region: content
+  field_subhead:
+    weight: 5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_video:
+    weight: 12
+    settings:
+      allowed_providers:
+        vimeo: vimeo
+        youtube: youtube
+        dailymotion: 0
+        facebook: 0
+        instagram: 0
+        vine: 0
+      file_directory: 'video-thumbnails/[date:custom:Y]-[date:custom:m]'
+      uri_scheme: public
+    third_party_settings: {  }
+    type: video_embed
+    region: content
+  field_weight:
+    weight: 9
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  info:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

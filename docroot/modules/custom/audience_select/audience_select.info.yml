@@ -1,0 +1,9 @@
+name: Audience Select
+type: module
+description: Creates a site gateway page for audience selection, sets a cookie, and redirects to homepage.
+core: 8.x
+package: Custom
+configure: audience_select.form
+dependencies:
+  - block
+  - pmmi

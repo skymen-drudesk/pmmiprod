@@ -1,0 +1,23 @@
+uuid: f401034f-7796-4cb5-8425-b31af2e81011
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_id
+    - node.type.report
+id: node.report.field_product_id
+field_name: field_product_id
+entity_type: node
+bundle: report
+label: 'Product Id'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

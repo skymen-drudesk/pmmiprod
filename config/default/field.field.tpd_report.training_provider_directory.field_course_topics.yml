@@ -1,0 +1,28 @@
+uuid: 50adeb97-11cd-4f8f-a5c4-6d379b23ab47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tpd_report.field_course_topics
+    - pmmi_training_provider.tpd_report_type.training_provider_directory
+    - taxonomy.vocabulary.course_topics_offered
+id: tpd_report.training_provider_directory.field_course_topics
+field_name: field_course_topics
+entity_type: tpd_report
+bundle: training_provider_directory
+label: 'Course topics'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      course_topics_offered: course_topics_offered
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,86 @@
+<div class="company-node">
+  <div class="top-banner clearfix">
+      {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+  <div class="header-menu clearfix">
+    {{ field_render([content.header_menu, 'header-menu']) }}
+  </div>
+  <div class="container">
+    <div class="container-wrapper">
+    <h2 class="node-title">
+      {{ content.title }}
+    </h2>
+
+    <div class="general">
+      {{ field_render([content.general_line_1, 'line-1']) }}
+      {{ field_render([content.general_line_2, 'line-2']) }}
+    </div>
+
+    {{ field_render([content.content_row_blue, 'content-row-blue']) }}
+    <div class="row-wrapper row">
+      {% set countries = 0 %}
+      {% set left_class, right_class = 'col-md-4', 'col-md-8' %}
+      {% for key, child in content.territory_covered[0] if key|first != '#' %}
+        {% set countries = countries + 1 %}
+      {% endfor %}
+      {% if countries > 3 %}
+        {% set left_class, right_class = 'col-md-8', 'col-md-4' %}
+      {% endif %}
+      <div class="left-col {{ left_class }}">
+        <div class="territory-served ">
+          <div class="block-label">{{ 'Territory covered'|trans }}</div>
+          {{ field_render([content.territory_covered, 'territory-covered']) }}
+        </div>
+      </div>
+      <div class="right-col {{ right_class }}">
+        <div class="row">
+          <div class="lines-of-business col-md-6">
+            <div class="block-label">{{ 'Lines of business'|trans }}</div>
+            {{ field_render([content.business, 'lines-of-business']) }}
+          </div>
+          <div class="manufactures col-md-6">
+            <div class="block-label">{{ 'Manufacturers represented'|trans }}</div>
+            {{ field_render([content.manufactures, 'manufactures']) }}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="contacts row">
+      <div class="primary-wrapper col-md-4">
+        <div class="primary">
+          <div class="block-label">{{ 'Primary contact'|trans }}</div>
+            {{ field_render([content.primary_contacts, 'primary-contacts']) }}</div>
+        </div>
+      <div class="company col-md-4">
+        <div class="block-label">{{ 'Company address'|trans }}</div>
+        {{ field_render([content.company_contacts, 'company-contacts']) }}
+      </div>
+      <div class="description col-md-4">
+        <div class="block-label">{{ 'Company description'|trans }}</div>
+        {{ field_render([content.company_description, 'company-description']) }}
+      </div>
+    </div>
+
+    <div class="services row">
+      <div class="industries col-md-4">
+        <div class="block-label">{{ 'Industries served'|trans }}</div>
+        {{ field_render([content.industries_served, 'indusrties-served']) }}
+      </div>
+      <div class="equipment col-md-4">
+        <div class="block-label">{{ 'Type of equipment sold'|trans }}</div>
+        {{ field_render([content.equipment_sold, 'equipment-sold']) }}
+      </div>
+      <div class="service col-md-4">
+        <div class="block-label">{{ 'Provide after sales service'|trans }}</div>
+        {{ field_render([content.after_sales, 'after-sales-service']) }}
+      </div>
+    </div>
+
+    {{ field_render([content.footer_reg, 'footer-reg']) }}
+    {% set changedDate = content['#node'].getChangedTime|date('M. j, Y') %}
+    <div class="profile-updated">
+      {% trans %}Profile last updated {{ changedDate }} {% endtrans %}
+    </div>
+  </div>
+  </div>
+</div>

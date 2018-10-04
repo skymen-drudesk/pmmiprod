@@ -1,0 +1,55 @@
+uuid: b4cf505e-7a25-4c46-a425-3ed57ba04461
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.training_provider_directory_admin_panel
+    - views.view.search_training_provider_directory
+  module:
+    - panels
+    - pmmi_page_manager_search
+    - pmmi_training_provider
+    - views
+third_party_settings:
+  pmmi_page_manager_search:
+    index_page_variant: 1
+id: training_provider_directory_admin_panel-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    38795971-0c43-4c75-be52-98f6e1ebff1e:
+      id: 'views_block:search_training_provider_directory-block_2'
+      label: ''
+      provider: views
+      label_display: visible
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 38795971-0c43-4c75-be52-98f6e1ebff1e
+      context_mapping: {  }
+    ef55def7-ba6c-4332-afbf-e28ab855c575:
+      id: pmmi_admin_panel_training_provider_search_block
+      label: 'PMMI Admin Panel Agent Search block'
+      provider: pmmi_training_provider
+      label_display: '0'
+      region: content
+      weight: 0
+      uuid: ef55def7-ba6c-4332-afbf-e28ab855c575
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 23900448-6e6e-4866-abef-f518ad27b248
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'Training Provider Directory - Admin Panel'
+  storage_type: page_manager
+  storage_id: training_provider_directory_admin_panel-panels_variant-0
+  builder: standard
+page: training_provider_directory_admin_panel
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

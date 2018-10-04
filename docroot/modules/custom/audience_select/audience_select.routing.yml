@@ -1,0 +1,19 @@
+audience_select.audience_settings_form:
+  path: '/admin/config/audience_select/audiencesettings'
+  defaults:
+    _form: '\Drupal\audience_select\Form\AudienceSettingsForm'
+    _title: 'Audience Settings Form'
+  requirements:
+    _permission: 'administer audience select'
+  options:
+    _admin_route: TRUE
+
+audience_select.audience_settings_delete_form:
+  path: '/admin/config/audience_select/delete/{audience_id}'
+  defaults:
+    _form: '\Drupal\audience_select\Form\AudienceDeleteForm'
+    _title: 'Delete'
+  requirements:
+    _permission: 'administer audience select'
+  options:
+    _admin_route: TRUE

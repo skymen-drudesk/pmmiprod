@@ -1,0 +1,20 @@
+uuid: 6c756eaf-9e7a-4d2b-b3f1-f35830d0c2e5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - datetime_range
+id: block_content.field_dates
+field_name: field_dates
+entity_type: block_content
+type: daterange
+settings:
+  datetime_type: datetime
+module: datetime_range
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

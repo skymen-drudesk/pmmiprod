@@ -1,0 +1,20 @@
+uuid: 02279e98-a480-4c6f-8b33-84eb1e201e34
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_industries_served
+field_name: field_industries_served
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

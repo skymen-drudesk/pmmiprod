@@ -1,0 +1,10 @@
+uuid: 95753a91-251f-4709-a9e7-8e1e20c2c92f
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.news_header
+label: 'News (Header)'
+targetEntityType: block_content
+cache: true

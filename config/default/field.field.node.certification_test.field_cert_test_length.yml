@@ -1,0 +1,21 @@
+uuid: 4acedf52-626a-4dc4-a338-303ab46bd48d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_test_length
+    - node.type.certification_test
+  module:
+    - text
+id: node.certification_test.field_cert_test_length
+field_name: field_cert_test_length
+entity_type: node
+bundle: certification_test
+label: ' How long does it take to complete the test?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

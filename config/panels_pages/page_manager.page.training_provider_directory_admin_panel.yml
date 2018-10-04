@@ -1,0 +1,19 @@
+uuid: 747c5797-4fc3-422b-bd62-f3de2ced9b8e
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi
+id: training_provider_directory_admin_panel
+label: 'Training Provider Directory - Admin Panel'
+description: ''
+use_admin_theme: true
+path: /admin/config/tpd/admin-panel
+access_logic: and
+access_conditions:
+  -
+    id: user_has_permission
+    permission: 'pmmi training provider administration'
+    negate: false
+    context_mapping: {  }
+parameters: {  }

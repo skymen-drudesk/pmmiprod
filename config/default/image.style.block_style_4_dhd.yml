@@ -1,0 +1,14 @@
+uuid: ac620cb0-21e2-470d-b59c-a55f04fa4301
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_4_dhd
+label: 'Block style 4 - DHD (270px by 324px)'
+effects:
+  0ca97884-dc27-4ddb-9098-782d28bc3c3b:
+    uuid: 0ca97884-dc27-4ddb-9098-782d28bc3c3b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 270
+      height: 324

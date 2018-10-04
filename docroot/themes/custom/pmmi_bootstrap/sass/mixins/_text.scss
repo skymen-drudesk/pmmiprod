@@ -1,0 +1,164 @@
+@mixin inherit-text-style($selector) {
+  #{$selector} {
+    font-size: inherit;
+    line-height: inherit;
+    font-weight: inherit;
+    color: inherit;
+  }
+}
+
+// Paragraph styles.
+.inherited-p {
+  @include inherit-text-style('p');
+}
+.paragraph1 {
+  font-size: $r18;
+  line-height: $r23;
+  font-weight: 500;
+  @include tablet-max {
+    font-size: $r17;
+    line-height: $r21;
+  }
+  @extend .inherited-p;
+}
+.paragraph2 {
+  font-size: 1rem;
+  line-height: $r21;
+  font-weight: 500;
+  @include tablet-max {
+    font-size: $r15;
+    line-height: $r19;
+  }
+  @extend .inherited-p;
+}
+.paragraph3 {
+  font-size: $r19;
+  line-height: 1.105;
+  font-weight: 500;
+  @include tablet {
+    font-size: $r16;
+    line-height: $r18;
+  }
+  @include mobile {
+    font-size: $r14;
+    line-height: $r16;
+  }
+  @extend .inherited-p;
+}
+.side-paragraph {
+  font-size: $r14;
+  line-height: $r18;
+  font-weight: 500;
+  @extend .inherited-p;
+  @include inherit-text-style('ul, ol');
+}
+
+// Headline styles.
+.headline1 {
+  font-size: $r60;
+  line-height: 1.15;
+  font-weight: 700;
+  font-family: $trumpgothicpro;
+  text-transform: uppercase;
+  color: $blue;
+  letter-spacing: 3px;
+  &:after {
+    display: block;
+    border-bottom: 3px solid $blue;
+    content: "";
+    margin: 7px 15px 0;
+  }
+  @include tablet {
+    font-size: $r40;
+  }
+  @include mobile {
+    font-size: $r35;
+  }
+  &.white {
+    color: #fff;
+    &:after {
+      border-color: #fff;
+    }
+  }
+}
+.headline2 {
+  font-size: $r36;
+  line-height: $r42;
+  font-weight: $extrabold;
+  color: $blue;
+  font-family: $lato;
+  text-transform: none;
+  letter-spacing: normal;
+  a {
+    color: $blue;
+  }
+  @include tablet-max {
+    font-size: $r22;
+    line-height: 1.1;
+  }
+}
+.headline3 {
+  font-size: $r22;
+  line-height: 1.18;
+  font-weight: $extrabold;
+  color: $blue;
+  a {
+    color: $blue;
+  }
+  @include tablet {
+    font-size: $r20;
+  }
+  @include mobile {
+    font-size: $r17;
+  }
+}
+.headline4 {
+  color: $grey;
+  text-transform: uppercase;
+  font-weight: $extrabold;
+  font-size: $r14;
+  line-height: $r23;
+}
+.headline-date {
+  font-weight: $extrabold;
+  font-size: $r16;
+  line-height: $r21;
+  @include tablet-max {
+    font-size: $r15;
+  }
+}
+.sidehead1 {
+  font-size: $r18;
+  line-height: $r23;
+  color: $dkblue;
+  font-weight: $extrabold;
+  padding-bottom: 6px;
+  border-bottom: 2px solid $mdgrey;
+  margin-bottom: 10px;
+  @include tablet-max {
+    font-size: $r16;
+  }
+}
+.sidehead2 {
+  font-size: $r14;
+  line-height: $r18;
+  color: $grey;
+  font-weight: $extrabold;
+  text-transform: uppercase;
+}
+.sidehead3 {
+  font-size: $r14;
+  line-height: $r18;
+  font-weight: $extrabold;
+}
+
+// Titles.
+.block-title-big-bg {
+  @extend .headline2;
+  font-weight: 900;
+  border: none;
+  color: #fff;
+  @include desktop {
+    font-size: $r29;
+  }
+}

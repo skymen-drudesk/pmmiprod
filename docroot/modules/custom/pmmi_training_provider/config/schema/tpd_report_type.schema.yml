@@ -1,0 +1,12 @@
+pmmi_training_provider.tpd_report_type.*:
+  type: config_entity
+  label: 'Training provider report type config'
+  mapping:
+    id:
+      type: string
+      label: 'ID'
+    label:
+      type: label
+      label: 'Label'
+    uuid:
+      type: string

@@ -1,0 +1,14 @@
+uuid: 68df4918-458f-4cc4-a8d1-620d45db1a27
+langcode: en
+status: true
+dependencies: {  }
+name: gateway_style_mobile
+label: 'Gateway style - Mobile (283px by 183px)'
+effects:
+  44c8692f-189c-474c-ae41-d0137202b7f6:
+    uuid: 44c8692f-189c-474c-ae41-d0137202b7f6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 283
+      height: 183

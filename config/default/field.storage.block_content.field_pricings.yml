@@ -1,0 +1,20 @@
+uuid: 99ef04ed-be6b-46bf-a965-7dc506f161f0
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - pmmi_fields
+id: block_content.field_pricings
+field_name: field_pricings
+entity_type: block_content
+type: pmmi_entity_reference
+settings:
+  target_type: block_content
+module: pmmi_fields
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

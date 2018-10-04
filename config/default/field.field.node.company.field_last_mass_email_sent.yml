@@ -1,0 +1,21 @@
+uuid: d2628ad4-eaab-4834-88bc-645cb31eebb4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_last_mass_email_sent
+    - node.type.company
+  module:
+    - datetime
+id: node.company.field_last_mass_email_sent
+field_name: field_last_mass_email_sent
+entity_type: node
+bundle: company
+label: 'Last Mass Email Received'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

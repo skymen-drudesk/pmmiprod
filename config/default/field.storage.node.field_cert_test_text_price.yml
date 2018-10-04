@@ -1,0 +1,21 @@
+uuid: c38726dd-32e9-43b4-ba3a-8b224892a710
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_cert_test_text_price
+field_name: field_cert_test_text_price
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

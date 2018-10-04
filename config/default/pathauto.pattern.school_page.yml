@@ -1,0 +1,22 @@
+uuid: 087b9e87-e1a1-4bde-94b1-6a73262c4b66
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: school_page
+label: 'School page'
+type: 'canonical_entities:node'
+pattern: '/school/[node:title]'
+selection_criteria:
+  c4cbb4f4-3954-49cb-a49b-cb3e3bd1a797:
+    id: node_type
+    bundles:
+      school: school
+    negate: false
+    context_mapping:
+      node: node
+    uuid: c4cbb4f4-3954-49cb-a49b-cb3e3bd1a797
+selection_logic: and
+weight: -5
+relationships: {  }

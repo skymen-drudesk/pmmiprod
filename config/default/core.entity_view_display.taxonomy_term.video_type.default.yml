@@ -1,0 +1,25 @@
+uuid: 7e23e9c5-f744-4a1b-b572-102d5ad2613b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.video_type.field_head
+    - field.field.taxonomy_term.video_type.field_logo
+    - taxonomy.vocabulary.video_type
+  module:
+    - text
+id: taxonomy_term.video_type.default
+targetEntityType: taxonomy_term
+bundle: video_type
+mode: default
+content:
+  description:
+    label: hidden
+    type: text_default
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_head: true
+  field_logo: true

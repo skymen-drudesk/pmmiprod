@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/125?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/course_topics_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 125
+        }
+    ],
+    "uuid": [
+        {
+            "value": "9af0914f-3d2c-44db-8cd5-799716f28bdb"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "course_topics_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "Pneumatics",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511255006,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Pneumatics | PMMI"
+            }
+        }
+    ]
+}

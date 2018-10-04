@@ -1,0 +1,8 @@
+uuid: 58b22e1a-f9ee-4b8e-ab36-6cb9da5b2063
+langcode: en
+status: true
+dependencies: {  }
+id: training-provider-directory
+label: 'Training Provider Directory Navigation'
+description: ''
+locked: false

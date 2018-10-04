@@ -1,0 +1,14 @@
+uuid: 25ce47bc-1e0e-4bec-bc72-5ecd18cdb3ed
+langcode: en
+status: true
+dependencies: {  }
+name: 3_up_cards_mobile
+label: '3-up cards - Mobile (265px by 162px)'
+effects:
+  320420ae-818b-42b4-9f3b-7d128d5ce095:
+    uuid: 320420ae-818b-42b4-9f3b-7d128d5ce095
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 265
+      height: 162

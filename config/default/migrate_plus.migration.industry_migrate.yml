@@ -1,0 +1,38 @@
+uuid: e937272f-2ef5-462f-b7e3-5a78f2740b08
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - pmmi_import
+_core:
+  default_config_hash: AjoMavzRm-8wiT0XCc28hLTAlk-YafN9b0BRTUF0sPI
+id: industry_migrate
+migration_tags: null
+migration_group: 'PMMI import'
+label: 'Migrate industry served taxonomy'
+source:
+  plugin: spreadsheet
+  file: /import_files/Mapping_2016-12-23.xlsx
+  worksheet: Industry
+  origin: A2
+  header_row: 1
+  columns:
+    - ID
+    - Name
+    - 'Migration keys'
+  keys:
+    ID:
+      type: integer
+      size: big
+process:
+  vid:
+    plugin: default_value
+    default_value: industries_served
+  name: Name
+  field_migration_keys:
+    plugin: pmmi_migration_keys
+    source: 'Migration keys'
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

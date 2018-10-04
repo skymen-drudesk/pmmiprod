@@ -1,0 +1,45 @@
+@mixin mobile {
+  @media #{$mobile} {
+    @content;
+  }
+}
+@mixin tablet {
+  @media #{$tablet} {
+    @content;
+  }
+}
+@mixin desktop {
+  @media #{$normal} {
+    @content;
+  }
+}
+@mixin dhd {
+  @media #{$wide} {
+    @content;
+  }
+}
+@mixin mobile-min {
+  @media screen and (min-width: $screen-xs-max) {
+    @content;
+  }
+}
+@mixin tablet-max {
+  @media screen and (max-width: $screen-sm-max) {
+    @content;
+  }
+}
+@mixin tablet-min {
+  @media screen and (min-width: $screen-sm-min) {
+    @content;
+  }
+}
+@mixin desktop-max {
+  @media screen and (max-width: $screen-md-max) {
+    @content;
+  }
+}
+@mixin desktop-min {
+  @media screen and (min-width: $screen-md-min) {
+    @content;
+  }
+}

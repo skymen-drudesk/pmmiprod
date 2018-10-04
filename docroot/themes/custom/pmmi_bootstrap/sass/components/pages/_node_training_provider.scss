@@ -1,0 +1,28 @@
+.page-node-type-training-provider {
+  .block-text {
+    margin-right: auto;
+    margin-left: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+    border: none;
+    text-align: center;
+    .block-body {
+      max-width: 870px;
+      margin-left: 0;
+      p {
+        font-size: 1.125rem;
+        line-height: 1.4375rem;
+        font-weight: 500;
+      }
+    }
+    @media (min-width: 768px) {
+      width: 750px;
+    }
+    @media (min-width: 1024px) {
+      width: 970px;
+    }
+    @media (min-width: 1200px) {
+      width: 1200px;
+    }
+  }
+}

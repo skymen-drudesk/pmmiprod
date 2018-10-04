@@ -1,0 +1,58 @@
+uuid: e6e41ce9-80c2-4826-88b5-820027ea951f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.resources
+    - entity_browser.browser.browse_files_modal
+    - field.field.block_content.resources.body
+    - field.field.block_content.resources.field_head
+    - field.field.block_content.resources.field_resource_files
+  module:
+    - content_moderation
+    - entity_browser
+    - text
+id: block_content.resources.default
+targetEntityType: block_content
+bundle: resources
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 2
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_head:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_resource_files:
+    weight: 3
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      view_mode: thumbnail
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

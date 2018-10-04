@@ -1,0 +1,21 @@
+services:
+  page_cache_audience_request_policy:
+    class: Drupal\audience_select\Cache\PageCache\AudienceRequestPolicy
+    tags:
+      - { name: page_cache_request_policy }
+
+  audience_select.audience_manager:
+    class: Drupal\audience_select\Service\AudienceManager
+    arguments: ['@pmmi_crawler_detect']
+
+  audience_select.audience_select_subscriber:
+    class: Drupal\audience_select\EventSubscriber\AudienceSelectSubscriber
+    arguments: ['@audience_select.audience_manager', '@path.alias_manager', '@path.matcher', '@current_user', '@router.request_context']
+    tags:
+      - { name: event_subscriber }
+
+  cache_context.audience:
+    class: Drupal\audience_select\Cache\Context\AudienceCacheContext
+    arguments: ['@request_stack', '@audience_select.audience_manager']
+    tags:
+      - { name: cache.context }

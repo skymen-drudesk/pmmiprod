@@ -1,0 +1,10 @@
+uuid: 7397e4cb-42e7-4f19-80b0-c77fb54d7858
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.media_social_with_text
+label: 'Media social with text'
+targetEntityType: block_content
+cache: true

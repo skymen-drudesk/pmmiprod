@@ -1,0 +1,88 @@
+<?php
+
+/**
+ * @file
+ * The install file for the pmmi_reports module.
+ */
+
+use Drupal\taxonomy\Entity\Term;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\field\Entity\FieldStorageConfig;
+
+/**
+ * Implements hook_install().
+ */
+function pmmi_reports_install() {
+
+  // Add required fields on install if they still missed.
+  $manager = \Drupal::entityDefinitionUpdateManager();
+  if (!$field = $manager->getFieldStorageDefinition('field_personify_class', 'taxonomy_term')) {
+    $config_installer = \Drupal::service('config.installer');
+    if ($config_installer->isSyncing()) {
+      $config_installer->setSyncing(FALSE);
+      \Drupal::service('config.installer')->installDefaultConfig('module', 'pmmi_reports');
+      $config_installer->setSyncing(TRUE);
+    }
+  }
+
+  if ($manager->getFieldStorageDefinition('field_personify_class', 'taxonomy_term')) {
+    // Update product class field on existing report type terms.
+    $result = \Drupal::entityQuery('taxonomy_term')
+      ->condition('vid', 'report_type')
+      ->execute();
+    if (!empty($result)) {
+      $terms = Term::loadMultiple($result);
+      $terms_to_update = [
+        'Benchmarking' => 'BENCHMARKING',
+        'Economic' => 'ECONOMIC-TRENDS',
+        'Industry' => 'INDUSTRY-RPTS',
+        'International' => 'INTL-RESEARCH',
+      ];
+      foreach ($terms as $term) {
+        foreach ($terms_to_update as $name => $personify_class) {
+          if (strpos($term->getName(), $name) !== FALSE) {
+            $term->set('field_personify_class', $personify_class);
+            $term->save();
+            break;
+          }
+        }
+      }
+    }
+  }
+
+  // Create default image header block.
+  _pmmi_reports_default_image_header_block();
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function pmmi_reports_uninstall() {
+  $reports_service = \Drupal::service('pmmi_reports.reports_import');
+  $reports_service->cleanQueue(FALSE);
+}
+
+/**
+ * Help function to create default image header block for reports pages.
+ */
+function _pmmi_reports_default_image_header_block() {
+  // Prepare image file for block.
+  $img_path = drupal_get_path('theme', 'pmmi_bootstrap') . '/i/reports-image.jpg';
+  $directory_path = 'public://';
+  $img_uri = $directory_path . 'reports-image.jpg';
+  // Create new one file record.
+  file_prepare_directory($directory_path, FILE_CREATE_DIRECTORY | FILE_MODIFY_PERMISSIONS);
+  $data = file_get_contents($img_path);
+  $file = file_save_data($data, $img_uri, FILE_EXISTS_REPLACE);
+
+  // Create new block with "image_header" type and related info.
+  $blockEntityManager = \Drupal::entityTypeManager()->getStorage('block_content');
+  $block = $blockEntityManager->create(['type' => 'image_header']);
+  $block->info = 'Business Intelligence - Reports';
+  $block->uuid = '51ab98af-c4bf-40ac-9d7b-46e09f6e7e05';
+  $block->field_head = 'Reports';
+  if (!empty($file)) {
+    $block->field_image = $file->id();
+  }
+  $block->save();
+}

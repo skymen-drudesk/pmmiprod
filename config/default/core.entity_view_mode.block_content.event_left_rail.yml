@@ -1,0 +1,10 @@
+uuid: ff25d713-0119-4d8b-a011-805f2246ec65
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.event_left_rail
+label: 'Event Left Rail'
+targetEntityType: block_content
+cache: true

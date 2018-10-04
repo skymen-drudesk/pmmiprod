@@ -1,0 +1,10 @@
+uuid: 14fc1915-4146-449a-ae3c-b110a260cc51
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.vertical_box
+label: 'Vertical box'
+targetEntityType: block_content
+cache: true

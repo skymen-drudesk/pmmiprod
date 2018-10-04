@@ -1,0 +1,14 @@
+uuid: 8dd5a9a3-0fcf-4dd7-a438-41d9a99e0f58
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_4_mobile
+label: 'Block style 4 - Mobile (284px by 341px)'
+effects:
+  35d3960b-8ff8-4c67-a714-093a88ecff07:
+    uuid: 35d3960b-8ff8-4c67-a714-093a88ecff07
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 284
+      height: 341

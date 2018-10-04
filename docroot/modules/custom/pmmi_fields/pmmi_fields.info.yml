@@ -1,0 +1,9 @@
+name: PMMI Fields
+type: module
+description: PMMI Fields
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi
+  - datetime
+  - inline_entity_form

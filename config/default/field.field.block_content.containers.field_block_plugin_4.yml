@@ -1,0 +1,23 @@
+uuid: 7f1aee05-1309-4bc4-959e-dba1265b4574
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_block_plugin_4
+id: block_content.containers.field_block_plugin_4
+field_name: field_block_plugin_4
+entity_type: block_content
+bundle: containers
+label: 'Block plugin 4'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block'
+  handler_settings:
+    target_bundles: null
+    auto_create: false
+field_type: entity_reference

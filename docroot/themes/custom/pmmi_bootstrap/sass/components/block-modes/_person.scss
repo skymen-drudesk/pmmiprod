@@ -1,0 +1,18 @@
+.block-person {
+  margin-bottom: 12px;
+  border-bottom: 1px solid #c2c2c2;
+  padding: 0 0 12px 100px;
+  @extend .clear-after;
+  .image {
+    float: left;
+    margin-left: -100px;
+    img {
+      border-radius: 50%;
+    }
+  }
+  @include mobile {
+    .col & {
+      margin-bottom: -8px;
+    }
+  }
+}

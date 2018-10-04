@@ -1,0 +1,23 @@
+uuid: 097e0bd3-6e1e-4c56-81a0-976efe3f534f
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pack_expo_show
+    - field.storage.block_content.field_buttons
+  module:
+    - link
+id: block_content.pack_expo_show.field_buttons
+field_name: field_buttons
+entity_type: block_content
+bundle: pack_expo_show
+label: Button(s)
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

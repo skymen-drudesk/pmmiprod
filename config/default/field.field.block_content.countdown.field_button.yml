@@ -1,0 +1,23 @@
+uuid: 981e2a5a-91bd-4b09-b116-e9074ba82596
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+    - field.storage.block_content.field_button
+  module:
+    - link
+id: block_content.countdown.field_button
+field_name: field_button
+entity_type: block_content
+bundle: countdown
+label: Button
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 2
+field_type: link

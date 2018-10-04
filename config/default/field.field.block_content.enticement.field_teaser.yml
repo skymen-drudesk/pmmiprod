@@ -1,0 +1,19 @@
+uuid: 71f37b6e-2c72-422d-b774-f2f97f9730db
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.enticement
+    - field.storage.block_content.field_teaser
+id: block_content.enticement.field_teaser
+field_name: field_teaser
+entity_type: block_content
+bundle: enticement
+label: Teaser
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

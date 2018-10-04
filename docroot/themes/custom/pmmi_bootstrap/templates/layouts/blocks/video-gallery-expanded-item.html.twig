@@ -1,0 +1,25 @@
+{#
+/**
+ * @file
+ * Template file for gallery item layout `Expanded` view mode.
+ *
+ * Available variables:
+ * - content: The content of this block including:
+ *   - video: Video information including:
+ *     - video_url: Valid url to the video.
+ *     - image_url: Valid url to thumbnail image.
+ *   - video_title: Title of the video.
+ *   - video_description: Description of the video.
+ *
+ * @ingroup templates
+ */
+#}
+
+<div{{ attributes.addClass('video-gallery__expanded-item') }}>
+  <a class="video-gallery__expanded-link"
+     data-lity
+     href="{{ content.video.video_url|e }}">{{ content.video_title }}
+  </a>
+
+  {{ field_render([content.video_description, 'video-gallery__expanded-description']) }}
+</div>

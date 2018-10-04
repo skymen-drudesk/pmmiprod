@@ -1,0 +1,29 @@
+{#
+/**
+ * @file
+ * Template file for gallery item layout `Slider` view mode.
+ *
+ * Available variables:
+ * - content: The content of this block including:
+ *   - video: Video information including:
+ *     - video_url: Valid url to the video.
+ *     - image_url: Valid url to thumbnail image.
+ *   - video_title: Title of the video.
+ *   - video_description: Description of the video.
+ *
+ * @ingroup templates
+ */
+#}
+
+<div{{ attributes.addClass('video-gallery__slider-item') }}>
+  <div class="video-gallery__slider-container">
+    <div class="video-gallery__slider-video">
+      <a href="{{ content.video.video_url|e }}" data-lity class="video-gallery__slider-link">
+        <img src="{{ content.video.image_url|e }}" class="video-gallery__slider-image">
+      </a>
+    </div>
+    {{ field_render([content.video_title, 'video-gallery__slider-title']) }}
+
+    {{ field_render([content.video_description, 'video-gallery__slider-description']) }}
+  </div>
+</div>

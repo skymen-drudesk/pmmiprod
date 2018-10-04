@@ -1,0 +1,15 @@
+uuid: 023e286a-b6d6-4383-a279-8fc52410153e
+langcode: en
+status: true
+dependencies: {  }
+name: enticement_style
+label: 'Enticement style (180px by auto)'
+effects:
+  74292d2b-34ea-48cf-b618-4b9d814847b6:
+    uuid: 74292d2b-34ea-48cf-b618-4b9d814847b6
+    id: image_scale
+    weight: 1
+    data:
+      width: 180
+      height: null
+      upscale: false

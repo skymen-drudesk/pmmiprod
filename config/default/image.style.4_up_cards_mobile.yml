@@ -1,0 +1,14 @@
+uuid: e819c235-00db-4e1b-8cf8-2e7076dec204
+langcode: en
+status: true
+dependencies: {  }
+name: 4_up_cards_mobile
+label: '4-up cards - Mobile (265px by 166px)'
+effects:
+  5fe2114a-91ea-4896-82f0-ae2357e47268:
+    uuid: 5fe2114a-91ea-4896-82f0-ae2357e47268
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 265
+      height: 166

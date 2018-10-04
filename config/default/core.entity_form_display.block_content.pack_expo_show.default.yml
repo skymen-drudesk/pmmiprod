@@ -1,0 +1,93 @@
+uuid: 68c6d9d3-f3dc-4ac3-89a9-5d2c8d8a7aaa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pack_expo_show
+    - entity_browser.browser.browse_files_modal
+    - field.field.block_content.pack_expo_show.body
+    - field.field.block_content.pack_expo_show.field_buttons
+    - field.field.block_content.pack_expo_show.field_dates
+    - field.field.block_content.pack_expo_show.field_head
+    - field.field.block_content.pack_expo_show.field_location
+    - field.field.block_content.pack_expo_show.field_logo
+    - field.field.block_content.pack_expo_show.field_show_dates
+  module:
+    - address
+    - datetime_range
+    - entity_browser
+    - link_attributes
+    - text
+id: block_content.pack_expo_show.default
+targetEntityType: block_content
+bundle: pack_expo_show
+mode: default
+content:
+  body:
+    weight: 3
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea_with_summary
+    region: content
+  field_buttons:
+    weight: 6
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+      enabled_attributes:
+        id: false
+        name: false
+        target: true
+        rel: true
+        class: true
+        accesskey: false
+    third_party_settings: {  }
+    type: link_attributes
+    region: content
+  field_head:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_location:
+    weight: 5
+    settings:
+      default_country: null
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_logo:
+    weight: 2
+    settings:
+      entity_browser: browse_files_modal
+      field_widget_edit: true
+      field_widget_remove: true
+      open: true
+      selection_mode: selection_append
+      view_mode: default
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+    type: entity_browser_file
+    region: content
+  field_show_dates:
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    type: daterange_default
+    region: content
+  info:
+    type: string_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_dates: true

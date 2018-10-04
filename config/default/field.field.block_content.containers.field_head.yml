@@ -1,0 +1,19 @@
+uuid: 69c3d5f1-b131-4631-9d06-a5e92eee8492
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_head
+id: block_content.containers.field_head
+field_name: field_head
+entity_type: block_content
+bundle: containers
+label: Head
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/122?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/course_topics_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 122
+        }
+    ],
+    "uuid": [
+        {
+            "value": "e012bb1f-1d59-43f4-898a-dfeaccf46166"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "course_topics_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "Packaging",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511254992,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Packaging | PMMI"
+            }
+        }
+    ]
+}

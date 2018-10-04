@@ -1,0 +1,9 @@
+name: PMMI Personify Service Data
+type: module
+description: PMMI Personify Service Data Module
+core: 8.x
+package: PMMI
+dependencies:
+  - pmmi
+  - pmmi_sso
+configure: pmmi_psdata.update_settings

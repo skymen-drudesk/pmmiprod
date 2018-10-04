@@ -1,0 +1,45 @@
+uuid: b8dd37a2-a074-48c9-a63f-a0969f74e54b
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.training_provider_directory_list_of_searches
+    - views.view.training_provider_reports
+  module:
+    - panels
+    - pmmi_page_manager_search
+    - views
+third_party_settings:
+  pmmi_page_manager_search:
+    index_page_variant: 1
+id: training_provider_directory_list_of_searches-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    90dea069-56ca-4e45-90a0-8b85977254ba:
+      id: 'views_block:training_provider_reports-block_1'
+      label: ''
+      provider: views
+      label_display: '0'
+      views_label: ''
+      items_per_page: none
+      region: content
+      weight: 0
+      uuid: 90dea069-56ca-4e45-90a0-8b85977254ba
+      context_mapping: {  }
+  id: panels_variant
+  uuid: bd3079aa-2ef6-4264-b921-9dbd504e3e90
+  label: null
+  weight: 0
+  layout: layout_onecol
+  layout_settings: {  }
+  page_title: 'List of searches'
+  storage_type: page_manager
+  storage_id: training_provider_directory_list_of_searches-panels_variant-0
+  builder: standard
+page: training_provider_directory_list_of_searches
+weight: 0
+selection_criteria: {  }
+selection_logic: and
+static_context: {  }

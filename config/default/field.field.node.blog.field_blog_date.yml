@@ -1,0 +1,21 @@
+uuid: d450a56e-24a6-407c-ad67-25b3d0c6f7d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_blog_date
+    - node.type.blog
+  module:
+    - datetime
+id: node.blog.field_blog_date
+field_name: field_blog_date
+entity_type: node
+bundle: blog
+label: Date
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

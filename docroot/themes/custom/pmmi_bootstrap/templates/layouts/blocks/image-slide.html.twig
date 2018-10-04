@@ -1,0 +1,16 @@
+<div class="block-image-slide">
+
+  {{ field_render([content.image, 'img']) }}
+
+  <div class="slide-info">
+
+    {{ field_render([content.head, 'title', 'h2']) }}
+
+    {{ field_render([content.subhead, 'sub-title', 'h3']) }}
+
+    {{ field_render([content.body, 'block-body']) }}
+
+    {{ field_render([content.button, 'button btn-scnd-wrap']) }}
+
+  </div>
+</div>

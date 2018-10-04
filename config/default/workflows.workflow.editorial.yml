@@ -1,0 +1,58 @@
+uuid: 773e6ab6-ccd9-4ea0-bef2-a78da152fe17
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.article
+    - node.type.basic_page
+    - node.type.certification_test
+    - node.type.download
+    - node.type.school
+    - node.type.video
+  module:
+    - content_moderation
+_core:
+  default_config_hash: Ghgleft8dw4jdQJNdoZgETzr0anBqsDMIdH9KIhHZI8
+id: editorial
+label: 'Editorial workflow'
+type: content_moderation
+type_settings:
+  states:
+    archived:
+      published: false
+      default_revision: true
+      label: Archived
+      weight: -10
+    draft:
+      published: false
+      default_revision: false
+      label: Draft
+      weight: -10
+    published:
+      published: true
+      default_revision: true
+      label: Published
+      weight: -10
+  entity_types:
+    node:
+      - article
+      - basic_page
+      - certification_test
+      - download
+      - school
+      - video
+  transitions:
+    create_new_draft:
+      label: 'Create New Draft'
+      to: draft
+      weight: 0
+      from:
+        - draft
+        - published
+    publish:
+      label: Publish
+      to: published
+      weight: 1
+      from:
+        - draft
+        - published

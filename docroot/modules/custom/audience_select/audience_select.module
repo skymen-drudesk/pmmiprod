@@ -1,0 +1,44 @@
+<?php
+
+use Drupal\Core\Render\Element;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\audience_select\Service\AudienceManager;
+
+/**
+ * Implements hook_help().
+ */
+function audience_select_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.audience_select':
+      return t('
+        <h2>Audience Select for Drupal.</h2>
+        <h3>Instructions</h3>
+        <p>Unpack in the <em>modules</em> folder (currently in the root of your Drupal 8 installation) and enable in <strong>/admin/modules</strong>.</p>
+        <p>Then, visit <strong>/admin/config/custom/audience_select</strong> and enter your own set of audiences.</p>
+        <p>If you need, there\'s also a specific <em>administer audience select</em > permission .</p >
+      ');
+  }
+}
+
+
+/**
+ * Implements hook_theme().
+ */
+function audience_select_theme($existing, $type, $theme, $path) {
+  return [
+    'audience_select_block' => [
+      'variables' => [
+        'audience_title' => '',
+        'audience_image' => '',
+        'audience_redirect_url' => '',
+      ],
+      'template' => 'block--audience-select--audience-select',
+    ],
+    'audience_switcher_block' => [
+      'variables' => [
+        'audiences' => [],
+      ],
+      'template' => 'block--audience-select--audience-switcher',
+    ],
+  ];
+}

@@ -1,0 +1,7 @@
+enabled: true
+main_interval_users: '10800'
+interval_block: '86400'
+interval_info: '86400'
+interval_roles: '86400'
+main_interval_companies: '10800'
+interval_company: '86400'

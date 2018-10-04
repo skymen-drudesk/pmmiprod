@@ -1,0 +1,24 @@
+favicon:
+  mimetype: image/vnd.microsoft.icon
+  path: ''
+  url: 'http://default/themes/custom/pmmi_bootstrap/favicon.ico'
+  use_default: 1
+schemas:
+  bootstrap: 8000
+  pmmi_bootstrap: 8000
+features:
+  comment_user_picture: true
+  comment_user_verification: true
+  favicon: 1
+  node_user_picture: false
+logo:
+  path: ''
+  url: ''
+  use_default: 1
+cdn_provider: jsdelivr
+front_default_logo: 0
+fold_logo_path: themes/custom/pmmi_bootstrap/logo_fold.svg
+front_logo_upload: ''
+tooltip_placement: 'auto bottom'
+fold_default_logo: 0
+table: ''

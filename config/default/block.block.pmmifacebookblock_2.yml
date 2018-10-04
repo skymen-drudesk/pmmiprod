@@ -1,0 +1,24 @@
+uuid: 7dd781a7-986d-4686-8839-c5bacd5586ab
+langcode: en
+status: false
+dependencies:
+  module:
+    - pmmi_facebook
+  theme:
+    - pmmi_bootstrap
+id: pmmifacebookblock_2
+theme: pmmi_bootstrap
+region: navigation
+weight: 0
+provider: null
+plugin: pmmi_facebook_block
+settings:
+  id: pmmi_facebook_block
+  label: 'PMMI Facebook block'
+  provider: pmmi_facebook
+  label_display: visible
+  block_title: PMMI
+  message_count: '3'
+  page_id: PMMIorg
+  max_age: '300'
+visibility: {  }

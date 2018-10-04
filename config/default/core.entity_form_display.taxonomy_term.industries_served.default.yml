@@ -1,0 +1,46 @@
+uuid: 10c8adad-5950-4223-bdb4-4b856065074d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.industries_served.field_migration_keys
+    - taxonomy.vocabulary.industries_served
+  module:
+    - path
+    - text
+id: taxonomy_term.industries_served.default
+targetEntityType: taxonomy_term
+bundle: industries_served
+mode: default
+content:
+  description:
+    type: text_textfield
+    weight: 0
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  field_migration_keys:
+    weight: 31
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  name:
+    type: string_textfield
+    weight: -5
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  path:
+    type: path
+    weight: 30
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

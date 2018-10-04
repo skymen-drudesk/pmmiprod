@@ -1,0 +1,32 @@
+uuid: 33bbfc2f-e469-414f-8cc9-7b7db592cf2d
+langcode: en
+status: false
+dependencies:
+  enforced:
+    module:
+      - slick
+_core:
+  default_config_hash: Zyx4BsKtbNFnRU7WTHAF0DGHMenI0b_Czn4dwl1bQTc
+id: pmmi_slider_bottom
+name: pmmi_slider_bottom
+label: 'PMMI Slider bottom'
+weight: -10
+group: ''
+skin: default
+breakpoints: 0
+optimized: true
+options:
+  options__active_tab: edit-options-settings
+  settings:
+    adaptiveHeight: true
+    autoplay: true
+    autoplaySpeed: 4000
+    pauseOnDotsHover: true
+    arrows: false
+    dots: true
+    lazyLoad: ondemand
+    respondTo: slider
+    slidesToShow: 1
+    swipeToSlide: true
+    useCSS: false
+    easing: swing

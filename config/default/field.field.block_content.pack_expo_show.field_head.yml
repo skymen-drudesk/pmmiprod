@@ -1,0 +1,19 @@
+uuid: c5045f0b-86bd-4be8-b45d-8067c39bf6d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.pack_expo_show
+    - field.storage.block_content.field_head
+id: block_content.pack_expo_show.field_head
+field_name: field_head
+entity_type: block_content
+bundle: pack_expo_show
+label: Head
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

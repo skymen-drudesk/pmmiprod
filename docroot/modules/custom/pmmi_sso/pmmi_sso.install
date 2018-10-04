@@ -1,0 +1,26 @@
+<?php
+
+/**
+ * @file
+ * The install file for the pmmi_sso module.
+ */
+
+use Drupal\user\Entity\Role;
+
+/**
+ * Implements hook_install().
+ */
+function pmmi_sso_install() {
+  if (Role::load('pmmi_member') == NULL) {
+    $role = Role::create(['id' => 'pmmi_member', 'label' => 'PMMI Member']);
+    $role->save();
+  }
+  if (Role::load('staff') == NULL) {
+    $role = Role::create(['id' => 'staff', 'label' => 'Staff']);
+    $role->save();
+  }
+  if (Role::load('membership_committee') == NULL) {
+    $role = Role::create(['id' => 'membership_committee', 'label' => 'Membership Committee']);
+    $role->save();
+  }
+}

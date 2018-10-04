@@ -1,0 +1,9 @@
+name: PMMI Address
+type: module
+description: Extends functionality of address module.
+core: 8.x
+package: PMMI
+dependencies:
+  - address
+  - selectize
+  - field

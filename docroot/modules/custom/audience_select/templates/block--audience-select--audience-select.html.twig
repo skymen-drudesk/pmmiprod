@@ -1,0 +1,23 @@
+{#
+/**
+ * @file
+ * Theme implementation to display the audience block.
+ *
+ * Available variables:
+ *
+ * Audience select variables:
+ * - audience_title: The audience title.
+ * - audience_redirect_url: The audience redirect URL.
+ * - audience_image: The audience image.
+ *
+ * @ingroup themeable
+ */
+#}
+<div class="block audience-select" id="block--audience-select">
+  <a href="{{ audience_redirect_url }}" class="audience-image-link">
+    {% if audience_image %}
+      {{ audience_image }}
+    {% endif %}
+  </a>
+  <a href="{{ audience_redirect_url }}" class="audience-link"><span>{{ audience_title }}</span></a>
+</div>

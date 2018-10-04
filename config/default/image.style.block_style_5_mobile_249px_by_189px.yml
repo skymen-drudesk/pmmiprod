@@ -1,0 +1,15 @@
+uuid: a91a71e5-c3b6-47fc-a362-37b21b02b87d
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_5_mobile_249px_by_189px
+label: 'Block style 5 - Mobile (249px by 189px)'
+effects:
+  81d91f1f-9401-4587-a049-8b08a387cf79:
+    uuid: 81d91f1f-9401-4587-a049-8b08a387cf79
+    id: image_scale
+    weight: 1
+    data:
+      width: 249
+      height: 189
+      upscale: true

@@ -1,0 +1,23 @@
+uuid: 7b43c07b-fa0e-4d28-8205-2235901557f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - field.storage.block_content.field_button
+  module:
+    - link
+id: block_content.accordion.field_button
+field_name: field_button
+entity_type: block_content
+bundle: accordion
+label: Button
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

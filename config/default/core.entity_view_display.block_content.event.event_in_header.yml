@@ -1,0 +1,102 @@
+uuid: 66905189-0568-4314-8244-bc2a987fbfca
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.event
+    - core.entity_view_mode.block_content.event_in_header
+    - field.field.block_content.event.field_button
+    - field.field.block_content.event.field_dates
+    - field.field.block_content.event.field_event_types
+    - field.field.block_content.event.field_exclude_main_calendar
+    - field.field.block_content.event.field_head
+    - field.field.block_content.event.field_hosted_by
+    - field.field.block_content.event.field_link
+    - field.field.block_content.event.field_location
+  module:
+    - address
+    - ds
+    - pmmi_fields
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_dates
+        - field_location
+id: block_content.event.event_in_header
+targetEntityType: block_content
+bundle: event
+mode: event_in_header
+content:
+  field_dates:
+    weight: 0
+    label: hidden
+    settings:
+      timezone_override: ''
+      date_format_month: F
+      date_format_day: j
+      date_format_year: 'Y'
+      show_end_date: '1'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: daterange_event_custom
+    region: main
+  field_location:
+    type: address_default
+    weight: 1
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: main
+  field_locations:
+    weight: 8
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    type: address_default
+    region: content
+  field_members_only:
+    type: views_field_formatter
+    weight: 0
+    label: above
+    settings:
+      view: ''
+      arguments:
+        field_value:
+          checked: true
+        entity_id:
+          checked: true
+        delta:
+          checked: true
+      multiple: false
+      implode_character: ''
+    third_party_settings: {  }
+    region: content
+hidden:
+  field_button: true
+  field_event_types: true
+  field_exclude_main_calendar: true
+  field_head: true
+  field_hosted_by: true
+  field_link: true

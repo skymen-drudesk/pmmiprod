@@ -1,0 +1,10 @@
+uuid: f39dc450-3cce-4afe-a1a4-e4baceed94a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.footer_social
+label: 'Footer social'
+targetEntityType: block_content
+cache: true

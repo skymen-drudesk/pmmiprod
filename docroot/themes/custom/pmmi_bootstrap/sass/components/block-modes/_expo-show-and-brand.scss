@@ -1,0 +1,123 @@
+.brand-and-expo-show {
+  text-align: center;
+  border: 1px solid $mdgrey;
+  padding: 15px 15px 60px;
+  border-radius: 6px;
+  margin-bottom: 40px;
+  position: relative;
+  .logo {
+    margin-bottom: 8px;
+    img {
+      margin: 0 auto;
+    }
+  }
+  .block-body {
+    @extend .paragraph2;
+    p:last-child {
+      margin-bottom: 0;
+    }
+    @include tablet-max {
+      font-size: $r15;
+      line-height: $r19;
+    }
+  }
+  .button {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    .field--item {
+      display: inline-block;
+      margin: 0 15px 15px;
+    }
+  }
+  @include desktop-max {
+    margin-bottom: 20px;
+  }
+}
+
+.view-pack-expo-shows {
+  .views-view-grid {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+      [class*='col-'] {
+        display: flex;
+      }
+    }
+  }
+}
+.block-pack-expo-show {
+  @extend .brand-and-expo-show;
+  .location,
+  .date {
+    @extend .headline-date;
+    &,
+    * {
+      display: inline;
+    }
+    @extend .inherited-p;
+  }
+  .location {
+    &:before {
+      content: '\2022';
+    }
+    br {
+      display: none;
+    }
+    .administrative-area {
+      &:after {
+        content: ',';
+      }
+    }
+  }
+}
+.block-brand.mode-default {
+  @extend .brand-and-expo-show;
+}
+
+// Expo show mega menu.
+.brand,
+.pack-expo-show {
+  &.mode-mega-menu {
+    color: $dkgrey;
+    line-height: $r16;
+    font-weight: 500;
+    font-size: $r12;
+    margin-bottom: 30px;
+    font-family: $lato;
+    @extend .inherited-p;
+    a {
+      color: $dkgrey;
+    }
+    .field-name-field-logo {
+      a {
+        display: block;
+        height: 105px;
+        line-height: 103px;
+        border: 1px solid $mdgrey;
+        text-align: center;
+        padding: 0 5px;
+        margin: 0 0 5px;
+      }
+      img {
+        margin: 0 auto;
+        display: inline-block;
+        max-height: 98px;
+      }
+    }
+    .field-name-field-head {
+      font-weight: $extrabold;
+      font-size: $r13;
+    }
+    .address {
+      br,
+      .country {
+        display: none;
+      }
+    }
+    .field-name-field-show-dates {
+      white-space: nowrap;
+    }
+  }
+}

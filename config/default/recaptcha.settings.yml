@@ -1,0 +1,8 @@
+site_key: 6LcNGS4UAAAAAIvpVLgeP92WJCIhDSjIMQiA0EZM
+secret_key: 6LcNGS4UAAAAAHbLW6lWHPSPZbhJXTzxyYyNyEyO
+widget:
+  theme: light
+  type: image
+  size: ''
+  badge: bottomright
+  tabindex: null

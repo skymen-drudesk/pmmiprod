@@ -1,0 +1,24 @@
+uuid: b0e386d6-6fce-4597-ab1b-fd3e3cf69b4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_content_verified
+    - node.type.school
+  module:
+    - datetime
+id: node.school.field_content_verified
+field_name: field_content_verified
+entity_type: node
+bundle: school
+label: ' Content Verified as of'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    default_date_type: now
+    default_date: now
+default_value_callback: ''
+settings: {  }
+field_type: datetime

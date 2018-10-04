@@ -1,0 +1,21 @@
+uuid: a096e16f-e50c-46ee-a055-437dac5e879d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.countdown
+    - field.storage.block_content.field_end_date_time
+  module:
+    - pmmi_fields
+id: block_content.countdown.field_end_date_time
+field_name: field_end_date_time
+entity_type: block_content
+bundle: countdown
+label: 'End Date/Time'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime_timezone

@@ -1,0 +1,10 @@
+uuid: a3765111-1c4a-4e2b-ac63-0c6d4b33808e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.mega_menu
+label: 'Mega Menu'
+targetEntityType: block_content
+cache: true

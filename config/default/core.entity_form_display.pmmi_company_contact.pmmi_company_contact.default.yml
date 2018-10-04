@@ -1,0 +1,77 @@
+uuid: 2acdf79e-61a3-4a6b-acd9-265f28e31af1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.pmmi_company_contact.pmmi_company_contact.field_company
+    - field.field.pmmi_company_contact.pmmi_company_contact.field_email
+    - field.field.pmmi_company_contact.pmmi_company_contact.field_name
+    - field.field.pmmi_company_contact.pmmi_company_contact.field_title
+    - field.field.pmmi_company_contact.pmmi_company_contact.field_trade_show
+  module:
+    - pmmi_company_contact
+id: pmmi_company_contact.pmmi_company_contact.default
+targetEntityType: pmmi_company_contact
+bundle: pmmi_company_contact
+mode: default
+content:
+  field_company:
+    weight: 9
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  field_email:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: email_default
+    region: content
+  field_name:
+    weight: 6
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_title:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_trade_show:
+    weight: 10
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: entity_reference_autocomplete
+    region: content
+  name:
+    type: string_textfield
+    weight: -4
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

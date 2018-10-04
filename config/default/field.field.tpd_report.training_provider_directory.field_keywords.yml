@@ -1,0 +1,19 @@
+uuid: c43b4978-c582-43f6-a737-68d0262eea96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tpd_report.field_keywords
+    - pmmi_training_provider.tpd_report_type.training_provider_directory
+id: tpd_report.training_provider_directory.field_keywords
+field_name: field_keywords
+entity_type: tpd_report
+bundle: training_provider_directory
+label: Keywords
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,15 @@
+uuid: 06a65477-37b1-4de7-a335-0dfd40b0b128
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_5_dhd_246px_by_187px
+label: 'Block style 5 - DHD (246px by 187px)'
+effects:
+  64ad95ba-e740-4282-a8fc-d87d1b483cbe:
+    uuid: 64ad95ba-e740-4282-a8fc-d87d1b483cbe
+    id: image_scale
+    weight: 1
+    data:
+      width: 246
+      height: 187
+      upscale: true

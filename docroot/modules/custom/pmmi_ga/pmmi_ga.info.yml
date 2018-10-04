@@ -1,0 +1,7 @@
+name: 'PMMI Google Analytics'
+type: module
+description: 'Extends google analytics tracking functionality.'
+package: PMMI
+core: 8.x
+dependencies:
+  - google_analytics

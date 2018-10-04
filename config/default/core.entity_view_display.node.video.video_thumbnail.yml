@@ -1,0 +1,66 @@
+uuid: 351a1271-de13-4f23-8e8e-c4029f4f05a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.video_thumbnail
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_featured_speaker
+    - field.field.node.video.field_image_header
+    - field.field.node.video.field_link
+    - field.field.node.video.field_meta_tags
+    - field.field.node.video.field_video
+    - field.field.node.video.field_video_type
+    - field.field.node.video.field_yoast_seo
+    - node.type.video
+  module:
+    - ds
+    - user
+    - video
+third_party_settings:
+  ds:
+    layout:
+      id: default_mode
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_video
+id: node.video.video_thumbnail
+targetEntityType: node
+bundle: video
+mode: video_thumbnail
+content:
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_video:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: accordion_styles_dhd
+      link_image_to: content
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: video_embed_thumbnail
+    region: content
+hidden:
+  body: true
+  field_date: true
+  field_featured_speaker: true
+  field_image_header: true
+  field_link: true
+  field_meta_tags: true
+  field_video_type: true
+  field_yoast_seo: true
+  links: true

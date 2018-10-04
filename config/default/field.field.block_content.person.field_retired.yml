@@ -1,0 +1,23 @@
+uuid: 12149e5f-e1c7-4f66-811e-3bba2fa080a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_retired
+id: block_content.person.field_retired
+field_name: field_retired
+entity_type: block_content
+bundle: person
+label: Retired
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

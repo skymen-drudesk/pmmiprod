@@ -1,0 +1,15 @@
+<?php
+
+/**
+ * @file
+ * Update hooks for the 'PMMI Google Analytics' module.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function pmmi_ga_install() {
+  \Drupal::service('config.factory')->getEditable('google_analytics.settings')
+    ->set('visibility.user_role_roles', ['pmmi_member'])
+    ->save();
+}

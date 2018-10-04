@@ -1,0 +1,21 @@
+uuid: 539da5da-0529-40e1-80f1-16832eb65480
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_training_provider
+id: tpd_report.field_keywords
+field_name: field_keywords
+entity_type: tpd_report
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

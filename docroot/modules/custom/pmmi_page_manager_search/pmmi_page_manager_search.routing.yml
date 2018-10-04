@@ -1,0 +1,17 @@
+pmmi_page_manager_search.pmmi_page_manager_search_generate_form:
+  path: '/admin/config/search/page-manager-search/generate'
+  defaults:
+    _form: '\Drupal\pmmi_page_manager_search\Form\PageManagerSearchGenerate'
+    _title: 'PMMI Generate PageManagerSearch entities'
+  requirements:
+    _permission: 'access administration pages'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_page_manager_search.canonical:
+  path: '/page-manager-search/{pmmi_page_manager_search}'
+  defaults:
+    _entity_view: 'pmmi_page_manager_search'
+    _title: 'Page Manager Search'
+  requirements:
+    _permission: 'view pmmi_page_manager_search entity'

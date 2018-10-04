@@ -1,0 +1,14 @@
+uuid: 34eecaa7-27b0-4acf-ab2b-b49ee554ba5d
+langcode: en
+status: true
+dependencies: {  }
+name: 5_up_cards_desktop
+label: '5-up cards - Desktop (294px by 184px)'
+effects:
+  a5ef27f0-b631-4915-a1a7-d6c5c3f4d684:
+    uuid: a5ef27f0-b631-4915-a1a7-d6c5c3f4d684
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 294
+      height: 184

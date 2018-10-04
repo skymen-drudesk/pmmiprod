@@ -1,0 +1,22 @@
+uuid: 1f14326a-6f0c-4794-b759-250950c68254
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: company_page
+label: 'Company page'
+type: 'canonical_entities:node'
+pattern: '/sales-agent-directory/profile/[node:title]'
+selection_criteria:
+  f66b9cb0-4e40-436b-a6f3-45f118b72d54:
+    id: node_type
+    bundles:
+      company: company
+    negate: false
+    context_mapping:
+      node: node
+    uuid: f66b9cb0-4e40-436b-a6f3-45f118b72d54
+selection_logic: and
+weight: -5
+relationships: {  }

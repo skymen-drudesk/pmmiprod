@@ -1,0 +1,14 @@
+uuid: 23ef64f8-3272-4ebb-82fe-b99224b3ec9b
+langcode: en
+status: true
+dependencies: {  }
+name: detail_page_single_tablet
+label: 'Detail page single - Tablet (717px by 335px)'
+effects:
+  3097a74b-8f23-4bd8-b0db-f809c11570ed:
+    uuid: 3097a74b-8f23-4bd8-b0db-f809c11570ed
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 717
+      height: 335

@@ -1,0 +1,10 @@
+uuid: 8c60eb30-6021-435a-bacb-12bc45ae12d2
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.5_up
+label: 5-up
+targetEntityType: block_content
+cache: true

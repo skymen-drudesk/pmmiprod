@@ -1,0 +1,14 @@
+uuid: 6cafb043-38cc-4578-af83-327faeb4ec6e
+langcode: en
+status: true
+dependencies: {  }
+name: image_header_style_desktop
+label: 'Image Header Style - Desktop (1024px by 100px)'
+effects:
+  cf69b460-7612-46bf-b48f-09300b505605:
+    uuid: cf69b460-7612-46bf-b48f-09300b505605
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 100

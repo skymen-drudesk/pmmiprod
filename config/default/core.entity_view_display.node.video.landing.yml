@@ -1,0 +1,166 @@
+uuid: e65e3cfb-bfde-4467-8059-f5c72d5aee7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.landing
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_featured_speaker
+    - field.field.node.video.field_image_header
+    - field.field.node.video.field_link
+    - field.field.node.video.field_meta_tags
+    - field.field.node.video.field_video
+    - field.field.node.video.field_video_type
+    - field.field.node.video.field_yoast_seo
+    - node.type.video
+  module:
+    - datetime
+    - ds
+    - link
+    - text
+    - user
+    - video
+third_party_settings:
+  ds:
+    layout:
+      id: video
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - content_moderation_control
+      title:
+        - node_title
+      body:
+        - body
+      video:
+        - field_video
+      date:
+        - field_date
+      featured_speaker:
+        - field_featured_speaker
+      link:
+        - field_link
+      left_block:
+        - 'dynamic_block_field:node-videos_left_block'
+      view_region:
+        - 'dynamic_block_field:node-videos_view'
+    fields:
+      'dynamic_block_field:node-videos_left_block':
+        plugin_id: 'dynamic_block_field:node-videos_left_block'
+        weight: 7
+        label: hidden
+        formatter: default
+      'dynamic_block_field:node-videos_view':
+        plugin_id: 'dynamic_block_field:node-videos_view'
+        weight: 8
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+        settings:
+          wrapper: h2
+          class: ''
+          link: false
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.video.landing
+targetEntityType: node
+bundle: video
+mode: landing
+content:
+  body:
+    type: text_default
+    weight: 2
+    label: hidden
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: body
+  content_moderation_control:
+    weight: 0
+    region: image_header
+    settings: {  }
+    third_party_settings: {  }
+  field_date:
+    type: datetime_default
+    weight: 4
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_year
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: date
+  field_featured_speaker:
+    type: string
+    weight: 5
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Featured Speaker'
+            lb-col: true
+            classes: {  }
+    region: featured_speaker
+  field_link:
+    type: link
+    weight: 6
+    region: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_video:
+    weight: 3
+    label: hidden
+    settings:
+      width: '870'
+      height: '480'
+      autoplay: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: video_embed_player
+    region: video
+hidden:
+  field_image_header: true
+  field_meta_tags: true
+  field_video_type: true
+  field_yoast_seo: true
+  links: true

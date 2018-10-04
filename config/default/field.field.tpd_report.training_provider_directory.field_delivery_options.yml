@@ -1,0 +1,28 @@
+uuid: 88f077fd-d1aa-40ca-a745-3fef14a76ad7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.tpd_report.field_delivery_options
+    - pmmi_training_provider.tpd_report_type.training_provider_directory
+    - taxonomy.vocabulary.delivery_options_offered
+id: tpd_report.training_provider_directory.field_delivery_options
+field_name: field_delivery_options
+entity_type: tpd_report
+bundle: training_provider_directory
+label: 'Delivery options'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      delivery_options_offered: delivery_options_offered
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: 600784f5-856b-4eb6-8247-d2cc53f85ab5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.person_commission_member
+label: 'Person - Commission Member'
+targetEntityType: block_content
+cache: true

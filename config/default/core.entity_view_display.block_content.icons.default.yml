@@ -1,0 +1,87 @@
+uuid: 716a2976-4c25-4b40-bc3b-5cbeb66dfdef
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.icons
+    - field.field.block_content.icons.field_head
+    - field.field.block_content.icons.field_icon_1
+    - field.field.block_content.icons.field_icon_2
+    - field.field.block_content.icons.field_icon_3
+    - field.field.block_content.icons.field_icon_4
+  module:
+    - ds
+third_party_settings:
+  ds:
+    layout:
+      id: block_icons
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      head:
+        - field_head
+      main:
+        - field_icon_1
+        - field_icon_2
+        - field_icon_3
+        - field_icon_4
+id: block_content.icons.default
+targetEntityType: block_content
+bundle: icons
+mode: default
+content:
+  field_head:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: head
+  field_icon_1:
+    weight: 1
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+  field_icon_2:
+    weight: 2
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+  field_icon_3:
+    weight: 3
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+  field_icon_4:
+    weight: 4
+    label: hidden
+    settings:
+      link: true
+      view_mode: default
+    third_party_settings: {  }
+    type: entity_reference_entity_view
+    region: main
+hidden: {  }

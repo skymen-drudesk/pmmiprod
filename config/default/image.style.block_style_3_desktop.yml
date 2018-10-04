@@ -1,0 +1,14 @@
+uuid: 9621eb88-8ff4-4c64-80a6-8339906d581a
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_3_desktop
+label: 'Block style 3 -  Desktop and Tablet (209px by 159px)'
+effects:
+  489fb620-5562-40f4-92f4-60bfc548a5d2:
+    uuid: 489fb620-5562-40f4-92f4-60bfc548a5d2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 209
+      height: 159

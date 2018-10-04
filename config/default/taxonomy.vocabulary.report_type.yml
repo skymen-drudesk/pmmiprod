@@ -1,0 +1,9 @@
+uuid: d97ab3e5-e648-4dcd-ab95-786fa70ce80d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Report Type'
+vid: report_type
+description: 'Used on Download content type.'
+hierarchy: 0
+weight: 0

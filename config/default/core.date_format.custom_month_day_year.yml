@@ -1,0 +1,8 @@
+uuid: 383b4b2b-17c4-44b0-a487-a4ce3cd31cb7
+langcode: en
+status: true
+dependencies: {  }
+id: custom_month_day_year
+label: 'Custom Month day, year'
+locked: false
+pattern: 'F j, Y'

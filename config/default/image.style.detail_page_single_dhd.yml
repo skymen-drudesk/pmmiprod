@@ -1,0 +1,14 @@
+uuid: b7df2a5e-edcf-4a7c-9403-71bfa89a0b61
+langcode: en
+status: true
+dependencies: {  }
+name: detail_page_single_dhd
+label: 'Detail page single - DHD (670px by 313px)'
+effects:
+  cd8ca3ac-cab2-4a4b-91c4-768e2d4ee89f:
+    uuid: cd8ca3ac-cab2-4a4b-91c4-768e2d4ee89f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 670
+      height: 313

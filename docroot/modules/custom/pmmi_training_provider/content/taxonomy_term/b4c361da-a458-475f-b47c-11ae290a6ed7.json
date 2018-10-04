@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/127?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/delivery_options_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 127
+        }
+    ],
+    "uuid": [
+        {
+            "value": "b4c361da-a458-475f-b47c-11ae290a6ed7"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "delivery_options_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "Online training",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511255047,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Online training | PMMI"
+            }
+        }
+    ]
+}

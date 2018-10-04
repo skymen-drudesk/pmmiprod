@@ -1,0 +1,24 @@
+uuid: 39b2a39f-64cf-4bd9-bea3-8a2b3ad0014f
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility-navigation-member
+  module:
+    - system
+  theme:
+    - pmmi_bootstrap
+id: utilitynavigationmember
+theme: pmmi_bootstrap
+region: navigation
+weight: -6
+provider: null
+plugin: 'system_menu_block:utility-navigation-member'
+settings:
+  id: 'system_menu_block:utility-navigation-member'
+  label: 'Utility navigation - Member'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

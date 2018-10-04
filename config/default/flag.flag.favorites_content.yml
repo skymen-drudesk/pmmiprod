@@ -1,0 +1,28 @@
+uuid: 538ceaa6-01b2-414a-b10a-fb262a58c233
+langcode: en
+status: true
+dependencies: {  }
+id: favorites_content
+label: 'Favorites content'
+bundles:
+  - company
+entity_type: node
+global: false
+weight: 0
+flag_short: 'Add to favorites'
+flag_long: ''
+flag_message: ''
+unflag_short: 'Remove from favorites'
+unflag_long: ''
+unflag_message: ''
+unflag_denied_text: ''
+flag_type: 'entity:node'
+link_type: reload
+flagTypeConfig:
+  show_in_links: {  }
+  show_as_field: true
+  show_on_form: false
+  show_contextual_link: false
+  extra_permissions:
+    owner: '0'
+linkTypeConfig: {  }

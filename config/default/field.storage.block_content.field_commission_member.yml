@@ -1,0 +1,18 @@
+uuid: 5dd17d7b-0cda-433c-9567-3b7f48153c77
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_commission_member
+field_name: field_commission_member
+entity_type: block_content
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,10 @@
+uuid: 378b2ba7-011c-4816-8119-2e82015f766e
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.countdown_circle
+label: 'Countdown circle'
+targetEntityType: block_content
+cache: true

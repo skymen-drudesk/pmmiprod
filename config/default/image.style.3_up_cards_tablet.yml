@@ -1,0 +1,14 @@
+uuid: c9805795-902c-4d9b-ad8e-ff324bd218f0
+langcode: en
+status: true
+dependencies: {  }
+name: 3_up_cards_tablet
+label: '3-up cards - Tablet (218px by 134px)'
+effects:
+  79af2da2-f78a-4beb-bb4c-7e89a56d8b55:
+    uuid: 79af2da2-f78a-4beb-bb4c-7e89a56d8b55
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 218
+      height: 134

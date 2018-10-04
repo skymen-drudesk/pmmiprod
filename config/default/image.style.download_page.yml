@@ -1,0 +1,15 @@
+uuid: eb35d16d-6361-48e3-8f7a-59cd826135c3
+langcode: en
+status: true
+dependencies: {  }
+name: download_page
+label: 'Download page (270px by auto)'
+effects:
+  e9665753-9d55-478e-9062-4db7fafd29ac:
+    uuid: e9665753-9d55-478e-9062-4db7fafd29ac
+    id: image_scale
+    weight: 1
+    data:
+      width: 270
+      height: null
+      upscale: true

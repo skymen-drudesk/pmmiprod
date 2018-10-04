@@ -1,0 +1,19 @@
+uuid: b0cb48f0-917d-40a4-a521-ff780daa2b5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.card
+    - field.storage.block_content.field_head
+id: block_content.card.field_head
+field_name: field_head
+entity_type: block_content
+bundle: card
+label: Head
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,32 @@
+uuid: 98931f89-2035-4e40-bdf7-3b27710c57a1
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_reports
+_core:
+  default_config_hash: gA5ftg84NFlKngu9DjhN3QCeIdaMY0oOKgLER4eAzQ8
+title: 'Fetch reports content from personify'
+id: fetch_content
+weight: 0
+module: pmmi_reports
+callback: pmmi_reports_fetch_content
+scheduler:
+  id: crontab
+  configuration:
+    rules:
+      - '0 * * * *'
+    catch_up: 0
+launcher:
+  id: serial
+  configuration:
+    timeouts:
+      lock_timeout: 3600
+    launcher:
+      thread: 0
+logger:
+  id: database
+  configuration:
+    method: '3'
+    expire: 1209600
+    retain: 1000

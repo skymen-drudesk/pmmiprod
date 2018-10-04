@@ -1,0 +1,20 @@
+uuid: 9129e935-2fda-4c8a-be85-1b0355c5b276
+langcode: en
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - pmmi_bootstrap
+id: mainnavigationother
+theme: pmmi_bootstrap
+region: navigation
+weight: -2
+provider: null
+plugin: 'tb_megamenu_menu_block:main-navigation-other'
+settings:
+  id: 'tb_megamenu_menu_block:main-navigation-other'
+  label: 'Main navigation - Other'
+  provider: tb_megamenu
+  label_display: '0'
+visibility: {  }

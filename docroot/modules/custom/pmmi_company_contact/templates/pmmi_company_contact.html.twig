@@ -1,0 +1,22 @@
+{#
+/**
+ * @file pmmi_company_contact.html.twig
+ * Default theme implementation to present Company contact data.
+ *
+ * This template is used when viewing Company contact pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_pmmi_company_contact()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('pmmi_company_contact') }}>
+  {% if content %}
+    {{- content -}}
+  {% endif %}
+</div>

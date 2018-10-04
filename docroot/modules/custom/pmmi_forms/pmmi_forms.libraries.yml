@@ -1,0 +1,13 @@
+pmmi_forms:
+  version: 1.x
+  css:
+    theme:
+      css/form_alter.css: {}
+
+pmmi_node_article_form:
+  version: 1.x
+  js:
+    js/pmmi_node_article_form.js: {}
+  dependencies:
+    - core/jquery
+    - core/jquery.once

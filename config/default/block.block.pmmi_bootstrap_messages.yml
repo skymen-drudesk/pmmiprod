@@ -1,0 +1,22 @@
+uuid: 01463641-d94a-4eef-8426-060a3bec5ca3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pmmi_bootstrap
+_core:
+  default_config_hash: 9RnnTUBcn0WRWXfrGOnId2H0Q31uQUeu_F5TnDxl2yg
+id: pmmi_bootstrap_messages
+theme: pmmi_bootstrap
+region: header
+weight: -7
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

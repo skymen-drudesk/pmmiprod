@@ -1,0 +1,12 @@
+uuid: 7182d8c4-065d-4dad-bd3a-61433a300729
+langcode: en
+status: true
+dependencies: {  }
+id: sales_agent_directory_usage_export
+label: 'Sales Agent Directory - Usage Export'
+description: ''
+use_admin_theme: true
+path: /admin/config/sad/reporting
+access_logic: and
+access_conditions: {  }
+parameters: {  }

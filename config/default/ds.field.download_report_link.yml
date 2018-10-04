@@ -1,0 +1,11 @@
+id: download_report_link
+label: 'View Report'
+ui_limit: 'report|*'
+properties:
+  content:
+    value: "<p><a class=\"btn button-primary\" href=\"https://pmmiprod3ebiz.personifycloud.com/personifyebusiness/Store/ProductDetails.aspx?productId=[node:field_product_id]\" target=\"_blank\">View Report</a></p>\r\n"
+    format: full_html
+type: token
+type_label: 'Token field'
+entities:
+  node: node

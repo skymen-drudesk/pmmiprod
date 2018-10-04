@@ -1,0 +1,8 @@
+uuid: b91f5058-48ed-467e-bae5-6d02edbb96b4
+langcode: en
+status: true
+dependencies: {  }
+id: utility-navigation-end-user
+label: 'Utility navigation - End User'
+description: 'Utility navigation - End User'
+locked: false

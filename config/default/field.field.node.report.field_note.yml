@@ -1,0 +1,21 @@
+uuid: 0aa92143-a10a-4b27-a0a9-a053e6227c52
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_note
+    - node.type.report
+  module:
+    - text
+id: node.report.field_note
+field_name: field_note
+entity_type: node
+bundle: report
+label: Note
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

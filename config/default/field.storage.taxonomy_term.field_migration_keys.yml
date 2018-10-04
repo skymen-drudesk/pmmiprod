@@ -1,0 +1,19 @@
+uuid: bf837c7d-dee0-4b22-a179-6e29db21faff
+langcode: en
+status: true
+dependencies:
+  module:
+    - taxonomy
+id: taxonomy_term.field_migration_keys
+field_name: field_migration_keys
+entity_type: taxonomy_term
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

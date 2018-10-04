@@ -1,0 +1,12 @@
+uuid: ab6ec153-fa69-4d16-a741-675c62d7065a
+langcode: en
+status: true
+dependencies: {  }
+id: search
+label: Search
+description: ''
+use_admin_theme: false
+path: /search
+access_logic: and
+access_conditions: {  }
+parameters: {  }

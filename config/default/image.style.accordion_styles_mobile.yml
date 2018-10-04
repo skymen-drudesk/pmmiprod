@@ -1,0 +1,14 @@
+uuid: b1aebd82-3dc2-4927-bcb8-4245e41c0a5e
+langcode: en
+status: true
+dependencies: {  }
+name: accordion_styles_mobile
+label: 'Accordion Styles - Mobile (220px by 124px)'
+effects:
+  b81a463e-c98a-491c-ae18-9d1bc81188f0:
+    uuid: b81a463e-c98a-491c-ae18-9d1bc81188f0
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 220
+      height: 124

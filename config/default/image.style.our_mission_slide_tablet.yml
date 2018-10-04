@@ -1,0 +1,14 @@
+uuid: e3c12975-ef6a-4198-af08-2c2e54cdd806
+langcode: en
+status: true
+dependencies: {  }
+name: our_mission_slide_tablet
+label: 'Our mission slide - Tablet (768px by 209px)'
+effects:
+  8892226d-8ec3-4110-8859-28eace73fb8c:
+    uuid: 8892226d-8ec3-4110-8859-28eace73fb8c
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 209

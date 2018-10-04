@@ -1,0 +1,10 @@
+uuid: af4801d3-5bea-4ac6-b72f-b1dadbcc034c
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.image_slider
+label: 'Image Slider'
+targetEntityType: block_content
+cache: true

@@ -1,0 +1,149 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_reports.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\ultimate_cron\CronJobInterface;
+use Drupal\Core\Queue\{RequeueException, SuspendQueueException};
+use Drupal\pmmi_reports\Plugin\QueueWorker\PMMIReportsQueue;
+use Drupal\taxonomy\Entity\Term;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_reports_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_reports module.
+    case 'help.page.pmmi_reports':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Reports import and update stuff.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+
+/**
+ * Callback for 'fetch_content' cron job.
+ */
+function pmmi_reports_fetch_content() {
+  \Drupal::service('pmmi_reports.reports_import')->fetchContent(FALSE);
+}
+
+/**
+ * Callback for 'import_content' cron job.
+ */
+function pmmi_reports_import_content(CronJobInterface $job) {
+  $queue_config = \Drupal::config('ultimate_cron.settings');
+  $queue_name = 'pmmi_reports_import';
+  $queue_timeout = \Drupal::state()->get('pmmi_reports.queue_time', 30);
+
+  /** @var \Drupal\Core\Queue\QueueInterface $queue */
+  $queue = \Drupal::queue($queue_name);
+
+  /** @var \Drupal\Core\Queue\QueueWorkerInterface $queue_worker */
+  $queue_manager = \Drupal::service('plugin.manager.queue_worker');
+
+  /** @var \Drupal\Core\Queue\QueueWorkerInterface $queue_worker */
+  $queue_worker = $queue_manager->createInstance($queue_name);
+
+  $end = microtime(TRUE) + $queue_timeout;
+
+  $items = 0;
+  while (microtime(TRUE) < $end) {
+    // Check kill signal.
+    if ($job->getSignal('kill')) {
+      \Drupal::logger('ultimate_cron')->warning('Kill signal received for job @job_id', ['@job_id' => $job->id()]);
+      break;
+    }
+
+    $item = $queue->claimItem($queue_config->get('queue.timeouts.lease_time'));
+
+    // If there is no item, check the empty delay setting and wait if
+    // configured.
+    if (!$item) {
+      if ($queue_config->get('queue.delays.empty_delay')) {
+        usleep($queue_config->get('queue.delays.empty_delay') * 1000000);
+        continue;
+      }
+      else {
+        break;
+      }
+    }
+
+    try {
+      // We have an item, check if we need to wait.
+      if ($queue_config->get('queue.delays.item_delay')) {
+        if ($items == 0) {
+          // Move the boundary if using a throttle,
+          // to avoid waiting for nothing.
+          $end -= $queue_config->get('queue.delays.item_delay');
+        }
+        else {
+          // Sleep before retrieving.
+          usleep($queue_config->get('queue.delays.item_delay') * 1000000);
+        }
+      }
+
+      $queue_worker->processItem($item->data);
+      $queue->deleteItem($item);
+      $items++;
+    }
+    catch (RequeueException $e) {
+      // The worker requested the task be immediately requeued.
+      $queue->releaseItem($item);
+    }
+    catch (SuspendQueueException $e) {
+      // If the worker indicates there is a problem with the whole queue,
+      // release the item and skip to the next queue.
+      $queue->releaseItem($item);
+      watchdog_exception('cron', $e);
+      break;
+    }
+    catch (\Exception $e) {
+      // In case of any other kind of exception, log it and leave the item
+      // in the queue to be processed again later.
+      watchdog_exception('ultimate_cron_queue', $e);
+      break;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_ds_entity_view().
+ */
+function pmmi_reports_preprocess_ds_entity_view(&$vars) {
+  if ($vars['content']['#bundle'] == 'image_header') {
+    // Change image header name for reports pages based on current category.
+    if ($node = \Drupal::routeMatch()->getParameter('node')) {
+      if ($node->getType() == 'report' && $category = $node->get('field_category')->referencedEntities()) {
+        $vars['content']['head'][0][0]['#context']['value'] = $category[0]->getName();
+      }
+    }
+    elseif ($panel = \Drupal::routeMatch()->getParameter('page_manager_page_variant')) {
+      if (strpos($panel->id(), 'business_intelligence') !== FALSE) {
+        $class = $panel->getStaticContext('class');
+        if ($class && $tid = PMMIReportsQueue::getTermIdByProductClass($class['value'])) {
+          $term = Term::load($tid);
+          $vars['content']['head'][0][0]['#context']['value'] = $term->getName();
+        }
+        elseif ($panel->getPage()->id() == 'business_intelligence_reports_search') {
+          if ($category = \Drupal::request()->query->get('category')) {
+            $term = Term::load($category);
+            $vars['content']['head'][0][0]['#context']['value'] = t('@name Search', [
+              '@name' => $term->getName(),
+            ]);
+          }
+          else {
+            $vars['content']['head'][0][0]['#context']['value'] = t('Reports Search');
+          }
+        }
+      }
+    }
+  }
+}

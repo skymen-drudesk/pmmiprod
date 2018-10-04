@@ -1,0 +1,20 @@
+uuid: 5f99f45a-eb9f-400f-82dd-66ca27f56698
+langcode: en
+status: true
+dependencies:
+  module:
+    - pmmi_training_provider
+    - taxonomy
+id: tpd_report.field_course_topics
+field_name: field_course_topics
+entity_type: tpd_report
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

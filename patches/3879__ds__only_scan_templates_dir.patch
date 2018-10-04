@@ -1,0 +1,18 @@
+diff --git a/ds.module b/ds.module
+index 8dc1de5d..33207311 100644
+--- a/ds.module
++++ b/ds.module
+@@ -168,7 +168,12 @@ function ds_theme_registry_alter(&$theme_registry) {
+     // Escape the periods in the extension.
+     $regex = '/' . str_replace('.', '\.', $extension) . '$/';
+     // Get a listing of all template files in the path to search.
+-    $files = file_scan_directory($theme_path, $regex, ['key' => 'filename']);
++    if (in_array($theme_path, ["themes/contrib/bootstrap", "themes/custom/pmmi_bootstrap"])) {
++      $files = file_scan_directory("$theme_path/templates", $regex, ['key' => 'filename']);
++    }
++    else {
++      $files = file_scan_directory($theme_path, $regex, ['key' => 'filename']);
++    }
+     $patterns = array_keys($files);
+     $implementations = [];
+ 

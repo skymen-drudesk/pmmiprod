@@ -1,0 +1,10 @@
+uuid: a0449232-a7ce-4203-a5e0-c8ba55427e39
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.video_gallery_item_slider
+label: "Video gallery item (Slider)\t"
+targetEntityType: block_content
+cache: true

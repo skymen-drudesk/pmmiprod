@@ -1,0 +1,14 @@
+uuid: 4fee4ae8-4af8-44df-b7cd-884be1bc6710
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_2_dhd_
+label: 'Block style 2 - DHD and Tablet (264px by 182px)'
+effects:
+  ed89d306-e189-4638-8e9b-6f850fbacd48:
+    uuid: ed89d306-e189-4638-8e9b-6f850fbacd48
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 264
+      height: 182

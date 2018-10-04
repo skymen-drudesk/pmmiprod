@@ -1,0 +1,24 @@
+$gutter-width-tablet: 25px;
+$gutter-width-desktop: 10px;
+$gutter-width-dhd: 15px;
+$tablet_width: 718px;
+
+@mixin container {
+  @include container-fixed;
+
+  @media (min-width: $screen-sm-min) {
+    width: $tablet_width + ($gutter-width-tablet * 2);
+    padding-left: $gutter-width-tablet;
+    padding-right: $gutter-width-tablet;
+  }
+  @media (min-width: $screen-md-min) {
+    width: $container-md + ($gutter-width-desktop * 2);
+    padding-left: $gutter-width-desktop;
+    padding-right: $gutter-width-desktop;
+  }
+  @media (min-width: $screen-lg-min) {
+    width: $container-lg;
+    padding-left: $gutter-width-dhd;
+    padding-right: $gutter-width-dhd;
+  }
+}

@@ -1,0 +1,8 @@
+uuid: 4032f29f-c8fc-4600-b5e8-02a906fb7ae7
+langcode: en
+status: true
+dependencies: {  }
+id: event
+label: Event
+revision: 1
+description: ''

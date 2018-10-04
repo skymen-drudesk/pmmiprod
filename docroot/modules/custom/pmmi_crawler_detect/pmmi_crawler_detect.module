@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_crawler_detect.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_crawler_detect_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_crawler_detect module.
+    case 'help.page.pmmi_crawler_detect':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Crawler Detect') . '</p>';
+      return $output;
+
+    default:
+  }
+}

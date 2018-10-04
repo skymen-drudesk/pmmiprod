@@ -1,0 +1,179 @@
+<?php
+/**
+ * @file
+ * PMMI common stuff.
+ */
+
+use Drupal\block_content\Entity\BlockContent;
+use Drupal\views\ViewExecutable;
+use Drupal\Core\Template\Attribute;
+use \Drupal\panels\Plugin\DisplayVariant\PanelsDisplayVariant;
+use Drupal\page_manager\Context\EntityLazyLoadContext;
+use Drupal\Component\Utility\Html;
+use Drupal\pmmi\Plugin\CollapsibleLayout;
+
+/**
+ * Implements hook_views_pre_build().
+ */
+function pmmi_views_pre_build(ViewExecutable $view) {
+  switch ($view->current_display) {
+    case 'block_category_secondary':
+      $contexts = _pmmi_get_video_type_contexts();
+      $view->args[0] = empty($view->args[0]) ? $contexts['tid'] : $view->args[0];
+      $view->args[1] = empty($view->args[1]) ? $contexts['nid'] : $view->args[1];
+      if ($contexts['current_context'] == 'page_manager_page_variant') {
+        $view->setOffset(1);
+      }
+      break;
+
+    case 'video_type_about':
+      if (empty($view->args) || (!empty($view->args) && empty($view->args[0]))) {
+        $contexts = _pmmi_get_video_type_contexts();
+        $view->args[0] = $contexts['tid'];
+      }
+      break;
+  }
+}
+
+/**
+ * Help function to get video type contexts.
+ *
+ * @see pmmi_views_pre_build
+ */
+function _pmmi_get_video_type_contexts() {
+  $contexts = [
+    'nid' => NULL,
+    'tid' => NULL,
+    'term' => NULL,
+    'current_context' => 'node',
+  ];
+  if ($node = \Drupal::routeMatch()->getParameter('node')) {
+    $contexts['nid'] = $node->id();
+    if ($video_term = $node->get('field_video_type')->referencedEntities()) {
+      $contexts['tid'] = $video_term[0]->id();
+    }
+  }
+  elseif ($panel = \Drupal::routeMatch()->getParameter('page_manager_page_variant')) {
+    $page_contexts = $panel->getContexts();
+    foreach ($page_contexts as $context) {
+      if ($context instanceof EntityLazyLoadContext) {
+        $term = $context->getContextValue();
+        $entity_type = $term->getEntityTypeId();
+        if (isset($entity_type) && $entity_type == 'taxonomy_term') {
+          $contexts['tid'] = $term->id();
+          $contexts['term'] = $term;
+          $contexts['current_context'] = 'page_manager_page_variant';
+          break;
+        }
+      }
+    }
+  }
+  return $contexts;
+}
+
+
+/**
+ * Implements hook_panels_build_alter().
+ */
+function pmmi_panels_build_alter(array &$build, PanelsDisplayVariant $panels_display) {
+  if ($panel = \Drupal::routeMatch()->getParameter('page_manager_page_variant')) {
+    $attributes = new Attribute();
+    $classes = [Html::getClass('panel-' . $panel->get('page'))];
+    if ($panels_display->getPluginId() == 'panels_everywhere_variant') {
+      $classes[] = Html::getClass('page-' . $panel->get('page'));
+      $site_template_variants = \Drupal::entityTypeManager()
+        ->getStorage('page')->load('site_template')->getVariants();
+      if ($panels_display->getStorageId()
+      && $current_variant = $site_template_variants[$panels_display->getStorageId()]) {
+        $classes[] = Html::getClass('variant-' . $current_variant->label());
+      }
+    }
+    $attributes['class'] = $classes;
+    $build['#attrs'] = $attributes;
+  }
+}
+
+/**
+ * Implements hook_webform_element_info_alter().
+ */
+function pmmi_webform_element_info_alter(array &$elements) {
+  foreach ($elements as $k => $v) {
+    switch ($k) {
+      case 'checkbox':
+        $elements[$k]['webform_views_handler'] = \Drupal\pmmi\WebformElementViews\WebformBooleanViews::class;
+        break;
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function pmmi_module_implements_alter(&$implementations, $hook) {
+  switch ($hook) {
+    case 'webform_element_info_alter':
+      $group = $implementations['pmmi'];
+      unset($implementations['pmmi']);
+      $implementations['pmmi'] = $group;
+      break;
+  }
+}
+
+/**
+ * Clear varnish cache of entity after updating it.
+ * Cache tag will be invalidated after cron running.
+ *
+ * Implements hook_entity_update().
+ */
+function pmmi_entity_update(Drupal\Core\Entity\EntityInterface $entity) {
+  $purgeInvalidationFactory = \Drupal::service('purge.invalidation.factory');
+  $purgeQueuers = \Drupal::service('purge.queuers');
+  $purgeQueue = \Drupal::service('purge.queue');
+
+  $queuer = $purgeQueuers->get('coretags');
+  $invalidations = [
+    $purgeInvalidationFactory->get('tag', $entity->getEntityTypeId() . ':' . $entity->id()),
+  ];
+
+  $purgeQueue->add($queuer, $invalidations);
+}
+
+/**
+ * Implements hook_theme_registry_alter().
+ */
+function pmmi_theme_registry_alter(&$theme_registry) {
+  static $layouts = FALSE;
+
+  if (!$layouts) {
+    // This can be called before ds_update_8003() has run. If that is the case
+    // return an empty array and don't static cache anything.
+    if (!\Drupal::hasService('plugin.manager.core.layout')) {
+      return [];
+    }
+    $layouts = \Drupal::service('plugin.manager.core.layout')->getDefinitions();
+  }
+  $layout_theme_hooks = [];
+  /** @var \Drupal\Core\Layout\LayoutDefinition $info */
+  foreach ($layouts as $info) {
+    if (is_a($info->getClass(), CollapsibleLayout::class, TRUE)) {
+      $layout_theme_hooks[$info->getThemeHook()] = 'layout';
+    }
+  }
+
+  // Only add preprocess functions if entity exposes theme function, and this
+  // layout is using the Display Suite layout class.
+  foreach ($theme_registry as $theme_hook => $info) {
+    if (array_key_exists($theme_hook, $layout_theme_hooks) || (!empty($info['base hook']) && array_key_exists($info['base hook'], $layout_theme_hooks))) {
+      $theme_registry[$theme_hook]['preprocess functions'][] = 'pmmi_preprocess_pmmi_layout';
+    }
+  }
+}
+
+/**
+ * Process layout.
+ *
+ * This function is added in pmmi_reports_theme_registry_alter().
+ */
+function pmmi_preprocess_pmmi_layout(&$variables) {
+  $variables['opened'] = !empty($variables['content']['#opened']) ?? FALSE;
+}

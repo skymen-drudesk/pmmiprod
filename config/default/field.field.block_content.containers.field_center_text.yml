@@ -1,0 +1,23 @@
+uuid: 23dda835-3a29-4f7b-8088-25c3a2c95f98
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.containers
+    - field.storage.block_content.field_center_text
+id: block_content.containers.field_center_text
+field_name: field_center_text
+entity_type: block_content
+bundle: containers
+label: 'Center text'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

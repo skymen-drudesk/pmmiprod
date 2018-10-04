@@ -1,0 +1,38 @@
+{% set collapse_classes = 'collapse' %}
+{% if opened %}
+  {% set collapse_classes = collapse_classes ~ ' in' %}
+{% endif %}
+
+<div{{ content['#attrs'].addClass('landing-left-sidebar-collapsible') }}>
+  <div class="top-banner clearfix">
+    {{ content.top }}
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="content-head col-md-9 col-md-push-3 hide-dhd">
+        {{ content.head }}
+      </div>
+    </div>
+    <div class="row">
+      <div class="content-left col-md-3 col-sm-12">
+        <div class="content-left-inner">
+          <h3 class="refine-title hide-desktop-min">
+            <a href="#refine-collapse" data-toggle="collapse" aria-controls="refine-collapse" {{ opened ? '' : 'class="collapsed"'}}">
+              <span class="collapse-btn"></span>
+              {{ 'Refine'|t }}
+            </a>
+          </h3>
+          <div class="{{ collapse_classes }}" id="refine-collapse">
+            {{ content.sidebar }}
+          </div>
+        </div>
+      </div>
+      <div class="content-right col-md-9 col-sm-12">
+        <div class="content-head show-dhd">
+          {{ content.head }}
+        </div>
+        {{ content.main }}
+      </div>
+    </div>
+  </div>
+</div>

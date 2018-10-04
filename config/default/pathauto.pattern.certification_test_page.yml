@@ -1,0 +1,22 @@
+uuid: fa5ba8c7-096e-4371-bf77-d8d6ba5b9858
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: certification_test_page
+label: 'Certification Test page'
+type: 'canonical_entities:node'
+pattern: '/workforce-development/mechatronics/certification-tests/[node:title]'
+selection_criteria:
+  a4117158-48a0-4584-b75c-7c84cc9f5fa8:
+    id: node_type
+    bundles:
+      certification_test: certification_test
+    negate: false
+    context_mapping:
+      node: node
+    uuid: a4117158-48a0-4584-b75c-7c84cc9f5fa8
+selection_logic: and
+weight: -5
+relationships: {  }

@@ -1,0 +1,10 @@
+
+pmmi_psdata.update_settings:
+  path: '/admin/config/pmmi_sso/psdataupdate'
+  defaults:
+    _form: '\Drupal\pmmi_psdata\Form\PMMIPsdataUpdateSettings'
+    _title: 'PMMI PS data Update Settings'
+  requirements:
+    _permission: 'administer pmmi personify sso settings'
+  options:
+    _admin_route: TRUE

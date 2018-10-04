@@ -1,0 +1,8 @@
+uuid: 1ebf38c8-0a9d-4abe-9185-06265b44365a
+langcode: en
+status: true
+dependencies: {  }
+id: box
+label: Box
+revision: 1
+description: ''

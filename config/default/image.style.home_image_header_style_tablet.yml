@@ -1,0 +1,14 @@
+uuid: f28f7702-8ea3-420d-96e8-3c12a8425085
+langcode: en
+status: true
+dependencies: {  }
+name: home_image_header_style_tablet
+label: 'Home Image Header Style - Tablet (768px by 224px)'
+effects:
+  791ba319-19f4-4e5b-8e1b-31136b5809b7:
+    uuid: 791ba319-19f4-4e5b-8e1b-31136b5809b7
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 768
+      height: 224

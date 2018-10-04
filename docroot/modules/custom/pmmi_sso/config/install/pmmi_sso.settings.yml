@@ -1,0 +1,17 @@
+user_accounts:
+  login_link_enabled: true
+  login_link_label: 'Personify Login'
+  auto_assigned_roles:
+    - pmmi_member
+gateway:
+  check_frequency: -2
+  token_frequency: 0
+  token_action: 0
+  paths:
+    id: request_path
+    pages: ''
+    negate: false
+advanced:
+  debug_log: false
+  connection_timeout: 10
+expiration: '3600'

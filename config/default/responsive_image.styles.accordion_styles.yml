@@ -1,0 +1,36 @@
+uuid: b3134887-2c38-4ec0-be6d-2ac54138d313
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.accordion_styles_desktop
+    - image.style.accordion_styles_dhd
+    - image.style.accordion_styles_mobile
+    - image.style.accordion_styles_tablet
+  theme:
+    - pmmi_bootstrap
+id: accordion_styles
+label: 'Accordion Styles'
+image_style_mappings:
+  -
+    breakpoint_id: pmmi_bootstrap.desktop-hd
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: accordion_styles_dhd
+  -
+    breakpoint_id: pmmi_bootstrap.desktop
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: accordion_styles_desktop
+  -
+    breakpoint_id: pmmi_bootstrap.tablet
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: accordion_styles_tablet
+  -
+    breakpoint_id: pmmi_bootstrap.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: accordion_styles_mobile
+breakpoint_group: pmmi_bootstrap
+fallback_image_style: accordion_styles_mobile

@@ -1,0 +1,29 @@
+mail_notification_address: 'pmmiwebhelp@pmmi.org'
+remind_period: 604800
+submission_alert: "Thank you for your interest in PMMI’s Agent Database. Your submission was submitted successfully. We will notify you by email when your profile has been approved or rejected."
+ss_update:
+  subject: 'PMMI Agents Database Update'
+  body: "Hello [node:field_primary_contact_first_name],\n\nAs part of its mission, PMMI helps forge profitable partnerships between agents, reps, and distributors and PMMI's 760+ members’ companies. Our members are looking to connect with agents like you. Help us keep your information up-to-date, so we can link you with OEMs based on your line of products and the industries you work with.\n\nPlease click on the link below to edit your listing.\n\n[node:one-time-update-link]\n\nPMMI, the Association for Packaging and Processing Technologies is the owner and producer of the PACK EXPO shows, the world's leading processing and packaging trade shows.\n\nThank you for helping us make successful business connections.\n\nKind Regards,\n\nPaige Jarvi\nGlobal Marketing Assistant\n11911 Freedom Drive, Suite 600\nReston, VA  20190\nT: (571) 612 3200| D: (571) 287 6814"
+ss_update_reminder:
+  subject: 'Reminder: PMMI Agent Database Update'
+  body: "Hello [node:field_primary_contact_first_name],\n\nREMINDER\n\nWe noticed you have not yet updated your agent profile. In order to stay active in our Agent Database, you must review and if necessary, update your record. The more accurate your information is, the more likely you are to receive solid interest in doing business and will also ensure that you receive complimentary registration to PACK EXPO Shows and invitations to other major events.\n\nPlease click on the link below to edit your listing.\n\n[node:one-time-update-link]\n\nIf you are no longer active on packaging and processing or prefer not to receive communications related to the Agent Database, please let me know so we can remove you from our list.\n\nKind Regards,\n\nPaige Jarvi\nGlobal Marketing Assistant\n11911 Freedom Drive, Suite 600\nReston, VA  20190\nT: (571) 612 3200| D: (571) 287 6814"
+listing_approve:
+  subject: 'Your company has been approved for PMMI’s Agent Database'
+  body: "Hello [node:field_primary_contact_first_name],\n\nCongratulations! Your company profile has been approved to be in PMMI’s Agent Database.\n\nWe appreciate your interest in including your company in the PMMI Agent Database. Our objective is to create a platform that offers real business opportunities for both, agents and OEMs in the packaging and processing space.\n\nWe thank you again for your interest in the PMMI Agent Database.\n\nKind Regards,\n\nPaige Jarvi\nGlobal Marketing Assistant\n11911 Freedom Drive, Suite 600\nReston, VA  20190\nT: (571) 612 3200| D: (571) 287 6814"
+listing_reject:
+  subject: 'You do not qualify to be included in PMMI’s Agent Database'
+  body: "Hello [node:field_primary_contact_first_name],\n\nWe appreciate your interest in including your company in the PMMI Agent Database. Our objective is to create a platform that offers real business opportunities for both, agents and OEMs in the packaging and processing space.\n\nBased on the profile submitted, your company does not align with the profile of PMMI members so we do not think it will be useful for either party to include your company’s profile in the database.\n\nIf you feel that you are receiving this email in error, please contact Paige Jarvi at pjarvi@pmmi.org.\n\nWe thank you again for your interest in the PMMI Agent Database.\n\nKind Regards,\n\nPaige Jarvi\nGlobal Marketing Assistant\n11911 Freedom Drive, Suite 600\nReston, VA  20190\nT: (571) 612 3200| D: (571) 287 6814"
+listing_create:
+  subject: 'New sales agent listing has been created'
+  body: "Hello, a new sales agent listing has been created. Please click here to review and approve or reject:\n\n[node:edit-url]"
+listing_review:
+  subject: 'New sales agent listing is pending review'
+  body: "Hello, a sales agent has updated their listing. Please click here to review and approve or reject:\n\n[node:edit-url]"
+one_time:
+  subject: 'One-time company update'
+  body: "You may now update your listing by clicking this link or copying and pasting it into your browser:\n\n[node:one-time-update-link]\n\nThis link can only be used once to update a listing. It expires after 120 hours(5 days) and nothing will happen if it's not used."
+one_time_alert: 1
+one_time_alert_message: "An e-mail was sent to [node:field_primary_contact_email:value] with a link to update this form. If this is not the correct email, please contact pjarvi@pmmi.org."
+one_time_expiration: 432000
+one_time_wrong_mail_alert: 1
+one_time_wrong_mail_alert_message: "There is no primary contact email. Please contact pjarvi@pmmi.org"

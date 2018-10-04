@@ -1,0 +1,94 @@
+<?php
+
+/**
+ * @file
+ * Contains pmmi_import.module.
+ */
+
+use Drupal\Component\Datetime\DateTimePlus;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\migrate\Plugin\MigrationInterface;
+use Drupal\migrate\Plugin\MigrateSourceInterface;
+use Drupal\migrate\Row;
+
+/**
+ * Implements hook_help().
+ */
+function pmmi_import_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the pmmi_import module.
+    case 'help.page.pmmi_import':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('PMMI Import') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_migration_plugins_alter().
+ */
+function pmmi_import_migration_plugins_alter(&$definitions) {
+  $pmmi_import_path = drupal_get_path('module', 'pmmi_import');
+
+  $definitions['migrate_csv']['source']['path'] = $pmmi_import_path . $definitions['migrate_csv']['source']['path'];
+  $definitions['tech_notes']['source']['path'] = $pmmi_import_path . $definitions['tech_notes']['source']['path'];
+  $definitions['chairp_corner']['source']['path'] = $pmmi_import_path . $definitions['chairp_corner']['source']['path'];
+
+  $definitions['company_migrate']['source']['file'] = $pmmi_import_path . $definitions['company_migrate']['source']['file'];
+  $definitions['industry_migrate']['source']['file'] = $pmmi_import_path . $definitions['industry_migrate']['source']['file'];
+  $definitions['equipment_migrate']['source']['file'] = $pmmi_import_path . $definitions['equipment_migrate']['source']['file'];
+}
+
+/**
+ * Implements hook_migrate_prepare_row().
+ */
+function pmmi_import_migrate_prepare_row(Row $row, MigrateSourceInterface $source, MigrationInterface $migration) {
+  switch ($migration->id()) {
+    case 'company_migrate':
+      $source = $row->getSource();
+
+      // Convert necessary data to Camel Case.
+      foreach (pmmi_import_company_camel_case_columns() as $field) {
+        if (!empty($source[$field])) {
+          $row->setSourceProperty($field, ucwords(strtolower($source[$field])));
+        }
+      }
+
+      // Default-check Packaging equipment for all entries.
+      $row->setSourceProperty('Pack', 1);
+
+      // Convert date values from the spreadsheet to correct representation
+      // ("Checked" column).
+      // @todo: migrate process plugin?
+      if (!empty($source['Checked']) && is_numeric($source['Checked'])) {
+        $timestamp = ($source['Checked'] - 25569) * 86400;
+        $date = DateTimePlus::createFromTimestamp($timestamp)->format('Y-m-d');
+        $row->setSourceProperty('Checked', $date);
+      }
+      break;
+  }
+}
+
+/**
+ * Get all columns which should be converted to Camel Case during the import.
+ *
+ * @return array
+ *   List of columns to be converted.
+ */
+function pmmi_import_company_camel_case_columns() {
+  return array(
+    'Address 1',
+    'Address 2',
+    'City',
+    'Companies Represented',
+    'Company Description',
+    'Customer Industries',
+    'Type of Equiptment Sold',
+    'Postal Code',
+    'Primary First Name',
+    'Primary Last Name',
+  );
+}

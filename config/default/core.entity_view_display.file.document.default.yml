@@ -1,0 +1,92 @@
+uuid: 8a7ab58c-9a45-470e-8cba-b7d61240e433
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.file.document.field_download_button_text
+    - field.field.file.document.field_prefix
+    - field.field.file.document.field_suffix
+    - field.field.file.document.field_tags
+    - file_entity.type.document
+  module:
+    - file_entity
+    - user
+id: file.document.default
+targetEntityType: file
+bundle: document
+mode: default
+content:
+  field_download_button_text:
+    weight: 4
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_prefix:
+    weight: 6
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_suffix:
+    weight: 7
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_tags:
+    weight: 5
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    type: entity_reference_label
+    region: content
+  filemime:
+    type: string
+    weight: 2
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  filename:
+    type: string
+    label: hidden
+    weight: -5
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    region: content
+  filesize:
+    type: file_size
+    weight: 3
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  uid:
+    type: author
+    weight: 1
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  uri:
+    type: file_image
+    label: hidden
+    weight: -5
+    settings:
+      title: field_image_title_text
+      alt: field_image_alt_text
+      image_style: ''
+      image_link: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

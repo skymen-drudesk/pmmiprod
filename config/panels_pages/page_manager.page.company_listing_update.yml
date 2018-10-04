@@ -1,0 +1,21 @@
+uuid: 1b68f67b-741a-4313-ac54-452dba3f38fd
+langcode: en
+status: true
+dependencies:
+  module:
+    - user
+id: company_listing_update
+label: 'Update your company listing'
+description: ''
+use_admin_theme: false
+path: /sales-agent-directory/update
+access_logic: and
+access_conditions:
+  -
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: current_user
+parameters: {  }

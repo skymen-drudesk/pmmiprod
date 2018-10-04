@@ -1,0 +1,34 @@
+# Training provider report routing definition
+entity.tpd_report.canonical:
+  route_name: entity.tpd_report.canonical
+  base_route: entity.tpd_report.canonical
+  title: 'View'
+entity.tpd_report.edit_form:
+  route_name: entity.tpd_report.edit_form
+  base_route: entity.tpd_report.canonical
+  title: 'Edit'
+entity.tpd_report.delete_form:
+  route_name:  entity.tpd_report.delete_form
+  base_route:  entity.tpd_report.canonical
+  title: Delete
+  weight: 10
+
+# Training provider directory admin reporting.
+pmmi_training_provider.reporting:
+  route_name: page_manager.page_view_training_provider_directory_list_of_searches_training_provider_directory_list_of_searches-panels_variant-0
+  base_route: page_manager.page_view_training_provider_directory_list_of_searches_training_provider_directory_list_of_searches-panels_variant-0
+  title: 'List of searches'
+pmmi_training_provider.reporting_profile_views:
+  route_name: page_manager.page_view_training_provider_directory_profile_views_training_provider_directory_profile_views-panels_variant-0
+  base_route: page_manager.page_view_training_provider_directory_list_of_searches_training_provider_directory_list_of_searches-panels_variant-0
+  title: 'Profile Views'
+
+# Training provider directory - migration.
+pmmi_training_provider.migrate:
+  route_name: pmmi_training_provider.migrate
+  base_route: pmmi_training_provider.migrate
+  title: 'Import'
+pmmi_training_provider.migrate_messages:
+  route_name: pmmi_training_provider.migrate_messages
+  base_route: pmmi_training_provider.migrate
+  title: 'Messages'

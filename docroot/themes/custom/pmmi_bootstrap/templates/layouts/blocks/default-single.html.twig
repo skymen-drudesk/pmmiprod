@@ -1,0 +1,11 @@
+{% set clasess = [
+  'block-default-single',
+  'block-' ~ content['#bundle'],
+] %}
+<div {{ content['#attrs'].addClass(clasess) }}>
+
+  {{ field_render([content.head, 'title', 'h2']) }}
+
+  {{ field_render([content.main, 'column']) }}
+
+</div>

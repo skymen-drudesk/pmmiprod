@@ -1,0 +1,8 @@
+{
+  "name": "drupal/pmmi_psdata",
+  "type": "drupal-module",
+  "description": "PMMI Personify Service Data",
+  "keywords": ["Drupal"],
+  "minimum-stability": "dev",
+  "require": { }
+}

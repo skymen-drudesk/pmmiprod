@@ -1,0 +1,22 @@
+uuid: 151c3a38-fd30-451a-b1f7-135bee623659
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.certification_test
+  module:
+    - text
+id: node.certification_test.body
+field_name: body
+entity_type: node
+bundle: certification_test
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+field_type: text_with_summary

@@ -1,0 +1,14 @@
+uuid: cac28612-f706-4e9d-8467-f1f861a8eafa
+langcode: en
+status: true
+dependencies: {  }
+name: gateway_style_desktop
+label: 'Gateway style - Desktop (310px by 200px)'
+effects:
+  9e40cb9a-4972-4d9a-bd74-897f4b70d00b:
+    uuid: 9e40cb9a-4972-4d9a-bd74-897f4b70d00b
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 310
+      height: 200

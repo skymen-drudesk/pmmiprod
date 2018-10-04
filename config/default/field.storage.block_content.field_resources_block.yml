@@ -1,0 +1,20 @@
+uuid: 6f594df2-cbd8-4c09-8ac3-ca4aeaf71476
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - pmmi_fields
+id: block_content.field_resources_block
+field_name: field_resources_block
+entity_type: block_content
+type: pmmi_entity_reference
+settings:
+  target_type: block_content
+module: pmmi_fields
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

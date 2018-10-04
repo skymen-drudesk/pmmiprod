@@ -1,0 +1,15 @@
+dev:
+  host: pmmiode4.ssh.prod.acquia-sites.com
+  options:
+    ac-env: ode4
+    ac-realm: prod
+    ac-site: pmmi
+  paths:
+    drush-script: drush9
+  root: /var/www/html/pmmi.ode4/docroot
+  uri: pmmiode4.prod.acquia-sites.com
+  user: pmmi.ode4
+livedev:
+  options:
+    parent: '@pmmi.ode4'
+  root: /mnt/gfs/pmmi.ode4/livedev/docroot

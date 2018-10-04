@@ -1,0 +1,17 @@
+entity.sad_user_stat.add_form:
+  route_name: 'entity.sad_user_stat.add_page'
+  title: 'Add Sales agent user stat'
+  appears_on:
+    - entity.sad_user_stat.collection
+entity.sad_user_stat_type.add_form:
+  route_name: 'entity.sad_user_stat_type.add_form'
+  title: 'Add Sales agent user stat type'
+  appears_on:
+    - entity.sad_user_stat_type.collection
+
+# Add new sales agent downloads quota.
+entity.sad_downloads_quota.add_form:
+  route_name: 'entity.sad_downloads_quota.add_form'
+  title: 'Add new downloads quota'
+  appears_on:
+    - entity.sad_downloads_quota.collection

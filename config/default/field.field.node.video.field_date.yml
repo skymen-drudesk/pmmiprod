@@ -1,0 +1,21 @@
+uuid: 0a11bbf6-8d1d-4000-b87f-6f4d4778959f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_date
+    - node.type.video
+  module:
+    - datetime
+id: node.video.field_date
+field_name: field_date
+entity_type: node
+bundle: video
+label: Date
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

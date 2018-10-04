@@ -1,0 +1,163 @@
+.countdown.block {
+  position: relative;
+  z-index: 2;
+}
+.block-countdown {
+  margin-bottom: 30px;
+  .title {
+    color: #000;
+  }
+  .countdown {
+    margin-bottom: 15px;
+    .part {
+      display: inline-block;
+      text-align: center;
+      padding: 0 22px 0 0;
+      .time {
+        display: block;
+        color: $blue;
+        font-weight: 700;
+        font-size: $r30;
+        line-height: $r36;
+        position: relative;
+        &:after {
+          content: ':';
+          right: -12px;
+          position: absolute;
+        }
+      }
+      @include desktop {
+        padding-right: 20px;
+        .time {
+          font-size: $r25;
+          line-height: $r29;
+          &:after {
+            right: -10px;
+          }
+        }
+      }
+      .unit {
+        display: block;
+        @extend .sidehead3;
+        color: $grey;
+      }
+      &.sec {
+        padding-right: 0;
+        .time:after {
+          display: none;
+        }
+      }
+    }
+  }
+}
+.block-countdown-circle {
+  background: $blue;
+  .button {
+    float: right;
+    margin: 30px 60px;
+    a {
+      font-size: $r24;
+      line-height: $r24;
+      padding-left: 45px;
+      padding-right: 45px;
+      height: 40px;
+    }
+  }
+  .countdown {
+    color: #fff;
+    float: left;
+    pointer-events: none;
+    .part {
+      display: inline-block;
+      text-align: center;
+      border: 5px solid #fff;
+      border-radius: 50%;
+      background: $blue;
+      width: 125px;
+      height: 125px;
+      line-height: 1;
+      margin: -63px 20px 30px 0;
+      &.days {
+        background: $dkblue;
+      }
+      &.min {
+        background: $ltblue;
+
+      }
+      &.sec {
+        background: $twitterblue;
+      }
+    }
+    .time {
+      font-size: $r52;
+      font-weight: 700;
+      display: block;
+      margin: 22px 0 0 0;
+    }
+    .unit {
+      font-size: $r22;
+      display: block;
+    }
+  }
+  @include desktop {
+    .countdown {
+      .part {
+        height: 115px;
+        width: 115px;
+        margin: -58px 10px 30px 0;
+      }
+      .time {
+        font-size: $r45;
+      }
+      .unit {
+        font-size: $r18;
+      }
+    }
+  }
+  @include tablet {
+    .button {
+      margin: 37px 0;
+    }
+    .countdown {
+      margin-bottom: 0;
+      .part {
+        height: 100px;
+        width: 100px;
+        margin: 10px 10px 10px 0;
+        border-width: 4px;
+      }
+      .time {
+        font-size: $r35;
+      }
+      .unit {
+        font-size: $r16;
+      }
+    }
+  }
+  @include mobile {
+    text-align: center;
+    padding: 10px 0;
+    white-space: nowrap;
+    .button {
+      margin: 10px 0 15px;
+      float: none;
+      clear: both;
+    }
+    .countdown {
+      float: none;
+      .part {
+        height: 65px;
+        width: 65px;
+        margin: 10px 4px;
+        border-width: 2px;
+      }
+      .time {
+        margin-top: 13px;
+        font-size: $r28;
+      }
+      .unit {
+        font-size: $r12;
+      }
+    }
+  }
+}

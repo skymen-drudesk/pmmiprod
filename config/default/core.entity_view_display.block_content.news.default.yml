@@ -1,0 +1,140 @@
+uuid: c15bb41e-d629-4899-bb32-7a7f07434a9b
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.news
+    - field.field.block_content.news.body
+    - field.field.block_content.news.field_block_title
+    - field.field.block_content.news.field_button
+    - field.field.block_content.news.field_date
+    - field.field.block_content.news.field_head
+    - field.field.block_content.news.field_head_bkg_color_class
+    - field.field.block_content.news.field_image
+    - field.field.block_content.news.field_logo
+  module:
+    - blazy
+    - datetime
+    - ds
+    - link
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_news
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      block_title:
+        - field_block_title
+      logo:
+        - field_logo
+      date:
+        - field_date
+      head:
+        - field_head
+      body:
+        - body
+      button:
+        - field_button
+id: block_content.news.default
+targetEntityType: block_content
+bundle: news
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 4
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  field_block_title:
+    weight: 0
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: block_title
+  field_button:
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    type: link
+    region: button
+  field_date:
+    weight: 2
+    label: hidden
+    settings:
+      timezone_override: ''
+      format_type: month_day_year
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: datetime_default
+    region: date
+  field_head:
+    weight: 3
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: head
+  field_logo:
+    weight: 1
+    label: hidden
+    settings:
+      image_style: news_block
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      media_switch: ''
+      ratio: ''
+      responsive_image_style: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: logo
+hidden:
+  field_head_bkg_color_class: true
+  field_image: true

@@ -1,0 +1,9 @@
+uuid: b66fe194-f10c-4a9c-aab6-d832edb1274e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Box type'
+vid: box_type
+description: ''
+hierarchy: 0
+weight: 0

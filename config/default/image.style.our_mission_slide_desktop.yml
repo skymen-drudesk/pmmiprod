@@ -1,0 +1,14 @@
+uuid: 4b783a18-2d59-4add-b47c-174afb6c2d23
+langcode: en
+status: true
+dependencies: {  }
+name: our_mission_slide_desktop
+label: 'Our mission slide - Desktop (1024px by 277px)'
+effects:
+  b05f19e6-884a-48ee-8c4c-00b48983dc72:
+    uuid: b05f19e6-884a-48ee-8c4c-00b48983dc72
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1024
+      height: 277

@@ -1,0 +1,7 @@
+pmmi_search.pmmi_clear_favorites_form:
+  path: 'sales-agent-directory/favorites/clear-favorites'
+  defaults:
+    _form: '\Drupal\pmmi_search\Form\PMMIClearFavorites'
+    _title: 'Clear list of favorites'
+  requirements:
+    _permission: 'access content'

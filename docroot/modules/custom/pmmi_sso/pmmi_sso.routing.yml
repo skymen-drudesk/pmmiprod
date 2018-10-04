@@ -1,0 +1,97 @@
+pmmi_sso.admin:
+  path: '/admin/config/pmmi_sso'
+  defaults:
+    _controller: '\Drupal\system\Controller\SystemController::systemAdminMenuBlockPage'
+    _title: 'PMMI SSO'
+  requirements:
+    _permission: 'administer pmmi personify sso settings'
+
+pmmi_sso.settings:
+  path: '/admin/config/pmmi_sso/settings'
+  defaults:
+    _form: '\Drupal\pmmi_sso\Form\PMMISSOSettings'
+    _title: 'PMMI SSO Main Settings'
+  requirements:
+    _permission: 'administer pmmi personify sso settings'
+  options:
+    _admin_route: TRUE
+
+pmmi_sso_update.settings:
+  path: '/admin/config/pmmi_sso/update'
+  defaults:
+    _form: '\Drupal\pmmi_sso\Form\PMMISSOUpdateSettings'
+    _title: 'PMMI SSO Update Settings'
+  requirements:
+    _permission: 'administer pmmi personify sso settings'
+  options:
+    _admin_route: TRUE
+
+pmmi_sso.role_map_delete_form:
+  path: '/admin/config/pmmi_sso/delete/{role_id}'
+  defaults:
+    _form: '\Drupal\pmmi_sso\Form\PMMISSORoleMapDeleteForm'
+    _title: 'Delete'
+  requirements:
+    _permission: 'administer pmmi personify sso settings'
+  options:
+    _admin_route: TRUE
+
+pmmi_sso.login:
+  path: '/ssologin'
+  defaults:
+    _controller: '\Drupal\pmmi_sso\Controller\PMMISSOForceLoginController::forceLogin'
+  requirements:
+    _role: 'anonymous'
+  options:
+    _maintenance_access: FALSE
+    no_cache: TRUE
+
+pmmi_sso.service:
+  path: '/ssoservice'
+  defaults:
+    _controller: '\Drupal\pmmi_sso\Controller\PMMISSOServiceController::handle'
+  requirements:
+    _access: 'TRUE'
+  options:
+    _maintenance_access: TRUE
+    no_cache: TRUE
+
+pmmi_sso.token.settings:
+  path: '/admin/config/pmmi_sso/token_settings'
+  defaults:
+   _form: '\Drupal\pmmi_sso\Entity\Form\PMMISSOTokenSettingsForm'
+   _title: 'PMMI SSO Token Settings'
+  requirements:
+    _permission: 'administer pmmi personify sso token'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_sso_token.collection:
+  path: '/admin/pmmi_sso/tokens'
+  defaults:
+    _entity_list: 'pmmi_sso_token'
+    _title: 'Access Token list'
+  requirements:
+    _permission: 'administer pmmi personify sso token'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_sso_token.canonical:
+  path: '/admin/pmmi_sso/token/{pmmi_sso_token}'
+  defaults:
+    _entity_view: 'pmmi_sso_token'
+    _title: 'Access Token'
+  requirements:
+    _permission: 'administer pmmi personify sso token'
+  options:
+    _admin_route: TRUE
+
+entity.pmmi_sso_token.delete_form:
+  path: '/admin/pmmi_sso/token/{pmmi_sso_token}/delete'
+  defaults:
+    _entity_form: 'pmmi_sso_token.delete'
+    _title: 'Delete Access Token'
+  requirements:
+    _permission: 'administer pmmi personify sso token'
+  options:
+    _admin_route: TRUE

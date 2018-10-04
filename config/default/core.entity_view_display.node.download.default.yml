@@ -1,0 +1,109 @@
+uuid: c0366009-a74b-4d9a-8f90-707f003676d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.download.body
+    - field.field.node.download.field_block_button_text
+    - field.field.node.download.field_document_link
+    - field.field.node.download.field_file_download_button
+    - field.field.node.download.field_image
+    - field.field.node.download.field_image_header
+    - field.field.node.download.field_links
+    - field.field.node.download.field_meta_tags
+    - field.field.node.download.field_yoast_seo
+    - node.type.download
+  module:
+    - blazy
+    - ds
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: default_mode
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_image
+        - field_block_button_text
+        - node_title
+        - body
+    fields:
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+id: node.download.default
+targetEntityType: node
+bundle: download
+mode: default
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+  field_block_button_text:
+    type: string
+    weight: 0
+    region: content
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      responsive_image_style: block_style_4
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      thumbnail_style: ''
+      view_mode: ''
+      cache: 0
+      current_view_mode: ''
+      optionset: default
+      skin: ''
+      style: ''
+      background: false
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      breakpoints: {  }
+      caption: {  }
+      image_style: ''
+      media_switch: ''
+      ratio: ''
+      sizes: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: content
+hidden:
+  content_moderation_control: true
+  field_document_link: true
+  field_file_download_button: true
+  field_image_header: true
+  field_links: true
+  field_meta_tags: true
+  field_yoast_seo: true
+  links: true

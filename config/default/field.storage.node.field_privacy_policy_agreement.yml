@@ -1,0 +1,28 @@
+uuid: 96347b9d-aabb-4e26-9914-b37f92cff231
+langcode: en
+status: true
+dependencies:
+  module:
+    - field_permissions
+    - node
+    - options
+third_party_settings:
+  field_permissions:
+    permission_type: public
+id: node.field_privacy_policy_agreement
+field_name: field_privacy_policy_agreement
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Yes'
+      label: 'By checking this box, I provide my consent for PMMI to collect and store my information in the Agents database for use by PMMI members. Further, I consent for PMMI members to use that information to contact me with inquiries and requests for information. I have reviewed <a href="/privacy-policy" target="_blank">PMMI’s privacy policy</a> and understand that I can address privacy concerns or revoke my consent at any time by contacting <a href="mailto:dataprivacy@pmmi.org" target="_blank">dataprivacy@pmmi.org</a>.'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

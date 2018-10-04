@@ -1,0 +1,23 @@
+uuid: 66c89d52-5ac2-4e94-9e5d-1a6cda33c905
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_website_url
+    - node.type.training_provider
+  module:
+    - link
+id: node.training_provider.field_website_url
+field_name: field_website_url
+entity_type: node
+bundle: training_provider
+label: 'Website URL'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 16
+  title: 1
+field_type: link

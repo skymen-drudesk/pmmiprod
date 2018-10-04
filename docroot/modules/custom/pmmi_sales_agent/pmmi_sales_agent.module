@@ -1,0 +1,708 @@
+<?php
+
+/**
+ * @file
+ * Includes PMMI Sales Agent Directory extensions.
+ */
+
+use Drupal\Component\Utility\Crypt;
+use Drupal\Component\Datetime\DateTimePlus;
+use Drupal\Core\Access\AccessResult;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Url;
+
+// Define sales agent content ID.
+define('PMMI_SALES_AGENT_CONTENT', 'company');
+// Define sales agent admin role.
+define('PMMI_SALES_AGENT_ADMIN_ROLE', 'sales_agent_admin');
+// Define PMMI sales agent mail types.
+define('PMMI_SALES_AGENT_MAIL_MASS_REMIND', 'mass_email_remind');
+define('PMMI_SALES_AGENT_MAIL_LISTING_NEW', 'mail_listing_new');
+define('PMMI_SALES_AGENT_MAIL_LISTING_UPDATE', 'mail_listing_update');
+
+/**
+ * Implements hook_theme().
+ */
+function pmmi_sales_agent_theme() {
+  $theme = [];
+  $theme['sad_user_stat'] = [
+    'render element' => 'elements',
+    'file' => 'sad_user_stat.page.inc',
+    'template' => 'sad_user_stat',
+  ];
+  $theme['sad_user_stat_content_add_list'] = [
+    'render element' => 'content',
+    'variables' => ['content' => NULL],
+    'file' => 'sad_user_stat.page.inc',
+  ];
+  return $theme;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function pmmi_sales_agent_theme_suggestions_sad_user_stat(array $variables) {
+  $suggestions = array();
+  $entity = $variables['elements']['#sad_user_stat'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'sad_user_stat__' . $sanitized_view_mode;
+  $suggestions[] = 'sad_user_stat__' . $entity->bundle();
+  $suggestions[] = 'sad_user_stat__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'sad_user_stat__' . $entity->id();
+  $suggestions[] = 'sad_user_stat__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}
+
+/**
+ * Implements hook_cron().
+ */
+function pmmi_sales_agent_cron() {
+  // Delete old search records.
+  pmmi_sales_agent_delete_old_search_records();
+
+  // Send mass email remind messages.
+  pmmi_sales_agent_remind_send();
+
+  // Notify internal PMMI admin that some companies is pending approval.
+  pmmi_sales_agent_internal_admin_remind_send();
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function pmmi_sales_agent_page_attachments(array &$attachments) {
+  // Download favorites file after 3 seconds of delay.
+  if (!empty($_SESSION['favorites_csv_download_file'])) {
+    $file = $_SESSION['favorites_csv_download_file'];
+    unset($_SESSION['favorites_csv_download_file']);
+
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'meta',
+        '#attributes' => [
+          'http-equiv' => 'Refresh',
+          'content' => '3;url=' . $file,
+        ],
+      ],
+      'pmmi_sales_agent_favourites_auto_download',
+    ];
+  }
+}
+
+/**
+ * Implements hook_file_download().
+ */
+function pmmi_sales_agent_file_download($uri) {
+  $scheme = \Drupal::service('file_system')->uriScheme($uri);
+  $target = file_uri_target($uri);
+
+  // Add some headers to download correct file.
+  if ($scheme == 'private' && preg_match("/^\d+-favorites\.csv$/", $target)) {
+    return ['Content-disposition' => 'attachment; filename="' . $target . '"'];
+  }
+}
+
+/**
+ * Implements hook_mail().
+ */
+function pmmi_sales_agent_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'pmmi_sales_agent_mass':
+    case 'mass_email_remind':
+    case 'pmmi_sales_agent_listing_agent':
+    case 'pmmi_sales_agent_listing_admin':
+    case 'pmmi_one_time_update':
+      $token_service = \Drupal::token();
+      $variables = ['node' => $params['node']];
+
+      // Use default email if it is not specific.
+      $from = !empty($params['from']) ? $params['from'] : \Drupal::config('system.site')
+        ->get('mail');
+
+      $site_name = \Drupal::config('system.site')->get('name');
+
+      $message['from'] = $from;
+      // Set proper From value in email headers.
+      $message['headers']['Return-Path'] = $from;
+      $message['headers']['Sender'] = $from;
+      $message['headers']['From'] = $site_name . '<' . $from . '>';
+
+      $message['subject'] = $params['subject'];
+      $message['body'][] = $token_service->replace($params['body'], $variables);
+      break;
+  }
+}
+
+/**
+ * Implements hook_field_widget_WIDGET_TYPE_form_alter().
+ */
+function pmmi_sales_agent_field_widget_moderation_state_default_form_alter(&$element, FormStateInterface $form_state, $context) {
+  // Add additional process callback to perform additional manipulation we need.
+  $element['#process'][] = 'pmmi_sales_agent_widget_moderation_state_process_actions';
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function pmmi_sales_agent_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  switch ($form_id) {
+    case 'node_company_form':
+    case 'node_company_edit_form':
+      $build_info = $form_state->getBuildInfo();
+      $node = $build_info['callback_object']->getEntity();
+
+      // The field descriptions are converted into tooltips, but we need simple
+      // description for some fields.
+      $fields = [
+        'field_main_phone_number' => 'value',
+        'field_fax_number' => 'value',
+        'field_website_url' => 'uri',
+      ];
+
+      foreach ($fields as $field => $column) {
+        if (isset($form[$field])) {
+          $form[$field]['widget'][0][$column]['#smart_description'] = FALSE;
+        }
+      }
+
+      // Add simple flag to make sure that company was changed using node form.
+      // It will trigger additional updates, which should be ignored if node was
+      // saved in other way.
+      $session_key = 'sad_login_' . $node->id();
+      $token = \Drupal::request()->get('sad-login-token');
+      $node->one_time_update = isset($_SESSION[$session_key], $token) && Crypt::hashEquals($_SESSION[$session_key], $token);
+      break;
+
+    case 'views_form_search_sales_agent_directory_block_2':
+      $form['#action'] = '';
+      break;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function pmmi_sales_agent_form_pmmi_company_search_block_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Add extra submit handler to log any usage of the search agent directory.
+  $form['#submit'][] = 'pmmi_sales_agent_log_search_stats';
+}
+
+/**
+ * Extra submit handler to save search statistic.
+ *
+ * @see pmmi_sales_agent_form_pmmi_company_search_block_form_alter()
+ */
+function pmmi_sales_agent_log_search_stats(&$form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+
+  // Create new user stat entity.
+  if (!empty($values['country_code'])) {
+    \Drupal::entityTypeManager()->getStorage('sad_user_stat')
+      ->create([
+        'uid' => \Drupal::currentUser()->id(),
+        'type' => 'search',
+        'field_countries_searched' => $values['country_code'],
+      ])->save();
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_presave() for node entities.
+ */
+function pmmi_sales_agent_node_presave(EntityInterface $node) {
+  if (!empty($node->one_time_update)) {
+    // Remove the mails queue for this company.
+    \Drupal::service('pmmi_sales_agent.mails_queue')->deletePerCompany($node->id());
+    // Update the "Last Update On" field value.
+    $new_date = DateTimePlus::createFromTimestamp(time())->format('Y-m-d');
+    $node->set('field_last_updated_on', $new_date);
+  }
+  if ($node && ($node->getType() == PMMI_SALES_AGENT_CONTENT) && empty($node->presave)) {
+    $current_state = $node->moderation_state->value ?: '';
+    $moderation_info = \Drupal::service('content_moderation.moderation_information');
+    $hasPendingRevision = $moderation_info->hasPendingRevision($node);
+    $approval_state = ($current_state == 'published') ? 'approved' : 'not_approved';
+    if ($current_state == 'draft' && (!$node->isDefaultRevision() || $hasPendingRevision || !empty($node->one_time_update))) {
+      $approval_state = 'updated';
+      $def_revision = $moderation_info->getLatestRevision('node', $node->id());
+      $def_revision->set('field_approval_state', $approval_state);
+      $def_revision->presave = TRUE;
+      $def_revision->save();
+    }
+    else {
+      $node->set('field_approval_state', $approval_state);
+    }
+  }
+}
+
+/**
+ * Process callback to alter action buttons.
+ *
+ * @see pmmi_sales_agent_field_widget_moderation_state_default_form_alter()
+ */
+function pmmi_sales_agent_widget_moderation_state_process_actions($element, FormStateInterface $form_state, array &$form) {
+  $callback_obj = $form_state->getBuildInfo()['callback_object'] ?: NULL;
+
+  if (!$callback_obj || !($callback_obj instanceof \Drupal\node\NodeForm)) {
+    return $element;
+  }
+
+  // Override workflow states in accordance with own requirements.
+  $node = $callback_obj->getEntity();
+  if ($node && ($node->getType() == PMMI_SALES_AGENT_CONTENT)) {
+    // In some reason, the node after creation is not flagged as new. Let's add
+    // additional flag to make sure that node is new.
+    $form['#new'] = $node->isNew() ? TRUE : FALSE;
+
+    // Simple user will see 'Register' operation only (transition to the Draft
+    // state). For admin user, we do not need this transition, as admin should
+    // be able to publish changes immediately.
+    $is_admin = pmmi_sales_agent_is_admin();
+    if (!$is_admin) {
+      $form['actions']['moderation_state_draft']['#value'] = t('Register');
+      $form['actions']['moderation_state_draft']['#submit'][] = 'pmmi_sales_agent_notify_pmmi_admin';
+    }
+    else {
+      $form['actions']['moderation_state_draft']['#access'] = FALSE;
+    }
+
+    // If current state is 'Draft', it means that sales agent added new changes.
+    // PMMI should review and approve or reject the changes.
+    $current_state = $node->get('moderation_state')->getValue()[0]['value'] ?: '';
+    if (!$form['#new'] && $current_state == 'draft') {
+      $form['actions']['moderation_state_published']['#value'] = t('Approve');
+      $form['actions']['moderation_state_published']['#submit'][] = 'pmmi_sales_agent_notify_sales_agent';
+
+      // Allow to 'Reject' a listing.
+      if ($is_admin) {
+        $form['actions']['reject_listing'] = [
+          '#type' => 'submit',
+          '#value' => t('Reject'),
+          '#submit' => [
+            'pmmi_sales_agent_reject_listing',
+            'pmmi_sales_agent_notify_sales_agent',
+          ],
+        ];
+      }
+    }
+
+    foreach ($form['actions'] as $key => &$action) {
+      if (strpos($key, 'moderation_state_') === 0) {
+        unset($action['#dropbutton']);
+      }
+    }
+  }
+
+  return $element;
+}
+
+/**
+ * Submit handler to reject a listing.
+ */
+function pmmi_sales_agent_reject_listing(&$form, FormStateInterface $form_state) {
+  $moderation_info = \Drupal::service('content_moderation.moderation_information');
+  $node = $form_state->getBuildInfo()['callback_object']->getEntity();
+
+  if ($moderation_info->hasPendingRevision($node)) {
+    // Ignore forward unpublished revisions. Revert to default.
+    $def_revision_id = $moderation_info->getDefaultRevisionId('node', $node->id());
+    $def_revision = node_revision_load($def_revision_id);
+    $def_revision->save();
+  }
+  else {
+    // Remove a node immediately.
+    $node->delete();
+    // Redirect to the homepage, as our company no longer exists.
+    $form_state->setRedirect('<front>');
+  }
+}
+
+/**
+ * Notify internal PMMI admin about new changes.
+ */
+function pmmi_sales_agent_notify_pmmi_admin(&$form, FormStateInterface $form_state) {
+  $node = $form_state->getBuildInfo()['callback_object']->getEntity();
+  $nid = $node->id();
+
+  $ms = \Drupal::config('pmmi_sales_agent.mail_settings');
+  $current_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // Unset one-time update session token.
+  unset($_SESSION['sad_login_' . $nid]);
+
+  // Prepare a message and send it to the internal PMMI admin.
+  $params = [
+    'subject' => $form['#new'] ? $ms->get('listing_create.subject') : $ms->get('listing_review.subject'),
+    'body' => $form['#new'] ? $ms->get('listing_create.body') : $ms->get('listing_review.body'),
+    // Field "field_primary_contact_email" is required.
+    'from' => $node->get('field_primary_contact_email')->getValue()[0]['value'],
+    'node' => $node,
+  ];
+
+  $to = $ms->get('mail_notification_address');
+
+  try {
+    $result = \Drupal::service('plugin.manager.mail')
+      ->mail('pmmi_sales_agent', 'pmmi_sales_agent_listing_agent', $to, $current_langcode, $params);
+    if (!empty($result['result']) && $result['result'] === TRUE) {
+      _db_email_login(
+        'single_email',
+        'info',
+        $result
+      );
+    }
+    else {
+      _db_email_login(
+        'single_email',
+        'error',
+        $result
+      );
+    }
+  } catch (Exception $e) {
+    _db_email_login(
+      'exception',
+      'error',
+      $e
+    );
+  }
+  // Add an email to the queue.
+  $type = $form['#new'] ? PMMI_SALES_AGENT_MAIL_LISTING_NEW : PMMI_SALES_AGENT_MAIL_LISTING_UPDATE;
+  \Drupal::service('pmmi_sales_agent.mails_queue')
+    ->insertPerCompany($nid, $type, \Drupal::time()->getRequestTime() + $ms->get('remind_period'));
+
+  // Show an alert to notify that listing should be reviewed.
+  if ($message = $ms->get('submission_alert')) {
+    drupal_set_message($message);
+  }
+
+  // Force to redirect on the node view page.
+  $url = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid]);
+  $form_state->setRedirectUrl($url);
+}
+
+/**
+ * Notify sales agent that his changes have been approved.
+ */
+function pmmi_sales_agent_notify_sales_agent(&$form, FormStateInterface $form_state) {
+  $trig_element = $form_state->getTriggeringElement();
+
+  $approve = FALSE;
+  if (isset($trig_element['#moderation_state']) && $trig_element['#moderation_state'] == 'published') {
+    $approve = TRUE;
+  }
+
+  $node = $form_state->getBuildInfo()['callback_object']->getEntity();
+
+  // PMMI has answered, so remove an email from the queue.
+  \Drupal::service('pmmi_sales_agent.mails_queue')->deletePerCompany($node->id());
+
+  $ms = \Drupal::config('pmmi_sales_agent.mail_settings');
+  $current_langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // Prepare a message and send it to the sales agent.
+  $params = [
+    'subject' => $approve ? $ms->get('listing_approve.subject') : $ms->get('listing_reject.subject'),
+    'body' => $approve ? $ms->get('listing_approve.body') : $ms->get('listing_reject.body'),
+    'from' => $ms->get('mail_notification_address'),
+    'node' => $node,
+  ];
+
+  $to = $node->get('field_primary_contact_email')->getValue()[0]['value'];
+
+  try {
+    $result = \Drupal::service('plugin.manager.mail')
+      ->mail('pmmi_sales_agent', 'pmmi_sales_agent_listing_admin', $to, $current_langcode, $params);
+    if (!empty($result['result']) && $result['result'] === TRUE) {
+      _db_email_login(
+        'single_email',
+        'info',
+        $result
+      );
+    }
+    else {
+      _db_email_login(
+        'single_email',
+        'error',
+        $result
+      );
+    }
+  } catch (Exception $e) {
+    _db_email_login(
+      'exception',
+      'error',
+      $e
+    );
+  }
+}
+
+/**
+ * Sends mass email remind messages.
+ */
+function pmmi_sales_agent_remind_send() {
+  // Select all companies which should receive remind message.
+  $nids = \Drupal::service('pmmi_sales_agent.mails_queue')
+    ->selectQueueByTypes([PMMI_SALES_AGENT_MAIL_MASS_REMIND]);
+  $results = [
+    'all' => 0,
+    'processed' => 0,
+  ];
+  foreach ($nids as $mid => $nid) {
+    if ($node = \Drupal\node\Entity\Node::load($nid)) {
+      $results['all']++;
+      $result = ['result' => FALSE];
+      $mail_manager = \Drupal::service('plugin.manager.mail');
+      $mail_settings = \Drupal::config('pmmi_sales_agent.mail_settings');
+
+      $params = [
+        'subject' => $mail_settings->get('ss_update_reminder.subject'),
+        'body' => $mail_settings->get('ss_update_reminder.body'),
+        'from' => $mail_settings->get('mail_notification_address'),
+        'node' => $node,
+      ];
+
+      // Let's send remind message.
+      $to = $node->get('field_primary_contact_email')->getValue()[0]['value'];
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      try {
+        $result = $mail_manager->mail('pmmi_sales_agent', 'mass_email_remind', $to, $langcode, $params, TRUE);
+        $results['processed']++;
+      }
+      catch (Exception $e) {
+        _db_email_login(
+          'exception',
+          'error',
+          $e
+        );
+      }
+      if ($result['result'] === TRUE) {
+        // Remove mails queue item as mail has been sent successfully.
+        \Drupal::service('pmmi_sales_agent.mails_queue')->delete($mid);
+      }
+    }
+  }
+  if (!empty($nids)) {
+    if ($results['all'] != $results['processed']) {
+      _db_email_login(
+        __FUNCTION__,
+        'error',
+        $results
+      );
+    }
+    else {
+      _db_email_login(
+        __FUNCTION__,
+        'info',
+        $results
+      );
+    }
+  }
+}
+
+/**
+ * Sends a remind message to internal PMMI admin.
+ */
+function pmmi_sales_agent_internal_admin_remind_send() {
+  // Select all companies which should should send an email.
+  $nids = \Drupal::service('pmmi_sales_agent.mails_queue')
+    ->selectQueueByTypes([
+      PMMI_SALES_AGENT_MAIL_LISTING_NEW,
+      PMMI_SALES_AGENT_MAIL_LISTING_UPDATE,
+    ]);
+
+  foreach ($nids as $mid => $nid) {
+    if ($node = \Drupal\node\Entity\Node::load($nid)) {
+      $result = ['result' => FALSE];
+      $mail_manager = \Drupal::service('plugin.manager.mail');
+      $mail_settings = \Drupal::config('pmmi_sales_agent.mail_settings');
+
+      $params = [
+        'subject' => $mail_settings->get('listing_review.subject'),
+        'body' => $mail_settings->get('listing_review.body'),
+        'node' => $node,
+      ];
+
+      // Let's send remind message.
+      $to = $mail_settings->get('mail_notification_address');
+      $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+      try {
+        $result = $mail_manager->mail('pmmi_sales_agent', 'pmmi_sales_agent_listing_admin', $to, $langcode, $params, TRUE);
+      }
+      catch (Exception $e) {
+        _db_email_login(
+          'exception',
+          'error',
+          $e
+        );
+      }
+      // Update a record if mail has been sent successfully.
+      if ($result['result'] === TRUE) {
+        \Drupal::service('pmmi_sales_agent.mails_queue')
+          ->updateSendingDate($mid, \Drupal::time()->getRequestTime() + $mail_settings->get('remind_period'));
+      }
+    }
+  }
+}
+
+/**
+ * Cron task for deleting old search records.
+ */
+function pmmi_sales_agent_delete_old_search_records() {
+  $queue = \Drupal::queue('old_search_records');
+
+  $connection = Database::getConnection();
+  $result = $connection->select('sad_user_stat', 'sus')
+    ->fields('sus', ['id'])
+    ->condition('sus.created', strtotime('-18 month'), '<')
+    ->execute()->fetchAll();
+
+  foreach ($result as $row) {
+    $queue->createItem($row);
+  }
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function pmmi_sales_agent_node_access(\Drupal\node\NodeInterface $node, $op, \Drupal\Core\Session\AccountInterface $account) {
+  // Allow to update a company by specific one-time update link. Users with the
+  // "Bypass content access control" permission ignore this check.
+  if ($node->bundle() == PMMI_SALES_AGENT_CONTENT && $op == 'update') {
+    if (!$account->hasPermission('pmmi sales agent bypass one time access', $account)) {
+      $session_key = 'sad_login_' . $node->id();
+      $token = \Drupal::request()->get('sad-login-token');
+
+      // Forbid access to update a node if hash's are not equal.
+      if (!isset($_SESSION[$session_key], $token) || !Crypt::hashEquals($_SESSION[$session_key], $token)) {
+        return AccessResult::forbidden();
+      }
+    }
+  }
+}
+
+/**
+ * Checks if current user is internal PMMI admin.
+ */
+function pmmi_sales_agent_is_admin() {
+  $current_user = \Drupal::currentUser();
+  return in_array(PMMI_SALES_AGENT_ADMIN_ROLE, $current_user->getRoles()) || $current_user->id() === 1;
+}
+
+/**
+ * Generates a unique URL for a user to update a listing.
+ *
+ * @param int $nid
+ *   The node ID.
+ *
+ * @return string
+ *   Unique URL for a user to update a listing.
+ */
+function pmmi_sales_agent_login_url($node) {
+  $timestamp = \Drupal::time()->getRequestTime();;
+  $moderation_info = \Drupal::service('content_moderation.moderation_information');
+  $nid = $node->id();
+  $last_revision_id = $moderation_info->getLatestRevisionId('node', $nid);
+  return Url::fromRoute('pmmi_sales_agent.login', [
+    'node' => $nid,
+    'timestamp' => $timestamp,
+    'hash' => pmmi_sales_agent_hash($timestamp, $last_revision_id + $nid),
+  ],
+  [
+    'absolute' => TRUE,
+    'language' => \Drupal::languageManager()->getCurrentLanguage(),
+  ]);
+}
+
+/**
+ * Creates a unique hash value for use in time-dependent per-node URLs.
+ *
+ * @param int $timestamp
+ *   The timestamp.
+ * @param int $nid
+ *   The node ID.
+ *
+ * @return string
+ *   A base-64 encoded sha-256 hmac.
+ */
+function pmmi_sales_agent_hash($timestamp, $nid) {
+  return Crypt::hmacBase64($timestamp . $nid, Settings::getHashSalt());
+}
+
+/**
+ * Helper function to logging errors to database.
+ *
+ * @param string $type
+ * @param string $method
+ * @param array|object $results
+ */
+function _db_email_login($type, $method, $results) {
+  switch ($type) {
+    case 'PMMISalesAgentMailMassConfirmFormFinish':
+      if ($method == 'error') {
+        $text = 'Can\'t send mass email with id @id <br> Successfully send: @successfully <br> Failed: @fail <br> Total: @all';
+      }
+      else {
+        $text = 'Mass email with id @id successfully send.<br> Successfully send: @successfully <br> Failed: @fail <br> Total: @all';
+      }
+      \Drupal::logger('pmmi_sales_agent')
+        ->$method(t($text,
+          [
+            '@id' => \Drupal\pmmi_sales_agent\Form\PMMISalesAgentMailMassConfirmForm::getFormIdStatic(),
+            '@successfully' => $results['processed'],
+            '@fail' => (int) $results['all'] - (int) $results['processed'],
+            '@all' => $results['all']
+          ]
+        ));
+      break;
+
+    case 'single_email':
+      if ($method == 'error') {
+        $text = 'Message didn\'t send.  Message details: <br>To: @to<br>From: @from<br>Subject: @subject<br>Body: @body';
+      }
+      else {
+        $text = 'Message successfully send. Message details: <br> To: @to<br>From: @from<br>Subject: @subject<br>Body: @body';
+      }
+      \Drupal::logger('pmmi_sales_agent')
+        ->$method(t($text,
+          [
+            '@to' => !empty($results['to']) ? $results['to'] : 'empty',
+            '@from' => !empty($results['from']) ? $results['from'] : 'empty',
+            '@subject' => !empty($results['subject']) ? $results['subject'] : 'empty',
+            '@body' => !empty($results['body']) ? $results['body'] : 'empty'
+          ]
+        ));
+      break;
+
+    case 'pmmi_sales_agent_remind_send':
+      if ($method == 'error') {
+        $text = 'Can\'t complete mass email send with id @id <br> Successfully send: @successfully <br> Failed: @fail <br> Total: @all';
+      }
+      else {
+        $text = 'Completed mass email send with id @id.<br> Successfully send: @successfully <br> Failed: @fail <br> Total: @all';
+      }
+      \Drupal::logger('pmmi_sales_agent')
+        ->$method(t($text,
+          [
+            '@id' => __FUNCTION__,
+            '@successfully' => $results['processed'],
+            '@fail' => (int) $results['all'] - (int) $results['processed'],
+            '@all' => $results['all']
+          ]
+        ));
+      break;
+
+    case 'exception':
+      \Drupal::logger('pmmi_sales_agent')
+        ->error('Message didn\'t send. <br>The exception code is : @code<br> Message: @exception',
+          [
+            '@code' => $results->getCode(),
+            '@exception' => $results->getMessage()
+          ]
+        );
+      break;
+  }
+}

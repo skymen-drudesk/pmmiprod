@@ -1,0 +1,14 @@
+uuid: 25c52c79-caee-43a3-94c0-be1ee4c87e52
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.membership_committee
+  module:
+    - user
+id: user_add_role_action.membership_committee
+label: 'Add the Membership Committee role to the selected users'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: membership_committee

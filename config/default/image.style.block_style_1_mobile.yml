@@ -1,0 +1,14 @@
+uuid: 88414ab5-10fa-4496-af86-d609572731c3
+langcode: en
+status: true
+dependencies: {  }
+name: block_style_1_mobile
+label: 'Block style 1 - Mobile (163px by 195px)'
+effects:
+  0eb8b573-2876-4526-9704-ab04b60ec476:
+    uuid: 0eb8b573-2876-4526-9704-ab04b60ec476
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 163
+      height: 195

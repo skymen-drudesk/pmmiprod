@@ -1,0 +1,21 @@
+uuid: 0698af5d-0ae0-4204-a1c1-81ffcc00dbd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.news
+    - field.storage.block_content.field_head_bkg_color_class
+  module:
+    - options
+id: block_content.news.field_head_bkg_color_class
+field_name: field_head_bkg_color_class
+entity_type: block_content
+bundle: news
+label: 'Head Background Color Class'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

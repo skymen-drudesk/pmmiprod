@@ -1,0 +1,58 @@
+uuid: 28f95ddc-e3ae-4741-b9ca-92c820cbc2bc
+langcode: en
+status: false
+dependencies: {  }
+id: config_panels_pages
+label: 'Config panels pages'
+folder: ../config/drupal/panels_pages
+module: {  }
+theme: {  }
+blacklist:
+  - page_manager.page.403_page
+  - page_manager.page.404_page
+  - page_manager.page.business_intelligence_benchmarking_reports
+  - page_manager.page.business_intelligence_economic_reports
+  - page_manager.page.business_intelligence_industry_reports
+  - page_manager.page.business_intelligence_international_research
+  - page_manager.page.business_intelligence_reports_search
+  - page_manager.page.company_listing_update
+  - page_manager.page.membership_application_review_page
+  - page_manager.page.node_add
+  - page_manager.page.node_edit
+  - page_manager.page.node_view
+  - page_manager.page.sales_agent_directory_admin_panel
+  - page_manager.page.sales_agent_directory_contacts_admin_panel
+  - page_manager.page.sales_agent_directory_my_favorites
+  - page_manager.page.sales_agent_directory_usage_export
+  - page_manager.page.search
+  - page_manager.page.search_results_sales_agent_directory
+  - page_manager.page.search_results_training_provider_directory
+  - page_manager.page.search_sales_agent_directory
+  - page_manager.page.search_training_provider_directory
+  - page_manager.page.training_provider_directory_admin_panel
+  - page_manager.page.training_provider_directory_list_of_searches
+  - page_manager.page.training_provider_directory_profile_views
+  - page_manager.page_variant.403_page-panels_variant-0
+  - page_manager.page_variant.404_page-panels_variant-0
+  - page_manager.page_variant.company_listing_update-panels_variant-0
+  - page_manager.page_variant.contact_us-panels_variant-0
+  - page_manager.page_variant.membership_application_review_page-panels_variant-0
+  - page_manager.page_variant.node_edit-panels_variant-0
+  - page_manager.page_variant.sales_agent_directory_admin_panel-panels_variant-0
+  - page_manager.page_variant.sales_agent_directory_contacts_admin_panel-panels_variant-0
+  - page_manager.page_variant.sales_agent_directory_my_favorites-panels_variant-0
+  - page_manager.page_variant.sales_agent_directory_usage_export-panels_variant-0
+  - page_manager.page_variant.search-panels_variant-0
+  - page_manager.page_variant.search_results_sales_agent_directory-panels_variant-0
+  - page_manager.page_variant.search_results_training_provider_directory-panels_variant-0
+  - page_manager.page_variant.search_sales_agent_directory-panels_variant-0
+  - page_manager.page_variant.search_training_provider_directory-panels_variant-0
+  - page_manager.page_variant.site_template-panels_everywhere_variant-7
+  - page_manager.page_variant.training_provider_directory_admin_panel-panels_variant-0
+  - page_manager.page_variant.training_provider_directory_list_of_searches-panels_variant-0
+  - page_manager.page_variant.training_provider_directory_profile_views-panels_variant-0
+  - page_manager.page_variant.node_addhttp_status_code0
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

@@ -1,0 +1,224 @@
+uuid: 5048164c-d103-4a62-8706-2b8a06819b3e
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.full
+    - field.field.node.report.body
+    - field.field.node.report.field_available_from_date
+    - field.field.node.report.field_category
+    - field.field.node.report.field_image
+    - field.field.node.report.field_keywords
+    - field.field.node.report.field_links
+    - field.field.node.report.field_member_price
+    - field.field.node.report.field_meta_tags
+    - field.field.node.report.field_non_member_price
+    - field.field.node.report.field_note
+    - field.field.node.report.field_product_id
+    - field.field.node.report.field_product_status_date
+    - field.field.node.report.field_yoast_seo
+    - node.type.report
+  module:
+    - blazy
+    - ds
+    - link
+    - text
+    - user
+third_party_settings:
+  ds:
+    layout:
+      id: report
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      image_header:
+        - 'dynamic_block_field:node-reports_header'
+      left_block:
+        - 'dynamic_block_field:node-other_reports_and_research'
+      title:
+        - node_title
+      body:
+        - body
+      image:
+        - field_image
+      links:
+        - field_links
+      member_price:
+        - field_member_price
+      non_member_price:
+        - field_non_member_price
+      file_download_button:
+        - 'dynamic_token_field:node-download_report_link'
+        - field_note
+    fields:
+      'dynamic_block_field:node-other_reports_and_research':
+        plugin_id: 'dynamic_block_field:node-other_reports_and_research'
+        weight: 1
+        label: above
+        formatter: default
+      'dynamic_block_field:node-reports_header':
+        plugin_id: 'dynamic_block_field:node-reports_header'
+        weight: 0
+        label: hidden
+        formatter: default
+      'dynamic_token_field:node-download_report_link':
+        plugin_id: 'dynamic_token_field:node-download_report_link'
+        weight: 8
+        label: hidden
+        formatter: default
+      node_title:
+        plugin_id: node_title
+        weight: 2
+        label: hidden
+        formatter: default
+        settings:
+          link: true
+          wrapper: h2
+          class: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+id: node.report.full
+targetEntityType: node
+bundle: report
+mode: full
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 3
+    settings: {  }
+    third_party_settings: {  }
+    region: body
+  field_image:
+    weight: 4
+    label: hidden
+    settings:
+      image_style: download_page
+      thumbnail_style: ''
+      responsive_image_style: ''
+      media_switch: content
+      ratio: ''
+      sizes: ''
+      breakpoints:
+        xs:
+          image_style: ''
+          width: ''
+          breakpoint: ''
+        sm:
+          image_style: ''
+          width: ''
+          breakpoint: ''
+        md:
+          image_style: ''
+          width: ''
+          breakpoint: ''
+        lg:
+          image_style: ''
+          width: ''
+          breakpoint: ''
+        xl:
+          image_style: ''
+          width: ''
+          breakpoint: ''
+      current_view_mode: full
+      background: false
+      caption:
+        title: '0'
+        alt: '0'
+      iframe_lazy: true
+      icon: ''
+      layout: ''
+      view_mode: ''
+      cache: 0
+      optionset: default
+      skin: ''
+      style: ''
+      box_caption: ''
+      box_caption_custom: ''
+      box_style: ''
+      box_media_style: ''
+      grid: 0
+      grid_header: ''
+      grid_medium: 0
+      grid_small: 0
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: blazy
+    region: image
+  field_links:
+    type: link
+    weight: 5
+    region: links
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+  field_member_price:
+    weight: 6
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: true
+            classes: {  }
+    type: string
+    region: member_price
+  field_non_member_price:
+    weight: 7
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: true
+            classes: {  }
+    type: string
+    region: non_member_price
+  field_note:
+    weight: 9
+    label: inline
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: '*Note'
+            lb-col: true
+            classes: {  }
+    type: text_default
+    region: file_download_button
+hidden:
+  field_available_from_date: true
+  field_category: true
+  field_keywords: true
+  field_meta_tags: true
+  field_product_id: true
+  field_product_status_date: true
+  field_yoast_seo: true
+  links: true

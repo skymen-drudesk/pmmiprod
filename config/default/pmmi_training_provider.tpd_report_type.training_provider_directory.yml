@@ -1,0 +1,6 @@
+uuid: afb47854-ad5c-4a8b-9bef-503e6370e716
+langcode: en
+status: true
+dependencies: {  }
+id: training_provider_directory
+label: 'Training Provider Directory'

@@ -1,0 +1,23 @@
+uuid: c026dec7-42ee-4d5f-b8de-f130008d70bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.enticement
+    - field.storage.block_content.field_button
+  module:
+    - link
+id: block_content.enticement.field_button
+field_name: field_button
+entity_type: block_content
+bundle: enticement
+label: Button
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

@@ -1,0 +1,21 @@
+uuid: a544e2f7-95c6-4bfd-a785-1d052d7c256d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_meta_tags
+    - node.type.certification_test
+  module:
+    - metatag
+id: node.certification_test.field_meta_tags
+field_name: field_meta_tags
+entity_type: node
+bundle: certification_test
+label: 'Meta tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

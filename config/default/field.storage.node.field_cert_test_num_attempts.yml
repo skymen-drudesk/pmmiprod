@@ -1,0 +1,19 @@
+uuid: d4472654-8941-4d30-bec3-50877670b328
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_cert_test_num_attempts
+field_name: field_cert_test_num_attempts
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

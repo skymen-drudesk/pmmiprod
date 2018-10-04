@@ -1,0 +1,14 @@
+uuid: b9ada532-70b5-4cd0-995b-da291f1d1a74
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.membership_committee
+  module:
+    - user
+id: user_remove_role_action.membership_committee
+label: 'Remove the Membership Committee role from the selected users'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: membership_committee

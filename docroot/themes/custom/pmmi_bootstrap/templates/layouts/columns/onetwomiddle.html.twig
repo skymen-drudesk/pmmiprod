@@ -1,0 +1,20 @@
+{#
+/**
+ * @file
+ * Template for a 2-up (1 row of 2 columns middle) layout.
+ */
+#}
+<div {{ content['#attrs'].addClass('layout-2up--middle clearfix') }}>
+  <div class="region-top">
+    {{ content.top }}
+  </div>
+  <div class="rows container">
+    <div class="row-1 row">
+      {{ field_render([content.oneone, 'col col-1 col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-2']) }}
+      {{ field_render([content.onetwo, 'col col-1 col-xs-12 col-sm-6 col-sm-offset-3 col-md-4 col-md-offset-0']) }}
+    </div>
+  </div>
+  <div class="region-bottom">
+    {{ content.bottom }}
+  </div>
+</div>

@@ -1,0 +1,59 @@
+uuid: 0a5d8b0c-f2b5-40ec-95df-030f94e5c6e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.events
+    - core.entity_view_mode.block_content.ribbon
+    - field.field.block_content.events.field_events
+    - views.view.events
+  module:
+    - ds
+    - views_field_formatter
+third_party_settings:
+  ds:
+    layout:
+      id: block_default_single
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_events
+id: block_content.events.ribbon
+targetEntityType: block_content
+bundle: events
+mode: ribbon
+content:
+  field_events:
+    weight: 0
+    label: hidden
+    settings:
+      view: 'events::block_3'
+      arguments:
+        field_value:
+          checked: '1'
+          weight: '0'
+        entity_id:
+          weight: '0'
+          checked: 0
+        delta:
+          weight: '0'
+          checked: 0
+      implode_character: ''
+      multiple: 0
+      hide_empty: false
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: views_field_formatter
+    region: main
+hidden: {  }

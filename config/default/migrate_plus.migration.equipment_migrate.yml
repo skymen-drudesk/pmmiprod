@@ -1,0 +1,37 @@
+uuid: 39caa4d6-d549-4076-9678-0ac82e0a7053
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - pmmi_import
+_core:
+  default_config_hash: yCQ3OVPCtHWYE3ZZEnLMBxp5LRpX_42EtPj8iVV0bos
+id: equipment_migrate
+migration_tags: null
+migration_group: 'PMMI import'
+label: 'Migrate type of equipment sold taxonomy'
+source:
+  plugin: spreadsheet
+  file: /import_files/Mapping_2016-12-23.xlsx
+  worksheet: 'Equipment sold'
+  origin: A2
+  header_row: 1
+  columns:
+    - ID
+    - Name
+    - 'Migration keys'
+  keys:
+    ID:
+      type: string
+process:
+  vid:
+    plugin: default_value
+    default_value: equipment_sold_type
+  name: Name
+  field_migration_keys:
+    plugin: pmmi_migration_keys
+    source: 'Migration keys'
+destination:
+  plugin: 'entity:taxonomy_term'
+migration_dependencies: {  }

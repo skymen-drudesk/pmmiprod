@@ -1,0 +1,105 @@
+uuid: 0fe5a492-c346-4790-b0c1-10031ac603b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.box
+    - core.entity_view_mode.block_content.vertical_box
+    - field.field.block_content.box.body
+    - field.field.block_content.box.field_box_type
+    - field.field.block_content.box.field_buttons
+    - field.field.block_content.box.field_head
+    - field.field.block_content.box.field_image
+    - image.style.left_image_block
+  module:
+    - ds
+    - image
+    - link
+    - text
+third_party_settings:
+  ds:
+    layout:
+      id: block_box_vetical
+      library: null
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      main:
+        - field_image
+        - field_head
+        - body
+      button:
+        - field_buttons
+id: block_content.box.vertical_box
+targetEntityType: block_content
+bundle: box
+mode: vertical_box
+content:
+  body:
+    label: hidden
+    type: text_default
+    weight: 2
+    settings: {  }
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: main
+  field_buttons:
+    weight: 3
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ds_limit: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: link
+    region: button
+  field_head:
+    weight: 1
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: string
+    region: main
+  field_image:
+    weight: 0
+    label: hidden
+    settings:
+      image_style: left_image_block
+      image_link: ''
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    type: image
+    region: main
+hidden:
+  field_box_type: true

@@ -1,0 +1,31 @@
+uuid: ee93aeb4-9d0f-478e-90d0-cb097cde6c47
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.sad_user_stat.records_download.field_records_number
+    - pmmi_sales_agent.sad_user_stat_type.records_download
+  module:
+    - user
+id: sad_user_stat.records_download.default
+targetEntityType: sad_user_stat
+bundle: records_download
+mode: default
+content:
+  field_records_number:
+    weight: 1
+    label: above
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    type: number_integer
+    region: content
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden: {  }

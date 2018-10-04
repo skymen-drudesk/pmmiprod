@@ -1,0 +1,30 @@
+<div class="download-node">
+  <div class="top-banner clearfix">
+    {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+  <div class="container">
+    <div class="content-full">
+      <h2 class="node-title">
+        {{ content.title }}
+      </h2>
+      <div class="row">
+
+        {% set image = field_render([content.image, 'img col-sm-4 col-md-3']) %}
+
+        {{ image|raw }}
+
+        {% set classes = image ? 'content col-sm-8 col-md-9' : 'content col-md-12' %}
+
+        <div class="{{ classes }}">
+
+          {{ field_render([content.body, 'node-body']) }}
+
+          {{ field_render([content.links, 'links']) }}
+
+          {{ field_render([content.file_download_button, 'download-link btn-prm-wrap']) }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,15 @@
+{% set buttons = field_render([content.button, 'button btn-prm-wrap']) %}
+{% set classes = ['block-box match-height'] %}
+{% if buttons is not empty %}
+  {% set classes = classes|merge(['with-buttons']) %}
+{% endif %}
+
+<div {{  content['#attrs'].addClass(classes) }}>
+
+  {{ field_render([content.head, 'title', 'h2']) }}
+
+  {{ field_render([content.main, 'column']) }}
+
+  {{ buttons|raw }}
+
+</div>

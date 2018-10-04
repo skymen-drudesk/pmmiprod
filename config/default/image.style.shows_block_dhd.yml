@@ -1,0 +1,15 @@
+uuid: ea62cf72-21f4-498a-9056-174294298802
+langcode: en
+status: true
+dependencies: {  }
+name: shows_block_dhd
+label: 'Shows Block - DHD (auto by 116px)'
+effects:
+  90f10131-bc0c-4bf0-91c6-487221686a0b:
+    uuid: 90f10131-bc0c-4bf0-91c6-487221686a0b
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 116
+      upscale: false

@@ -1,0 +1,19 @@
+uuid: 9f045fee-ddc6-4c6f-9254-1ea140edafac
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_head
+    - taxonomy.vocabulary.video_type
+id: taxonomy_term.video_type.field_head
+field_name: field_head
+entity_type: taxonomy_term
+bundle: video_type
+label: 'Sidebar Head'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

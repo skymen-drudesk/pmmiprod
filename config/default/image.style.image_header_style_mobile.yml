@@ -1,0 +1,14 @@
+uuid: ebf4326d-9597-40c7-b40b-2824468bc1a5
+langcode: en
+status: true
+dependencies: {  }
+name: image_header_style_mobile
+label: 'Image Header Style - Mobile (320px by 74px)'
+effects:
+  a41b94fa-a32c-4a86-9e25-8034725e9bcd:
+    uuid: a41b94fa-a32c-4a86-9e25-8034725e9bcd
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 320
+      height: 74

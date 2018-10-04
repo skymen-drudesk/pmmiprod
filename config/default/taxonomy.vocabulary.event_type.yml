@@ -1,0 +1,9 @@
+uuid: fb52c15c-a611-47a4-a244-ec71a8698d85
+langcode: en
+status: true
+dependencies: {  }
+name: 'Event Type'
+vid: event_type
+description: 'Used on Event block type.'
+hierarchy: 0
+weight: 0

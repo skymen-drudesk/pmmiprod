@@ -1,0 +1,65 @@
+id: industry_migrate
+label: Migrate industry served taxonomy
+migration_group: PMMI import
+
+dependencies:
+  enforced:
+    # List here the name of the module that provided this migration if you want
+    # this config to be removed when that module is uninstalled.
+    module:
+      - pmmi_import
+
+source:
+  plugin: spreadsheet
+  file: /import_files/Mapping_2016-12-23.xlsx
+  worksheet: 'Industry'
+
+  # The top-left cell where data area starts (excluding the header, if exists).
+  # It should use a spreadsheet representation such as B4, A3, etc. The data
+  # area does NOT include the header. If this configuration is missed, the
+  # assumption is that the first row contains the table header and the data
+  # origin is the first cell of the second row. And that is A2. In this example
+  # the data area starts from the second column of the third row.
+  origin: A2
+
+  # The row where the header is placed, if any. If this configuration is missed,
+  # there's no table header and the spreadsheet columns (A, B, C, ...) will be
+  # automatically used as table header. If the table header is on the first row,
+  # this configuration should be 1. The header cell values will act as column
+  # names. The value of 2 means that the table header is on the second row.
+  header_row: 1
+
+  # The list of columns to be returned. Is basically a list of table header cell
+  # values, if a header has been defined with header_row:. If there's no table
+  # header (i.e. header_row: is missing), it should contain a list/sequence of
+  # column letters (A, B, C, ...). If this configuration is missed, all columns
+  # that contain data will be be returned (not recommended).
+  columns:
+    - ID
+    - Name
+    - Migration keys
+
+  # The primary key as a list of keys. It's a list of source columns that are
+  # composing the primary key. The list is keyed by column name and has the
+  # field storage definition as value. If the table have a header (i.e.
+  # header_row: is set) the keys will be set as the name of header cells acting
+  # as primary index. Otherwise the column letters (A, B, C, ...) can be used.
+  # If no keys are defined here, the current row position will be returned as
+  # primary key, but in this case, row_index_column: must have a value.
+  keys:
+    ID:
+      type: integer
+      size: big
+
+process:
+  vid:
+    plugin: default_value
+    default_value: industries_served
+  name: Name
+  field_migration_keys:
+    plugin: pmmi_migration_keys
+    source: Migration keys
+
+destination:
+  plugin: entity:taxonomy_term
+migration_dependencies: {}

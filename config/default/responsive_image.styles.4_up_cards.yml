@@ -1,0 +1,36 @@
+uuid: 5904c967-b6d5-4d85-b2d7-e8fe1b2f5344
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.4_up_cards_desktop
+    - image.style.4_up_cards_dhd
+    - image.style.4_up_cards_mobile
+    - image.style.4_up_cards_tablet
+  theme:
+    - pmmi_bootstrap
+id: 4_up_cards
+label: '4-up cards'
+image_style_mappings:
+  -
+    breakpoint_id: pmmi_bootstrap.desktop-hd
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 4_up_cards_dhd
+  -
+    breakpoint_id: pmmi_bootstrap.desktop
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 4_up_cards_desktop
+  -
+    breakpoint_id: pmmi_bootstrap.tablet
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 4_up_cards_tablet
+  -
+    breakpoint_id: pmmi_bootstrap.mobile
+    multiplier: 1x
+    image_mapping_type: image_style
+    image_mapping: 4_up_cards_mobile
+breakpoint_group: pmmi_bootstrap
+fallback_image_style: 4_up_cards_mobile

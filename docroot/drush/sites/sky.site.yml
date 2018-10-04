@@ -1,0 +1,15 @@
+dev:
+  host: free-7023.devcloud.hosting.acquia.com
+  options:
+    ac-env: dev
+    ac-realm: stage
+    ac-site: pmmi
+  paths:
+    drush-script: drush9
+  root: /var/www/html/pmmi.dev/docroot
+  uri: pmmivquc4zkdju.devcloud.acquia-sites.com
+  user: pmmi.dev
+livedev:
+  options:
+    parent: '@sky'
+  root: /mnt/gfs/pmmi.dev/livedev/docroot

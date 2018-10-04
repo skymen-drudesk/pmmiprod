@@ -1,0 +1,19 @@
+uuid: 58a6ab3c-6d40-473c-af83-40b982fca87c
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.news
+    - field.storage.block_content.field_block_title
+id: block_content.news.field_block_title
+field_name: field_block_title
+entity_type: block_content
+bundle: news
+label: 'Block Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

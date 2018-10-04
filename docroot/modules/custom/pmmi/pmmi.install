@@ -1,0 +1,352 @@
+<?php
+
+/**
+ * @file
+ * Update hooks for the pmmi module.
+ */
+
+use Drupal\file\Entity\File;
+use Drupal\Core\Database\Database;
+use Drupal\Core\Entity\ContentEntityType;
+
+/**
+ * Update events view display names in panels and containers configs.
+ */
+function pmmi_update_8001() {
+  $entity_manage = \Drupal::entityTypeManager();
+  // Mapping view displays names.
+  $view_display_mapping = [
+    'block_1' => 'block_all',
+    'block_2' => 'block_upcoming',
+    'block_3' => 'block_upcoming_ribbon',
+    'block_4' => 'block_upcoming_4_columns',
+  ];
+
+  // Update page_variant entities.
+  $page_variant_storage = $entity_manage->getStorage('page_variant');
+  $query = Database::getConnection()->select('config', 'cnf')
+    ->fields('cnf', ['name'])
+    ->condition('data', '%views_block:events%', 'LIKE')
+    ->execute()->fetchAll(\PDO::FETCH_COLUMN, 0);
+  foreach ($query as $key => $variant) {
+    $id = str_replace('page_manager.page_variant.', '', $variant);
+    $variant = $page_variant_storage->load($id);
+    $variant_settings = $variant->get('variant_settings');
+    $save = FALSE;
+    foreach ($variant_settings['blocks'] as &$block) {
+      $pos = strpos($block['id'], '_block:events-');
+      if ($pos !== FALSE) {
+        $old_display = substr($block['id'], $pos + 14);
+        if (isset($view_display_mapping[$old_display])) {
+          $block['id'] = str_replace($old_display, $view_display_mapping[$old_display], $block['id']);
+          $save = TRUE;
+        }
+      }
+    }
+    if ($save) {
+      $variant->set('variant_settings', $variant_settings);
+      $variant->save();
+    }
+  }
+
+  // Update "Containers" block_content entities.
+  $block_ids = [];
+  for ($i = 1; $i < 7; $i++) {
+    $field = 'field_block_views_' . $i;
+    $table = 'block_content__' . $field;
+    $table_field = $field . '_vname';
+    $query = Database::getConnection()->select($table, 't')
+      ->fields('t', ['entity_id'])
+      ->condition($table_field, '%events|block_%', 'LIKE')
+      ->execute()->fetchAllKeyed(0, 0);
+    $block_ids += array_fill_keys($query, $field);
+  }
+  $blocks = $entity_manage->getStorage('block_content')->loadMultiple(array_keys($block_ids));
+  foreach ($blocks as $block) {
+    $field_name = $block_ids[$block->id()];
+    $block_field = $block->get($field_name);
+    $values = $block_field->getValue();
+    $view_display_id = str_replace('events|', '', $values[0]['vname']);
+    if (isset($view_display_mapping[$view_display_id])) {
+      $new_name = $view_display_mapping[$view_display_id];
+      $values[0]['vname'] = 'events|' . $new_name;
+      if (!empty($values[0]['settings'])) {
+        $settings = unserialize($values[0]['settings']);
+        if (isset($settings['more']) && isset($settings['more'][$view_display_id])) {
+          $settings['more'][$new_name] = $settings['more'][$view_display_id];
+          unset($settings['more'][$view_display_id]);
+        }
+        $values[0]['settings']  = serialize($settings);
+      }
+      $block_field->setValue($values);
+      $block->save();
+    }
+  }
+}
+
+/**
+ * Set module PMMI module weight so updates happen first.
+ */
+function pmmi_update_8002() {
+  module_set_weight('pmmi', -100);
+}
+
+/**
+ * Updates necessary prior to updating to Drupal core 8.3.x.
+ *
+ * To update, content_moderation must be uninstalled. We don't care about
+ * content moderation history (only care about published/unpublished), so we
+ * do the following to update Drupal core:
+ * 1. Delete content_moderation entities.
+ * 2. Uninstall content_moderation.
+ *
+ * The recreation of the workflow is handled during the configuration import.
+ */
+function pmmi_update_8003()
+{
+    $entity_manage = \Drupal::entityTypeManager();
+    // Load all content_moderation_state entities.
+    $cms_entities = $entity_manage
+        ->getStorage('content_moderation_state')
+        ->loadMultiple();
+    // Delete all content_moderation_state entities.
+    $entity_manage
+        ->getStorage('content_moderation_state')
+        ->delete($cms_entities);
+
+    // Uninstall content_moderation module.
+    \Drupal::service('module_installer')->uninstall(['content_moderation']);
+}
+
+/**
+ * Delete field_button from Event block.
+ */
+function pmmi_update_8004() {
+  $entityManager = \Drupal::service('entity.manager');
+  $fields = $entityManager->getFieldDefinitions('block_content', 'event');
+  if (!empty($fields['field_button'])) {
+    $field = $fields['field_button'];
+    $field->delete();
+  }
+}
+
+/**
+ * Uninstall the layout_plugin module.
+ */
+function pmmi_update_8005() {
+  \Drupal::service('module_installer')->uninstall(['layout_plugin']);
+}
+
+/**
+ * Truncate queue table.
+ */
+function pmmi_update_8006() {
+  $database = \Drupal::database();
+  $query = $database->truncate('queue');
+  $query->execute();
+}
+
+/**
+ * Uninstall the search_api_bundle_boost module.
+ */
+function pmmi_update_8007() {
+  \Drupal::service('module_installer')->uninstall(['search_api_bundle_boost']);
+}
+
+/**
+ * Update global_marketing-panels_variant-0 config module dependencies.
+ */
+function pmmi_update_8008() {
+  $config_factory = \Drupal::configFactory();
+  $config = $config_factory->getEditable('page_manager.page_variant.global_marketing-panels_variant-0');
+  $data = $config->getRawData();
+  if ($data['dependencies']['module'][1] == 'index_page_variant') {
+    $data['dependencies']['module'][1] = 'pmmi_page_manager_search';
+    $config->setData($data);
+    $config->save(TRUE);
+  }
+}
+
+/**
+ * Applies changes performed to the file entity type definition.
+ */
+function pmmi_update_8009() {
+
+  $data = [];
+  $entity_types = ['file'];
+  foreach ($entity_types as $entity_type) {
+    $query = \Drupal::entityQuery($entity_type);
+    $entity_ids = $query->execute();
+    $entity_bundle = \Drupal::entityTypeManager()
+      ->getStorage($entity_type)
+      ->loadMultiple($entity_ids);
+    $i = 0;
+    foreach ($entity_bundle as $id => $bundle) {
+      $bundle_values = $bundle->toArray();
+      $data[$entity_type][$i] = [];
+      foreach ($bundle_values as $property => $val) {
+        if (!empty($val[0]['value'])) {
+          $data[$entity_type][$i][$property] = $val[0]['value'];
+        }
+        if (!empty($val[0]['target_id'])) {
+          $data[$entity_type][$i][$property] = $val[0]['target_id'];
+        }
+      }
+      $i++;
+    }
+    $entity_update_manager = \Drupal::entityDefinitionUpdateManager();
+    $entity_type_obj = $entity_update_manager->getEntityType($entity_type);
+    $entity_update_manager->uninstallEntityType($entity_type_obj);
+    \Drupal::database()->truncate('file_metadata')->execute();
+  }
+  try {
+    \Drupal::entityDefinitionUpdateManager()->applyUpdates();
+  } catch (EntityStorageException $e) {
+    watchdog_exception('update', $e);
+  }
+  foreach ($entity_types as $type) {
+    if ($type == 'file') {
+      foreach ($data[$type] as $key => $value) {
+        $file = File::create($value);
+        $file->save();
+      }
+    }
+    if ($type == 'taxonomy_term') {
+      foreach ($data[$type] as $key => $value) {
+        $term = \Drupal\taxonomy\Entity\Term::create($value);
+        $term->save();
+      }
+    }
+  }
+}
+
+/**
+ * Update URL alias for "Blog" Content Type.
+ */
+function pmmi_update_8010(&$sandbox) {
+  $query = \Drupal::entityQuery('node');
+  $query->condition('type', 'blog');
+  $entities = $query->execute();
+
+  if (empty($entities)) {
+    return t('No entities found.');
+  }
+
+  $result = [];
+
+  foreach ($entities as $entity_id) {
+    $result[] = [
+      'id' => $entity_id,
+    ];
+  }
+
+  // Use the sandbox to store the information needed to track progression.
+  if (!isset($sandbox['current'])) {
+    // The count of entities visited so far.
+    $sandbox['current'] = 0;
+    // Total entities that must be visited.
+    $sandbox['max'] = count($result);
+    // A place to store messages during the run.
+  }
+
+  // Process entities by groups of 20.
+  // When a group is processed, the batch update engine determines
+  // whether it should continue processing in the same request or provide
+  // progress feedback to the user and wait for the next request.
+  $limit = 20;
+  $result = array_slice($result, $sandbox['current'], $limit);
+
+  foreach ($result as $row) {
+    $entity_storage = \Drupal::entityTypeManager()->getStorage('node');
+    $entity = $entity_storage->load($row['id']);
+
+    // Update Entity URL alias.
+    \Drupal::service('pathauto.generator')->updateEntityAlias($entity, 'update');
+
+    // Update our progress information.
+    $sandbox['current']++;
+  }
+
+  $sandbox['#finished'] = empty($sandbox['max']) ? 1 : ($sandbox['current'] / $sandbox['max']);
+
+  if ($sandbox['#finished'] >= 1) {
+    return t('The batch URL Alias update is finished.');
+  }
+}
+
+/**
+ * Delete field_video_url from 'Video Gallery Item' block.
+ */
+function pmmi_update_8011() {
+  $entityManager = \Drupal::service('entity.manager');
+
+  $fields = $entityManager->getFieldDefinitions('block_content', 'video_gallery_item');
+
+  if (!empty($fields['field_video_url'])) {
+    $field = $fields['field_video_url'];
+
+    $field->delete();
+  }
+}
+
+/**
+ * Remove audience_select from pages and page variants.
+ */
+function pmmi_update_8012() {
+  $page_storage = \Drupal::entityTypeManager()->getStorage('page');
+
+  // Delete gateway page.
+  if ($gateway_page = $page_storage->load('gateway')) {
+    $gateway_page->delete();
+  }
+
+  // Load pages need to be updated.
+  $pages_ids = ['home', 'standards_regulations', 'site_template'];
+  $pages = $page_storage->loadMultiple($pages_ids);
+
+  /* @var \Drupal\page_manager\PageInterface $page */
+  foreach ($pages as $page) {
+    $variants = $page->getVariants();
+    /** @var \Drupal\page_manager\Entity\PageVariant $variant */
+    foreach ($variants as $variant_id => $variant) {
+      // Remove excessive variants for home page.
+      if (in_array($variant_id, [
+        'home-panels_variant-1',
+        'home-panels_variant-2',
+      ])) {
+        $variant->delete();
+      }
+      else {
+        // Remove blocks which depend on audience_select.
+        if ($variant_plugin = $variant->getVariantPlugin()) {
+          if (isset($variant_plugin->getConfiguration()['blocks'])) {
+            foreach ($variant_plugin->getConfiguration()['blocks'] as $uuid => $block) {
+              if (
+                isset($block['provider']) &&
+                $block['provider'] == 'audience_select'
+              ) {
+                $variant_plugin->removeBlock($uuid);
+              }
+            }
+          }
+        }
+
+        // Remove audience selection condition.
+        /** @var \Drupal\Core\Condition\ConditionPluginCollection $selection_conditions */
+        $selection_conditions = $variant->getSelectionConditions();
+        $selection_configuration = $selection_conditions->getConfiguration();
+        foreach ($selection_configuration as $scid => $configuration) {
+          if ($configuration['id'] == 'audience') {
+            $variant = $variant->removeSelectionCondition($scid);
+          }
+        }
+        $variant->save();
+      }
+    }
+  }
+
+  // Delete audience_select module configuration.
+  \Drupal::configFactory()
+    ->getEditable('audience_select.settings')
+    ->delete();
+}

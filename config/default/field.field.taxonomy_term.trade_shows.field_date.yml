@@ -1,0 +1,21 @@
+uuid: 30d38f1c-9543-4484-80d9-29bbc45986f2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_date
+    - taxonomy.vocabulary.trade_shows
+id: taxonomy_term.trade_shows.field_date
+field_name: field_date
+entity_type: taxonomy_term
+bundle: trade_shows
+label: Date
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: null
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,8 @@
+{
+  "name": "pmmi/pmmi_twitter",
+  "type": "drupal-module",
+  "description": "PMMI Twitter",
+  "require": {
+    "dg/twitter-php": "^3.6"
+  }
+}

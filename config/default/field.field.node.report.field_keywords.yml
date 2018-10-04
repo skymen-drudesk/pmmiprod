@@ -1,0 +1,19 @@
+uuid: 4c71580d-2410-4b8b-a926-2726da7a4ba1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_keywords
+    - node.type.report
+id: node.report.field_keywords
+field_name: field_keywords
+entity_type: node
+bundle: report
+label: Keywords
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

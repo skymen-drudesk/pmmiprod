@@ -1,0 +1,12 @@
+name: PMMI Import
+type: module
+description: PMMI Import
+core: 8.x
+package: PMMI
+dependencies:
+  - node
+  - migrate
+  - migrate_source_csv
+  - migrate_plus
+  - migrate_tools
+  - migrate_spreadsheet

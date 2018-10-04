@@ -1,0 +1,23 @@
+uuid: 8de5cfa7-5e33-47d6-beb5-c425fe1f10b5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_links
+    - node.type.download
+  module:
+    - link
+id: node.download.field_links
+field_name: field_links
+entity_type: node
+bundle: download
+label: Links
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  link_type: 17
+  title: 1
+field_type: link

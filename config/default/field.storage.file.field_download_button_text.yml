@@ -1,0 +1,21 @@
+uuid: 23182643-e3d2-49e0-9f42-4ac95e133185
+langcode: en
+status: true
+dependencies:
+  module:
+    - file
+id: file.field_download_button_text
+field_name: field_download_button_text
+entity_type: file
+type: string
+settings:
+  max_length: 255
+  is_ascii: false
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

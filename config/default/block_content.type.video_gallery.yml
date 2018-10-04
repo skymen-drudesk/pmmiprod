@@ -1,0 +1,8 @@
+uuid: d8083d9d-b994-40aa-8e88-061eabde2462
+langcode: en
+status: true
+dependencies: {  }
+id: video_gallery
+label: 'Video Gallery'
+revision: 1
+description: 'Gallery block which collect gallery items inside.'

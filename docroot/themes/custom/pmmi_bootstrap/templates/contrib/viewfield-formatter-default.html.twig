@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a viewfield.
+ *
+ * Available variables:
+ * - output: The rendered view.
+ *
+ * @see template_preprocess()
+ *
+ * @ingroup themeable
+ */
+#}
+{% spaceless %}
+  {%
+    set clasess = [
+      'viewfield-wrapper',
+      element['#view_name']|clean_class ~ '-' ~element['#view_display']|clean_class,
+      element['#view_name']|clean_class,
+    ]
+  %}
+  <div class="{{ clasess|join(' ') }}">
+    {% if title %}
+      <h2 class="viewfield-title">{{ title }}</h2>
+    {% endif %}
+    {% if output %}
+        <div class="viewfield">{{ output }}</div>
+    {% endif %}
+  </div>
+{% endspaceless %}

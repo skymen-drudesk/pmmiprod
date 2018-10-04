@@ -1,0 +1,134 @@
+uuid: c3747308-7c60-4978-9437-ecb26a84f000
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.video.body
+    - field.field.node.video.field_date
+    - field.field.node.video.field_featured_speaker
+    - field.field.node.video.field_image_header
+    - field.field.node.video.field_link
+    - field.field.node.video.field_meta_tags
+    - field.field.node.video.field_video
+    - field.field.node.video.field_video_type
+    - field.field.node.video.field_yoast_seo
+    - node.type.video
+  module:
+    - ds
+    - link
+    - text
+    - user
+    - video
+third_party_settings:
+  ds:
+    layout:
+      id: default_mode
+      path: themes/custom/pmmi_bootstrap
+      library: ''
+      disable_css: false
+      entity_classes: all_classes
+      settings: {  }
+    regions:
+      content:
+        - field_video
+        - node_title
+        - body
+        - field_featured_speaker
+        - node_link
+        - field_link
+    fields:
+      node_link:
+        plugin_id: node_link
+        weight: 4
+        label: hidden
+        formatter: default
+        settings:
+          'link text': 'Watch Video'
+          'link class': ''
+          wrapper: ''
+          class: ''
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+      node_title:
+        plugin_id: node_title
+        weight: 1
+        label: hidden
+        formatter: default
+id: node.video.teaser
+targetEntityType: node
+bundle: video
+mode: teaser
+content:
+  body:
+    label: hidden
+    type: text_summary_or_trimmed
+    weight: 2
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    region: content
+  content_moderation_control:
+    weight: -20
+    region: content
+  field_featured_speaker:
+    type: string
+    weight: 3
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: 'Featured Speaker:'
+            lb-col: false
+            classes: {  }
+    region: content
+  field_link:
+    type: link
+    weight: 5
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: content
+  field_video:
+    type: video_embed_thumbnail
+    weight: 0
+    label: hidden
+    settings:
+      image_style: video_block_mobile
+      link_image_to: content
+    third_party_settings:
+      ds:
+        ft:
+          id: minimal
+          settings:
+            lb: ''
+            lb-col: false
+            classes: {  }
+    region: content
+hidden:
+  field_date: true
+  field_image_header: true
+  field_meta_tags: true
+  field_video_type: true
+  field_yoast_seo: true
+  links: true

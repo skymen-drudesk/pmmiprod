@@ -1,0 +1,75 @@
+uuid: 6283a4ba-61d0-4acf-87d5-53da0f91e5b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - page_manager.page.node_edit
+  content:
+    - 'block_content:image_header:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+    - 'block_content:text:9475ba91-a451-4c81-a852-f1413a6b768a'
+  module:
+    - block_content
+    - node
+    - panels
+    - pmmi_forms
+id: node_edit-panels_variant-0
+label: Panels
+variant: panels_variant
+variant_settings:
+  blocks:
+    46085b7a-38af-4eb0-97a5-d9e89737a36f:
+      id: 'entity_form:node'
+      label: 'Entity form (Content)'
+      provider: pmmi_forms
+      label_display: '0'
+      region: main
+      weight: 0
+      uuid: 46085b7a-38af-4eb0-97a5-d9e89737a36f
+      context_mapping:
+        entity: node
+    30db20f9-d9cd-4952-a2ba-f373c071029a:
+      id: 'block_content:14fbe4e8-9d85-4988-93d1-f0b2e3a5b49f'
+      label: 'Sales Agent Directory - Image Header'
+      provider: block_content
+      label_display: '0'
+      status: true
+      info: ''
+      view_mode: full
+      region: top
+      weight: 0
+      uuid: 30db20f9-d9cd-4952-a2ba-f373c071029a
+      context_mapping: {  }
+    c6a5d411-4a6b-48a2-9584-c6cf7391dc0c:
+      id: 'block_content:9475ba91-a451-4c81-a852-f1413a6b768a'
+      label: 'Update your listing'
+      provider: block_content
+      label_display: visible
+      status: true
+      info: ''
+      view_mode: default
+      region: main
+      weight: -1
+      uuid: c6a5d411-4a6b-48a2-9584-c6cf7391dc0c
+      context_mapping: {  }
+  id: panels_variant
+  uuid: 02917af5-d54a-40b4-be20-6923b23defe6
+  label: null
+  weight: 0
+  layout: sitewide
+  layout_settings: {  }
+  page_title: ''
+  storage_type: page_manager
+  storage_id: node_edit-panels_variant-0
+  builder: standard
+page: node_edit
+weight: 0
+selection_criteria:
+  -
+    id: node_type
+    bundles:
+      company: company
+    negate: false
+    context_mapping:
+      node: node
+selection_logic: and
+static_context: {  }

@@ -1,0 +1,14 @@
+uuid: 4cbe3fd0-19b8-4f6b-808d-66d7d980dd31
+langcode: en
+status: true
+dependencies: {  }
+name: image_header_style_dhd
+label: 'Image Header Style - DHD (1920px by 133px)'
+effects:
+  5794babc-aaaa-4b81-8bac-b3319b6382a4:
+    uuid: 5794babc-aaaa-4b81-8bac-b3319b6382a4
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1920
+      height: 133

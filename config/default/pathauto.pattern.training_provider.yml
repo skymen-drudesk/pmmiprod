@@ -1,0 +1,22 @@
+uuid: 359d77f9-002b-4804-8dc2-09c43abb8181
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: training_provider
+label: 'Training Provider'
+type: 'canonical_entities:node'
+pattern: '/training-provider-directory/organization/[node:title]'
+selection_criteria:
+  148ba1e1-fe88-4283-b105-dc968199d15d:
+    id: node_type
+    bundles:
+      training_provider: training_provider
+    negate: false
+    context_mapping:
+      node: node
+    uuid: 148ba1e1-fe88-4283-b105-dc968199d15d
+selection_logic: and
+weight: -5
+relationships: {  }

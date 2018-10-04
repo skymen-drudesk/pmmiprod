@@ -1,0 +1,5 @@
+services:
+  pmmi_address.filter_countries:
+    class: Drupal\pmmi_address\FilterCountries
+    arguments:
+      ['@entity_field.manager', '@entity_type.manager']

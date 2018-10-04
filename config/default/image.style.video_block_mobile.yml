@@ -1,0 +1,14 @@
+uuid: 28828767-0434-45c5-b927-7dcc127d5233
+langcode: en
+status: true
+dependencies: {  }
+name: video_block_mobile
+label: 'Video block - Mobile (259px by 146px)'
+effects:
+  62c1c29e-9513-43de-a6f7-87c7f6a3f814:
+    uuid: 62c1c29e-9513-43de-a6f7-87c7f6a3f814
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 259
+      height: 146

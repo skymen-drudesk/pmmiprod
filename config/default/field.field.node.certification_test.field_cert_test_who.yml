@@ -1,0 +1,21 @@
+uuid: 471082ce-02d8-4ae6-a616-11be95d69829
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_cert_test_who
+    - node.type.certification_test
+  module:
+    - text
+id: node.certification_test.field_cert_test_who
+field_name: field_cert_test_who
+entity_type: node
+bundle: certification_test
+label: ' Who should take this test?'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

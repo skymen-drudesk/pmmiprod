@@ -1,0 +1,188 @@
+.top-banner {
+  margin-bottom: 30px;
+}
+// Node tile.
+.node-title {
+  @extend .headline2;
+  @include inherit-text-style('h2');
+  margin-bottom: 25px;
+}
+// Node body.
+.node-body {
+  @extend .paragraph1;
+  margin-bottom: 20px;
+  @extend .inherited-p;
+}
+// Node inline fields with bold label.
+.node-bold-label,
+.featured-speaker {
+  @extend .paragraph1;
+  margin: 15px 0 30px;
+  .field-label-inline {
+    font-weight: $extrabold;
+  }
+}
+.node-layout {
+  .content-right {
+    margin-bottom: 30px;
+  }
+  .date {
+    @extend .headline4;
+    margin-bottom: 5px;
+  }
+}
+// Video node.
+.video-node {
+  .video-container {
+    margin-bottom: 20px;
+  }
+  .videos-view {
+    margin: 30px 0 0;
+  }
+  #video-node-info .link {
+    @include views-list-default(
+      false,
+      '.field--name-field-link'
+    );
+    padding: 0;
+    border: none;
+    margin-bottom: 0px;
+  }
+}
+
+// Accordion.
+.node-accordion {
+  margin: 30px 0;
+  .field-label {
+    @extend .headline3;
+    margin-bottom: 15px;
+    @include tablet-max {
+      font-size: $r22;
+    }
+  }
+  .items {
+    border-width: 1px 1px 0 0;
+    border-style: solid;
+    border-color: $mdgrey;
+  }
+}
+.accordion-item {
+  border-bottom: 1px solid $mdgrey;
+  .header {
+    overflow: hidden;
+    a {
+      display: block;
+      @extend .headline3;
+      padding: 12px 0 12px 100px;
+      color: $ltblue;
+      font-weight: 900;
+      position: relative;
+      &:before {
+        display: block;
+        background: $ltblue;
+        width: 70px;
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        content: "\2014";
+        font-size: 30px;
+        font-weight: 900;
+        color: #fff;
+        text-align: center;
+        line-height: 48px;
+      }
+      &.collapsed {
+        color: $blue;
+        &:before {
+          background: $blue;
+          content: "+";
+        }
+      }
+    }
+  }
+  .body {
+    padding: 0 10px 0 100px;
+    position: relative;
+    overflow: hidden;
+    @extend .paragraph2;
+    .field {
+      padding: 10px 0 15px;
+    }
+    &:before {
+      content: "";
+      display: block;
+      background: $ltblue;
+      width: 70px;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+    }
+    &[aria-expanded="false"] {
+      &:before {
+        background: $blue;
+      }
+    }
+    ul {
+      font-size: inherit;
+      line-height: inherit;
+      li:before {
+        color: $ltblue;
+      }
+    }
+  }
+  .field-name-field-button {
+    margin: 15px 0 0;
+    a {
+      @extend .button-primary;
+    }
+  }
+  .field-name-field-link {
+    margin-top: 10px;
+    a {
+      @extend .text-link;
+    }
+  }
+  &.accordion {
+    .body-content {
+      padding-bottom: 20px;
+    }
+    .body {
+      @extend .clear-after;
+      .field {
+        padding: 0;
+      }
+    }
+    .left {
+      float: left;
+      padding-bottom: 10px;
+      width: 269px;
+      img {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+      & + .body-content {
+        padding-left: 32px;
+        overflow: hidden;
+      }
+      @include desktop {
+        width: 269px;
+      }
+      @include tablet {
+        width: 273px;
+      }
+      @include mobile {
+        width: 220px;
+        float: none;
+        & + .body-content {
+          padding-left: 0;
+          overflow: visible;
+        }
+      }
+    }
+  }
+}
+.basic-page.mode-full {
+  margin-bottom: 30px;
+}

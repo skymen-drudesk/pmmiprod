@@ -1,0 +1,19 @@
+uuid: 3e84c7c5-1e9b-4cd4-80e7-e1aedf7b9cfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_block_button_text
+    - node.type.download
+id: node.download.field_block_button_text
+field_name: field_block_button_text
+entity_type: node
+bundle: download
+label: 'Block Button Text'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

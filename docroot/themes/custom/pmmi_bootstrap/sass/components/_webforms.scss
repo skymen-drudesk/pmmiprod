@@ -1,0 +1,13 @@
+.webform-submission-membership-application-form-form {
+  .checkboxes-box {
+    .form-checkboxes {
+      border: 1px solid $mdgrey;
+      height: 200px;
+      padding: 15px;
+      overflow-y: auto;
+    }
+    .checkbox label {
+      white-space: normal;
+    }
+  }
+}

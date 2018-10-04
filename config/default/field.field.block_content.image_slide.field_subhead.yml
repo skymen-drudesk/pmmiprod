@@ -1,0 +1,19 @@
+uuid: 8d6036b3-cde0-4597-a6e9-1757814e4769
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - field.storage.block_content.field_subhead
+id: block_content.image_slide.field_subhead
+field_name: field_subhead
+entity_type: block_content
+bundle: image_slide
+label: Subhead
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

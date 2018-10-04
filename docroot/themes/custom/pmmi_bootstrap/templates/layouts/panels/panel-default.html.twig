@@ -1,0 +1,50 @@
+{% set classes = ['pmmi-panel'] %}
+{% if content['#attrs'] %}
+  {% set classes = classes|merge(content['#attrs'].class) %}
+{% endif %}
+
+<div{{ attributes.addClass(classes).setAttribute('id', 'panel-default') }}>
+  <div class="page-wrapper">
+    {% if content.header_logo or content.header_utility_nav or content.header_main_nav %}
+      <div class="header-wrapper">
+        <header class="navbar navbar-default container" id="panel-header" role="banner">
+          <div class="navbar-header">
+            {% if content.header_logo %}
+              <div class="logo">
+                {{ content.header_logo }}
+              </div>
+            {% endif %}
+            {% if content.header_utility_nav or content.header_main_nav %}
+              <div class="header-region">
+                <div class="utility-nav">
+                  {{ content.header_utility_nav }}
+                </div>
+                <div class="main-nav">
+                  {{ content.header_main_nav }}
+                </div>
+              </div>
+            {% endif %}
+          </div>
+        </header>
+      </div>
+    {% endif %}
+    <div class="main-container" role="main">
+      <div class="container topbar" role="heading">
+        {% if content['#title'] %}
+          <div class="hidden page-title">
+            <h1 class="headline2">{{ content['#title'] }}</h1>
+          </div>
+        {% endif %}
+        {{ content.topbar }}
+      </div>
+      <section>
+        {{ content.main }}
+      </section>
+    </div>
+  </div>
+</div>
+<footer class="footer" role="contentinfo">
+  <div class="footer-inner container">
+    {{ content.footer }}
+  </div>
+</footer>

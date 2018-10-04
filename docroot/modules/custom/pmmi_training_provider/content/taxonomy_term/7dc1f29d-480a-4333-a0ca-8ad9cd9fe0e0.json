@@ -1,0 +1,61 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/default\/taxonomy\/term\/128?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/taxonomy_term\/delivery_options_offered"
+        }
+    },
+    "tid": [
+        {
+            "value": 128
+        }
+    ],
+    "uuid": [
+        {
+            "value": "7dc1f29d-480a-4333-a0ca-8ad9cd9fe0e0"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "vid": [
+        {
+            "target_id": "delivery_options_offered"
+        }
+    ],
+    "name": [
+        {
+            "value": "Customized training",
+            "lang": "en"
+        }
+    ],
+    "weight": [
+        {
+            "value": 0
+        }
+    ],
+    "changed": [
+        {
+            "value": 1511255052,
+            "lang": "en"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "Customized training | PMMI"
+            }
+        }
+    ]
+}

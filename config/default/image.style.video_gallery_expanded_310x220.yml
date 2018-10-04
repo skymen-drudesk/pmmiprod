@@ -1,0 +1,15 @@
+uuid: 8a0365f8-0e62-4237-90df-c103072bb13c
+langcode: en
+status: true
+dependencies: {  }
+name: video_gallery_expanded_310x220
+label: 'Video Gallery Expanded (310x220)'
+effects:
+  69eef3a4-765d-445f-bb18-dfab183f9a47:
+    uuid: 69eef3a4-765d-445f-bb18-dfab183f9a47
+    id: image_scale
+    weight: 1
+    data:
+      width: 310
+      height: 220
+      upscale: true

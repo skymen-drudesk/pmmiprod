@@ -1,0 +1,9 @@
+uuid: 7bc7dcb5-9248-488b-942f-235b2ffdb96b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Industries served'
+vid: industries_served
+description: ''
+hierarchy: 0
+weight: 0

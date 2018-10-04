@@ -1,0 +1,15 @@
+uuid: f0ce1da8-a7a5-48bf-ab1c-a96728c0c0c7
+langcode: en
+status: true
+dependencies: {  }
+name: brand_block_desktop
+label: 'Brand Block - Desktop (auto by 52px)'
+effects:
+  3e7ec287-aef5-4dd4-b58f-f82b980eed0c:
+    uuid: 3e7ec287-aef5-4dd4-b58f-f82b980eed0c
+    id: image_scale
+    weight: 1
+    data:
+      width: null
+      height: 52
+      upscale: false

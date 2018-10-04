@@ -1,0 +1,30 @@
+uuid: 9796f309-bc41-457c-8047-a96d39635943
+langcode: en
+status: true
+dependencies: {  }
+id: prod
+label: Prod
+folder: ../config/prod
+module:
+  acquia_connector: 0
+  config_readonly: 0
+  google_analytics: 0
+  seckit: 0
+  shield: 0
+  syslog: 0
+  update: 0
+theme: {  }
+blacklist:
+  - acquia_connector.settings
+  - seckit.settings
+  - shield.settings
+  - google_analytics.settings
+  - ultimate_cron.job.google_analytics_cron
+graylist:
+  - core.extension
+  - mailsystem.settings
+  - system.logging
+  - system.performance
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

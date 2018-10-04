@@ -1,0 +1,14 @@
+uuid: 5d0b74a8-a475-42b1-92fd-e795370fd2f2
+langcode: en
+status: true
+dependencies: {  }
+name: 5_up_cards_tablet
+label: '5-up cards - Tablet (218px by 134px)'
+effects:
+  a7ba1da8-cd95-48c5-b766-b072d4792a5e:
+    uuid: a7ba1da8-cd95-48c5-b766-b072d4792a5e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 218
+      height: 134

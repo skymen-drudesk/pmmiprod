@@ -1,0 +1,23 @@
+uuid: f594c14d-0a95-476d-8a10-a7e5cab3a2be
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - field.storage.block_content.field_slide_type
+  module:
+    - options
+id: block_content.image_slide.field_slide_type
+field_name: field_slide_type
+entity_type: block_content
+bundle: image_slide
+label: 'Slide type'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: image
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,19 @@
+uuid: 96551f7e-da57-4492-aaaf-41539c9bd5de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_company_description
+    - node.type.company
+id: node.company.field_company_description
+field_name: field_company_description
+entity_type: node
+bundle: company
+label: 'Company description'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

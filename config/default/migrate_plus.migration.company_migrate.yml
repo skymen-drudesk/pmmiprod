@@ -1,0 +1,136 @@
+uuid: 80b3ec3f-eecc-414b-a441-1b14506c7a34
+langcode: en
+status: true
+dependencies:
+  enforced:
+    module:
+      - pmmi_import
+_core:
+  default_config_hash: IOg4pZczXWEVbJJNZa-5FzpW8Fl_F_JTpQ0PoOpk3LQ
+id: company_migrate
+migration_tags: null
+migration_group: 'PMMI import'
+label: 'Company migrate'
+source:
+  plugin: spreadsheet
+  file: /import_files/company.xlsx
+  worksheet: 'Agent Database'
+  origin: A2
+  header_row: 1
+  columns:
+    - ID
+    - Country
+    - 'Company Name'
+    - 'Primary First Name'
+    - 'Primary Last Name'
+    - 'Job Title'
+    - 'Company Email'
+    - 'Alt Company/Contact Email'
+    - 'Primary Contact Email'
+    - 'PACK EXPO East'
+    - 'PACK EXPO INTL'
+    - OnSiteFirstName
+    - OnSiteLastName
+    - OnSiteTitle
+    - OnSiteEmail
+    - 'Companies Represented'
+    - 'Customer Industries'
+    - 'Company Description'
+    - 'Type of Equiptment Sold'
+    - 'Provide After Sales Service'
+    - 'Address 1'
+    - 'Address 2'
+    - 'Address 3'
+    - City
+    - State
+    - 'Postal Code'
+    - Phone1
+    - Web
+    - 'INTERNAL USE'
+    - Phone2
+    - 'PACK EXPO LV'
+    - Fax
+    - 'EXPO PACK MEXICO'
+    - Mobile
+    - 'States Covered'
+    - 'Countries Covered'
+    - Incomplete
+    - 'Profile Updated'
+    - Checked
+    - 'Comments Internal'
+    - Pack
+    - Process
+    - Materials
+    - Integrators
+    - 'Automation and Components'
+  keys:
+    ID:
+      type: integer
+      size: big
+process:
+  type:
+    plugin: default_value
+    default_value: company
+  moderation_state:
+    plugin: default_value
+    default_value: published
+  title: 'Company Name'
+  field_main_phone_number: Phone1
+  field_fax_number: Fax
+  field_website_url: Web
+  field_general_company_email: 'Company Email'
+  field_address/country_code:
+    plugin: pmmiaddressfield
+    source: Country
+  field_address/administrative_area:
+    plugin: pmmiaddressfield
+    parent: Country
+    source: State
+  field_address/address_line1: 'Address 1'
+  field_address/locality: City
+  field_address/postal_code: 'Postal Code'
+  field_company_description: 'Company Description'
+  field_primary_contact_first_name: 'Primary First Name'
+  field_primary_contact_title: 'Job Title'
+  field_primary_contact_last_name: 'Primary Last Name'
+  field_primary_contact_email: 'Primary Contact Email'
+  field_primary_contact_mobile: Mobile
+  field_business_lines:
+    plugin: pmmi_bool_to_list
+    correlation:
+      'Packaging Equipment': Pack
+      'Packaging Materials': Materials
+      'Systems Integrator': Integrators
+      'Processing Equipment': Process
+      'Automation Equipment & Components': 'Automation and Components'
+  field_territory_served:
+    plugin: pmmi_territory_served
+    source:
+      countries: 'Countries Covered'
+      areas: 'States Covered'
+  field_industries_served:
+    plugin: pmmi_term_by_key
+    source: 'Customer Industries'
+    other_field: field_industries_served_other
+  field_equipment_sold_type:
+    plugin: pmmi_term_by_key
+    source: 'Type of Equiptment Sold'
+    other_field: field_equipment_sold_type_other
+  field_manufacturers_represented: 'Companies Represented'
+  field_after_sales_service:
+    source: 'Provide After Sales Service'
+    plugin: static_map
+    default_value: null
+    map:
+      'YES, LIMITED': 1
+      'YES': 1
+      'YEs': 1
+      'Yes': 1
+      'yes': 1
+      'NO': 0
+      'No': 0
+      'no': 0
+  field_last_updated_on: Checked
+destination:
+  plugin: 'entity:node'
+migration_dependencies: {  }

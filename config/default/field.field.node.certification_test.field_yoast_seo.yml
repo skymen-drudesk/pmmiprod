@@ -1,0 +1,21 @@
+uuid: ef1a1ac6-19ec-44db-a9b5-f4079c3312e2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_yoast_seo
+    - node.type.certification_test
+  module:
+    - yoast_seo
+id: node.certification_test.field_yoast_seo
+field_name: field_yoast_seo
+entity_type: node
+bundle: certification_test
+label: 'Real-time SEO'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: yoast_seo

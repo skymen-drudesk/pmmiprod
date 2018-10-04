@@ -1,0 +1,86 @@
+pmmi_sales_agent.mail_settings:
+  type: config_object
+  label: 'PMMI Sales Agent Mail Settings'
+  mapping:
+    mail_notification_address:
+      type: email
+      label: 'Notification email address'
+    remind_period:
+      type: integer
+      label: 'Remind period'
+    submission_alert:
+      type: text
+      label: 'Submission alert message'
+    ss_update:
+      type: mail
+      label: 'Self-service update your listing'
+    ss_update_reminder:
+      type: mail
+      label: 'Self-service update your listing (reminder)'
+    listing_approve:
+      type: mail
+      label: 'Listing has been approval'
+    listing_reject:
+      type: mail
+      label: 'Listing has been rejected'
+    listing_create:
+      type: mail
+      label: 'New listing has been created'
+    listing_review:
+      type: mail
+      label: 'Listing is pending review'
+    one_time:
+      type: mail
+      label: 'One-time mail'
+    one_time_alert:
+      type: boolean
+      label: 'One-time alert'
+    one_time_alert_message:
+      type: text
+      label: 'One-time alert message'
+    one_time_expiration:
+      type: integer
+      label: 'Link expiration time'
+    one_time_wrong_mail_alert:
+      type: boolean
+      label: 'One-time wrong mail alert'
+    one_time_wrong_mail_alert_message:
+      type: text
+      label: 'One-time wrong mail alert message'
+
+pmmi_sales_agent.mail_mass_settings:
+  type: config_object
+  label: 'PMMI Sales Agent Mass Mail Settings'
+  mapping:
+    filter:
+      type: string
+      label: 'Send an email to'
+    remind_period:
+      type: integer
+      label: 'Remind period'
+    last_run:
+      type: integer
+      label: 'Last run'
+
+pmmi_sales_agent.reporting_settings:
+  type: config_object
+  label: 'PMMI Sales Agent Reporting Settings'
+  mapping:
+    records_per_year:
+      type: string
+      label: 'Default number of records per year'
+    exceeded_message:
+      type: text
+      label: 'Exceeded limit message'
+    img_header:
+      type: integer
+      label: 'Image header block ID'
+    success_message:
+      type: text
+      label: 'Success export message'
+    failed_message:
+      type: text
+      label: 'Failed export message'
+    write_failed_message:
+      type: text
+      label: 'File directory is not writable'

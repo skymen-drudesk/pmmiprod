@@ -1,0 +1,10 @@
+{
+  "name": "drupal/pmmi_crawler_detect",
+  "type": "drupal-module",
+  "description": "PMMI Crawler Detect",
+  "keywords": ["Drupal"],
+  "minimum-stability": "dev",
+  "require": {
+    "jaybizzle/crawler-detect": "1.*"
+  }
+}

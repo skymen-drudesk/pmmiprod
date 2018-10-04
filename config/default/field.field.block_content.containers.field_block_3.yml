@@ -1,0 +1,67 @@
+uuid: 59427f21-7d79-4c23-a945-a2225574f447
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.accordion
+    - block_content.type.box
+    - block_content.type.brand
+    - block_content.type.card
+    - block_content.type.containers
+    - block_content.type.enticement
+    - block_content.type.event
+    - block_content.type.icon
+    - block_content.type.icons
+    - block_content.type.image
+    - block_content.type.image_slide
+    - block_content.type.links
+    - block_content.type.news
+    - block_content.type.pack_expo_show
+    - block_content.type.person
+    - block_content.type.plain_text
+    - block_content.type.pricing
+    - block_content.type.slideshow
+    - block_content.type.social_media
+    - block_content.type.text
+    - field.storage.block_content.field_block_3
+  module:
+    - pmmi_fields
+id: block_content.containers.field_block_3
+field_name: field_block_3
+entity_type: block_content
+bundle: containers
+label: 'Block 3'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:block_content'
+  handler_settings:
+    target_bundles:
+      accordion: accordion
+      box: box
+      brand: brand
+      card: card
+      enticement: enticement
+      event: event
+      icon: icon
+      icons: icons
+      image: image
+      image_slide: image_slide
+      links: links
+      news: news
+      pack_expo_show: pack_expo_show
+      person: person
+      plain_text: plain_text
+      pricing: pricing
+      slideshow: slideshow
+      social_media: social_media
+      text: text
+    sort:
+      field: info
+      direction: ASC
+    auto_create: 0
+    auto_create_bundle: accordion
+field_type: pmmi_entity_reference

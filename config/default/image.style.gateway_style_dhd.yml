@@ -1,0 +1,14 @@
+uuid: a52b3bfa-7d02-4f5f-9d6e-4e505208afbe
+langcode: en
+status: true
+dependencies: {  }
+name: gateway_style_dhd
+label: 'Gateway style - DHD (370px by 240px)'
+effects:
+  1e3c4e5d-e35a-4a4b-b8b8-e95b8ad90a24:
+    uuid: 1e3c4e5d-e35a-4a4b-b8b8-e95b8ad90a24
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 370
+      height: 240

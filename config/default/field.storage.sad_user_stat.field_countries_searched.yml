@@ -1,0 +1,20 @@
+uuid: 14678107-9884-4c40-8698-d6a68b49a170
+langcode: en
+status: true
+dependencies:
+  module:
+    - country
+    - pmmi_sales_agent
+id: sad_user_stat.field_countries_searched
+field_name: field_countries_searched
+entity_type: sad_user_stat
+type: country
+settings:
+  selectable_countries: {  }
+module: country
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

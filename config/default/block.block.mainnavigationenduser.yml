@@ -1,0 +1,20 @@
+uuid: 70ff11c0-cf0a-4ca1-94a5-9fc394983ec6
+langcode: en
+status: true
+dependencies:
+  module:
+    - tb_megamenu
+  theme:
+    - pmmi_bootstrap
+id: mainnavigationenduser
+theme: pmmi_bootstrap
+region: navigation
+weight: -4
+provider: null
+plugin: 'tb_megamenu_menu_block:main-navigation-end-user'
+settings:
+  id: 'tb_megamenu_menu_block:main-navigation-end-user'
+  label: 'Main navigation - End User'
+  provider: tb_megamenu
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,29 @@
+uuid: ac921eff-20a9-4b05-bd70-c71be063c380
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.sad_user_stat.records_download.field_records_number
+    - pmmi_sales_agent.sad_user_stat_type.records_download
+id: sad_user_stat.records_download.default
+targetEntityType: sad_user_stat
+bundle: records_download
+mode: default
+content:
+  field_records_number:
+    weight: 6
+    settings:
+      placeholder: ''
+    third_party_settings: {  }
+    type: number
+    region: content
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    region: content
+hidden: {  }

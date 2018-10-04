@@ -1,0 +1,4 @@
+pmmi_page_manager_search.pmmi_page_manager_search_generate_form:
+  title: 'PMMI Generate PageManagerSearch'
+  parent: system.admin_config_search
+  route_name: 'pmmi_page_manager_search.pmmi_page_manager_search_generate_form'

@@ -1,0 +1,9 @@
+uuid: d95c98a7-029a-483a-b3a6-72fbee7fa5f5
+langcode: en
+status: true
+dependencies: {  }
+name: 'Video Type'
+vid: video_type
+description: 'Used on Video block type.'
+hierarchy: 0
+weight: 0

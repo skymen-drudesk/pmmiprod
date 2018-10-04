@@ -1,0 +1,37 @@
+<div class="article-node">
+  <div class="top-banner clearfix">
+    {{ field_render([content.image_header, 'img-header']) }}
+  </div>
+
+  <div class="container">
+
+    <h2 class="node-title">
+      {{ content.title }}
+    </h2>
+
+    {{ field_render([content.image, 'image']) }}
+
+    {{ field_render([content.date, 'date']) }}
+
+    {{ field_render([content.link, 'twitter-link']) }}
+
+    {{ field_render([content.immediate_release, 'article-release']) }}
+
+    {{ field_render([content.body, 'node-body']) }}
+
+
+    <div class="author-info">
+
+      {{ field_render([content.author, 'node-author']) }}
+
+      {{ field_render([content.author_title, 'node-author-title']) }}
+
+      {{ field_render([content.company, 'node-author-company']) }}
+
+      {{ field_render([content.phone, 'node-author-phone']) }}
+
+      {{ field_render([content.email, 'node-author-email']) }}
+
+    </div>
+  </div>
+</div>

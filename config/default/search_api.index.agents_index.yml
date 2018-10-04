@@ -1,0 +1,419 @@
+uuid: 03e7c1f2-4837-4b44-8674-bc5b7678ec30
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_address
+    - field.storage.node.field_equipment_sold_type
+    - field.storage.node.field_industries_served
+    - field.storage.node.field_manufacturers_represented
+    - field.storage.node.field_main_phone_number
+    - field.storage.node.field_fax_number
+    - field.storage.node.field_website_url
+    - field.storage.node.field_general_company_email
+    - field.storage.node.field_company_description
+    - field.storage.node.field_primary_contact_first_name
+    - field.storage.node.field_primary_contact_last_name
+    - field.storage.node.field_primary_contact_email
+    - field.storage.node.field_business_lines
+    - field.storage.node.field_territory_served
+    - field.storage.node.field_industries_served_other
+    - field.storage.node.field_equipment_sold_type_other
+    - field.storage.node.field_after_sales_service
+    - field.storage.node.field_approval_state
+    - search_api.server.acquia_search_server
+  module:
+    - search_api
+    - pmmi_reports
+    - pmmi_search
+    - node
+id: agents_index
+name: 'Agents Index'
+description: ''
+read_only: false
+field_settings:
+  node_grants:
+    label: 'Node access information'
+    property_path: search_api_node_grants
+    type: string
+    indexed_locked: true
+    type_locked: true
+    hidden: true
+  pmmi_shows:
+    label: 'PMMI Trade shows'
+    property_path: pmmi_shows
+    type: integer
+  keywords:
+    label: Keywords
+    property_path: aggregated_field
+    type: text
+    configuration:
+      type: union
+      fields:
+        - 'entity:node/title'
+        - 'entity:node/field_equipment_sold_type_other'
+        - 'entity:node/field_industries_served_other'
+  title:
+    label: 'Title String'
+    datasource_id: 'entity:node'
+    property_path: title
+    type: string
+  status:
+    label: status
+    datasource_id: 'entity:node'
+    property_path: status
+    type: boolean
+    indexed_locked: true
+    type_locked: true
+  uid:
+    label: uid
+    datasource_id: 'entity:node'
+    property_path: uid
+    type: integer
+    indexed_locked: true
+    type_locked: true
+  type:
+    label: 'Content type'
+    datasource_id: 'entity:node'
+    property_path: type
+    type: string
+  title_f:
+    label: Title
+    datasource_id: 'entity:node'
+    property_path: title
+    type: text
+    boost: !!float 2
+  changed:
+    label: Changed
+    datasource_id: 'entity:node'
+    property_path: changed
+    type: date
+  country_code:
+    label: 'Address » The two-letter country code.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:country_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  field_equipment_sold_type:
+    label: 'Type of equipment sold'
+    datasource_id: 'entity:node'
+    property_path: field_equipment_sold_type
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_equipment_sold_type
+  administrative_area:
+    label: 'Address » The top-level administrative subdivision of the country.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:administrative_area'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  field_industries_served:
+    label: 'Industries served'
+    datasource_id: 'entity:node'
+    property_path: field_industries_served
+    type: integer
+    dependencies:
+      config:
+        - field.storage.node.field_industries_served
+  field_manufacturers_represented:
+    label: 'Manufacturers represented'
+    datasource_id: 'entity:node'
+    property_path: field_manufacturers_represented
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_manufacturers_represented
+  country:
+    label: Country
+    datasource_id: 'entity:node'
+    property_path: country
+    type: string
+  state:
+    label: State
+    datasource_id: 'entity:node'
+    property_path: state
+    type: string
+  field_main_phone_number:
+    label: 'Main Phone Number'
+    datasource_id: 'entity:node'
+    property_path: field_main_phone_number
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_main_phone_number
+  field_fax_number:
+    label: 'Fax Number'
+    datasource_id: 'entity:node'
+    property_path: field_fax_number
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_fax_number
+  field_website_url:
+    label: 'Website URL'
+    datasource_id: 'entity:node'
+    property_path: field_website_url
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_website_url
+  field_general_company_email:
+    label: 'General Company Email'
+    datasource_id: 'entity:node'
+    property_path: field_general_company_email
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_general_company_email
+  locality:
+    label: 'Address » The locality (i.e. city).'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:locality'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  postal_code:
+    label: 'Address » The postal code.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:postal_code'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  address_line1:
+    label: 'Address » The first line of the address block.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:address_line1'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  address_line2:
+    label: 'Address » The second line of the address block.'
+    datasource_id: 'entity:node'
+    property_path: 'field_address:address_line2'
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_address
+  field_company_description:
+    label: 'Company Description'
+    datasource_id: 'entity:node'
+    property_path: field_company_description
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_company_description
+  field_primary_contact_first_name:
+    label: 'Primary Contact First Name'
+    datasource_id: 'entity:node'
+    property_path: field_primary_contact_first_name
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_primary_contact_first_name
+  field_primary_contact_last_name:
+    label: 'Primary Contact Last Name'
+    datasource_id: 'entity:node'
+    property_path: field_primary_contact_last_name
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_primary_contact_last_name
+  field_primary_contact_email:
+    label: 'Primary Contact Email'
+    datasource_id: 'entity:node'
+    property_path: field_primary_contact_email
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_primary_contact_email
+  field_business_lines:
+    label: 'Lines of  business'
+    datasource_id: 'entity:node'
+    property_path: field_business_lines
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_business_lines
+  field_territory_served:
+    label: 'Territory served'
+    datasource_id: 'entity:node'
+    property_path: field_territory_served
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_territory_served
+  field_industries_served_other:
+    label: 'Industries served (Other)'
+    datasource_id: 'entity:node'
+    property_path: field_industries_served_other
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_industries_served_other
+  field_equipment_sold_type_other:
+    label: 'Type of equipment sold (other)'
+    datasource_id: 'entity:node'
+    property_path: field_equipment_sold_type_other
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_equipment_sold_type_other
+  field_after_sales_service:
+    label: 'Do you provide after sales service?'
+    datasource_id: 'entity:node'
+    property_path: field_after_sales_service
+    type: boolean
+    dependencies:
+      config:
+        - field.storage.node.field_after_sales_service
+  ts:
+    label: 'Territory served'
+    datasource_id: 'entity:node'
+    property_path: field_territory_served
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_territory_served
+  field_approval_state:
+    label: 'Approval state'
+    datasource_id: 'entity:node'
+    property_path: field_approval_state
+    type: string
+    dependencies:
+      config:
+        - field.storage.node.field_approval_state
+datasource_settings:
+  'entity:node':
+    bundles:
+      default: false
+      selected:
+        - company
+    languages:
+      default: true
+      selected: {  }
+processor_settings:
+  report_year: {  }
+  pmmi_shows: {  }
+  state: {  }
+  country: {  }
+  pmmi_country_area_ws:
+    fields:
+      - ts
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+  stemmer:
+    fields:
+      - title_f
+    exceptions:
+      texan: texa
+      mexican: mexic
+    weights:
+      preprocess_index: 0
+      preprocess_query: 0
+    all_fields: false
+  rendered_item: {  }
+  add_url: {  }
+  aggregated_field: {  }
+  highlight:
+    highlight: always
+    highlight_partial: false
+    excerpt: true
+    excerpt_length: 256
+    exclude_fields: {  }
+    prefix: '<strong>'
+    suffix: '</strong>'
+    weights:
+      postprocess_query: 0
+  tokenizer:
+    fields: {  }
+    spaces: ''
+    overlap_cjk: 1
+    minimum_word_size: '3'
+    weights:
+      preprocess_index: -6
+      preprocess_query: -6
+    all_fields: false
+  stopwords:
+    fields: {  }
+    stopwords:
+      - a
+      - an
+      - and
+      - are
+      - as
+      - at
+      - be
+      - but
+      - by
+      - for
+      - if
+      - in
+      - into
+      - is
+      - it
+      - 'no'
+      - not
+      - of
+      - 'on'
+      - or
+      - s
+      - such
+      - t
+      - that
+      - the
+      - their
+      - then
+      - there
+      - these
+      - they
+      - this
+      - to
+      - was
+      - will
+      - with
+    weights:
+      preprocess_index: -5
+      preprocess_query: -2
+    all_fields: false
+  ignorecase:
+    fields:
+      - title
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: false
+  content_access:
+    weights:
+      preprocess_query: -10
+  html_filter:
+    fields:
+      - title
+    title: true
+    alt: true
+    tags:
+      h1: 5
+      h2: 3
+      h3: 2
+      strong: 2
+      b: 2
+    weights:
+      preprocess_index: -10
+      preprocess_query: -10
+    all_fields: false
+tracker_settings:
+  default:
+    indexing_order: fifo
+options:
+  index_directly: true
+  cron_limit: 50
+server: acquia_search_server

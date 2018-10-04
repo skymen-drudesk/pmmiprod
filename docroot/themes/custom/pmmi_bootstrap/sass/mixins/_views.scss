@@ -1,0 +1,160 @@
+.default-headline-3 {
+  @extend .headline3;
+  margin-bottom: 8px;
+  h2 {
+    font-size: inherit;
+    font-weight: inherit;
+    margin: inherit;
+  }
+}
+@mixin views-list-default($button: false, $button_op: false, $labeled_fields: false) {
+  clear: both;
+  margin-bottom: 40px;
+  padding: 20px;
+  border: 1px solid $mdgrey;
+  border-radius: 6px;
+  @include clearfix;
+  @include tablet-max {
+    margin-bottom: 20px;
+  }
+  @include mobile {
+    padding: 10px
+  }
+  .field-name-field-head,
+  .field-name-node-title {
+    @extend .default-headline-3;
+  }
+  @if $button {
+    #{$button} {
+      display: inline-block;
+      a {
+        @extend .button-primary;
+        margin-right: 32px;
+      }
+      @include desktop-max {
+        a {
+          margin-right: 17px;
+        }
+      }
+      @include mobile {
+        display: block;
+        a {
+          margin: 0 0 18px;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+  @if $button_op {
+    #{$button_op} {
+      display: inline-block;
+      a {
+        @extend .btn-primary-opacity;
+      }
+      @include mobile {
+        display: block;
+        a {
+          margin: 15px 0 0;
+        }
+      }
+    }
+  }
+  .field-name-field-date {
+    display: inline;
+    float: left;
+    margin-right: 3px;
+    @extend .headline4;
+    line-height: $r21;
+    position: relative;
+    top: 1px;
+    @include tablet-max {
+      float: none;
+      display: block;
+      margin-right: 0;
+    }
+  }
+  .field-name-body {
+    @extend .paragraph2;
+    margin-bottom: 13px;
+    p {
+      display: inline;
+    }
+    @include tablet-max {
+      display: block;
+      p {
+        display: block;
+      }
+    }
+  }
+  @if $labeled_fields {
+    #{$labeled_fields} {
+      @extend .paragraph2;
+      margin: 13px 0 20px;
+      .field-label-inline {
+        font-weight: $extrabold;
+      }
+    }
+  }
+}
+@mixin event_news() {
+  border: 1px solid $mdgrey;
+  border-radius: 6px;
+  padding: 16px 20px 50px;
+  margin: 0 0 30px;
+  position: relative;
+  min-height: 214px;
+  @include desktop-max {
+    min-height: 246px;
+    margin-bottom: 20px;
+  }
+  @include mobile {
+    margin-bottom: 15px;
+  }
+  .date {
+    color: $textdark;
+    font-weight: $extrabold;
+    line-height: $r21;
+    margin-bottom: 4px;
+  }
+  .title {
+    @extend .default-headline-3;
+    margin-bottom: 5px;
+  }
+  .location {
+    color: $textdark;
+    font-weight: 500;
+    line-height: $r21;
+    margin-bottom: 10px;
+    p {
+      line-height: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      margin: 0;
+    }
+    .country {
+      display: none;
+    }
+  }
+  .link {
+    a {
+      @extend .btn-primary-opacity;
+    }
+  }
+  .hosted {
+    font-weight: 500;
+    margin: 10px 0;
+    .field-label-inline {
+      font-weight: $extrabold;
+    }
+  }
+  .buttons {
+    position: absolute;
+    bottom: 20px;
+    > div {
+      display: inline-block;
+      margin: 0 20px 0 0;
+    }
+  }
+}

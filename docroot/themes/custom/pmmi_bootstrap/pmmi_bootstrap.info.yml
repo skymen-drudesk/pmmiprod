@@ -1,0 +1,30 @@
+core: 8.x
+type: theme
+base theme: bootstrap
+
+name: 'PMMI Bootstrap'
+description: 'Custom PMMI.org theme based on Bootstrap.'
+package: 'PMMI'
+
+libraries:
+  - pmmi_bootstrap/blueconic
+  - pmmi_bootstrap/fonts
+  - pmmi_bootstrap/bootstrap-scripts
+  - pmmi_bootstrap/theme
+
+libraries-override:
+  tb_megamenu/theme.tb_megamenu: false
+  selectize/core:
+    css:
+      component:
+        /libraries/selectize/dist/css/selectize.default.css: false
+
+regions:
+  navigation: 'Navigation'
+  header: 'Top Bar'
+  highlighted: 'Highlighted'
+  help: 'Help'
+  content: 'Content'
+  footer: 'Footer'
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'

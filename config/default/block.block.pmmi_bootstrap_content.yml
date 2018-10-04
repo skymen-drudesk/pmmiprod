@@ -1,0 +1,22 @@
+uuid: f356149a-ea03-438b-83fb-106bc35e3721
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - pmmi_bootstrap
+_core:
+  default_config_hash: fNNLN48MSGSLiqwIFywCuxH2Dk_IxDbaP0kYhg_IPrg
+id: pmmi_bootstrap_content
+theme: pmmi_bootstrap
+region: content
+weight: -8
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,19 @@
+uuid: dc4292df-5025-478a-9c7c-3a9f0e0024c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.links
+    - field.storage.block_content.field_head
+id: block_content.links.field_head
+field_name: field_head
+entity_type: block_content
+bundle: links
+label: Head
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

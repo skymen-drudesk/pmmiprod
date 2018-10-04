@@ -1,0 +1,546 @@
+// Default block.
+.block {
+  margin-bottom: 20px;
+}
+// DS block layout.
+.block-layout {
+  .title {
+    @extend .sidehead1;
+  }
+}
+
+// Twitter block.
+.block-pmmi-twitter-block {
+  border: 1px solid $mdgrey;
+  overflow: hidden;
+  .block-title {
+    @extend .block-title-big-bg;
+    position: relative;
+    padding: 17px 10px 17px 120px;
+    margin: 4px;
+    height: 97px;
+    background: $twitterblue;
+    &:before {
+      @extend .fa;
+      @extend .fa-twitter;
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      height: 100%;
+      width: 97px;
+      font-size: 50px;
+      line-height: 97px;
+      text-align: center;
+      border-right: 4px solid #fff;
+    }
+    .subtitle {
+      display: block;
+      @extend .paragraph2;
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+    }
+  }
+  .social-block {
+    height: 198px;
+    &.scroll {
+      margin-right: -30px;
+      overflow: auto;
+      .message {
+        padding-right: 30px;
+      }
+    }
+  }
+  .message {
+    padding: 15px 20px;
+    border-bottom: 1px solid $mdgrey;
+    line-height: 17px;
+    word-wrap: break-word;
+    .date {
+      font-size: 11px;
+    }
+    .text {
+      font-size: 13px;
+      font-weight: 700;
+    }
+    &.last {
+      border: none;
+    }
+  }
+  @include desktop {
+    .social-block {
+      height: 249px;
+    }
+    .block-title {
+      height: 81px;
+      padding-left: 101px;
+      padding-top: 14px;
+      &:before {
+        width: 81px;
+        line-height: 81px;
+      }
+    }
+    .social-block {
+      height: 251px;
+    }
+  }
+  @include tablet {
+    .social-block {
+      height: 233px;
+      &.scroll {
+        margin-right: -25px;
+      }
+    }
+    .block-title {
+      height: 59px;
+      padding-left: 79px;
+      padding-top: 7px;
+      .subtitle {
+        font-size: $r13;
+      }
+      &:before {
+        line-height: 59px;
+        width: 59px;
+        font-size: 30px;
+      }
+    }
+  }
+  @include mobile {
+    max-width: 280px;
+    margin-left: auto;
+    margin-right: auto;
+    .block-title {
+      height: 72px;
+      padding-top: 8px;
+      padding-left: 92px;
+      &:before {
+        line-height: 72px;
+        width: 72px;
+        font-size: 30px;
+      }
+    }
+  }
+}
+// Facebook block.
+.block-pmmi-facebook-block {
+  @extend .block-pmmi-twitter-block;
+  .block-title {
+    background: $facebookblue;
+    &:before {
+      @extend .fa-facebook;
+    }
+  }
+}
+// Image header(top banner) block.
+.block-image-header {
+  .top-banner {
+    position: relative;
+    margin: 0;
+  }
+  .name-container {
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    position: absolute;
+    transform: translate(-50%, 0);
+    @include dhd {
+      width: 100%;
+      max-width: 1360px;
+    }
+    @include mobile {
+      left: 0;
+      right: 0;
+      transform: none;
+    }
+  }
+  .page-name {
+    background: rgba($dkblue, 0.8);
+    left: 10px;
+    top: 0;
+    bottom: 0;
+    position: absolute;
+    display: inline-block;
+    padding: 5px 10px 15px 40px;
+    min-width: 370px;
+    max-width: 460px;
+    font-size: 0;
+    &:before {
+      display: inline-block;
+      content: "";
+      height: 100%;
+      vertical-align: middle;
+    }
+    .field-name-field-head {
+      display: inline-block;
+      vertical-align: middle;
+      font-size: $r40;
+      line-height: 1.06;
+      color: #fff;
+      font-weight: 300;
+    }
+    @include tablet {
+      min-width: 355px;
+      max-width: 355px;
+      left: 25px;
+      .field-name-field-head {
+        font-size: $r30;
+      }
+    }
+    @include mobile {
+      min-width: 0;
+      max-width: 100%;
+      left: 15px;
+      right: 15px;
+      padding-left: 20px;
+      padding-right: 10px;
+      .field-name-field-head {
+        font-size: $r24;
+      }
+    }
+  }
+  .img-header {
+    min-height: 90px;
+    max-height: 133px;
+    overflow: hidden;
+    background: $blue;
+    @include tablet {
+      min-height: 86px;
+    }
+    @include mobile {
+      max-height: 74px;
+      min-height: 74px;
+    }
+  }
+  img {
+    width: auto;
+    min-width: 100%;
+  }
+}
+
+/* Top exposed block. */
+.region-top .block.views-exposed-form {
+  @extend .default-exposed-form;
+}
+
+// Audience select block.
+.audience-select {
+  margin: 0;
+  .audience-image-link {
+    display: block;
+    min-height: 240px;
+    margin-bottom: 7px;
+    @include tablet {
+      min-height: 230px;
+    }
+    @include desktop {
+      min-height: 200px;
+    }
+    @include mobile {
+      min-height: 180px;
+    }
+  }
+  .audience-link {
+    display: inline-block;
+    width: 100%;
+    height: 50px;
+    background: $blue;
+    vertical-align: middle;
+    color: #fff;
+    font-size: 17px;
+    line-height: 19px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 3px;
+    padding: 5px 30px 5px 10px;
+    position: relative;
+    &:before {
+      display: inline-block;
+      height: 40px;
+      content: "";
+      vertical-align: middle;
+    }
+    span {
+      display: inline-block;
+      vertical-align: middle;
+      line-height: 20px;
+      max-height: 40px;
+      overflow: hidden;
+    }
+    &:after {
+      @extend .fa;
+      font-size: 27px;
+      line-height: 50px;
+      position: absolute;
+      right: 12px;
+      top: 0;
+      bottom: 0;
+      content: "\f054";
+    }
+    &:hover {
+      text-decoration: none;
+      background: $dkblue;
+    }
+  }
+}
+.field--type-viewfield {
+  .viewfield-title {
+    display: none;
+  }
+  .features-videos {
+    &.viewfield-wrapper {
+      border: 1px solid $mdgrey;
+      padding: 4px;
+      @extend .clearfix;
+      @include mobile {
+        max-width: 280px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+    .viewfield-title {
+      display: block;
+      @extend .headline2;
+      background: $blue;
+      color: #fff;
+      padding: 10px 14px;
+      margin: 0 0 4px;
+    }
+    .viewfield {
+      padding: 16px 11px 11px;
+      border-top: 1px solid $mdgrey;
+      @include tablet-max {
+        padding: 4px 11px;
+      }
+    }
+  }
+}
+.block-links {
+  .title {
+    @extend .sidehead1;
+    margin-bottom: 6px;
+  }
+  .field--name-field-links {
+    .field--item {
+      @extend .linked-list-item;
+    }
+  }
+}
+
+// Pmmi search library block.
+.block-pmmi-search-library-block {
+  .select-wrapper {
+    &:after {
+      display: none;
+    }
+  }
+}
+.blue-region .block-pmmi-search-library-block {
+  @extend .default-exposed-form;
+  margin: 0;
+  text-align: center;
+  .block-title {
+    @extend .headline1;
+    @extend .white;
+    display: inline-block;
+    margin: 0 auto 50px;
+  }
+  form {
+    padding: 0;
+    text-align: center;
+    font-size: 0;
+    div {
+      font-size: 1rem;
+    }
+    .select-wrapper {
+      display: block;
+    }
+    .form-actions {
+      margin-top: 35px;
+    }
+    button {
+      &:focus,
+      &:active,
+      &:hover {
+        background: none;
+      }
+    }
+    input,
+    .select-wrapper,
+    label {
+      display: block;
+      text-align: left;
+    }
+    @include desktop {
+      .form-search,
+      .select-wrapper {
+        width: 310px;
+        margin-right: 20px;
+      }
+      button {
+        min-width: 144px;
+      }
+    }
+    @include tablet {
+      .form-search,
+      .select-wrapper {
+        width: 290px;
+        margin-right: 10px;
+      }
+      button {
+        min-width: 110px;
+      }
+    }
+    @include mobile {
+      .form-actions {
+        width: 162px;
+        margin-top: 20px;
+      }
+    }
+  }
+}
+.content-left .block-pmmi-search-library-block {
+  .block-title {
+    @include desktop-min {
+      margin-bottom: 20px;
+    }
+  }
+  .selector {
+    border-color: $mdgrey;
+    &:before {
+      background: $blue;
+      color: #fff;
+      height: 30px;
+      top: -1px;
+      right: -1px;
+    }
+  }
+  .form-submit {
+    min-width: 70%;
+    font-size: $r14;
+    text-transform: uppercase;
+    font-weight: 700;
+    @include tablet-max {
+      width: 100%;
+    }
+    .icon {
+      display: none;
+    }
+  }
+}
+
+// Panels text block.
+.block-panels-text-block {
+  h2 {
+    margin: 0 0 20px;
+  }
+  p {
+    margin-bottom: 15px;
+  }
+  a {
+    text-decoration: underline;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+// Committee and company staff block.
+.block-pmmi-company-staff-block,
+.block-pmmi-committee-block {
+  .block-title {
+    margin-bottom: 12px;
+  }
+  h3 {
+    @extend .headline4;
+    margin-bottom: 7px;
+  }
+  .member {
+    margin-bottom: 20px;
+    @extend .side-paragraph;
+  }
+  .job {
+    font-style: italic;
+  }
+  .name a,
+  a[href*="tel:"] {
+    color: #333;
+  }
+  .company-staff,
+  .committee-block,
+  .company-section-info-staff .row {
+    font-size: 0;
+    @include tablet-min {
+      margin-bottom: 10px;
+    }
+    .member {
+      display: inline-block;
+      float: none;
+      vertical-align: top;
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+  .one-member {
+    h3 {
+      margin-bottom: 2px;
+    }
+    .member {
+      > div {
+        display: inline;
+        &:after {
+          content: "|";
+          padding: 0 8px;
+        }
+        &:last-child {
+          &:after {
+            display: none;
+          }
+        }
+      }
+    }
+  }
+}
+.block-pmmi-committee-block {
+  .block-title {
+    @extend .headline2;
+  }
+}
+.block-pmmi-company-staff-block {
+  .member {
+    margin-bottom: 15px;
+  }
+  .block-title {
+    @extend .headline3;
+  }
+  .company-section {
+    @extend .side-paragraph;
+  }
+  .company-section-info {
+    margin-bottom: 20px;
+  }
+}
+
+// Reports search View block.
+.block-views-blockreports-reports-category {
+  .block-title {
+    @extend .headline2;
+    margin-bottom: 20px;
+  }
+}
+
+%training-directory-question-block {
+  margin: 215px 0 0;
+  font-size: $r16;
+  line-height: $r21;
+  @include inherit-text-style(p);
+  a {
+    color: #000;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}

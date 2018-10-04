@@ -1,0 +1,14 @@
+uuid: 1dc282c1-c055-460e-9c05-78c4bdb9abbf
+langcode: en
+status: true
+dependencies: {  }
+name: detail_page_single_desktop
+label: 'Detail page single - Desktop (560px by 261px)'
+effects:
+  28ade881-b397-47e0-81a8-f225ec3a6ad6:
+    uuid: 28ade881-b397-47e0-81a8-f225ec3a6ad6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 560
+      height: 261

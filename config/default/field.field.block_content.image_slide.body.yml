@@ -1,0 +1,22 @@
+uuid: eaace925-c06f-49a3-adc1-9906b0f44045
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.image_slide
+    - field.storage.block_content.body
+  module:
+    - text
+id: block_content.image_slide.body
+field_name: body
+entity_type: block_content
+bundle: image_slide
+label: Body
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+field_type: text_with_summary

@@ -1,0 +1,21 @@
+uuid: 57cf39d2-c47d-4c6e-9161-6d138ccad015
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_product_status_date
+    - node.type.report
+  module:
+    - datetime
+id: node.report.field_product_status_date
+field_name: field_product_status_date
+entity_type: node
+bundle: report
+label: 'Product status date'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

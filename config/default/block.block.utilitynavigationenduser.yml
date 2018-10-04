@@ -1,0 +1,24 @@
+uuid: fc47564b-c875-49c5-9bc4-e2d71e8ccabc
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.utility-navigation-end-user
+  module:
+    - system
+  theme:
+    - pmmi_bootstrap
+id: utilitynavigationenduser
+theme: pmmi_bootstrap
+region: navigation
+weight: -7
+provider: null
+plugin: 'system_menu_block:utility-navigation-end-user'
+settings:
+  id: 'system_menu_block:utility-navigation-end-user'
+  label: 'Utility navigation - End User'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+visibility: {  }

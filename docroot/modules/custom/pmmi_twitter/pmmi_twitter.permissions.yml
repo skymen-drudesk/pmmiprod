@@ -1,0 +1,5 @@
+
+administer pmmi twitter:
+  title: 'Administer PMMI Twitter'
+  description: 'Administer PMMI Twitter block'
+  restrict access: true

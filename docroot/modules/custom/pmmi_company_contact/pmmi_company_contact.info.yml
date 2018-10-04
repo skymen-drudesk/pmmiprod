@@ -1,0 +1,5 @@
+name: PMMI company contact
+type: module
+description: Provides contacts functionality for the 'Company' content type.
+core: 8.x
+package: PMMI

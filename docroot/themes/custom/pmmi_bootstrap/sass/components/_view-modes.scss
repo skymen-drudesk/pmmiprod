@@ -1,0 +1,150 @@
+.mode-default {
+  &.video {
+    @include views-list-default(
+      '.field-name-node-link',
+      '.field-name-field-link',
+      '.field-name-field-featured-speaker'
+    );
+
+    padding-left: 300px;
+    min-height: 140px;
+    @extend .clearfix;
+    .field-name-field-date {
+      float: none;
+      top: 0;
+    }
+    .field-name-body {
+      display: inline;
+    }
+    .links {
+      a {
+        margin-top: 15px;
+      }
+    }
+    .field-name-field-video {
+      float: left;
+      width: 250px;
+      margin-left: - 280px;
+    }
+    @include tablet {
+      padding-left: 250px;
+      .field-name-field-video {
+        width: 210px;
+        margin-left: -230px;
+      }
+    }
+    @include mobile {
+      padding-left: 10px;
+      min-height: 0;
+      text-align: center;
+      img {
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .field-name-field-video {
+        float: none;
+        width: auto;
+        margin: 0 0 15px;
+      }
+    }
+    a.use-ajax {
+      .ajax-throbber {
+        display: none;
+      }
+    }
+  }
+  &.certification-test {
+    @include views-list-default(
+      '.field-name-field-link',
+      '.field-name-node-link',
+      '.field-name-field-cert-test-price, .field-name-field-cert-test-text-price'
+    );
+    padding: 20px 20px 20px 300px;
+    min-height: 228px;
+    border: 1px solid $mdgrey;
+    border-radius: 6px;
+    &.comming-soon {
+      background: $secondary-ltblue;
+    }
+    .field-name-body {
+      margin-bottom: 20px;
+    }
+    .field-name-field-image {
+      float: left;
+      width: 246px;
+      margin-left: - 280px;
+    }
+    @include desktop-max {
+      padding-left: 250px;
+      .field-name-field-image {
+        width: auto;
+        margin-left: -230px;
+      }
+    }
+    @include mobile {
+      padding-left: 10px;
+      min-height: 0;
+      .field-name-field-image {
+        float: none;
+        width: auto;
+        margin: 0 0 15px;
+        text-align: center;
+        img {
+          margin: 0 auto;
+        }
+      }
+      .field-name-field-link,
+      .field-name-node-link {
+        a {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &.report {
+    @include views-list-default('field--name-dynamic-token-fieldnode-download-report-link');
+    padding: 20px 20px 20px 250px;
+    min-height: 228px;
+    border: 1px solid $mdgrey;
+    border-radius: 6px;
+    .field-name-body {
+      margin-bottom: 20px;
+    }
+    .field-name-field-image {
+      float: left;
+      width: 230px;
+      margin-left: -240px;
+    }
+    @include mobile {
+      padding-left: 10px;
+      min-height: 0;
+      .field-name-field-image {
+        float: none;
+        width: auto;
+        margin: 0 0 15px;
+        text-align: center;
+        img {
+          margin: 0 auto;
+        }
+        .field--name-dynamic-token-fieldnode-download-report-link a {
+          width: 100%;
+        }
+      }
+    }
+  }
+  &.school {
+    font-size: $r14;
+    line-height: $r18;
+    color: $textdark;
+    font-weight: 500;
+    margin-bottom: 20px;
+    @extend .inherited-p;
+    .field-name-node-title {
+      &
+      h3 {
+        @extend .sidehead3;
+        margin: 0;
+      }
+    }
+  }
+}

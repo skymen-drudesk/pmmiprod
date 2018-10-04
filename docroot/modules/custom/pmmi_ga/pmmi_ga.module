@@ -1,0 +1,100 @@
+<?php
+
+/**
+ * @file
+ * Extends google analytics tracking functionality.
+ */
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function pmmi_ga_module_implements_alter(&$implementations, $hook) {
+  // Ensure PMMI GA runs after Google Analytics.
+  if ($hook == 'page_alter' && isset($implementations['pmmi_ga'])) {
+    $group = $implementations['ga_push'];
+    unset($implementations['ga_push']);
+    $implementations['ga_push'] = $group;
+  }
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function pmmi_ga_page_attachments(array &$attachments) {
+  $account = \Drupal::currentUser();
+
+  $script = '';
+  if (_google_analytics_visibility_roles($account)) {
+    // Attach sales agent directory tracking script.
+    $script .= pmmi_ga_sad_search_tracking_script();
+  }
+
+  // Add JS headers.
+  if (!empty($script)) {
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#tag' => 'script',
+        '#value' => $script,
+        // It must load after GA Module.
+        '#weight' => 10,
+      ],
+      'pmmi_ga_tracking_script',
+    ];
+  }
+}
+
+/**
+ * Get tracking script for sales agent directory search.
+ *
+ * @return string
+ *   The sales agent directory tracking script.
+ */
+function pmmi_ga_sad_search_tracking_script() {
+  $script = '';
+  $request = \Drupal::request();
+
+  // Describe GA events for sales agent directory search.
+  if ($request->getPathInfo() == '/sales-agent-directory/search/results') {
+    $event_category = t('Sales agent directory');
+    $query_params = $request->query->all();
+
+    // Searches for Countries\States covered.
+    if (!empty($query_params['ts'])) {
+      $countries = \Drupal::service('address.country_repository')->getList();
+
+      foreach ($query_params['ts'] as $code) {
+        $parts = explode('::', $code);
+        if (isset($parts[0], $countries[$parts[0]])) {
+          $action = t('Searches for Countries covered');
+          $script .= "ga('send', 'event', '{$event_category}', '{$action}', '{$countries[$parts[0]]}');";
+        }
+
+        // @todo: do we need state name here?
+        if (isset($parts[1])) {
+          $action = t('Searches for States covered');
+          $script .= "ga('send', 'event', '{$event_category}', '{$action}', '{$parts[1]}');";
+        }
+      }
+    }
+
+    // Searches for Industries / Type of equipment / Shows.
+    $searches = [
+      'field_industries_served' => t('Searches for Industries'),
+      'field_equipment_sold_type' => t('Searches for Type of equipment'),
+      'pmmi_shows' => t('Searches for Shows'),
+    ];
+
+    foreach ($searches as $key => $action) {
+      if (!empty($query_params[$key])) {
+        $terms = \Drupal::entityManager()->getStorage('taxonomy_term')
+          ->loadMultiple($query_params[$key]);
+
+        foreach ($terms as $term) {
+          $script .= "ga('send', 'event', '{$event_category}', '{$action}', '{$term->getName()}');";
+        }
+      }
+    }
+  }
+
+  return $script;
+}

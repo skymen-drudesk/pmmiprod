@@ -1,0 +1,14 @@
+uuid: 0eaace34-edc0-4b15-8052-725a28e7e623
+langcode: en
+status: true
+dependencies: {  }
+name: video_block_dhd
+label: 'Video block - DHD (250px by 141px)'
+effects:
+  7455828c-d741-4ffb-953b-21cea9f4aed2:
+    uuid: 7455828c-d741-4ffb-953b-21cea9f4aed2
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 250
+      height: 141

@@ -1,0 +1,19 @@
+uuid: 5dae9d1f-6ca7-482e-8668-4d05411862dc
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_cert_test_length
+field_name: field_cert_test_length
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

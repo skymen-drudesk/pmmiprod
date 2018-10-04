@@ -1,0 +1,21 @@
+uuid: 710785a1-79e2-46f5-bf2c-0b21ed8ca5d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.person
+    - field.storage.block_content.field_date
+  module:
+    - datetime
+id: block_content.person.field_date
+field_name: field_date
+entity_type: block_content
+bundle: person
+label: 'P&P Hall of Fame Inductee Year'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: datetime

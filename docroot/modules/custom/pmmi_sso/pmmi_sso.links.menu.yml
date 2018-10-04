@@ -1,0 +1,48 @@
+pmmi_sso.admin:
+  title: 'PMMI SSO'
+  route_name: pmmi_sso.admin
+  description: 'PMMI SSO'
+  parent: system.admin_config_system
+  weight: 99
+
+pmmi_sso.main_settings:
+  title: 'Main Settings'
+  route_name: pmmi_sso.settings
+  description: 'PMMI SSO main settings page'
+  parent: pmmi_sso.admin
+  weight: 1
+
+pmmi_sso.update_settings:
+  title: 'Update Settings'
+  route_name: pmmi_sso_update.settings
+  description: 'PMMI SSO Settings page'
+  parent: pmmi_sso.admin
+  weight: 2
+
+pmmi_sso.token_settings:
+  title: 'Token Settings'
+  route_name: pmmi_sso.token.settings
+  description: 'PMMI SSO Token Settings page'
+  parent: pmmi_sso.admin
+  weight: 3
+
+pmmi_sso.token_list:
+  title: 'Token List'
+  route_name: entity.pmmi_sso_token.collection
+  description: 'Token List page'
+  parent: pmmi_sso.admin
+  weight: 4
+
+# Personify company menu items definition
+entity.pmmi_personify_company.collection:
+  title: 'Personify company'
+  route_name: entity.pmmi_personify_company.collection
+  description: 'List Personify company entities'
+  parent: system.admin_structure
+  weight: 100
+
+pmmi_personify_company.admin.structure.settings:
+  title: 'Settings'
+  description: 'Configure Personify company entities'
+  route_name: pmmi_personify_company.settings
+  parent: entity.pmmi_personify_company.collection

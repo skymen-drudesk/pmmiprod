@@ -1,0 +1,100 @@
+.report-node {
+  .node-body {
+    font-size: $r19;
+    @include tablet-max {
+      font-size: $r17;
+      line-height: $r21;
+    }
+  }
+  .prices {
+    margin-bottom: 20px;
+    .field-label-inline {
+      font-weight: 800;
+    }
+    .field {
+      display: inline-block;
+      margin: 0 20px 10px 0;
+      vertical-align: top;
+      font-size: $r18;
+      @include mobile {
+        display: block;
+        margin-right: 0;
+      }
+    }
+    @include tablet-max {
+      font-size: $r17;
+    }
+  }
+  .img {
+    max-width: 285px;
+  }
+  .download-link {
+    .btn {
+      min-width: 268px;
+      @include mobile {
+        width: 100%;
+      }
+    }
+  }
+  .field-name-field-note {
+    font-style: italic;
+    font-size: $r18;
+    @include inherit-text-style('p');
+    .field-label-inline {
+      font-weight: 800;
+      & + * {
+        display: inline;
+      }
+    }
+    @include tablet-max {
+      font-size: $r17;
+      line-height: $r21;
+    }
+  }
+  @include desktop-max {
+    margin-bottom: 0;
+    .img {
+      max-width: 255px;
+    }
+    .content-left {
+      background: $ltgrey;
+      padding-top: 15px;
+      padding-bottom: 15px;
+    }
+    .left-block {
+      max-width: 810px;
+      margin-left: auto;
+      margin-right: auto;
+      > * {
+        display: inline-block;
+        margin: 0 20px 10px 0;
+        @include desktop {
+          width: 230px;
+        }
+        @include tablet {
+          width: 310px;
+        }
+        @include mobile {
+          width: auto;
+          display: block;
+        }
+      }
+    }
+  }
+  @include mobile {
+    .img {
+      max-width: 100%;
+    }
+  }
+  // Reports view.
+  .field--type-ds.field--label-above {
+    .field--label {
+      @extend .sidehead1;
+    }
+  }
+  .view-reports {
+    .views-row {
+      @extend .linked-list-item;
+    }
+  }
+}
